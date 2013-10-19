@@ -43,18 +43,6 @@ public class WorldGenAbyssShrine extends WorldGenerator {
 			}
 		}
 		
-		// Check the layer above for non-ground blocks (such as trees). Ignore tall grass and snow layers.
-		for (int k = 1; k < 4; ++k) {
-			for (i = -3; i < 4; ++i) {
-				for (j = -3; j < 4; ++j) {
-					if (!world.isAirBlock(x + i, y + k, z + j) && !WorldGenHelper.isBlockGround(world.getBlockId(x + i, y + k, z + j)) &&
-							world.getBlockId(x + i, y + k, z + j) != Block.tallGrass.blockID && world.getBlockId(x + i, y + k, z + j) != Block.snow.blockID) {
-						return true;
-					}
-				}
-			}
-		}
-		
 		// 1
 		for (i = -3; i < 4; ++i) {
 			for (j = -3; j < 4; ++j) {
