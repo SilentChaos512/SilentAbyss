@@ -40,7 +40,7 @@
 		<delete dir="${environment.base_location}/temp" />
 		<delete file="${environment.mcp_location}/src/minecraft/mcmod.info" />
 		<delete file="${environment.mcp_location}/src/minecraft/pack.mcmeta" />
-		<delete dir="${environment.mcp_location}/src/minecraft/com/pahimar" />
+		<delete dir="${environment.mcp_location}/src/minecraft/silentAbyss" />
 		<delete dir="${environment.mcp_location}/reobf/minecraft" />
 	</target>
 
