@@ -3,6 +3,8 @@ package silentAbyss.core.util;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import net.minecraft.nbt.NBTTagCompound;
+
 import cpw.mods.fml.common.FMLLog;
 
 import silentAbyss.lib.Reference;
@@ -54,5 +56,14 @@ public class LogHelper {
 	// Prints XYZ coordinates in a nice format.
 	public static String coord(int x, int y, int z) {
 		return "(" + x + ", " + y + ", " + z + ")";
+	}
+	
+	public static String coordFromNBT(NBTTagCompound tags) {
+	    
+	    if (NBTHelper.hasValidXYZD(tags)) {
+	        return "(invalid coords)";
+	    }
+	    
+	    return coord(tags.getInteger("X"), tags.getInteger("Y"), tags.getInteger("Z"));
 	}
 }

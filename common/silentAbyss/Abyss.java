@@ -67,8 +67,7 @@ public class Abyss {
 	public void preInit(FMLPreInitializationEvent event) {
 		
 		LogHelper.init();
-		
-		//System.out.println("[Silent's Abyss] Pimping your world!");
+
 		LogHelper.info("Pimping your world!");
 		
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
@@ -106,7 +105,7 @@ public class Abyss {
 		// Register world generator
 		GameRegistry.registerWorldGenerator(new AbyssWorldGenerator());
 		
-		// Abyss dimension.
+		// Abyss dimension. On hold for the moment.
 //		DimensionManager.registerProviderType(dimension, WorldProviderAbyss.class, false);
 //		DimensionManager.registerDimension(dimension, dimension);
 	}

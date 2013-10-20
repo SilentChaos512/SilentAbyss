@@ -26,7 +26,7 @@ public class GuiSigilInfuser extends GuiContainer {
 
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
-		//int texture = mc.renderEngine.getTexture("/gui/SigilInfuserGui.png");
+	    
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
 		this.mc.renderEngine.bindTexture(Textures.GUI_SIGIL_INFUSER);

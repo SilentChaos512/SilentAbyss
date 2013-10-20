@@ -12,13 +12,7 @@ import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 
 public class ServerTickHandler implements ITickHandler {
-	
-	//private AbyssWorldData worldData = null;
-	
-	// Chaos variables
-//	final int chaosPerWorldTick = 10;
-//	final int maxAmbientChaos = 10000; // Over 9000? ;)
-	
+
 	private int tick = 0;
 	static final int baseTickRate = 20;
 	
@@ -46,11 +40,7 @@ public class ServerTickHandler implements ITickHandler {
 			return;
 		}
 		
-		// Running shoes.
-//		if (player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).itemID == Abyss.runningShoes.itemID) {
-//			player.addPotionEffect(new PotionEffect(1, 219, 0, true));
-//			player.addPotionEffect(new PotionEffect(8, 219, 3, true));
-//		}
+		// Code to run every second here.
 	}
 	
 	public void onServerTick() {
@@ -70,15 +60,12 @@ public class ServerTickHandler implements ITickHandler {
 	@Override
 	public void tickStart(EnumSet<TickType> type, Object... tickData) {
 		if (type.equals(EnumSet.of(TickType.PLAYER))) {
-			//AbyssLog.oneTimePrint("PLAYER " + tickData.length);
 			onPlayerTick((EntityPlayer)tickData[0]);
 		}
 		else if (type.equals(EnumSet.of(TickType.SERVER))) {
-			//AbyssLog.oneTimePrint("SERVER " + tickData.length);
 			onServerTick();
 		}
 		else if (type.equals(EnumSet.of(TickType.WORLD))) {
-			//AbyssLog.oneTimePrint("WORLD " + tickData.length);
 			onWorldTick((World)tickData[0]);
 		}
 	}

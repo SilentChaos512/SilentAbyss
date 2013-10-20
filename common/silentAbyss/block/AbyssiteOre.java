@@ -25,7 +25,6 @@ public class AbyssiteOre extends BlockOre {
 		this.setResistance(5.0f);
 		this.setStepSound(Block.soundStoneFootstep);
 		this.setCreativeTab(CreativeTabs.tabBlock);
-		this.setUnlocalizedName(Strings.ABYSSITE_ORE_NAME);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -64,7 +63,7 @@ public class AbyssiteOre extends BlockOre {
         StringBuilder s = new StringBuilder();
         s.append("tile.");
         s.append(Strings.RESOURCE_PREFIX);
-        s.append("oreAbyssite");
+        s.append(Strings.ABYSSITE_ORE_NAME);
         return s.toString();
     }
 }

@@ -122,86 +122,6 @@ public class ModItems {
 		hoeAbyssEmeraldPlus = new AbyssHoe(ItemIds.TOOL_START + 37, Abyss.materialEnergizedAbyssGem, 1);
 		hoeAbyssSapphirePlus = new AbyssHoe(ItemIds.TOOL_START + 38, Abyss.materialEnergizedAbyssGem, 2);
 		hoeAbyssTopazPlus = new AbyssHoe(ItemIds.TOOL_START + 39, Abyss.materialEnergizedAbyssGem, 3);
-		
-		/*
-		 * Language registry
-		 */
-		// FIXME: In 1.6, use a localization file/resource pack instead.
-		
-		// Abyss gems
-//		for (int i = 0; i < AbyssGem.names.length * 2 + 1; ++i) {
-//			if (i == 8) {
-//				LanguageRegistry.addName(new ItemStack(abyssGem, 1, i), "Abyss Diamond");
-//			}
-//			else if (i < 4) {
-//				LanguageRegistry.addName(new ItemStack(abyssGem, 1, i), "Abyss " + AbyssGem.names[i]);
-//			}
-//			else {
-//				LanguageRegistry.addName(new ItemStack(abyssGem, 1, i), "Energized Abyss " + AbyssGem.names[i - 4]);
-//			}
-//		}
-//		for (int i = 0; i < AbyssGem.names.length + 1; ++i) {
-//			if (i == 4) {
-//				LanguageRegistry.addName(new ItemStack(abyssShard, 1, i), "Abyssite Shard");
-//			}
-//			else {
-//				LanguageRegistry.addName(new ItemStack(abyssShard, 1, i), "Abyss " + AbyssGem.names[i] + " Shard");
-//			}
-//		}
-//		// Sigil scepters.
-//		for (int i = 0; i < AbyssGem.names.length; ++i) {
-//			LanguageRegistry.addName(new ItemStack(sigilScepter, 1, i), AbyssGem.names[i] + " Sigil Scepter");
-//		}
-//	
-//		LanguageRegistry.addName(abyssite, "Abyssite");	
-//		LanguageRegistry.addName(ornateStick, "Ornate Stick");
-//		LanguageRegistry.addName(teleporterLinker, "Teleporter Linker");
-//		LanguageRegistry.addName(potatoStick, "Potato on a Stick");
-//		LanguageRegistry.addName(abyssSigil, "Abyss Sigil");
-//		LanguageRegistry.addName(sigilStone, "Sigil Stone");
-//		
-//		// Regular abyss gem tools.
-//		LanguageRegistry.addName(swordAbyssRuby, "Abyss Ruby Sword");
-//		LanguageRegistry.addName(swordAbyssEmerald, "Abyss Emerald Sword");
-//		LanguageRegistry.addName(swordAbyssSapphire, "Abyss Sapphire Sword");
-//		LanguageRegistry.addName(swordAbyssTopaz, "Abyss Topaz Sword");
-//		LanguageRegistry.addName(pickaxeAbyssRuby, "Abyss Ruby Pickaxe");
-//		LanguageRegistry.addName(pickaxeAbyssEmerald, "Abyss Emerald Pickaxe");
-//		LanguageRegistry.addName(pickaxeAbyssSapphire, "Abyss Sapphire Pickaxe");
-//		LanguageRegistry.addName(pickaxeAbyssTopaz, "Abyss Topaz Pickaxe");
-//		LanguageRegistry.addName(shovelAbyssRuby, "Abyss Ruby Shovel");
-//		LanguageRegistry.addName(shovelAbyssEmerald, "Abyss Emerald Shovel");
-//		LanguageRegistry.addName(shovelAbyssSapphire, "Abyss Sapphire Shovel");
-//		LanguageRegistry.addName(shovelAbyssTopaz, "Abyss Topaz Shovel");
-//		LanguageRegistry.addName(axeAbyssRuby, "Abyss Ruby Axe");
-//		LanguageRegistry.addName(axeAbyssEmerald, "Abyss Emerald Axe");
-//		LanguageRegistry.addName(axeAbyssSapphire, "Abyss Sapphire Axe");
-//		LanguageRegistry.addName(axeAbyssTopaz, "Abyss Topaz Axe");
-//		LanguageRegistry.addName(hoeAbyssRuby, "Abyss Ruby Hoe");
-//		LanguageRegistry.addName(hoeAbyssEmerald, "Abyss Emerald Hoe");
-//		LanguageRegistry.addName(hoeAbyssSapphire, "Abyss Sapphire Hoe");
-//		LanguageRegistry.addName(hoeAbyssTopaz, "Abyss Topaz Hoe");
-//		// Energized abyss gem tools.
-//		LanguageRegistry.addName(swordAbyssRubyPlus, "Energized Abyss Ruby Sword");
-//		LanguageRegistry.addName(swordAbyssEmeraldPlus, "Energized Abyss Emerald Sword");
-//		LanguageRegistry.addName(swordAbyssSapphirePlus, "Energized Abyss Sapphire Sword");
-//		LanguageRegistry.addName(swordAbyssTopazPlus, "Energized Abyss Topaz Sword");
-//		LanguageRegistry.addName(pickaxeAbyssRubyPlus, "Energized Abyss Ruby Pickaxe");
-//		LanguageRegistry.addName(pickaxeAbyssEmeraldPlus, "Energized Abyss Emerald Pickaxe");
-//		LanguageRegistry.addName(pickaxeAbyssSapphirePlus, "Energized Abyss Sapphire Pickaxe");
-//		LanguageRegistry.addName(pickaxeAbyssTopazPlus, "Energized Abyss Topaz Pickaxe");
-//		LanguageRegistry.addName(shovelAbyssRubyPlus, "Energized Abyss Ruby Shovel");
-//		LanguageRegistry.addName(shovelAbyssEmeraldPlus, "Energized Abyss Emerald Shovel");
-//		LanguageRegistry.addName(shovelAbyssSapphirePlus, "Energized Abyss Sapphire Shovel");
-//		LanguageRegistry.addName(shovelAbyssTopazPlus, "Energized Abyss Topaz Shovel");
-//		LanguageRegistry.addName(axeAbyssRubyPlus, "Energized Abyss Ruby Axe");
-//		LanguageRegistry.addName(axeAbyssEmeraldPlus, "Energized Abyss Emerald Axe");
-//		LanguageRegistry.addName(axeAbyssSapphirePlus, "Energized Abyss Sapphire Axe");
-//		LanguageRegistry.addName(axeAbyssTopazPlus, "Energized Abyss Topaz Axe");
-//		LanguageRegistry.addName(hoeAbyssRubyPlus, "Energized Abyss Ruby Hoe");
-//		LanguageRegistry.addName(hoeAbyssEmeraldPlus, "Energized Abyss Emerald Hoe");
-//		LanguageRegistry.addName(hoeAbyssSapphirePlus, "Energized Abyss Sapphire Hoe");
-//		LanguageRegistry.addName(hoeAbyssTopazPlus, "Energized Abyss Topaz Hoe");
 
 		// Ore dictionary
 		OreDictionary.registerOre("gemRuby", new ItemStack(abyssGem, 1, 0));
@@ -216,8 +136,16 @@ public class ModItems {
 	}
 	
 	public static void initItemRecipes() {
+	    
+	    AbyssGem.addRecipes();
+        Abyssite.addRecipes();
+        GemShard.addRecipes();
+        OrnateStick.addRecipes();
+        AbyssFood.addRecipes();
+        SigilStone.addRecipes();
+        SigilScepter.addRecipes();
+	    TeleporterLinker.addRecipes();
 		
-		ItemStack rStick 				= new ItemStack(Item.stick);
 		ItemStack rAbyssRuby 			= new ItemStack(abyssGem, 1, 0);
 		ItemStack rAbyssEmerald 		= new ItemStack(abyssGem, 1, 1);
 		ItemStack rAbyssSapphire 		= new ItemStack(abyssGem, 1, 2);
@@ -226,24 +154,6 @@ public class ModItems {
 		ItemStack rAbyssEmeraldPlus		= new ItemStack(abyssGem, 1, 5);
 		ItemStack rAbyssSapphirePlus	= new ItemStack(abyssGem, 1, 6);
 		ItemStack rAbyssTopazPlus		= new ItemStack(abyssGem, 1, 7);
-		ItemStack rAbyssDiamond			= new ItemStack(abyssGem, 1, 8);
-		ItemStack rAbyssite				= new ItemStack(abyssite);
-		
-		// Energized gems
-		GameRegistry.addRecipe(rAbyssRubyPlus, "rxr", "ryr", "rxr",
-				'x', rAbyssite, 'y', rAbyssRuby, 'r', Item.redstone);
-		GameRegistry.addRecipe(rAbyssEmeraldPlus, "rxr", "ryr", "rxr",
-				'x', rAbyssite, 'y', rAbyssEmerald, 'r', Item.redstone);
-		GameRegistry.addRecipe(rAbyssSapphirePlus, "rxr", "ryr", "rxr",
-				'x', rAbyssite, 'y', rAbyssSapphire, 'r', Item.redstone);
-		GameRegistry.addRecipe(rAbyssTopazPlus, "rxr", "ryr", "rxr",
-				'x', rAbyssite, 'y', rAbyssTopaz, 'r', Item.redstone);
-		GameRegistry.addRecipe(rAbyssDiamond, "rxr", "ryr", "rxr",
-				'x', rAbyssite, 'y', Item.diamond, 'r', Item.redstone);
-		
-		// Other materials
-		GameRegistry.addRecipe(new ItemStack(ornateStick, 4), "xyx", "xyx", "xyx",
-				'x', new ItemStack(Item.ingotGold), 'y', rAbyssite);
 		
 		// Abyss tools
 		AbyssSword.addRecipe(new ItemStack(swordAbyssRuby), rAbyssRuby, false);
@@ -290,22 +200,6 @@ public class ModItems {
 		AbyssHoe.addRecipe(new ItemStack(hoeAbyssEmeraldPlus), rAbyssEmeraldPlus, true);
 		AbyssHoe.addRecipe(new ItemStack(hoeAbyssSapphirePlus), rAbyssSapphirePlus, true);
 		AbyssHoe.addRecipe(new ItemStack(hoeAbyssTopazPlus), rAbyssTopazPlus, true);
-		
-		// Sigil stuff
-		SigilStone.addRecipes();
-		GameRegistry.addRecipe(new SigilScepterRecipe());
-		for (int i = 0; i < AbyssGem.names.length; ++i) {
-			SigilScepter.addRecipe(new ItemStack(abyssGem, 1, i), i);
-		}
-		
-		// Food
-		GameRegistry.addRecipe(new ItemStack(potatoStick), " x", "y ",
-				'x', new ItemStack(Item.bakedPotato), 'y', rStick);
-		
-		// Gems and shards
-		AbyssGem.addRecipes();
-		Abyssite.addRecipes();
-		GemShard.addRecipes();
 	}
 	
 	private static void addRandomChestGenLoot() {

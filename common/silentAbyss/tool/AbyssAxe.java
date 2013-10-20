@@ -23,7 +23,6 @@ public class AbyssAxe extends ItemAxe {
 	public AbyssAxe(int par1, EnumToolMaterial par2EnumToolMaterial, int gemType) {
 		super(par1 - Reference.SHIFTED_ID_RANGE_CORRECTION, par2EnumToolMaterial);
 		this.gemType = gemType;
-		this.setUnlocalizedName("axeAbyss" + AbyssGem.names[gemType] + (par2EnumToolMaterial == Abyss.materialEnergizedAbyssGem ? "Plus" : ""));
 	}
 	
 	@Override
@@ -61,14 +60,14 @@ public class AbyssAxe extends ItemAxe {
 	}
 	
 	@Override
-	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
-		ItemStack material = new ItemStack(ModItems.abyssGem, 1, this.gemType);
-		return material.itemID == par2ItemStack.itemID ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
-    }
-	
-	@Override
-	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
-		//EnchantmentAbsorption.tryActivate(par1ItemStack);
+	public boolean getIsRepairable(ItemStack stack1, ItemStack stack2) {
+	    
+	    boolean isSupercharged = this.toolMaterial == Abyss.materialEnergizedAbyssGem;
+	    ItemStack material = new ItemStack(ModItems.abyssGem, 1, this.gemType + (isSupercharged ? 4 : 0));
+	    if (material.itemID == stack2.itemID && material.getItemDamage() == stack2.getItemDamage())
+	        return true;
+	    else
+	        return super.getIsRepairable(stack1, stack2);
 	}
 	
 	public static void addRecipe(ItemStack tool, ItemStack material, boolean energized) {

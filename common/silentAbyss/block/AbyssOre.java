@@ -86,10 +86,4 @@ public class AbyssOre extends BlockOre {
             this.dropXpOnBlockBreak(par1World, par2, par3, par4, j1);
         }
     }
-	
-	public static void registerLocalizedNames() {
-		for (int i = 0; i < AbyssGem.names.length; ++i) {
-			LanguageRegistry.addName(new ItemStack(ModBlocks.oreAbyssGem, 1, i), "Abyss " + AbyssGem.names[i] + " Ore");
-		}
-	}
 }

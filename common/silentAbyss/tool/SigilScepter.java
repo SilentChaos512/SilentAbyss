@@ -11,6 +11,7 @@ import silentAbyss.item.AbyssGem;
 import silentAbyss.item.ItemSA;
 import silentAbyss.item.ModItems;
 import silentAbyss.lib.Strings;
+import silentAbyss.recipe.SigilScepterRecipe;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -198,10 +199,17 @@ public class SigilScepter extends ItemSA {
 		}
 		return stack;
 	}
-
-	public static void addRecipe(ItemStack gem, int damage) {
-		GameRegistry.addShapedRecipe(new ItemStack(ModItems.sigilScepter, 1, damage), "gng", "isi", " s ",
-				'g', gem, 'n', Item.netherStar, 'i', Item.ingotGold, 's', ModItems.ornateStick);
+	
+	public static void addRecipes() {
+	    
+	    for (int i = 0; i < AbyssGem.names.length; ++i) {
+	        GameRegistry.addShapedRecipe(new ItemStack(ModItems.sigilScepter, 1, i), "gng", "isi", " s ",
+	                'g', new ItemStack(ModItems.abyssGem, 1, i), 'n', Item.netherStar, 'i', Item.ingotGold, 's',
+	                ModItems.ornateStick);
+	    }
+	    
+	    // This allows the scepter's effect to be set by crafting it with sigil stones.
+	    GameRegistry.addRecipe(new SigilScepterRecipe());
 	}
 	
 	@Override

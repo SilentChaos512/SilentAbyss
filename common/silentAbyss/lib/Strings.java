@@ -5,7 +5,7 @@ public class Strings {
 	public final static String SHRINE_CHEST = "abyssShrine";
 	
 	// Localization Prefixes
-	public static final String RESOURCE_PREFIX = Reference.MOD_ID.toLowerCase() + ":"; // TODO: mod id to lower case for 1.6
+	public static final String RESOURCE_PREFIX = Reference.MOD_ID.toLowerCase() + ":";
 	
 	/*
 	 * NBT related constants
@@ -22,8 +22,6 @@ public class Strings {
 	public final static String SIGIL_INFUSER_NAME = "sigilInfuser";
 	public final static String BRICK_NAME = "blockAbyssBrick";
 	public final static String BRICK_SLAB_NAME = "blockAbyssBrickSlab";
-//	public final static String BRICK_SLAB_DOUBLE_NAME = "blockAbyssBrickSlabDouble";
-//	public final static String BRICK_STAIRS_NAME = "blockAbyssBrickStairs";
 	public final static String TEST_BLOCK_NAME = "blockTest";
 	
 	/*

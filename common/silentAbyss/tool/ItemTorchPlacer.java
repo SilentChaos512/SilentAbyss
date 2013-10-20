@@ -8,6 +8,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+/**
+ * This item is abandoned for now.
+ *
+ */
 public class ItemTorchPlacer extends ItemSA {
 
 	public ItemTorchPlacer(int par1) {

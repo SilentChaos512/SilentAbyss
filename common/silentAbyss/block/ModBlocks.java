@@ -23,7 +23,6 @@ public class ModBlocks {
 	public static Block sigilInfuser;
 	public static Block brick;
 	public static Block brickSlab;
-	//public static Block brickSlabDouble;
 	public static Block blockTest;
 	
 	public static void init() {
@@ -59,55 +58,14 @@ public class ModBlocks {
 		 */
 		MinecraftForge.setBlockHarvestLevel(oreAbyssGem, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(oreAbyssite, "pickaxe", 2);
-		
-		/*
-		 * Language registry
-		 * FIXME: In 1.6, use a localization file/resource pack instead.
-		 */
-//		AbyssOre.registerLocalizedNames();
-//		LanguageRegistry.addName(oreAbyssite, "Abyssite Ore");
-//		AbyssGemBlock.registerLocalizedNames();
-//		LanguageRegistry.addName(blockAbyssite, "Abyssite Block");
-//		LanguageRegistry.addName(abyssTeleporter, "Abyss Teleporter");
-//		LanguageRegistry.addName(sigilInfuser, "Sigil Infuser");
-//		Brick.registerLocalizedNames();
-//		BrickSlab.registerLocalizedNames();
-//		LanguageRegistry.addName(blockTest, "Test Block");
 	}
 	
 	public static void initBlockRecipes() {
 		
-		ItemStack rAbyssite				= new ItemStack(ModItems.abyssite);
-		
-		// Gem blocks
-		GameRegistry.addShapelessRecipe(new ItemStack(blockAbyssite),
-				rAbyssite, rAbyssite, rAbyssite,
-				rAbyssite, rAbyssite, rAbyssite,
-				rAbyssite, rAbyssite, rAbyssite);
-		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.abyssite, 9), new ItemStack(blockAbyssite));
-		for (int i = 0; i < AbyssGem.names.length; ++i) {
-			ItemStack gem = new ItemStack(ModItems.abyssGem, 1, i);
-			ItemStack block = new ItemStack(blockAbyssGem, 1, i);
-			// Gems to block
-			GameRegistry.addShapelessRecipe(block,
-					gem, gem, gem,
-					gem, gem, gem,
-					gem, gem, gem);
-			// Block to gems
-			GameRegistry.addShapelessRecipe(new ItemStack(ModItems.abyssGem, 9, i), block);
-		}
-		
-		// Teleporters
-		GameRegistry.addRecipe(new ItemStack(abyssTeleporter, 2), "gwg", "geg", "gag",
-				'g', new ItemStack(Item.ingotGold), 'w', new ItemStack(Block.cloth),
-				'e', new ItemStack(Item.enderPearl), 'a', new ItemStack(blockAbyssite));
-		GameRegistry.addRecipe(new ItemStack(ModItems.teleporterLinker), "x", "y",
-				'x', rAbyssite, 'y', new ItemStack(Item.ingotGold));
-		
-		// Sigil infuser
-		GameRegistry.addRecipe(new ItemStack(sigilInfuser), "aaa", "aea",
-				'a', rAbyssite, 'e', Block.enchantmentTable);
-		
+		AbyssGemBlock.addRecipes();
+		AbyssiteBlock.addRecipes();
+		BlockAbyssTeleporter.addRecipes();
+		BlockSigilInfuser.addRecipes();
 		Brick.addRecipes();
 		BrickSlab.addRecipes();
 	}

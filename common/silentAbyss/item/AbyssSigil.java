@@ -3,10 +3,10 @@ package silentAbyss.item;
 import java.util.List;
 
 import silentAbyss.Abyss;
-import silentAbyss.AbyssLog;
 import silentAbyss.configuration.Config;
 import silentAbyss.core.handlers.ChaosHandler;
 import silentAbyss.core.util.LogHelper;
+import silentAbyss.core.util.NBTHelper;
 import silentAbyss.entity.projectile.EntityProjectileMagic;
 import silentAbyss.lib.Strings;
 
@@ -23,13 +23,13 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
+// TODO: AbyssSigil class needs major cleanup.
 public class AbyssSigil extends ItemSA {
 
 	public AbyssSigil(int par1) {
 		super(par1);
 		this.maxStackSize = 64;
 		this.setCreativeTab(CreativeTabs.tabTools);
-		this.setUnlocalizedName(Strings.ABYSS_SIGIL_NAME);
 	}
 	
 	// Activates the intended effects of the sigil.
@@ -38,7 +38,7 @@ public class AbyssSigil extends ItemSA {
 		NBTTagCompound tags = stack.getTagCompound();
 		
 		if (tags == null || !tags.hasKey("Effects")) {
-			AbyssLog.print("[WARNING] Abyss Sigil with missing effects list!");
+			LogHelper.warning("Abyss Sigil with missing effects list!");
 			return true;
 		}
 		
@@ -134,7 +134,7 @@ public class AbyssSigil extends ItemSA {
 			}
 			// Teleport
 			else if (effects[i].equals("Teleport")) {
-				if (!tags.hasKey("Y") || tags.getInteger("Y") <= 0) {
+				if (!NBTHelper.hasValidXYZD(tags) || tags.getInteger("Y") <= 0) {
 					LogHelper.warning("Invalid location for teleport effect");
 					player.addChatMessage("Invalid location for teleport effect");
 				}
@@ -144,19 +144,6 @@ public class AbyssSigil extends ItemSA {
 					dy = tags.getInteger("Y");
 					dz = tags.getInteger("Z");
 					dd = tags.getInteger("D");
-					
-					//AbyssLog.print(AbyssLog.coord(dx, dy, dz) + " in dim " + dd);
-					
-					// Check for obstruction (may prevent interdimensional travel)
-//					if (!world.isAirBlock(dx, dy + 2, dz)) {
-//						player.addChatMessage("Destination obstructed");
-//					}
-//					else {
-//						if (dd != player.dimension){
-//							player.travelToDimension(dd);
-//						}
-//						player.setPositionAndUpdate(dx + 0.5, dy + 1, dz + 0.5);
-//					}
 					
 					if (dd != player.dimension) {
 						player.travelToDimension(dd);
@@ -176,7 +163,7 @@ public class AbyssSigil extends ItemSA {
 			// Derp catcher
 			else {
 				player.addChatMessage("Effect " + effects[i] + " is not implemented!");
-				AbyssLog.print("Effect " + effects[i] + " is not implemented! (Abyss Sigil)");
+				LogHelper.warning("Effect " + effects[i] + " is not implemented! (Abyss Sigil)");
 				
 				amplifier = 0;
 				color = "White";
@@ -199,12 +186,11 @@ public class AbyssSigil extends ItemSA {
 		NBTTagCompound tags = stack.getTagCompound();
 		
 		if (tags.hasKey("Effects")) {
-			//System.out.println(tags.getString("Effects"));
 			list.add(tags.getString("Effects"));
 		}
 		
-		if (tags.hasKey("Y")) {
-			list.add(AbyssLog.coord(tags.getInteger("X"), tags.getInteger("Y"), tags.getInteger("Z")));
+		if (NBTHelper.hasValidXYZD(tags)) {
+			list.add(LogHelper.coordFromNBT(tags));
 		}
 	}
 
@@ -255,7 +241,7 @@ public class AbyssSigil extends ItemSA {
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		if (AbyssSigil.hasSigilEfffect(stack, "Teleport") && !stack.stackTagCompound.hasKey("Y")) {
+		if (AbyssSigil.hasSigilEfffect(stack, "Teleport") && !NBTHelper.hasValidXYZD(stack.stackTagCompound)) {
 			if (!world.isRemote) { 
 				player.addChatMessage("No teleport destination set. Try right-clicking an Abyss Teleporter.");
 			}
@@ -302,7 +288,7 @@ public class AbyssSigil extends ItemSA {
 		}
 		
 		if (!exists) {
-			AbyssLog.print("[WARNING] Sigil effect \"" + effect + "\" does not exist!");
+			LogHelper.warning("Sigil effect \"" + effect + "\" does not exist!");
 		}
 		
 		// Check for effect
@@ -322,7 +308,7 @@ public class AbyssSigil extends ItemSA {
 		NBTTagCompound tags = sigil.getTagCompound();
 		
 		if (tags == null || !tags.hasKey("Effects")) {
-			AbyssLog.print("[WARNING] Abyss Sigil with missing effects list!");
+			LogHelper.warning("Abyss Sigil with missing effects list!");
 			return new String[0];
 		}
 		

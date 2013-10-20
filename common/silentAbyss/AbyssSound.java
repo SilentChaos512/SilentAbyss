@@ -1,5 +1,6 @@
 package silentAbyss;
 
+import silentAbyss.core.util.LogHelper;
 import net.minecraftforge.client.event.sound.SoundLoadEvent;
 import net.minecraftforge.event.ForgeSubscribe;
 
@@ -16,7 +17,7 @@ public class AbyssSound {
 			}
 		}
 		catch (Exception e) {
-			AbyssLog.print("[ERROR] Failed to register one or more sound effects!");
+			LogHelper.severe("[ERROR] Failed to register one or more sound effects!");
 		}
 	}
 }

@@ -2,8 +2,11 @@ package silentAbyss.block;
 
 import java.util.Random;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+
 import silentAbyss.Abyss;
 import silentAbyss.item.AbyssGem;
+import silentAbyss.item.ModItems;
 import silentAbyss.lib.Strings;
 import silentAbyss.tileentity.TileEntitySigilInfuser;
 import net.minecraft.block.Block;
@@ -28,7 +31,6 @@ public class BlockSigilInfuser extends BlockContainer {
 		this.setResistance(20.0F);
 		this.setStepSound(Block.soundStoneFootstep);
 		this.setCreativeTab(CreativeTabs.tabDecorations);
-		this.setUnlocalizedName(Strings.SIGIL_INFUSER_NAME);
 	}
 	
 	@Override
@@ -101,5 +103,11 @@ public class BlockSigilInfuser extends BlockContainer {
         s.append(Strings.SIGIL_INFUSER_NAME);
         return s.toString();
     }
+	
+	public static void addRecipes() {
+	    
+	    GameRegistry.addRecipe(new ItemStack(ModBlocks.sigilInfuser), "aaa", "aea",
+	            'a', ModItems.abyssite, 'e', Block.enchantmentTable);
+	}
 
 }

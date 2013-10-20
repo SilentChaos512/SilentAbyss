@@ -3,6 +3,8 @@ package silentAbyss.block;
 import java.util.List;
 
 import silentAbyss.item.AbyssGem;
+import silentAbyss.item.ModItems;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -61,9 +63,18 @@ public class AbyssGemBlock extends BlockOreStorage {
 		return par1;
 	}
 	
-	public static void registerLocalizedNames() {
-		for (int i = 0; i < AbyssGem.names.length; ++i) {
-			LanguageRegistry.addName(new ItemStack(ModBlocks.blockAbyssGem, 1, i), "Abyss " + AbyssGem.names[i] + " Block");
-		}
+	public static void addRecipes() {
+	    
+	    ItemStack gem, block;
+	    
+	    for (int i = 0; i < AbyssGem.names.length; ++i) {
+	        gem = new ItemStack(ModItems.abyssGem, 1, i);
+	        block = new ItemStack(ModBlocks.blockAbyssGem, 1, i);
+	        GameRegistry.addShapelessRecipe(block,
+	                gem, gem, gem,
+	                gem, gem, gem,
+	                gem, gem, gem);
+	        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.abyssGem, 9, i), block);
+	    }
 	}
 }

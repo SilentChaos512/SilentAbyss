@@ -1,7 +1,9 @@
 package silentAbyss.block;
 
 import silentAbyss.item.AbyssGem;
+import silentAbyss.item.ModItems;
 import silentAbyss.lib.Strings;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -20,7 +22,6 @@ public class AbyssiteBlock extends BlockOreStorage {
 		this.setResistance(10.0f);
 		this.setStepSound(Block.soundMetalFootstep);
 		this.setCreativeTab(CreativeTabs.tabBlock);
-		this.setUnlocalizedName(Strings.ABYSSITE_BLOCK_NAME);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -36,7 +37,16 @@ public class AbyssiteBlock extends BlockOreStorage {
         StringBuilder s = new StringBuilder();
         s.append("tile.");
         s.append(Strings.RESOURCE_PREFIX);
-        s.append("blockAbyssite");
+        s.append(Strings.ABYSSITE_BLOCK_NAME);
         return s.toString();
+    }
+
+    public static void addRecipes() {
+
+        GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.blockAbyssite),
+                ModItems.abyssite, ModItems.abyssite, ModItems.abyssite,
+                ModItems.abyssite, ModItems.abyssite, ModItems.abyssite,
+                ModItems.abyssite, ModItems.abyssite, ModItems.abyssite);
+        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.abyssite, 9), ModBlocks.blockAbyssite);
     }
 }

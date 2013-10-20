@@ -62,13 +62,4 @@ public class BrickSlab extends BlockHalfSlab {
 					's', new ItemStack(ModBlocks.brick, 1, i));
 		}
 	}
-	
-	public static void registerLocalizedNames() {
-		for (int i = 0; i < Brick.icons.length; ++i) {
-			if (i == 4)
-				LanguageRegistry.addName(new ItemStack(ModBlocks.brickSlab, 1, i), "Dark Abyss Brick Slab");
-			else
-				LanguageRegistry.addName(new ItemStack(ModBlocks.brickSlab, 1, i), AbyssGem.names[i] + "-Speckled Brick Slab");
-		}
-	}
 }

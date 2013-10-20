@@ -1,10 +1,12 @@
 package silentAbyss.item;
 
 import silentAbyss.lib.Strings;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class OrnateStick extends ItemSA {
@@ -32,4 +34,10 @@ public class OrnateStick extends ItemSA {
         
         return s.toString();
     }
+	
+	public static void addRecipes() {
+	    
+	    GameRegistry.addRecipe(new ItemStack(ModItems.ornateStick, 4), "gag", "gag", "gag",
+	            'g', Item.ingotGold, 'a', ModItems.abyssite);
+	}
 }

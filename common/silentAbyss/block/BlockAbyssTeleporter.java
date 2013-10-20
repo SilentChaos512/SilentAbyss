@@ -1,7 +1,6 @@
 package silentAbyss.block;
 
 import silentAbyss.Abyss;
-import silentAbyss.AbyssLog;
 import silentAbyss.configuration.Config;
 import silentAbyss.core.handlers.ChaosHandler;
 import silentAbyss.core.util.LogHelper;
@@ -14,6 +13,7 @@ import silentAbyss.lib.Strings;
 import silentAbyss.tileentity.TileEntityAbyssTeleporter;
 import silentAbyss.tool.SigilScepter;
 import silentAbyss.tool.TeleporterLinker;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -48,7 +48,6 @@ public class BlockAbyssTeleporter extends BlockContainer {
 		this.setResistance(12.0f);
 		this.setStepSound(Block.soundGlassFootstep);
 		this.setCreativeTab(CreativeTabs.tabBlock);
-		this.setUnlocalizedName(Strings.ABYSS_TELEPORTER_NAME);
 	}
 	
 	@Override
@@ -127,7 +126,7 @@ public class BlockAbyssTeleporter extends BlockContainer {
 			
 			if (tags.getInteger("State") == 0) {
 				// Inactive state, set active state and location data.
-				AbyssLog.print("TP Linker active: " + AbyssLog.coord(x, y, z));
+				LogHelper.debug("TP Linker active: " + LogHelper.coord(x, y, z));
 				tags.setInteger("State", 1);
 				NBTHelper.setXYZD(tags, x, y, z, player.dimension);
 				linker.setItemDamage(1);
@@ -215,16 +214,6 @@ public class BlockAbyssTeleporter extends BlockContainer {
 				player.addChatMessage("No destination set.");
 				return true;
 			}
-			// Destination not obstructed?
-			//if (world.getBlockId(tile.destX, tile.destY + 2, tile.destZ) != 0) {
-//			if (!world.isAirBlock(tile.destX, tile.destY + 2, tile.destZ)) { // Maybe should be isOpaqueCube instead?
-//				int obstructionID = world.getBlockId(tile.destX, tile.destY + 2, tile.destZ);
-//				player.addChatMessage("Destination obstructed." + " (" + obstructionID + ")");
-//				AbyssLog.print("Teleporter " + AbyssLog.coord(x, y, z) + " -> " +
-//						AbyssLog.coord(tile.destX, tile.destY, tile.destZ) + " is obstructed by block " +
-//						obstructionID + ".");
-//				return true;
-//			}
 
 			// Spawn some particles.
 			// FIXME: Can't spawn particles?
@@ -261,7 +250,13 @@ public class BlockAbyssTeleporter extends BlockContainer {
         StringBuilder s = new StringBuilder();
         s.append("tile.");
         s.append(Strings.RESOURCE_PREFIX);
-        s.append("abyssTeleporter");
+        s.append(Strings.ABYSS_TELEPORTER_NAME);
         return s.toString();
     }
+	
+	public static void addRecipes() {
+	    
+	    GameRegistry.addRecipe(new ItemStack(ModBlocks.abyssTeleporter, 2), "gwg", "geg", "gag",
+	            'g', Item.ingotGold, 'w', Block.cloth, 'e', Item.enderPearl, 'a', ModBlocks.blockAbyssite);
+	}
 }

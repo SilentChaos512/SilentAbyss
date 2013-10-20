@@ -2,7 +2,7 @@ package silentAbyss.item;
 
 import java.util.List;
 
-import silentAbyss.AbyssLog;
+import silentAbyss.core.util.LogHelper;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -58,7 +58,6 @@ public class SigilStone extends ItemSA {
 		this.setHasSubtypes(true);
         this.setMaxDamage(0);
         this.setCreativeTab(CreativeTabs.tabMaterials);
-        this.setUnlocalizedName(Strings.SIGIL_STONE_NAME);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -75,29 +74,6 @@ public class SigilStone extends ItemSA {
 		}
 	}
 	
-	@Override
-	public void onCreated(ItemStack stack, World world, EntityPlayer player) {
-//		if (stack.stackTagCompound == null) {
-//			stack.setTagCompound(new NBTTagCompound());
-//		}
-//		
-//		if (stack.getItemDamage() == 25) {
-//			stack.stackTagCompound.setInteger("X", (int)player.posX);
-//			stack.stackTagCompound.setInteger("Y", (int)player.posY);
-//			stack.stackTagCompound.setInteger("Z", (int)player.posZ);
-//			stack.stackTagCompound.setInteger("D", player.dimension);
-//		}
-		
-//		int damage = stack.getItemDamage();
-//		
-//		if (damage >= names.length) {
-//			stack.stackTagCompound.setString("Name", "unknown:" + damage);
-//		}
-//		else {
-//			stack.stackTagCompound.setString("Name", names[damage]);
-//		}
-	}
-	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
@@ -109,30 +85,8 @@ public class SigilStone extends ItemSA {
 		
 		if (stack.hasTagCompound() && stack.stackTagCompound.hasKey("Y")) {
 			NBTTagCompound tags = stack.getTagCompound();
-			list.add(AbyssLog.coord(tags.getInteger("X"), tags.getInteger("Y"), tags.getInteger("Z")));
+			list.add(LogHelper.coordFromNBT(tags));
 		}
-		
-//		NBTTagCompound tags = stack.getTagCompound();
-//		
-//		if (tags != null && tags.hasKey("Name")) {
-//			list.add(tags.getString("Name"));
-//		}
-//		else {
-//			int damage = stack.getItemDamage();
-//			if (damage < names.length) {
-//				//tags.setString("Name", names[damage]);
-//				list.add(names[damage]);
-//			}
-//			else {
-//				//tags.setString("Name", "Unknown");
-//				list.add("Unknown");
-//			}
-//			//stack.setTagCompound(tags);
-//		}
-//		
-//		if (tags.hasKey("Y")) {
-//			list.add(AbyssLog.coord(tags.getInteger("X"), tags.getInteger("Y"), tags.getInteger("Z")));
-//		}
 	}
 	
 	public static void addRecipes() {

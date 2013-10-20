@@ -11,6 +11,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
@@ -98,6 +99,11 @@ public class AbyssGem extends ItemSA {
 	public static void addRecipes() {
 		
 		for (int i = 0; i < 4; ++i) {
+		    // Supercharged gems
+		    GameRegistry.addRecipe(new ItemStack(ModItems.abyssGem, 1, i + 4), "rar", "rgr", "rar",
+		            'r', Item.redstone, 'a', ModItems.abyssite, 'g', new ItemStack(ModItems.abyssGem, 1, i));
+		    
+		    // Shards
 			if (Config.SHARDS_PER_GEM == 9) {
 				GameRegistry.addShapedRecipe(new ItemStack(ModItems.abyssGem, 1, i), "ggg", "ggg", "ggg", 'g', new ItemStack(ModItems.abyssShard, 1, i));
 			}
@@ -105,5 +111,9 @@ public class AbyssGem extends ItemSA {
 				GameRegistry.addShapedRecipe(new ItemStack(ModItems.abyssGem, 1, i), "gg", "gg", 'g', new ItemStack(ModItems.abyssShard, 1, i));
 			}
 		}
+		
+		// Abyss diamond
+		GameRegistry.addRecipe(new ItemStack(ModItems.abyssGem, 1, 8), "rar", "rgr", "rar",
+                'r', Item.redstone, 'a', ModItems.abyssite, 'g', Item.diamond);
 	}
 }

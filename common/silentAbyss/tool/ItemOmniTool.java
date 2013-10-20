@@ -7,6 +7,10 @@ import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 
+/**
+ * This item is abandoned for now.
+ *
+ */
 public class ItemOmniTool extends net.minecraft.item.ItemTool {
 
 	protected ItemOmniTool(int par1, int par2,

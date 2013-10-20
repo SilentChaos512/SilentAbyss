@@ -13,8 +13,7 @@ public class BlockTest extends BlockContainer {
 	public BlockTest(int id) {
 		
 		super(id, Material.iron);
-		
-		this.setUnlocalizedName(Strings.TEST_BLOCK_NAME);
+
 		this.setHardness(5f);
 	}
 
