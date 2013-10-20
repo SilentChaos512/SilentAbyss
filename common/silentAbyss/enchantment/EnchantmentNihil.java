@@ -36,10 +36,6 @@ public class EnchantmentNihil extends Enchantment {
 	public boolean canApply(ItemStack stack) {
 		Item item = stack.getItem();
 		if (item instanceof AbyssSword ||
-				item instanceof AbyssPickaxe ||
-				item instanceof AbyssShovel ||
-				item instanceof AbyssAxe ||
-				item instanceof AbyssHoe ||
 				item instanceof ItemBook) {
 			return stack.isItemStackDamageable() ? true : super.canApply(stack);
 		}
