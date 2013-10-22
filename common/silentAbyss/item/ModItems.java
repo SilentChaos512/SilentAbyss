@@ -241,10 +241,11 @@ public class ModItems {
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 3), 1, 4, 50));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.ornateStick), 2, 4, 30));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.teleporterLinker), 1, 1, 1));
-		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.enderPearl), 1, 4, 20));
+		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.enderPearl), 1, 4, 15));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.ingotIron), 4, 10, 20));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.ingotGold), 2, 6, 5));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.diamond), 1, 4, 2));
+		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.book), 6, 12, 20));
 		
 		// Some configuring...
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).setMin(8);

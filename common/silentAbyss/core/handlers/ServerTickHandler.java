@@ -2,6 +2,7 @@ package silentAbyss.core.handlers;
 
 import java.util.EnumSet;
 
+import silentAbyss.core.util.LogHelper;
 import silentAbyss.enchantment.EnchantmentMending;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

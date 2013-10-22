@@ -185,6 +185,7 @@ public class SigilScepter extends ItemSA {
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+
 		if (stack.hasTagCompound() && stack.stackTagCompound.hasKey("Effect") &&
 			stack.stackTagCompound.getString("Effect").equals("Teleport") &&
 			!stack.stackTagCompound.hasKey("Y")) {
