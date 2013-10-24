@@ -1,4 +1,4 @@
-SilentAbyss
+Silent's Abyss
 ===========
 
 A Minecraft mod about shiny gems and colorful tools/blocks. In the future, I
