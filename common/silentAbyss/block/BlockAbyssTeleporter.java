@@ -9,6 +9,7 @@ import silentAbyss.core.util.PlayerHelper;
 import silentAbyss.item.AbyssGem;
 import silentAbyss.item.AbyssSigil;
 import silentAbyss.item.ModItems;
+import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import silentAbyss.tileentity.TileEntityAbyssTeleporter;
 import silentAbyss.tool.SigilScepter;
@@ -257,6 +258,6 @@ public class BlockAbyssTeleporter extends BlockContainer {
 	public static void addRecipes() {
 	    
 	    GameRegistry.addRecipe(new ItemStack(ModBlocks.abyssTeleporter, 2), "gwg", "geg", "gag",
-	            'g', Item.ingotGold, 'w', Block.cloth, 'e', Item.enderPearl, 'a', ModBlocks.blockAbyssite);
+	            'g', Item.ingotGold, 'w', Block.cloth, 'e', Item.enderPearl, 'a', AbyssGemBlock.getGem(Reference.INDEX_ABYSSITE));
 	}
 }

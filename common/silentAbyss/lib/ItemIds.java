@@ -4,7 +4,6 @@ public class ItemIds {
 
 	// Default item ids
 	public static int ABYSS_GEM_DEFAULT = 6000;
-	public static int ABYSSITE_DEFAULT = 6001;
 	public static int ABYSS_SHARD_DEFAULT = 6003;
 	public static int ORNATE_STICK_DEFAULT = 6002;
 	public static int POTATO_STICK_DEFAULT = 6010;
@@ -16,7 +15,6 @@ public class ItemIds {
 	
 	// Current item ids
 	public static int ABYSS_GEM;
-	public static int ABYSSITE;
 	public static int ABYSS_SHARD;
 	public static int ORNATE_STICK;
 	public static int POTATO_STICK;

@@ -7,6 +7,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import silentAbyss.Abyss;
 import silentAbyss.item.AbyssGem;
 import silentAbyss.item.ModItems;
+import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import silentAbyss.tileentity.TileEntitySigilInfuser;
 import net.minecraft.block.Block;
@@ -107,7 +108,7 @@ public class BlockSigilInfuser extends BlockContainer {
 	public static void addRecipes() {
 	    
 	    GameRegistry.addRecipe(new ItemStack(ModBlocks.sigilInfuser), "aaa", "aea",
-	            'a', ModItems.abyssite, 'e', Block.enchantmentTable);
+	            'a', AbyssGem.getGem(Reference.INDEX_ABYSSITE), 'e', Block.enchantmentTable);
 	}
 
 }

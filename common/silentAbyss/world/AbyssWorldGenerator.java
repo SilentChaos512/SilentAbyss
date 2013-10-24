@@ -4,6 +4,7 @@ import java.util.Random;
 
 import silentAbyss.block.ModBlocks;
 import silentAbyss.configuration.Config;
+import silentAbyss.lib.Reference;
 import silentAbyss.world.gen.feature.*;
 
 import net.minecraft.block.Block;
@@ -54,7 +55,15 @@ public class AbyssWorldGenerator implements IWorldGenerator {
 			x = chunkX + random.nextInt(16);
 			y = random.nextInt(Config.WORLD_ABYSSITE_MAX_HEIGHT);
 			z = chunkZ + random.nextInt(16);
-			(new WorldGenMinable(ModBlocks.oreAbyssite.blockID, Config.WORLD_ABYSSITE_CLUSTER_SIZE)).generate(world, random, x, y, z);
+			(new WorldGenMinable(ModBlocks.oreAbyssGem.blockID, Reference.INDEX_ABYSSITE, Config.WORLD_ABYSSITE_CLUSTER_SIZE)).generate(world, random, x, y, z);
+		}
+		
+		// Purite
+		for (i = 0; i < Config.WORLD_PURITE_CLUSTER_COUNT; ++i) {
+			x = chunkX + random.nextInt(16);
+			y = random.nextInt(Config.WORLD_PURITE_MAX_HEIGHT);
+			z = chunkZ + random.nextInt(16);
+			(new WorldGenMinable(ModBlocks.oreAbyssGem.blockID, Reference.INDEX_PURITE, Config.WORLD_PURITE_CLUSTER_SIZE)).generate(world, random, x, y, z);
 		}
 		
 		// Structures

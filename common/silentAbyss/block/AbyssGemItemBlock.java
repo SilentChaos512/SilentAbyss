@@ -1,6 +1,7 @@
 package silentAbyss.block;
 
 import silentAbyss.item.AbyssGem;
+import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -27,13 +28,25 @@ public class AbyssGemItemBlock extends ItemBlock {
 	}
 	
 	@Override
-    public String getUnlocalizedName(ItemStack stack) {
-        
-        StringBuilder s = new StringBuilder();
-        s.append("tile.");
-        s.append(Strings.RESOURCE_PREFIX);
-        s.append("blockAbyss");
-        s.append(AbyssGem.names[stack.getItemDamage()]);
-        return s.toString();
-    }
+	public String getUnlocalizedName(ItemStack stack) {
+		
+		int d = stack.getItemDamage();
+		
+	    StringBuilder s = new StringBuilder();
+	    s.append("tile.");
+	    s.append(Strings.RESOURCE_PREFIX);
+	    
+	    if (d == Reference.INDEX_ABYSSITE) {
+	    	s.append("blockAbyssite");
+	    	return s.toString();
+	    }
+	    else if (d == Reference.INDEX_PURITE) {
+	    	s.append("blockPurite");
+	    	return s.toString();
+	    }
+	    
+	    s.append("blockAbyss");
+	    s.append(AbyssGem.names[d]);
+		return s.toString();
+	}
 }

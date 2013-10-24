@@ -4,9 +4,7 @@ public class BlockIds {
 
 	// Default block ids
 	public static int ABYSS_GEM_ORE_DEFAULT = 3200;
-	public static int ABYSSITE_ORE_DEFAULT = 3201;
 	public static int ABYSS_GEM_BLOCK_DEFAULT = 3202;
-	public static int ABYSSITE_BLOCK_DEFAULT = 3203;
 	public static int ABYSS_TELEPORTER_DEFAULT = 3204;
 	public static int SIGIL_INFUSER_DEFAULT = 3205;
 	public static int BRICK_DEFAULT = 3210;

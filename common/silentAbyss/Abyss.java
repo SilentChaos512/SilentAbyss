@@ -14,6 +14,7 @@ import silentAbyss.core.handlers.GuiHandler;
 import silentAbyss.core.proxy.CommonProxy;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.enchantment.ModEnchantments;
+import silentAbyss.entity.ModEntities;
 import silentAbyss.entity.projectile.*;
 import silentAbyss.item.*;
 import silentAbyss.lib.Reference;
@@ -79,6 +80,7 @@ public class Abyss {
 		ModBlocks.init();
 		ModItems.init();
 		ModEnchantments.init();
+		ModEntities.init();
 		
 		ModBlocks.initBlockRecipes();
 		ModItems.initItemRecipes();
@@ -114,21 +116,4 @@ public class Abyss {
 	public void postInit(FMLPostInitializationEvent event) {
 		// Stub Method
 	}
-
-//	public static int getUniqueEntityId() {
-//		
-//		do {
-//			++startEntityId;
-//		}
-//		while (EntityList.getStringFromID(startEntityId) != null);
-//		
-//		return startEntityId;
-//	}
-//	
-//	public static void registerEntityEgg(Class <? extends Entity> entity, int primaryColor, int secondaryColor) {
-//		
-//		int id = getUniqueEntityId();
-//		EntityList.IDtoClassMapping.put(id, entity);
-//		EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
-//	}
 }

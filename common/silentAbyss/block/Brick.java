@@ -18,12 +18,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class Brick extends Block {
 	
-	public static Icon[] icons = new Icon[5];
+	public static Icon[] icons = new Icon[Reference.GEM_TYPE_COUNT];
 
 	public Brick(int id) {
 		
 		super(id, Material.rock);
-
 		this.setHardness(3.0f);
 		this.setResistance(10.0f);
 		this.setStepSound(Block.soundStoneFootstep);
@@ -34,11 +33,12 @@ public class Brick extends Block {
 	@Override
 	public void registerIcons(IconRegister iconRegister) {
 		
-		icons[0] = iconRegister.registerIcon(Reference.MOD_ID + ":BrickRuby");
-		icons[1] = iconRegister.registerIcon(Reference.MOD_ID + ":BrickEmerald");
-		icons[2] = iconRegister.registerIcon(Reference.MOD_ID + ":BrickSapphire");
-		icons[3] = iconRegister.registerIcon(Reference.MOD_ID + ":BrickTopaz");
-		icons[4] = iconRegister.registerIcon(Reference.MOD_ID + ":BrickDark");
+		icons[Reference.INDEX_RUBY] = iconRegister.registerIcon(Reference.MOD_ID + ":BrickRuby");
+		icons[Reference.INDEX_EMERALD] = iconRegister.registerIcon(Reference.MOD_ID + ":BrickEmerald");
+		icons[Reference.INDEX_SAPPHIRE] = iconRegister.registerIcon(Reference.MOD_ID + ":BrickSapphire");
+		icons[Reference.INDEX_TOPAZ] = iconRegister.registerIcon(Reference.MOD_ID + ":BrickTopaz");
+		icons[Reference.INDEX_ABYSSITE] = iconRegister.registerIcon(Reference.MOD_ID + ":BrickDark");
+		icons[Reference.INDEX_PURITE] = iconRegister.registerIcon(Reference.MOD_ID + ":BrickLight");
 	}
 	
 	@SideOnly(Side.CLIENT)

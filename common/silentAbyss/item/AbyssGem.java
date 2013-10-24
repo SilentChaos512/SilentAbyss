@@ -3,6 +3,7 @@ package silentAbyss.item;
 import java.util.List;
 
 import silentAbyss.configuration.Config;
+import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -18,9 +19,15 @@ import net.minecraft.util.MathHelper;
 
 public class AbyssGem extends ItemSA {
 
+	/**
+	 * The names of the four primary gems.
+	 */
 	public static final String[] names = { "Ruby", "Emerald", "Sapphire", "Topaz" };
 	
-	public static Icon[] icons = new Icon[9];
+	/**
+	 * All icons by damage value, includes compound gems and duplicates.
+	 */
+	public static Icon[] icons = new Icon[12];
 	
 	public AbyssGem(int par1) {
 		super(par1);
@@ -43,27 +50,52 @@ public class AbyssGem extends ItemSA {
 	
 	@Override
 	public Icon getIconFromDamage(int i) {
-		return icons[MathHelper.clamp_int(i, 0, 8)];
+		return icons[i];
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@SideOnly(Side.CLIENT)
     public void getSubItems(int itemID, CreativeTabs tabs, List list) {
-		for (int i = 0; i < 9; ++i) {
-			list.add(new ItemStack(itemID, 1, i));
+		
+		for (int i = 0; i < icons.length; ++i) {
+			list.add(getGem(i));
 		}
+	}
+	
+	/**
+	 * Gets an ItemStack with one of the specified gem.
+	 * @param meta The damage value
+	 * @return
+	 */
+	public static ItemStack getGem(int meta) {
+		
+		return new ItemStack(ModItems.abyssGem, 1, meta);
 	}
 	
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack) {
+		
 		int d = itemStack.getItemDamage();
 		
 		StringBuilder s = new StringBuilder();
 		s.append("item.");
 		s.append(Strings.RESOURCE_PREFIX);
+		if (d == Reference.INDEX_ABYSSITE) {
+			s.append("abyssite");
+			return s.toString();
+		}
+		else if (d == Reference.INDEX_PURITE) {
+			s.append("purite");
+			return s.toString();
+		}
+		else if (d == Reference.INDEX_CONUNDRUMITE) {
+			s.append("conundrumite");
+			return s.toString();
+		}
+		
 		s.append("abyss");
 		
-		if (d == 8) {
+		if (d == Reference.INDEX_ABYSS_DIAMOND) {
 			// Abyss diamond
 			s.append("Diamond");
 		}
@@ -73,7 +105,7 @@ public class AbyssGem extends ItemSA {
 		}
 		else {
 			// Energized gems.
-			s.append(names[d - 4]);
+			s.append(names[d - Reference.INDEX_RUBY_PLUS]);
 			s.append("Plus");
 		}
 		
@@ -83,37 +115,45 @@ public class AbyssGem extends ItemSA {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IconRegister iconRegister) {
-		icons[0] = iconRegister.registerIcon("SilentAbyss:AbyssRuby");
-		icons[1] = iconRegister.registerIcon("SilentAbyss:AbyssEmerald");
-		icons[2] = iconRegister.registerIcon("SilentAbyss:AbyssSapphire");
-		icons[3] = iconRegister.registerIcon("SilentAbyss:AbyssTopaz");
 		
-		icons[4] = iconRegister.registerIcon("SilentAbyss:AbyssRuby");
-		icons[5] = iconRegister.registerIcon("SilentAbyss:AbyssEmerald");
-		icons[6] = iconRegister.registerIcon("SilentAbyss:AbyssSapphire");
-		icons[7] = iconRegister.registerIcon("SilentAbyss:AbyssTopaz");
+		icons[Reference.INDEX_RUBY] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssRuby");
+		icons[Reference.INDEX_EMERALD] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssEmerald");
+		icons[Reference.INDEX_SAPPHIRE] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssSapphire");
+		icons[Reference.INDEX_TOPAZ] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssTopaz");
 		
-		icons[8] = iconRegister.registerIcon("SilentAbyss:AbyssDiamond");
+		icons[Reference.INDEX_ABYSSITE] = iconRegister.registerIcon(Reference.MOD_ID + ":Abyssite");
+		icons[Reference.INDEX_PURITE] = iconRegister.registerIcon(Reference.MOD_ID + ":Purite");
+		
+		icons[Reference.INDEX_RUBY_PLUS] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssRuby");
+		icons[Reference.INDEX_EMERALD_PLUS] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssEmerald");
+		icons[Reference.INDEX_SAPPHIRE_PLUS] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssSapphire");
+		icons[Reference.INDEX_TOPAZ_PLUS] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssTopaz");
+		
+		icons[Reference.INDEX_CONUNDRUMITE] = iconRegister.registerIcon(Reference.MOD_ID + ":Conundrumite");
+		icons[Reference.INDEX_ABYSS_DIAMOND] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssDiamond");
 	}
 	
 	public static void addRecipes() {
 		
 		for (int i = 0; i < 4; ++i) {
 		    // Supercharged gems
-		    GameRegistry.addRecipe(new ItemStack(ModItems.abyssGem, 1, i + 4), "rar", "rgr", "rar",
-		            'r', Item.redstone, 'a', ModItems.abyssite, 'g', new ItemStack(ModItems.abyssGem, 1, i));
+		    GameRegistry.addRecipe(getGem(i + 4), "rar", "rgr", "rar",
+		            'r', Item.redstone, 'a', getGem(Reference.INDEX_ABYSSITE), 'g', getGem(i));
 		    
 		    // Shards
 			if (Config.SHARDS_PER_GEM == 9) {
-				GameRegistry.addShapedRecipe(new ItemStack(ModItems.abyssGem, 1, i), "ggg", "ggg", "ggg", 'g', new ItemStack(ModItems.abyssShard, 1, i));
+				GameRegistry.addShapedRecipe(getGem(i), "ggg", "ggg", "ggg", 'g', new ItemStack(ModItems.abyssShard, 1, i));
 			}
 			else {
-				GameRegistry.addShapedRecipe(new ItemStack(ModItems.abyssGem, 1, i), "gg", "gg", 'g', new ItemStack(ModItems.abyssShard, 1, i));
+				GameRegistry.addShapedRecipe(getGem(i), "gg", "gg", 'g', new ItemStack(ModItems.abyssShard, 1, i));
 			}
 		}
 		
+		// Conundrumite
+		GameRegistry.addRecipe(new ItemStack(ModItems.abyssGem, 1,Reference.INDEX_CONUNDRUMITE), " a ", "apa", " a ",
+				'a', getGem(Reference.INDEX_ABYSSITE), 'p', getGem(Reference.INDEX_PURITE));
 		// Abyss diamond
-		GameRegistry.addRecipe(new ItemStack(ModItems.abyssGem, 1, 8), "rar", "rgr", "rar",
-                'r', Item.redstone, 'a', ModItems.abyssite, 'g', Item.diamond);
+		GameRegistry.addRecipe(getGem(Reference.INDEX_ABYSS_DIAMOND), "rar", "rgr", "rar",
+                'r', Item.redstone, 'a', getGem(Reference.INDEX_ABYSSITE), 'g', Item.diamond);
 	}
 }

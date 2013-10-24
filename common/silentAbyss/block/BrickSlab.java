@@ -17,8 +17,8 @@ import net.minecraft.util.Icon;
 public class BrickSlab extends BlockHalfSlab {
 
 	public BrickSlab(int par1, boolean par2) {
-		super(par1, par2, Material.rock);
 		
+		super(par1, par2, Material.rock);
 		this.setHardness(3.0f);
 		this.setResistance(10.0f);
 		this.setStepSound(Block.soundStoneFootstep);
@@ -28,7 +28,7 @@ public class BrickSlab extends BlockHalfSlab {
 
 	@Override
 	public String getFullSlabName(int i) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 

@@ -15,7 +15,6 @@ public class Strings {
 	 * Block name constants
 	 */
 	public final static String ABYSS_GEM_ORE_NAME = "oreAbyssGem";
-	public final static String ABYSSITE_ORE_NAME = "oreAbyssite";
 	public final static String ABYSS_GEM_BLOCK_NAME = "blockAbyssGem";
 	public final static String ABYSSITE_BLOCK_NAME = "blockAbyssite";
 	public final static String ABYSS_TELEPORTER_NAME = "abyssTeleporter";

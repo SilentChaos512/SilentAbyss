@@ -1,5 +1,6 @@
 package silentAbyss.item;
 
+import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -38,6 +39,6 @@ public class OrnateStick extends ItemSA {
 	public static void addRecipes() {
 	    
 	    GameRegistry.addRecipe(new ItemStack(ModItems.ornateStick, 4), "gag", "gag", "gag",
-	            'g', Item.ingotGold, 'a', ModItems.abyssite);
+	            'g', Item.ingotGold, 'a', AbyssGem.getGem(Reference.INDEX_ABYSSITE));
 	}
 }

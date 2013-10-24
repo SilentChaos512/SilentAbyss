@@ -13,13 +13,14 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import silentAbyss.item.AbyssGem;
 import silentAbyss.item.ModItems;
+import silentAbyss.lib.Reference;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class AbyssOre extends BlockOre {
 
-	public static Icon[] icons = new Icon[4];
+	public static Icon[] icons = new Icon[Reference.GEM_TYPE_COUNT];
 	
 	public AbyssOre(int par1) {
 		
@@ -35,17 +36,19 @@ public class AbyssOre extends BlockOre {
 	@Override
 	public void registerIcons(IconRegister iconRegister) {
 		
-		icons[0] = iconRegister.registerIcon("SilentAbyss:OreAbyssRuby");
-		icons[1] = iconRegister.registerIcon("SilentAbyss:OreAbyssEmerald");
-		icons[2] = iconRegister.registerIcon("SilentAbyss:OreAbyssSapphire");
-		icons[3] = iconRegister.registerIcon("SilentAbyss:OreAbyssTopaz");
+		icons[Reference.INDEX_RUBY] = iconRegister.registerIcon(Reference.MOD_ID + ":OreAbyssRuby");
+		icons[Reference.INDEX_EMERALD] = iconRegister.registerIcon(Reference.MOD_ID + ":OreAbyssEmerald");
+		icons[Reference.INDEX_SAPPHIRE] = iconRegister.registerIcon(Reference.MOD_ID + ":OreAbyssSapphire");
+		icons[Reference.INDEX_TOPAZ] = iconRegister.registerIcon(Reference.MOD_ID + ":OreAbyssTopaz");
+		icons[Reference.INDEX_ABYSSITE] = iconRegister.registerIcon(Reference.MOD_ID + ":OreAbyssite");
+		icons[Reference.INDEX_PURITE] = iconRegister.registerIcon(Reference.MOD_ID + ":OrePurite");
 	}
 	
 	@SideOnly(Side.CLIENT)
 	@Override
 	public Icon getIcon(int side, int meta) {
 		
-		return icons[MathHelper.clamp_int(meta, 0, icons.length - 1)];
+		return icons[meta];
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -53,7 +56,7 @@ public class AbyssOre extends BlockOre {
 	@Override
 	public void getSubBlocks(int par1, CreativeTabs tab, List subItems) {
 		
-		for (int i = 0; i < AbyssGem.names.length; ++i) {
+		for (int i = 0; i < icons.length; ++i) {
 			subItems.add(new ItemStack(this, 1, i));
 		}
 	}

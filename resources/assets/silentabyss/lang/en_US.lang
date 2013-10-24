@@ -1,14 +1,17 @@
 # Block localizations
+
 tile.silentabyss:oreAbyssRuby.name=Abyss Ruby Ore
 tile.silentabyss:oreAbyssEmerald.name=Abyss Emerald Ore
 tile.silentabyss:oreAbyssSapphire.name=Abyss Sapphire Ore
 tile.silentabyss:oreAbyssTopaz.name=Abyss Topaz Ore
 tile.silentabyss:oreAbyssite.name=Abyssite Ore
+tile.silentabyss:orePurite.name=Purite Ore
 tile.silentabyss:blockAbyssRuby.name=Abyss Ruby Block
 tile.silentabyss:blockAbyssEmerald.name=Abyss Emerald Block
 tile.silentabyss:blockAbyssSapphire.name=Abyss Sapphire Block
 tile.silentabyss:blockAbyssTopaz.name=Abyss Topaz Block
 tile.silentabyss:blockAbyssite.name=Abyssite Block
+tile.silentabyss:blockPurite.name=Purite Block
 tile.silentabyss:abyssTeleporter.name=Abyss Teleporter
 tile.silentabyss:sigilInfuser.name=Sigil Infuser
 tile.silentabyss:blockAbyssBrickRuby.name=Ruby-Speckled Bricks
@@ -16,14 +19,17 @@ tile.silentabyss:blockAbyssBrickEmerald.name=Emerald-Speckled Bricks
 tile.silentabyss:blockAbyssBrickSapphire.name=Sapphire-Speckled Bricks
 tile.silentabyss:blockAbyssBrickTopaz.name=Topaz-Speckled Bricks
 tile.silentabyss:blockAbyssBrickDark.name=Dark Abyss Bricks
+tile.silentabyss:blockAbyssBrickLight.name=Light Abyss Bricks
 tile.silentabyss:blockAbyssBrickSlabRuby.name=Ruby-Speckled Brick Slab
 tile.silentabyss:blockAbyssBrickSlabEmerald.name=Emerald-Speckled Brick Slab
 tile.silentabyss:blockAbyssBrickSlabSapphire.name=Sapphire-Speckled Brick Slab
 tile.silentabyss:blockAbyssBrickSlabTopaz.name=Topaz-Speckled Brick Slab
 tile.silentabyss:blockAbyssBrickSlabDark.name=Dark Abyss Brick Slab
+tile.silentabyss:blockAbyssBrickSlabLight.name=Light Abyss Brick Slab
 tile.silentabyss:blockTest.name=Test Block
 
 # Item localizations
+
 item.silentabyss:abyssRuby.name=Abyss Ruby
 item.silentabyss:abyssEmerald.name=Abyss Emerald
 item.silentabyss:abyssSapphire.name=Abyss Sapphire
@@ -34,11 +40,14 @@ item.silentabyss:abyssSapphirePlus.name=Supercharged Abyss Sapphire
 item.silentabyss:abyssTopazPlus.name=Supercharged Abyss Topaz
 item.silentabyss:abyssDiamond.name=Abyss Diamond
 item.silentabyss:abyssite.name=Abyssite
+item.silentabyss:purite.name=Purite
+item.silentabyss:conundrumite.name=Conundrumite
 item.silentabyss:abyssRubyShard.name=Abyss Ruby Shard
 item.silentabyss:abyssEmeraldShard.name=Abyss Emerald Shard
 item.silentabyss:abyssSapphireShard.name=Abyss Sapphire Shard
 item.silentabyss:abyssTopazShard.name=Abyss Topaz Shard
 item.silentabyss:abyssiteShard.name=Abyssite Shard
+item.silentabyss:puriteShard.name=Purite Shard
 item.silentabyss:foodPotatoStick.name=Potato on a Stick
 item.silentabyss:ornateStick.name=Ornate Stick
 item.silentabyss:teleporterLinker.name=Teleporter Linker
@@ -92,3 +101,6 @@ tool.silentabyss:hoeAbyssEmeraldPlus.name=Supercharged Abyss Emerald Hoe
 tool.silentabyss:hoeAbyssSapphirePlus.name=Supercharged Abyss Sapphire Hoe
 tool.silentabyss:hoeAbyssTopazPlus.name=Supercharged Abyss Topaz Hoe
 
+# Entity localization
+
+entity.Grumbling.name=Grumbling

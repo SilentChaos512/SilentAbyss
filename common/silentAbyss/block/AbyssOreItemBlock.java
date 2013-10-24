@@ -1,6 +1,7 @@
 package silentAbyss.block;
 
 import silentAbyss.item.AbyssGem;
+import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -29,11 +30,23 @@ public class AbyssOreItemBlock extends ItemBlock {
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 		
+		int d = stack.getItemDamage();
+		
 	    StringBuilder s = new StringBuilder();
 	    s.append("tile.");
 	    s.append(Strings.RESOURCE_PREFIX);
+	    
+	    if (d == Reference.INDEX_ABYSSITE) {
+	    	s.append("oreAbyssite");
+	    	return s.toString();
+	    }
+	    else if (d == Reference.INDEX_PURITE) {
+	    	s.append("orePurite");
+	    	return s.toString();
+	    }
+	    
 	    s.append("oreAbyss");
-	    s.append(AbyssGem.names[stack.getItemDamage()]);
+	    s.append(AbyssGem.names[d]);
 		return s.toString();
 	}
 }

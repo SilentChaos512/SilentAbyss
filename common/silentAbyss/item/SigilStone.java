@@ -3,6 +3,7 @@ package silentAbyss.item;
 import java.util.List;
 
 import silentAbyss.core.util.LogHelper;
+import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -92,7 +93,7 @@ public class SigilStone extends ItemSA {
 	public static void addRecipes() {
 		// Base sigil stone.
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.sigilStone, 64), "sss", "sas", "sss",
-				's', Block.stone, 'a', ModItems.abyssite);
+				's', Block.stone, 'a', AbyssGem.getGem(Reference.INDEX_ABYSSITE));
 		
 		// Colors
 		for (int i = 0; i < ItemDye.dyeColorNames.length; ++i) {
@@ -129,7 +130,7 @@ public class SigilStone extends ItemSA {
 				's', ModItems.sigilStone, 'e', Item.enderPearl);
 		// Amplify - Abyssite
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.sigilStone, 8, 26), "sss", "sas", "sss",
-				's', ModItems.sigilStone, 'a', ModItems.abyssite);
+				's', ModItems.sigilStone, 'a', AbyssGem.getGem(Reference.INDEX_ABYSSITE));
 		// Speed - Gold
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.sigilStone, 8, 27), "sss", "sgs", "sss",
 				's', ModItems.sigilStone, 'g', Item.ingotGold);

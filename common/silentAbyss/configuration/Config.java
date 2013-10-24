@@ -6,7 +6,7 @@ public class Config {
 	 * Misc. config settings
 	 */
 	public static int SHARDS_PER_GEM;
-	public static final int SHARDS_PER_GEM_DEFAULT = 4;
+	public static final int SHARDS_PER_GEM_DEFAULT = 9;
 	public static final String SHARDS_PER_GEM_CONFIGNAME = "ShardsPerGem";
 	
 	/*
@@ -87,7 +87,7 @@ public class Config {
 	public static final String WORLD_ABYSS_GEM_MAX_HEIGHT_CONFIGNAME = "World.AbyssGemMaxHeight";
 	
 	public static int WORLD_ABYSSITE_CLUSTER_COUNT;
-	public static final int WORLD_ABYSSITE_CLUSTER_COUNT_DEFAULT = 2;
+	public static final int WORLD_ABYSSITE_CLUSTER_COUNT_DEFAULT = 1;
 	public static final String WORLD_ABYSSITE_CLUSTER_COUNT_CONFIGNAME = "World.AbyssiteClusterCount";
 	
 	public static int WORLD_ABYSSITE_CLUSTER_SIZE;
@@ -97,6 +97,18 @@ public class Config {
 	public static int WORLD_ABYSSITE_MAX_HEIGHT;
 	public static final int WORLD_ABYSSITE_MAX_HEIGHT_DEFAULT = 20;
 	public static final String WORLD_ABYSSITE_MAX_HEIGHT_CONFIGNAME = "World.AbyssiteMaxHeight";
+	
+	public static int WORLD_PURITE_CLUSTER_COUNT;
+	public static final int WORLD_PURITE_CLUSTER_COUNT_DEFAULT = 1;
+	public static final String WORLD_PURITE_CLUSTER_COUNT_CONFIGNAME = "World.AbyssiteClusterCount";
+	
+	public static int WORLD_PURITE_CLUSTER_SIZE;
+	public static final int WORLD_PURITE_CLUSTER_SIZE_DEFAULT = 8;
+	public static final String WORLD_PURITE_CLUSTER_SIZE_CONFIGNAME = "World.AbyssiteClusterSize";
+	
+	public static int WORLD_PURITE_MAX_HEIGHT;
+	public static final int WORLD_PURITE_MAX_HEIGHT_DEFAULT = 20;
+	public static final String WORLD_PURITE_MAX_HEIGHT_CONFIGNAME = "World.AbyssiteMaxHeight";
 	
 	/*
 	 * World structure config settings

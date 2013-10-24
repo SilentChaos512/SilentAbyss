@@ -7,6 +7,7 @@ import silentAbyss.core.util.NBTHelper;
 import silentAbyss.item.AbyssGem;
 import silentAbyss.item.ItemSA;
 import silentAbyss.item.ModItems;
+import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -98,6 +99,6 @@ public class TeleporterLinker extends ItemSA {
 	public static void addRecipes() {
 	    
 	    GameRegistry.addRecipe(new ItemStack(ModItems.teleporterLinker), "x", "y",
-	            'x', ModItems.abyssite, 'y', Item.ingotGold);
+	            'x', AbyssGem.getGem(Reference.INDEX_ABYSSITE), 'y', Item.ingotGold);
 	}
 }

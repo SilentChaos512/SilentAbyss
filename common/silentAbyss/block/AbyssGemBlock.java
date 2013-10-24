@@ -1,9 +1,11 @@
 package silentAbyss.block;
 
+import java.sql.Ref;
 import java.util.List;
 
 import silentAbyss.item.AbyssGem;
 import silentAbyss.item.ModItems;
+import silentAbyss.lib.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -15,10 +17,11 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
+import net.minecraftforge.event.terraingen.BiomeEvent.GetGrassColor;
 
 public class AbyssGemBlock extends BlockOreStorage {
 
-	public static Icon[] icons = new Icon[4];
+	public static Icon[] icons = new Icon[Reference.GEM_TYPE_COUNT];
 	
 	public AbyssGemBlock(int par1) {
 		
@@ -29,22 +32,34 @@ public class AbyssGemBlock extends BlockOreStorage {
 		this.setStepSound(Block.soundMetalFootstep);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
+	
+	/**
+	 * Gets an ItemStack with one of the specified gem.
+	 * @param meta The damage value
+	 * @return
+	 */
+	public static ItemStack getGem(int meta) {
+		
+		return new ItemStack(ModBlocks.blockAbyssGem, 1, meta);
+	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IconRegister iconRegister) {
 		
-		icons[0] = iconRegister.registerIcon("SilentAbyss:BlockAbyssRuby");
-		icons[1] = iconRegister.registerIcon("SilentAbyss:BlockAbyssEmerald");
-		icons[2] = iconRegister.registerIcon("SilentAbyss:BlockAbyssSapphire");
-		icons[3] = iconRegister.registerIcon("SilentAbyss:BlockAbyssTopaz");
+		icons[Reference.INDEX_RUBY] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockAbyssRuby");
+		icons[Reference.INDEX_EMERALD] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockAbyssEmerald");
+		icons[Reference.INDEX_SAPPHIRE] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockAbyssSapphire");
+		icons[Reference.INDEX_TOPAZ] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockAbyssTopaz");
+		icons[Reference.INDEX_ABYSSITE] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockAbyssite");
+		icons[Reference.INDEX_PURITE] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockPurite");
 	}
 	
 	@SideOnly(Side.CLIENT)
 	@Override
 	public Icon getIcon(int side, int meta) {
 		
-		return icons[MathHelper.clamp_int(meta, 0, icons.length - 1)];
+		return icons[meta];
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -52,7 +67,7 @@ public class AbyssGemBlock extends BlockOreStorage {
 	@Override
 	public void getSubBlocks(int par1, CreativeTabs tab, List subItems) {
 		
-		for (int i = 0; i < AbyssGem.names.length; ++i) {
+		for (int i = 0; i < icons.length; ++i) {
 			subItems.add(new ItemStack(this, 1, i));
 		}
 	}
@@ -67,7 +82,7 @@ public class AbyssGemBlock extends BlockOreStorage {
 	    
 	    ItemStack gem, block;
 	    
-	    for (int i = 0; i < AbyssGem.names.length; ++i) {
+	    for (int i = 0; i < icons.length; ++i) {
 	        gem = new ItemStack(ModItems.abyssGem, 1, i);
 	        block = new ItemStack(ModBlocks.blockAbyssGem, 1, i);
 	        GameRegistry.addShapelessRecipe(block,
