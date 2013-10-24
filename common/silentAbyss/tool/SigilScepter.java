@@ -206,7 +206,7 @@ public class SigilScepter extends ItemSA {
 	    for (int i = 0; i < AbyssGem.names.length; ++i) {
 	        GameRegistry.addShapedRecipe(new ItemStack(ModItems.sigilScepter, 1, i), "gng", "isi", " s ",
 	                'g', new ItemStack(ModItems.abyssGem, 1, i), 'n', Item.netherStar, 'i', Item.ingotGold, 's',
-	                ModItems.ornateStick);
+	                new ItemStack(ModItems.craftingMaterial, 1, 0));
 	    }
 	    
 	    // This allows the scepter's effect to be set by crafting it with sigil stones.

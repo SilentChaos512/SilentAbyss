@@ -73,7 +73,7 @@ public class AbyssShovel extends ItemSpade {
 	public static void addRecipe(ItemStack tool, ItemStack material, boolean energized) {
 		if (energized) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] {" g ", " s ", " s ",
-					'g', material, 's', ModItems.ornateStick}));
+					'g', material, 's', new ItemStack(ModItems.craftingMaterial, 1, 0)}));
 		}
 		else {
 			GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] {" g ", " s ", " s ",

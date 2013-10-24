@@ -19,7 +19,7 @@ public class ModItems {
 	public static Item abyssGem;
 	public static Item abyssShard;
 	public static Item potatoStick;
-	public static Item ornateStick;
+	public static Item craftingMaterial;
 	public static Item teleporterLinker;
 	public static Item abyssSigil;
 	public static Item sigilStone;
@@ -75,7 +75,7 @@ public class ModItems {
 		abyssGem = new AbyssGem(ItemIds.ABYSS_GEM);
 		abyssShard = new GemShard(ItemIds.ABYSS_SHARD);
 		potatoStick = new AbyssFood(ItemIds.POTATO_STICK, 8, 0.8f, false, 0);
-		ornateStick = new OrnateStick(ItemIds.ORNATE_STICK);
+		craftingMaterial = new CraftingMaterial(ItemIds.CRAFTING_MATERIAL);
 		teleporterLinker = new TeleporterLinker(ItemIds.TELEPORTER_LINKER);
 		abyssSigil = new AbyssSigil(ItemIds.ABYSS_SIGIL);
 		sigilStone = new SigilStone(ItemIds.SIGIL_STONE);
@@ -140,7 +140,7 @@ public class ModItems {
 	    
 	    AbyssGem.addRecipes();
         GemShard.addRecipes();
-        OrnateStick.addRecipes();
+        CraftingMaterial.addRecipes();
         AbyssFood.addRecipes();
         SigilStone.addRecipes();
         SigilScepter.addRecipes();
@@ -239,7 +239,7 @@ public class ModItems {
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 1), 1, 4, 50));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 2), 1, 4, 50));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 3), 1, 4, 50));
-		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.ornateStick), 2, 4, 30));
+		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.craftingMaterial, 1, 0), 2, 4, 30));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.teleporterLinker), 1, 1, 1));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.enderPearl), 1, 4, 15));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.ingotIron), 4, 10, 20));

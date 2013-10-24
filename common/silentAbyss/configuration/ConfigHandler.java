@@ -87,13 +87,13 @@ public class ConfigHandler {
 			BlockIds.SIGIL_INFUSER = c.getBlock(Strings.SIGIL_INFUSER_NAME, BlockIds.SIGIL_INFUSER_DEFAULT).getInt(BlockIds.SIGIL_INFUSER_DEFAULT);
 			BlockIds.BRICK = getBlockId(Strings.BRICK_NAME, BlockIds.BRICK_DEFAULT);
 			BlockIds.BRICK_SLAB = getBlockId(Strings.BRICK_SLAB_NAME, BlockIds.BRICK_SLAB_DEFAULT);
-//			BlockIds.BRICK_STAIRS = getBlockId(Strings.BRICK_STAIRS_NAME, BlockIds.BRICK_STAIRS_DEFAULT);
 			BlockIds.TEST_BLOCK = c.getBlock(Strings.TEST_BLOCK_NAME, BlockIds.TEST_BLOCK_DEFAULT).getInt(BlockIds.TEST_BLOCK_DEFAULT);
 			
 			// Item property configs
 			ItemIds.ABYSS_GEM = c.getItem(Strings.ABYSS_GEM_NAME, ItemIds.ABYSS_GEM_DEFAULT).getInt(ItemIds.ABYSS_GEM_DEFAULT);
 			ItemIds.ABYSS_SHARD = getItemId(Strings.ABYSS_SHARD_NAME, ItemIds.ABYSS_SHARD_DEFAULT);
-			ItemIds.ORNATE_STICK = c.getItem(Strings.ORNATE_STICK_NAME, ItemIds.ORNATE_STICK_DEFAULT).getInt(ItemIds.ORNATE_STICK_DEFAULT);
+			ItemIds.CRAFTING_MATERIAL = getItemId(Strings.CRAFTING_MATERIAL_NAME, ItemIds.CRAFTING_MATERIAL_DEFAULT,
+					"The ID for various crafting items, such as Ornate Sticks.");
 			ItemIds.POTATO_STICK = c.getItem(Strings.POTATO_STICK_NAME, ItemIds.POTATO_STICK_DEFAULT).getInt(ItemIds.POTATO_STICK_DEFAULT);
 			ItemIds.TELEPORTER_LINKER = c.getItem(Strings.TELEPORTER_LINKER_NAME, ItemIds.TELEPORTER_LINKER_DEFAULT).getInt(ItemIds.TELEPORTER_LINKER_DEFAULT);
 			ItemIds.ABYSS_SIGIL = c.getItem(Strings.ABYSS_SIGIL_NAME, ItemIds.ABYSS_SIGIL_DEFAULT).getInt(ItemIds.ABYSS_SIGIL_DEFAULT);
@@ -117,12 +117,24 @@ public class ConfigHandler {
     	return c.getBlock(name, default_id).getInt(default_id);
     }
     
+    private static int getBlockId(String name, int default_id, String comment) {
+    	return c.getBlock(name, default_id, comment).getInt(default_id);
+    }
+    
     private static int getItemId(String name, int default_id) {
     	return c.getItem(name, default_id).getInt(default_id);
     }
     
+    private static int getItemId(String name, int default_id, String comment) {
+    	return c.getItem(name, default_id, comment).getInt(default_id);
+    }
+    
     private static int getEnchantmentId(String name, int default_id) {
     	return c.get(CATEGORY_ENCHANTMENT, name, default_id).getInt(default_id);
+    }
+    
+    private static int getEnchantmentId(String name, int default_id, String comment) {
+    	return c.get(CATEGORY_ENCHANTMENT, name, default_id, comment).getInt(default_id);
     }
     
     private static int getGeneralInt(String category, String name, int default_value) {
