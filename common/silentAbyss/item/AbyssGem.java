@@ -137,9 +137,11 @@ public class AbyssGem extends ItemSA {
 		
 		for (int i = 0; i < 4; ++i) {
 		    // Supercharged gems
-		    GameRegistry.addRecipe(getGem(i + 4), "rar", "rgr", "rar",
+		    GameRegistry.addRecipe(getGem(i + Reference.INDEX_RUBY_PLUS), "rar", "rgr", "rar",
 		            'r', Item.redstone, 'a', getGem(Reference.INDEX_ABYSSITE), 'g', getGem(i));
-		    
+		}
+		 
+		for (int i = 0; i < Reference.GEM_TYPE_COUNT; ++i) {
 		    // Shards
 			if (Config.SHARDS_PER_GEM == 9) {
 				GameRegistry.addShapedRecipe(getGem(i), "ggg", "ggg", "ggg", 'g', new ItemStack(ModItems.abyssShard, 1, i));
@@ -150,8 +152,8 @@ public class AbyssGem extends ItemSA {
 		}
 		
 		// Conundrumite
-		GameRegistry.addRecipe(new ItemStack(ModItems.abyssGem, 1,Reference.INDEX_CONUNDRUMITE), " a ", "apa", " a ",
-				'a', getGem(Reference.INDEX_ABYSSITE), 'p', getGem(Reference.INDEX_PURITE));
+		GameRegistry.addRecipe(new ItemStack(ModItems.abyssGem, 1,Reference.INDEX_CONUNDRUMITE), " a ", "pdp", " a ",
+				'a', getGem(Reference.INDEX_ABYSSITE), 'p', getGem(Reference.INDEX_PURITE), 'd', Item.diamond);
 		// Abyss diamond
 		GameRegistry.addRecipe(getGem(Reference.INDEX_ABYSS_DIAMOND), "rar", "rgr", "rar",
                 'r', Item.redstone, 'a', getGem(Reference.INDEX_ABYSSITE), 'g', Item.diamond);

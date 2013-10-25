@@ -10,6 +10,7 @@ import silentAbyss.entity.projectile.EntityProjectileMagic;
 import silentAbyss.item.AbyssGem;
 import silentAbyss.item.ItemSA;
 import silentAbyss.item.ModItems;
+import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import silentAbyss.recipe.SigilScepterRecipe;
 
@@ -33,7 +34,7 @@ import net.minecraft.world.World;
 
 public class SigilScepter extends ItemSA {
 
-	public Icon[] icons = new Icon[4];
+	public Icon[] icons = new Icon[AbyssGem.names.length];
 	
 	public SigilScepter(int par1) {
 		super(par1);
@@ -204,9 +205,9 @@ public class SigilScepter extends ItemSA {
 	public static void addRecipes() {
 	    
 	    for (int i = 0; i < AbyssGem.names.length; ++i) {
-	        GameRegistry.addShapedRecipe(new ItemStack(ModItems.sigilScepter, 1, i), "gng", "isi", " s ",
+	        GameRegistry.addShapedRecipe(new ItemStack(ModItems.sigilScepter, 1, i), "gng", "isi", "psp",
 	                'g', new ItemStack(ModItems.abyssGem, 1, i), 'n', Item.netherStar, 'i', Item.ingotGold, 's',
-	                new ItemStack(ModItems.craftingMaterial, 1, 0));
+	                new ItemStack(ModItems.craftingMaterial, 1, 0), 'p', AbyssGem.getGem(Reference.INDEX_PURITE));
 	    }
 	    
 	    // This allows the scepter's effect to be set by crafting it with sigil stones.
@@ -226,18 +227,20 @@ public class SigilScepter extends ItemSA {
 	
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
-		// TODO
+
 		return EnumRarity.epic;
 	}
 	
 	@Override
 	public Icon getIconFromDamage(int i) {
-		return icons[MathHelper.clamp_int(i, 0, 4)];
+		
+		return icons[i];
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(int itemID, CreativeTabs tabs, List list) {
+		
 		for (int i = 0; i < 4; ++i) {
 			list.add(new ItemStack(itemID, 1, i));
 		}

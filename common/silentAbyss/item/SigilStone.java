@@ -128,9 +128,9 @@ public class SigilStone extends ItemSA {
 		// Teleport - Ender pearl
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.sigilStone, 8, 25), "sss", "ses", "sss",
 				's', ModItems.sigilStone, 'e', Item.enderPearl);
-		// Amplify - Abyssite
+		// Amplify - Purite
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.sigilStone, 8, 26), "sss", "sas", "sss",
-				's', ModItems.sigilStone, 'a', AbyssGem.getGem(Reference.INDEX_ABYSSITE));
+				's', ModItems.sigilStone, 'a', AbyssGem.getGem(Reference.INDEX_PURITE));
 		// Speed - Gold
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.sigilStone, 8, 27), "sss", "sgs", "sss",
 				's', ModItems.sigilStone, 'g', Item.ingotGold);
