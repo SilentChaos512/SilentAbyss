@@ -146,14 +146,14 @@ public class ModItems {
         SigilScepter.addRecipes();
 	    TeleporterLinker.addRecipes();
 		
-		ItemStack rAbyssRuby 			= new ItemStack(abyssGem, 1, 0);
-		ItemStack rAbyssEmerald 		= new ItemStack(abyssGem, 1, 1);
-		ItemStack rAbyssSapphire 		= new ItemStack(abyssGem, 1, 2);
-		ItemStack rAbyssTopaz 			= new ItemStack(abyssGem, 1, 3);
-		ItemStack rAbyssRubyPlus		= new ItemStack(abyssGem, 1, 4);
-		ItemStack rAbyssEmeraldPlus		= new ItemStack(abyssGem, 1, 5);
-		ItemStack rAbyssSapphirePlus	= new ItemStack(abyssGem, 1, 6);
-		ItemStack rAbyssTopazPlus		= new ItemStack(abyssGem, 1, 7);
+		ItemStack rAbyssRuby 			= AbyssGem.getGem(Reference.INDEX_RUBY);
+		ItemStack rAbyssEmerald 		= AbyssGem.getGem(Reference.INDEX_EMERALD);
+		ItemStack rAbyssSapphire 		= AbyssGem.getGem(Reference.INDEX_SAPPHIRE);
+		ItemStack rAbyssTopaz 			= AbyssGem.getGem(Reference.INDEX_TOPAZ);
+		ItemStack rAbyssRubyPlus		= AbyssGem.getGem(Reference.INDEX_RUBY_PLUS);
+		ItemStack rAbyssEmeraldPlus		= AbyssGem.getGem(Reference.INDEX_EMERALD_PLUS);
+		ItemStack rAbyssSapphirePlus	= AbyssGem.getGem(Reference.INDEX_SAPPHIRE_PLUS);
+		ItemStack rAbyssTopazPlus		= AbyssGem.getGem(Reference.INDEX_TOPAZ_PLUS);
 		
 		// Abyss tools
 		AbyssSword.addRecipe(new ItemStack(swordAbyssRuby), rAbyssRuby, false);
