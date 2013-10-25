@@ -212,6 +212,14 @@ public class ModItems {
 		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(AbyssGem.getGem(Reference.INDEX_ABYSSITE), 1, 4, 20));
 		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(AbyssGem.getGem(Reference.INDEX_ABYSSITE), 1, 4, 20));
 		
+		// Purite - can spawn in most chests.
+		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(AbyssGem.getGem(Reference.INDEX_PURITE), 1, 4, 20));
+		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(AbyssGem.getGem(Reference.INDEX_PURITE), 1, 4, 20));
+		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(AbyssGem.getGem(Reference.INDEX_PURITE), 1, 4, 20));
+		ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(AbyssGem.getGem(Reference.INDEX_PURITE), 1, 4, 20));
+		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(AbyssGem.getGem(Reference.INDEX_PURITE), 1, 4, 20));
+		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(AbyssGem.getGem(Reference.INDEX_PURITE), 1, 4, 20));
+
 		// Abyss gems - rarely in bonus chest, infrequently in pyramids
 		ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 0), 1, 4, 5));
 		ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 1), 1, 4, 5));
@@ -235,6 +243,7 @@ public class ModItems {
 		
 		// Shrine chests
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(AbyssGem.getGem(Reference.INDEX_ABYSSITE), 1, 4, 30));
+		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(AbyssGem.getGem(Reference.INDEX_PURITE), 1, 4, 30));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 0), 1, 4, 50));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 1), 1, 4, 50));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 2), 1, 4, 50));
