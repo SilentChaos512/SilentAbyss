@@ -135,10 +135,13 @@ public class AbyssGem extends ItemSA {
 	
 	public static void addRecipes() {
 		
+		ItemStack rAbyssite = AbyssGem.getGem(Reference.INDEX_ABYSSITE);
+		ItemStack rPurite = AbyssGem.getGem(Reference.INDEX_PURITE);
+		
 		for (int i = 0; i < 4; ++i) {
 		    // Supercharged gems
-		    GameRegistry.addRecipe(getGem(i + Reference.INDEX_RUBY_PLUS), "rar", "rgr", "rar",
-		            'r', Item.redstone, 'a', getGem(Reference.INDEX_ABYSSITE), 'g', getGem(i));
+		    GameRegistry.addRecipe(getGem(i + Reference.INDEX_RUBY_PLUS), "rar", "rgr", "rpr",
+		            'r', Item.redstone, 'a', rAbyssite, 'p', rPurite, 'g', getGem(i));
 		}
 		 
 		for (int i = 0; i < Reference.GEM_TYPE_COUNT; ++i) {
@@ -153,9 +156,9 @@ public class AbyssGem extends ItemSA {
 		
 		// Conundrumite
 		GameRegistry.addRecipe(new ItemStack(ModItems.abyssGem, 1,Reference.INDEX_CONUNDRUMITE), " a ", "pdp", " a ",
-				'a', getGem(Reference.INDEX_ABYSSITE), 'p', getGem(Reference.INDEX_PURITE), 'd', Item.diamond);
+				'a', rAbyssite, 'p', rPurite, 'd', Item.diamond);
 		// Abyss diamond
-		GameRegistry.addRecipe(getGem(Reference.INDEX_ABYSS_DIAMOND), "rar", "rgr", "rar",
-                'r', Item.redstone, 'a', getGem(Reference.INDEX_ABYSSITE), 'g', Item.diamond);
+		GameRegistry.addRecipe(getGem(Reference.INDEX_ABYSS_DIAMOND), "rar", "rgr", "rpr",
+                'r', Item.redstone, 'a', rAbyssite, 'p', rPurite, 'g', Item.diamond);
 	}
 }
