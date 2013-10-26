@@ -18,10 +18,10 @@ public class ChaosHandler {
 		}
 		
 		if (worldData.chaos < Config.CHAOS_MAX_AMBIENT) {
-			worldData.chaos += Config.CHAOS_PER_WORLD_TICK;
+			worldData.addChaos(Config.CHAOS_PER_WORLD_TICK);
 		}
 		else {
-			worldData.chaos -= Config.CHAOS_PER_WORLD_TICK;
+			worldData.addChaos(-Config.CHAOS_PER_WORLD_TICK);
 		}
 	}
 	
@@ -30,13 +30,11 @@ public class ChaosHandler {
 			return;
 		}
 		worldData.chaos += change;
-		
-		//LogHelper.debug("Chaos: " + worldData.chaos);
 	}
 	
 	public static int getChaos() {
 		if (worldData == null) {
-			return -1;
+			return 0;
 		}
 		return worldData.chaos;
 	}
