@@ -72,6 +72,29 @@ public class Config {
 	public static final String CHAOS_COST_NIHIL_CONFIGNAME = "Chaos.Cost.Nihil";
 	
 	/*
+	 * World chaos event config settings
+	 */
+	public static int METEOR_SHOWER_RARITY;
+	public static final int METEOR_SHOWER_RARITY_DEFAULT = 5400;
+	public static final String METEOR_SHOWER_RARITY_CONFIGNAME = "Chaos.Event.Meteor.Rarity";
+	
+	public static int METEOR_SHOWER_COUNT;
+	public static final int METEOR_SHOWER_COUNT_DEFAULT = 42;
+	public static final String METEOR_SHOWER_COUNT_CONFIGNAME = "Chaos.Event.Meteor.Count";
+	
+	public static int METEOR_SHOWER_RADIUS;
+	public static final int METEOR_SHOWER_RADIUS_DEFAULT = 32;
+	public static final String METEOR_SHOWER_RADIUS_CONFIGNAME = "Chaos.Event.Meteor.Radius";
+	
+	public static int METEOR_SHOWER_DURATION;
+	public static final int METEOR_SHOWER_DURATION_DEFAULT = 20;
+	public static final String METEOR_SHOWER_DURATION_CONFIGNAME = "Chaos.Event.Meteor.Duration";
+	
+	public static int METEOR_SHOWER_WARNING_DURATION;
+	public static final int METEOR_SHOWER_WARNING_DURATION_DEFAULT = 10;
+	public static final String METEOR_SHOWER_WARNING_DURATION_CONFIGNAME = "Chaos.Event.Meteor.WarningDuration";
+	
+	/*
 	 * World generation config settings
 	 */
 	public static int WORLD_ABYSS_GEM_CLUSTER_COUNT;

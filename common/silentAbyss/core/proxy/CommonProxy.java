@@ -11,8 +11,6 @@ import cpw.mods.fml.relauncher.Side;
 public class CommonProxy {
 
 	public CommonProxy() {}
-	
-	public void initRenderingAndTextures() {}
 
 	public void registerRenderers() {}
 	

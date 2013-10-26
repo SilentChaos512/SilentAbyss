@@ -1,5 +1,7 @@
 package silentAbyss.entity.projectile;
 
+import java.io.EOFException;
+
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 
@@ -149,10 +151,13 @@ public class EntityProjectileMagic extends EntityThrowable implements IEntityAdd
 
 	@Override
 	public void readSpawnData(ByteArrayDataInput data) {
-		this.type = data.readUnsignedByte();
-		this.damage = data.readUnsignedByte();
-		this.colorR = data.readUnsignedByte();
-		this.colorG = data.readUnsignedByte();
-		this.colorB = data.readUnsignedByte();
+		try {
+			this.type = data.readUnsignedByte();
+			this.damage = data.readUnsignedByte();
+			this.colorR = data.readUnsignedByte();
+			this.colorG = data.readUnsignedByte();
+			this.colorB = data.readUnsignedByte();
+		}
+		catch (Exception ex) { }
 	}
 }

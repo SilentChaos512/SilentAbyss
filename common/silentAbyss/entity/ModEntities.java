@@ -10,14 +10,22 @@ import net.minecraft.world.biome.BiomeGenBase;
 import silentAbyss.Abyss;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.entity.monster.EntityGrumbling;
+import silentAbyss.entity.projectile.EntityMeteor;
+import silentAbyss.entity.projectile.EntityProjectileMagic;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ModEntities {
     
-    private static int startEntityId = 300;
-
     public static void init() {
+    	
+    	/*
+    	 * Projectiles
+    	 */
+    	EntityRegistry.registerModEntity(EntityProjectileMagic.class, "Magic Projectile", EntityRegistry.findGlobalUniqueEntityId(),
+				Abyss.instance, 64, 10, true);
+    	EntityRegistry.registerModEntity(EntityMeteor.class, "Abyss Meteor", EntityRegistry.findGlobalUniqueEntityId(),
+    			Abyss.instance, 64, 10, true);
         
         ArrayList<BiomeGenBase> temp = new ArrayList<BiomeGenBase>();
         for (BiomeGenBase b : BiomeGenBase.biomeList) {

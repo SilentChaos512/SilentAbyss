@@ -23,6 +23,7 @@ public class ConfigHandler {
 	public static final String CATEGORY_ENCHANTMENT = "enchantment";
 	public static final String CATEGORY_WORLD = "world";
 	public static final String CATEGORY_WORLD_CHAOS = CATEGORY_WORLD + Configuration.CATEGORY_SPLITTER + "chaos";
+	public static final String CATEGORY_WORLD_CHAOS_EVENT = CATEGORY_WORLD_CHAOS + Configuration.CATEGORY_SPLITTER + "event";
 	public static final String CATEGORY_WORLD_GEN = CATEGORY_WORLD + Configuration.CATEGORY_SPLITTER + "generation";
 	public static final String CATEGORY_WORLD_STRUCTURE = CATEGORY_WORLD + Configuration.CATEGORY_SPLITTER + "structure";
 	public static final String CATEGORY_BLOCK_PROPERTIES = Configuration.CATEGORY_BLOCK + Configuration.CATEGORY_SPLITTER + "properties";
@@ -79,6 +80,18 @@ public class ConfigHandler {
 			Config.CHAOS_COST_SIGIL_SCEPTER = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_COST_SIGIL_SCEPTER_CONFIGNAME, Config.CHAOS_COST_SIGIL_SCEPTER_DEFAULT);
 			Config.CHAOS_COST_MENDING = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_COST_MENDING_CONFIGNAME, Config.CHAOS_COST_MENDING_DEFAULT);
 			Config.CHAOS_COST_NIHIL = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_COST_NIHIL_CONFIGNAME, Config.CHAOS_COST_NIHIL_DEFAULT);
+			
+			// Chaos event configs
+			Config.METEOR_SHOWER_RARITY = getGeneralInt(CATEGORY_WORLD_CHAOS_EVENT, Config.METEOR_SHOWER_RARITY_CONFIGNAME, Config.METEOR_SHOWER_RARITY_DEFAULT,
+					"Average number of seconds between meteor showers. Higher number = less common.");
+			Config.METEOR_SHOWER_COUNT = getGeneralInt(CATEGORY_WORLD_CHAOS_EVENT, Config.METEOR_SHOWER_COUNT_CONFIGNAME, Config.METEOR_SHOWER_COUNT_DEFAULT,
+					"Number of meteors that fall each second.");
+			Config.METEOR_SHOWER_RADIUS = getGeneralInt(CATEGORY_WORLD_CHAOS_EVENT, Config.METEOR_SHOWER_RADIUS_CONFIGNAME, Config.METEOR_SHOWER_RADIUS_DEFAULT,
+					"How spread out the meteor shower is.");
+			Config.METEOR_SHOWER_DURATION = getGeneralInt(CATEGORY_WORLD_CHAOS_EVENT, Config.METEOR_SHOWER_DURATION_CONFIGNAME, Config.METEOR_SHOWER_DURATION_DEFAULT,
+					"The length of meteor showers in seconds.");
+			Config.METEOR_SHOWER_WARNING_DURATION = getGeneralInt(CATEGORY_WORLD_CHAOS_EVENT, Config.METEOR_SHOWER_WARNING_DURATION_CONFIGNAME, Config.METEOR_SHOWER_WARNING_DURATION_DEFAULT,
+					"The amount of time between the warning message and shower start.");
 			
 			// Block property configs
 			BlockIds.ABYSS_GEM_ORE = c.getBlock(Strings.ABYSS_GEM_ORE_NAME, BlockIds.ABYSS_GEM_ORE_DEFAULT).getInt(BlockIds.ABYSS_GEM_ORE_DEFAULT);

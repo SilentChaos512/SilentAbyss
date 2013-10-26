@@ -88,18 +88,13 @@ public class Abyss {
 	
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
-		
-		EntityRegistry.registerModEntity(EntityProjectileMagic.class, "Magic Projectile", EntityRegistry.findGlobalUniqueEntityId(),
-				this, 64, 10, true);
-		
-		proxy.registerRenderers();
+
 		proxy.registerServerTickHandler();
+		proxy.registerTileEntities();
+		proxy.registerRenderers();
 		
 		ForgeChunkManager.setForcedChunkLoadingCallback(this, new TicketLoader());
 		BlockAbyssTeleporter.mod = this;
-		
-		proxy.registerTileEntities();
-		proxy.initRenderingAndTextures();
 		
 		// Register gui handlers
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());

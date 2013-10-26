@@ -1,10 +1,20 @@
 package silentAbyss.lib;
 
 public class Strings {
-	// General keys
+	
+	/*
+	 * General keys
+	 */
 	public final static String SHRINE_CHEST = "abyssShrine";
 	
-	// Localization Prefixes
+	/*
+	 * Messages
+	 */
+	public final static String METEOR_SHOWER_INBOUND = "You sense meteors approaching.";
+	
+	/*
+	 * Localization prefix
+	 */
 	public static final String RESOURCE_PREFIX = Reference.MOD_ID.toLowerCase() + ":";
 	
 	/*
