@@ -8,7 +8,13 @@ public class CommandGetChaos {
 	
 	public static void processCommand(ICommandSender commandSender, String[] args) {
 		
-	    commandSender.sendChatToPlayer(ChatMessageComponent.createFromText("Current chaos: " + ChaosHandler.getChaos()));
+		StringBuilder s = new StringBuilder();
+		s.append("Current chaos: ");
+		s.append(ChaosHandler.getChaos());
+		s.append(" (Chaos factor: ");
+		s.append(String.format("%.3f", ChaosHandler.getChaosFactor()));
+		s.append(")");
+	    commandSender.sendChatToPlayer(ChatMessageComponent.createFromText(s.toString()));
 	}
 
 }

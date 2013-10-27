@@ -25,8 +25,14 @@ public class CommandSA extends CommandBase {
 	@SuppressWarnings("rawtypes")
 	public List addTabCompletionOptions(ICommandSender commandSender, String[] args) {
 		
-		// TODO Tab completion for commands
-		return null;
+		switch (args.length) {
+		    case 1: {
+		        return getListOfStringsMatchingLastWord(args, new String[] { Commands.COMMAND_GET_CHAOS });
+		    }
+		    default: {
+		        return null;
+		    }
+		}
 	}
 	
 	@Override
