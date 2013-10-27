@@ -14,6 +14,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
@@ -145,6 +146,16 @@ public class AbyssSigil extends ItemSA {
 					dz = tags.getInteger("Z");
 					dd = tags.getInteger("D");
 					
+					// Dismount and teleport mount
+					if (player.ridingEntity != null) {
+						Entity mount = player.ridingEntity;
+						player.mountEntity((Entity)null);
+						if (dd != mount.dimension) {
+							mount.travelToDimension(dd);
+						}
+						mount.setLocationAndAngles(dx + 0.5, dy + 1, dz + 0.5, mount.rotationYaw, mount.rotationPitch);
+					}
+					// Teleport player
 					if (dd != player.dimension) {
 						player.travelToDimension(dd);
 					}
