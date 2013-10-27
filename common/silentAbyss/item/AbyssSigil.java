@@ -189,9 +189,7 @@ public class AbyssSigil extends ItemSA {
 			list.add(tags.getString("Effects"));
 		}
 		
-		if (NBTHelper.hasValidXYZD(tags)) {
-			list.add(LogHelper.coordFromNBT(tags));
-		}
+		list.add(LogHelper.coordFromNBT(tags));
 	}
 
 	@Override

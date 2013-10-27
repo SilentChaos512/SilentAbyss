@@ -60,7 +60,7 @@ public class LogHelper {
 	
 	public static String coordFromNBT(NBTTagCompound tags) {
 	    
-	    if (NBTHelper.hasValidXYZD(tags)) {
+	    if (!NBTHelper.hasValidXYZD(tags)) {
 	        return "(invalid coords)";
 	    }
 	    
