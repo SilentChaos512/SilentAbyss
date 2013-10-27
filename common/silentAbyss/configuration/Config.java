@@ -123,21 +123,21 @@ public class Config {
 	
 	public static int WORLD_PURITE_CLUSTER_COUNT;
 	public static final int WORLD_PURITE_CLUSTER_COUNT_DEFAULT = 1;
-	public static final String WORLD_PURITE_CLUSTER_COUNT_CONFIGNAME = "World.AbyssiteClusterCount";
+	public static final String WORLD_PURITE_CLUSTER_COUNT_CONFIGNAME = "World.PuriteClusterCount";
 	
 	public static int WORLD_PURITE_CLUSTER_SIZE;
 	public static final int WORLD_PURITE_CLUSTER_SIZE_DEFAULT = 8;
-	public static final String WORLD_PURITE_CLUSTER_SIZE_CONFIGNAME = "World.AbyssiteClusterSize";
+	public static final String WORLD_PURITE_CLUSTER_SIZE_CONFIGNAME = "World.PuriteClusterSize";
 	
 	public static int WORLD_PURITE_MAX_HEIGHT;
 	public static final int WORLD_PURITE_MAX_HEIGHT_DEFAULT = 20;
-	public static final String WORLD_PURITE_MAX_HEIGHT_CONFIGNAME = "World.AbyssiteMaxHeight";
+	public static final String WORLD_PURITE_MAX_HEIGHT_CONFIGNAME = "World.PuriteMaxHeight";
 	
 	/*
 	 * World structure config settings
 	 */
 	public static int STRUCTURE_SHRINE_RARITY;
-	public static final int STRUCTURE_SHRINE_RARITY_DEFAULT = 64;
+	public static final int STRUCTURE_SHRINE_RARITY_DEFAULT = 128;
 	public static final String STRUCTURE_SHRINE_RARITY_CONFIGNAME = "World.ShrineRarity";
 	
 }
