@@ -117,6 +117,7 @@ public class ConfigHandler {
 			// Enchantment property configs
 			EnchantmentIds.MENDING = getEnchantmentId(Strings.MENDING_NAME, EnchantmentIds.MENDING_DEFAULT);
 			EnchantmentIds.NIHIL = getEnchantmentId(Strings.NIHIL_NAME, EnchantmentIds.NIHIL_DEFAULT);
+			EnchantmentIds.ICE_ASPECT = getEnchantmentId(Strings.ICE_ASPECT_NAME, EnchantmentIds.ICE_ASPECT_DEFAULT);
 		}
 		catch (Exception e) {
 			FMLLog.log(Level.SEVERE, e, Reference.MOD_NAME + " has had a problem loading its configuration");

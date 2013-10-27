@@ -93,6 +93,7 @@ public class Strings {
 	 */
 	public final static String MENDING_NAME = "Mending";
 	public final static String NIHIL_NAME = "Nihil";
+	public final static String ICE_ASPECT_NAME = "Ice Aspect";
 	
 	/*
 	 * Tile entity name constants

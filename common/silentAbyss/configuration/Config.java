@@ -71,6 +71,10 @@ public class Config {
 	public static final int CHAOS_COST_NIHIL_DEFAULT = 0;
 	public static final String CHAOS_COST_NIHIL_CONFIGNAME = "Chaos.Cost.Nihil";
 	
+	public static int CHAOS_COST_ICE_ASPECT;
+	public static final int CHAOS_COST_ICE_ASPECT_DEFAULT = 0;
+	public static final String CHAOS_COST_ICE_ASPECT_CONFIGNAME = "Chaos.Cost.IceAspect";
+	
 	/*
 	 * World chaos event config settings
 	 */
