@@ -43,7 +43,7 @@ public class EntityProjectileMagic extends EntityThrowable implements IEntityAdd
 			movingobjectposition.entityHit.attackEntityFrom(DamageSource.causeIndirectMagicDamage(this, this.getThrower()), this.damage);
 			switch (type) {
 			case 1:
-				movingobjectposition.entityHit.setFire(4);
+				movingobjectposition.entityHit.setFire(5);
 				break;
 			case 2:
 				if (movingobjectposition.entityHit instanceof EntityLiving) {
