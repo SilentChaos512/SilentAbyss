@@ -28,21 +28,12 @@ public class AbyssFood extends ItemFood {
 		this.damageValue = damageValue;
 	}
 	
-	@Override
-	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-//		if (par1ItemStack.stackTagCompound == null) {
-//			par1ItemStack.setTagCompound(new NBTTagCompound());
-//		}
-//		
-//		par1ItemStack.stackTagCompound.setString("tip", "Totally not like the Mindcrack logo.");
-	}
-	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
     @Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if (damageValue == 0) {
 			// Potato on a stick.
-			par3List.add("Totally not like the Mindcrack logo.");
+			par3List.add("\u00a7oTotally not like the Mindcrack logo.");
 		}
 	}
 

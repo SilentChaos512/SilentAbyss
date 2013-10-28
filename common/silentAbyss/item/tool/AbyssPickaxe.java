@@ -1,9 +1,6 @@
-package silentAbyss.tool;
+package silentAbyss.item.tool;
 
 import silentAbyss.Abyss;
-import silentAbyss.configuration.Config;
-import silentAbyss.core.handlers.ChaosHandler;
-import silentAbyss.enchantment.ModEnchantments;
 import silentAbyss.item.AbyssGem;
 import silentAbyss.item.ModItems;
 import silentAbyss.lib.Reference;
@@ -12,27 +9,20 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
-public class AbyssSword extends ItemSword {
-    
-    private int gemType = 0;
-    private EnumToolMaterial toolMaterial;
+public class AbyssPickaxe extends ItemPickaxe {
+
+	private int gemType = 0;
 	
-	public AbyssSword(int par1, EnumToolMaterial par2EnumToolMaterial, int gemType) {
+	public AbyssPickaxe(int par1, EnumToolMaterial par2EnumToolMaterial, int gemType) {
 		super(par1 - Reference.SHIFTED_ID_RANGE_CORRECTION, par2EnumToolMaterial);
 		this.gemType = gemType;
-		this.toolMaterial = par2EnumToolMaterial;
 	}
 	
 	@Override
@@ -41,7 +31,7 @@ public class AbyssSword extends ItemSword {
         StringBuilder s = new StringBuilder();
         s.append("tool.");
         s.append(Strings.RESOURCE_PREFIX);
-        s.append("swordAbyss");
+        s.append("pickaxeAbyss");
         s.append(AbyssGem.names[this.gemType]);
         if (this.toolMaterial == Abyss.materialEnergizedAbyssGem) {
             s.append("Plus");
@@ -53,7 +43,7 @@ public class AbyssSword extends ItemSword {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IconRegister iconRegister) {
-		String s = "SilentAbyss:SwordAbyss";
+		String s = "SilentAbyss:PickaxeAbyss";
 		
 		switch (this.gemType){
     		case 0: s += "Ruby"; break;
@@ -82,34 +72,12 @@ public class AbyssSword extends ItemSword {
 	
 	public static void addRecipe(ItemStack tool, ItemStack material, boolean energized) {
 		if (energized) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] {" g ", " g ", " s ",
+			GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] {"ggg", " s ", " s ",
 					'g', material, 's', new ItemStack(ModItems.craftingMaterial, 1, 0)}));
 		}
 		else {
-			GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] {" g ", " g ", " s ",
+			GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] {"ggg", " s ", " s ",
 					'g', material, 's', "stickWood"}));
 		}
-	}
-	
-	@Override
-	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase player) {
-		
-		int lvl;
-		
-		// Nihil enchantment
-		if (EnchantmentHelper.getEnchantmentLevel(ModEnchantments.nihil.effectId, stack) > 0) {
-			target.curePotionEffects(new ItemStack(Item.bucketMilk));
-			// Chaos cost of Nihil
-			ChaosHandler.addChaos(Config.CHAOS_COST_NIHIL);
-		}
-		
-		// Ice aspect enchantment
-		lvl = EnchantmentHelper.getEnchantmentLevel(ModEnchantments.iceAspect.effectId, stack);
-		if (lvl > 0) {
-			// Slow down the target.
-			target.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 200, lvl, false));
-		}
-		
-		return super.hitEntity(stack, target, player);
 	}
 }

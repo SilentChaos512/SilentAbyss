@@ -1,4 +1,4 @@
-package silentAbyss.tool;
+package silentAbyss.item.tool;
 
 import silentAbyss.Abyss;
 import silentAbyss.item.AbyssGem;
@@ -11,16 +11,16 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
-public class AbyssAxe extends ItemAxe {
+public class AbyssShovel extends ItemSpade {
     
     private int gemType = 0;
 	
-	public AbyssAxe(int par1, EnumToolMaterial par2EnumToolMaterial, int gemType) {
+	public AbyssShovel(int par1, EnumToolMaterial par2EnumToolMaterial, int gemType) {
 		super(par1 - Reference.SHIFTED_ID_RANGE_CORRECTION, par2EnumToolMaterial);
 		this.gemType = gemType;
 	}
@@ -31,7 +31,7 @@ public class AbyssAxe extends ItemAxe {
         StringBuilder s = new StringBuilder();
         s.append("tool.");
         s.append(Strings.RESOURCE_PREFIX);
-        s.append("axeAbyss");
+        s.append("shovelAbyss");
         s.append(AbyssGem.names[this.gemType]);
         if (this.toolMaterial == Abyss.materialEnergizedAbyssGem) {
             s.append("Plus");
@@ -43,7 +43,7 @@ public class AbyssAxe extends ItemAxe {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IconRegister iconRegister) {
-		String s = "SilentAbyss:AxeAbyss";
+		String s = "SilentAbyss:ShovelAbyss";
 		
 		switch (this.gemType){
     		case 0: s += "Ruby"; break;
@@ -60,23 +60,23 @@ public class AbyssAxe extends ItemAxe {
 	}
 	
 	@Override
-	public boolean getIsRepairable(ItemStack stack1, ItemStack stack2) {
-	    
-	    boolean isSupercharged = this.toolMaterial == Abyss.materialEnergizedAbyssGem;
-	    ItemStack material = new ItemStack(ModItems.abyssGem, 1, this.gemType + (isSupercharged ? 4 : 0));
-	    if (material.itemID == stack2.itemID && material.getItemDamage() == stack2.getItemDamage())
-	        return true;
-	    else
-	        return super.getIsRepairable(stack1, stack2);
-	}
+    public boolean getIsRepairable(ItemStack stack1, ItemStack stack2) {
+        
+        boolean isSupercharged = this.toolMaterial == Abyss.materialEnergizedAbyssGem;
+        ItemStack material = new ItemStack(ModItems.abyssGem, 1, this.gemType + (isSupercharged ? 4 : 0));
+        if (material.itemID == stack2.itemID && material.getItemDamage() == stack2.getItemDamage())
+            return true;
+        else
+            return super.getIsRepairable(stack1, stack2);
+    }
 	
 	public static void addRecipe(ItemStack tool, ItemStack material, boolean energized) {
 		if (energized) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] {"gg ", "gs ", " s ",
+			GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] {" g ", " s ", " s ",
 					'g', material, 's', new ItemStack(ModItems.craftingMaterial, 1, 0)}));
 		}
 		else {
-			GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] {"gg ", "gs ", " s ",
+			GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] {" g ", " s ", " s ",
 					'g', material, 's', "stickWood"}));
 		}
 	}

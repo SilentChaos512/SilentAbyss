@@ -1,4 +1,4 @@
-package silentAbyss.tool;
+package silentAbyss.item.tool;
 
 import java.util.List;
 
@@ -74,10 +74,10 @@ public class TeleporterLinker extends ItemSA {
         
         NBTTagCompound tags = stack.getTagCompound();
         if (tags.getInteger("State") == 0) {
-        	list.add("Not linked");
+        	list.add("\u00a7oNot linked");
         }
         else {
-        	list.add("Linked to " + LogHelper.coord(tags.getInteger("X"), tags.getInteger("Y"), tags.getInteger("Z")));
+        	list.add("\u00a7oLinked to " + LogHelper.coord(tags.getInteger("X"), tags.getInteger("Y"), tags.getInteger("Z")));
         }
 	}
 	

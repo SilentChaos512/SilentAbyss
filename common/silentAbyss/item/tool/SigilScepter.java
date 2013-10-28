@@ -1,4 +1,4 @@
-package silentAbyss.tool;
+package silentAbyss.item.tool;
 
 import java.util.List;
 
@@ -161,7 +161,7 @@ public class SigilScepter extends ItemSA {
 		}
 		
 		if (!str.equals("")) {
-			list.add(str);
+			list.add("\u00a76" + str);
 			if (isTeleport && NBTHelper.hasValidXYZD(tags)) {
 				list.add(LogHelper.coord(tags.getInteger("X"), tags.getInteger("Y"), tags.getInteger("Z")));
 			}

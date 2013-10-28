@@ -81,7 +81,7 @@ public class SigilStone extends ItemSA {
 		
 		int damage = stack.getItemDamage();
 		if (damage < names.length){
-			list.add(names[damage]);
+			list.add("\u00a73" + names[damage]);
 		}
 		
 		if (stack.hasTagCompound() && stack.stackTagCompound.hasKey("Y")) {

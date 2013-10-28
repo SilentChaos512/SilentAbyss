@@ -1,4 +1,4 @@
-package silentAbyss.tool;
+package silentAbyss.item.tool;
 
 import silentAbyss.item.ItemSA;
 import net.minecraft.block.Block;

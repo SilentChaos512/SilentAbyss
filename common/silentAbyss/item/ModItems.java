@@ -3,11 +3,11 @@ package silentAbyss.item;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import silentAbyss.Abyss;
+import silentAbyss.item.tool.*;
 import silentAbyss.lib.ItemIds;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import silentAbyss.recipe.SigilScepterRecipe;
-import silentAbyss.tool.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
@@ -242,13 +242,13 @@ public class ModItems {
 		ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.potatoStick), 1, 4, 33));
 		
 		// Shrine chests
-		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(AbyssGem.getGem(Reference.INDEX_ABYSSITE), 1, 4, 30));
-		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(AbyssGem.getGem(Reference.INDEX_PURITE), 1, 4, 30));
+		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(AbyssGem.getGem(Reference.INDEX_ABYSSITE), 1, 4, 25));
+		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(AbyssGem.getGem(Reference.INDEX_PURITE), 1, 4, 25));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 0), 1, 4, 50));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 1), 1, 4, 50));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 2), 1, 4, 50));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 3), 1, 4, 50));
-		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.craftingMaterial, 1, 0), 2, 4, 30));
+		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.craftingMaterial, 1, 0), 2, 4, 10));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.teleporterLinker), 1, 1, 1));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.enderPearl), 1, 4, 15));
 		ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.ingotIron), 4, 10, 20));

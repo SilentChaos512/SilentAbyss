@@ -5,8 +5,8 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.item.ItemBook;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
+import silentAbyss.item.tool.AbyssSword;
 import silentAbyss.lib.Strings;
-import silentAbyss.tool.AbyssSword;
 
 public class EnchantmentIceAspect extends Enchantment {
 

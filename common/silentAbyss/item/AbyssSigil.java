@@ -197,10 +197,12 @@ public class AbyssSigil extends ItemSA {
 		NBTTagCompound tags = stack.getTagCompound();
 		
 		if (tags.hasKey("Effects")) {
-			list.add(tags.getString("Effects"));
+			list.add("\u00a76" + tags.getString("Effects"));
 		}
 		
-		list.add(LogHelper.coordFromNBT(tags));
+		if (NBTHelper.hasValidXYZD(tags)) {
+		    list.add(LogHelper.coordFromNBT(tags));
+		}
 	}
 
 	@Override

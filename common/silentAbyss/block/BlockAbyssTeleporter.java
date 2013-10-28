@@ -9,11 +9,11 @@ import silentAbyss.core.util.PlayerHelper;
 import silentAbyss.item.AbyssGem;
 import silentAbyss.item.AbyssSigil;
 import silentAbyss.item.ModItems;
+import silentAbyss.item.tool.SigilScepter;
+import silentAbyss.item.tool.TeleporterLinker;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import silentAbyss.tileentity.TileEntityAbyssTeleporter;
-import silentAbyss.tool.SigilScepter;
-import silentAbyss.tool.TeleporterLinker;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -127,11 +127,11 @@ public class BlockAbyssTeleporter extends BlockContainer {
 			
 			if (tags.getInteger("State") == 0) {
 				// Inactive state, set active state and location data.
-				LogHelper.debug("TP Linker active: " + LogHelper.coord(x, y, z));
+				//LogHelper.debug("TP Linker active: " + LogHelper.coord(x, y, z));
 				tags.setInteger("State", 1);
 				NBTHelper.setXYZD(tags, x, y, z, player.dimension);
 				linker.setItemDamage(1);
-				player.addChatMessage("Teleporter link started.");
+				player.addChatMessage(Strings.TELEPORTER_LINK_START);
 				
 				// Force load this chunk so we can find the first teleporter when linking to the second.
 				ticket = ForgeChunkManager.requestTicket(mod, world, Type.NORMAL);
@@ -147,12 +147,12 @@ public class BlockAbyssTeleporter extends BlockContainer {
 				
 				// Safety check
 				if (t1 == null) {
-					player.addChatMessage("Teleporter link failed.");
+					player.addChatMessage(Strings.TELEPORTER_LINK_FAIL);
 					LogHelper.warning("A teleporter link failed because teleporter 1 could not be found.");
 					return false;
 				}
 				else if (t2 == null) {
-					player.addChatMessage("Teleporter link failed.");
+					player.addChatMessage(Strings.TELEPORTER_LINK_FAIL);
 					LogHelper.warning("A teleporter link failed because teleporter 2 could not be found.");
 					return false;
 				}
@@ -166,7 +166,7 @@ public class BlockAbyssTeleporter extends BlockContainer {
 				t2.destY = tags.getInteger("Y");
 				t2.destZ = tags.getInteger("Z");
 				t2.destD = tags.getInteger("D");
-				player.addChatMessage("Teleporter link created.");
+				player.addChatMessage(Strings.TELEPORTER_LINK_END);
 				
 				tags.setInteger("State", 0);
 				linker.setItemDamage(0);
@@ -187,7 +187,7 @@ public class BlockAbyssTeleporter extends BlockContainer {
 			// Does sigil have teleport?
 			if (AbyssSigil.hasSigilEfffect(sigil, "Teleport")) {
 				NBTHelper.setXYZD(sigil.stackTagCompound, x, y, z, player.dimension);
-				player.addChatMessage("Sigils linked!");
+				player.addChatMessage(Strings.TELEPORTER_SIGIL_LINK);
 				
 				return true;
 			}
@@ -199,7 +199,7 @@ public class BlockAbyssTeleporter extends BlockContainer {
 			// Does scepter have teleport?
 			if (SigilScepter.getEffect(scepter).equals("Teleport")) {
 				NBTHelper.setXYZD(scepter.stackTagCompound, x, y, z, player.dimension);
-				player.addChatMessage("Scepter linked!");
+				player.addChatMessage(Strings.TELEPORTER_SCEPTER_LINK);
 				
 				return true;
 			}
@@ -212,7 +212,7 @@ public class BlockAbyssTeleporter extends BlockContainer {
 			// Safety checks:
 			// Destination above y=0?
 			if (tile.destY == 0) {
-				player.addChatMessage("No destination set.");
+				player.addChatMessage(Strings.TELEPORTER_NO_DESTINATION);
 				return true;
 			}
 

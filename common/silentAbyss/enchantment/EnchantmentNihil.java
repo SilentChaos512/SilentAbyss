@@ -6,8 +6,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBook;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
+import silentAbyss.item.tool.*;
 import silentAbyss.lib.Strings;
-import silentAbyss.tool.*;
 
 public class EnchantmentNihil extends Enchantment {
 

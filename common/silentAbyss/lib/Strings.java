@@ -10,7 +10,14 @@ public class Strings {
 	/*
 	 * Messages
 	 */
-	public final static String METEOR_SHOWER_INBOUND = "You sense meteors approaching.";
+	public final static String TELEPORTER_LINK_START = "\u00a77Teleporter link started.";
+	public final static String TELEPORTER_LINK_END = "\u00a77Teleporter link created.";
+	public final static String TELEPORTER_LINK_FAIL = "\u00a74Teleporter link failed.";
+	public final static String TELEPORTER_SIGIL_LINK = "\u00a72Sigils linked!";
+	public final static String TELEPORTER_SCEPTER_LINK = "\u00a72Scepter linked!";
+	public final static String TELEPORTER_NO_DESTINATION = "\u00a77No destination set.";
+	
+	public final static String METEOR_SHOWER_INBOUND = "\u00a76You sense meteors approaching.";
 	
 	/*
 	 * Localization prefix

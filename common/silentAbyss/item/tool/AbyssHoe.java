@@ -1,4 +1,4 @@
-package silentAbyss.tool;
+package silentAbyss.item.tool;
 
 import silentAbyss.Abyss;
 import silentAbyss.item.AbyssGem;
@@ -11,18 +11,20 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
-public class AbyssPickaxe extends ItemPickaxe {
-
-	private int gemType = 0;
+public class AbyssHoe extends ItemHoe {
+    
+    private int gemType = 0;
+    private EnumToolMaterial toolMaterial;
 	
-	public AbyssPickaxe(int par1, EnumToolMaterial par2EnumToolMaterial, int gemType) {
+	public AbyssHoe(int par1, EnumToolMaterial par2EnumToolMaterial, int gemType) {
 		super(par1 - Reference.SHIFTED_ID_RANGE_CORRECTION, par2EnumToolMaterial);
 		this.gemType = gemType;
+		this.toolMaterial = par2EnumToolMaterial;
 	}
 	
 	@Override
@@ -31,7 +33,7 @@ public class AbyssPickaxe extends ItemPickaxe {
         StringBuilder s = new StringBuilder();
         s.append("tool.");
         s.append(Strings.RESOURCE_PREFIX);
-        s.append("pickaxeAbyss");
+        s.append("hoeAbyss");
         s.append(AbyssGem.names[this.gemType]);
         if (this.toolMaterial == Abyss.materialEnergizedAbyssGem) {
             s.append("Plus");
@@ -43,7 +45,7 @@ public class AbyssPickaxe extends ItemPickaxe {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IconRegister iconRegister) {
-		String s = "SilentAbyss:PickaxeAbyss";
+		String s = "SilentAbyss:HoeAbyss";
 		
 		switch (this.gemType){
     		case 0: s += "Ruby"; break;
@@ -52,7 +54,7 @@ public class AbyssPickaxe extends ItemPickaxe {
     		case 3: s += "Topaz"; break;
 		}
 		
-		if (this.toolMaterial == Abyss.materialEnergizedAbyssGem) {
+		if (this.theToolMaterial == Abyss.materialEnergizedAbyssGem) {
 			s += "Plus";
 		}
 		
@@ -72,11 +74,11 @@ public class AbyssPickaxe extends ItemPickaxe {
 	
 	public static void addRecipe(ItemStack tool, ItemStack material, boolean energized) {
 		if (energized) {
-			GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] {"ggg", " s ", " s ",
+			GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] {"gg ", " s ", " s ",
 					'g', material, 's', new ItemStack(ModItems.craftingMaterial, 1, 0)}));
 		}
 		else {
-			GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] {"ggg", " s ", " s ",
+			GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] {"gg ", " s ", " s ",
 					'g', material, 's', "stickWood"}));
 		}
 	}
