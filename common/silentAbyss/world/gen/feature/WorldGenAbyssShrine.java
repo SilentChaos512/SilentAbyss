@@ -2,8 +2,10 @@ package silentAbyss.world.gen.feature;
 
 import java.util.Random;
 
+import silentAbyss.block.AbyssGemBlock;
 import silentAbyss.block.ModBlocks;
 import silentAbyss.core.util.WorldGenHelper;
+import silentAbyss.item.GemShard;
 import silentAbyss.lib.Strings;
 
 import net.minecraft.block.Block;
@@ -17,7 +19,7 @@ public class WorldGenAbyssShrine extends WorldGenerator {
 	
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z) {
-		
+	    
 		while (world.isAirBlock(x, y, z)) {
 			--y;
 		}
@@ -43,12 +45,19 @@ public class WorldGenAbyssShrine extends WorldGenerator {
 			}
 		}
 		
-		// 1
+		// Select either dark (4) or light (5) bricks.
+        int m = random.nextInt(2) + 4;
+		
+        
+        
+		/*
+		 * 1
+		 */
 		for (i = -3; i < 4; ++i) {
 			for (j = -3; j < 4; ++j) {
 				// Skip corners
 				if (!((i == -3 || i == 3) && (j == -3 || j == 3))) {
-					setDarkBrick(world, x + i, y, z + j);
+					setBrick(world, x + i, y, z + j, m);
 				}
 			}
 		}
@@ -65,13 +74,17 @@ public class WorldGenAbyssShrine extends WorldGenerator {
 		world.setBlock(x - 2, y, z - 1, ModBlocks.brick.blockID, 3, 2);
 		world.setBlock(x - 2, y, z + 0, ModBlocks.brick.blockID, 3, 2);
 		world.setBlock(x - 2, y, z + 1, ModBlocks.brick.blockID, 3, 2);
+		// Gemstone block in center
+		world.setBlock(x, y, z, ModBlocks.blockAbyssGem.blockID, m, 2);
 		
-		// 2
+		/*
+		 * 2
+		 */
 		++y;
-		setDarkBrick(world, x - 2, y, z - 2);
-		setDarkBrick(world, x - 2, y, z + 2);
-		setDarkBrick(world, x + 2, y, z - 2);
-		setDarkBrick(world, x + 2, y, z + 2);
+		setBrick(world, x - 2, y, z - 2, m);
+		setBrick(world, x - 2, y, z + 2, m);
+		setBrick(world, x + 2, y, z - 2, m);
+		setBrick(world, x + 2, y, z + 2, m);
 		world.setBlock(x, y, z, Block.chest.blockID);
 		// Get loot for chest
 		TileEntityChest tile = (TileEntityChest)world.getBlockTileEntity(x, y, z);
@@ -83,67 +96,82 @@ public class WorldGenAbyssShrine extends WorldGenerator {
 			WeightedRandomChestContent.generateChestContents(random, info.getItems(random), tile, info.getCount(random));
 		}
 		
-		// 3
+		/*
+		 * 3
+		 */
 		++y;
-		setDarkBrick(world, x - 2, y, z - 2);
-		setDarkBrick(world, x - 2, y, z + 2);
-		setDarkBrick(world, x + 2, y, z - 2);
-		setDarkBrick(world, x + 2, y, z + 2);
+		setBrick(world, x - 2, y, z - 2, m);
+		setBrick(world, x - 2, y, z + 2, m);
+		setBrick(world, x + 2, y, z - 2, m);
+		setBrick(world, x + 2, y, z + 2, m);
 		
-		// 4
+		/*
+		 * 4
+		 */
 		++y;
-		setDarkBrick(world, x - 2, y, z - 2);
-		setDarkBrick(world, x - 2, y, z - 1);
-		setDarkBrick(world, x - 1, y, z - 2);
-		setDarkBrick(world, x - 2, y, z + 2);
-		setDarkBrick(world, x - 2, y, z + 1);
-		setDarkBrick(world, x - 1, y, z + 2);
-		setDarkBrick(world, x + 2, y, z - 2);
-		setDarkBrick(world, x + 2, y, z - 1);
-		setDarkBrick(world, x + 1, y, z - 2);
-		setDarkBrick(world, x + 2, y, z + 2);
-		setDarkBrick(world, x + 2, y, z + 1);
-		setDarkBrick(world, x + 1, y, z + 2);
+		setBrick(world, x - 2, y, z - 2, m);
+		setBrick(world, x - 2, y, z - 1, m);
+		setBrick(world, x - 1, y, z - 2, m);
+		setBrick(world, x - 2, y, z + 2, m);
+		setBrick(world, x - 2, y, z + 1, m);
+		setBrick(world, x - 1, y, z + 2, m);
+		setBrick(world, x + 2, y, z - 2, m);
+		setBrick(world, x + 2, y, z - 1, m);
+		setBrick(world, x + 1, y, z - 2, m);
+		setBrick(world, x + 2, y, z + 2, m);
+		setBrick(world, x + 2, y, z + 1, m);
+		setBrick(world, x + 1, y, z + 2, m);
 		
-		// 5
+		/*
+		 * 5
+		 */
 		++y;
 		for (i = -3; i < 4; ++i) {
 			for (j = -3; j < 4; ++j) {
-				// Skip corners
-				if (!((i == -3 || i == 3) && (j == -3 || j == 3))) {
-					setDarkBrick(world, x + i, y, z + j);
+				// Skip corners and center
+				if (!((i == -3 || i == 3) && (j == -3 || j == 3)) && !(i == 0 && j == 0)) {
+					setBrick(world, x + i, y, z + j, m);
 				}
 			}
 		}
 		
-		// 6 - diamond shape
+		/*
+		 * 6 - diamond shape with glowstone in middle
+		 */
 		++y;
 		for (i = -2; i < 3; ++i) {
 			for (j = -2; j < 3; ++j) {
-				if (Math.abs(i) + Math.abs(j) < 3) {
-					setDarkBrick(world, x + i, y, z + j);
+			    if (i == 0 && j == 0) {
+			        world.setBlock(x, y, z, Block.glowStone.blockID);
+			    }
+			    else if (Math.abs(i) + Math.abs(j) < 3) {
+					setBrick(world, x + i, y, z + j, m);
 				}
 			}
 		}
 		
-		// 7 - smaller diamond
+		/*
+		 * 7 - smaller diamond
+		 */
 		++y;
 		for (i = -1; i < 2; ++i) {
 			for (j = -1; j < 2; ++j) {
-				if (Math.abs(i) + Math.abs(j) < 2) {
-					setDarkBrick(world, x + i, y, z + j);
+			    if (Math.abs(i) + Math.abs(j) < 2) {
+					setBrick(world, x + i, y, z + j, m);
 				}
 			}
 		}
 		
-		// 8
+		/*
+		 * 8
+		 */
 		++y;
-		setDarkBrick(world, x, y, z);
+		setBrick(world, x, y, z, m);
 		
 		return true;
 	}
 	
-	private void setDarkBrick(World world, int x, int y, int z) {
-		world.setBlock(x, y, z, ModBlocks.brick.blockID, 4, 2);
+	private void setBrick(World world, int x, int y, int z, int meta) {
+		world.setBlock(x, y, z, ModBlocks.brick.blockID, meta, 2);
 	}
 }
