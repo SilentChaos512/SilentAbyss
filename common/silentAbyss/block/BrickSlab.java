@@ -52,6 +52,9 @@ public class BrickSlab extends BlockHalfSlab {
 	@Override
 	public int damageDropped(int par1) {
 		
+	    if (par1 > 7) {
+	        return par1 & 7;
+	    }
 		return par1;
 	}
 	
