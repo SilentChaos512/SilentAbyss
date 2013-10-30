@@ -3,6 +3,7 @@ package silentAbyss.item;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import silentAbyss.Abyss;
+import silentAbyss.item.armor.PersonalElevationDevice;
 import silentAbyss.item.tool.*;
 import silentAbyss.lib.ItemIds;
 import silentAbyss.lib.Reference;
@@ -24,6 +25,7 @@ public class ModItems {
 	public static Item abyssSigil;
 	public static Item sigilStone;
 	public static Item sigilScepter;
+	public static Item personalElevationDevice;
 	
 	public static Item swordAbyssRuby;
 	public static Item swordAbyssEmerald;
@@ -80,6 +82,7 @@ public class ModItems {
 		abyssSigil = new AbyssSigil(ItemIds.ABYSS_SIGIL);
 		sigilStone = new SigilStone(ItemIds.SIGIL_STONE);
 		sigilScepter = new SigilScepter(ItemIds.SIGIL_SCEPTER);
+		personalElevationDevice = new PersonalElevationDevice(ItemIds.PERSONAL_ELEVATION_DEVICE);
 		
 		swordAbyssRuby = new AbyssSword(ItemIds.TOOL_START + 0, Abyss.materialRegularAbyssGem, 0);
 		pickaxeAbyssRuby = new AbyssPickaxe(ItemIds.TOOL_START + 1, Abyss.materialRegularAbyssGem, 0);
@@ -145,6 +148,7 @@ public class ModItems {
         SigilStone.addRecipes();
         SigilScepter.addRecipes();
 	    TeleporterLinker.addRecipes();
+	    PersonalElevationDevice.addRecipes();
 		
 		ItemStack rAbyssRuby 			= AbyssGem.getGem(Reference.INDEX_RUBY);
 		ItemStack rAbyssEmerald 		= AbyssGem.getGem(Reference.INDEX_EMERALD);

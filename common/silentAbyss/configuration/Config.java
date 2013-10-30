@@ -44,7 +44,7 @@ public class Config {
 	 * World chaos config settings
 	 */
 	public static int CHAOS_PER_WORLD_TICK;
-	public static final int CHAOS_PER_WORLD_TICK_DEFAULT = 10;
+	public static final int CHAOS_PER_WORLD_TICK_DEFAULT = 50;
 	public static final String CHAOS_PER_WORLD_TICK_CONFIGNAME = "Chaos.ChaosPerWorldTick";
 	
 	public static int CHAOS_MAX_AMBIENT;
@@ -62,6 +62,10 @@ public class Config {
 	public static int CHAOS_COST_SIGIL_SCEPTER;
 	public static final int CHAOS_COST_SIGIL_SCEPTER_DEFAULT = 50;
 	public static final String CHAOS_COST_SIGIL_SCEPTER_CONFIGNAME = "Chaos.Cost.SigilScepter";
+	
+	public static int CHAOS_COST_PERSONAL_ELEVATION_DEVICE;
+	public static final int CHAOS_COST_PERSONAL_ELEVATION_DEVICE_DEFAULT = 10;
+	public static final String CHAOS_COST_PERSONAL_ELEVATION_DEVICE_CONFIGNAME = "Chaos.Cost.PersonalElevationDevice";
 	
 	public static int CHAOS_COST_MENDING;
 	public static final int CHAOS_COST_MENDING_DEFAULT = 5;

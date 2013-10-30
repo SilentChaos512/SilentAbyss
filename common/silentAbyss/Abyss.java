@@ -11,6 +11,8 @@ import silentAbyss.block.*;
 import silentAbyss.command.CommandHandler;
 import silentAbyss.configuration.ConfigHandler;
 import silentAbyss.core.handlers.GuiHandler;
+import silentAbyss.core.handlers.event.LivingFallEventHandler;
+import silentAbyss.core.handlers.event.WorldLoadEventHandler;
 import silentAbyss.core.proxy.CommonProxy;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.enchantment.ModEnchantments;
@@ -89,7 +91,7 @@ public class Abyss {
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
 
-		proxy.registerServerTickHandler();
+		proxy.registerTickHandlers();
 		proxy.registerTileEntities();
 		proxy.registerRenderers();
 		
@@ -109,6 +111,8 @@ public class Abyss {
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		// Stub Method
+	    
+	    MinecraftForge.EVENT_BUS.register(new LivingFallEventHandler());
+	    MinecraftForge.EVENT_BUS.register(new WorldLoadEventHandler());
 	}
 }

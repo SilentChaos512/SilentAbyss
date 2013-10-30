@@ -1,6 +1,10 @@
 package silentAbyss.core.proxy;
 
-import silentAbyss.core.handlers.ServerTickHandler;
+import silentAbyss.core.handlers.tick.PlayerClientServerTickHandler;
+import silentAbyss.core.handlers.tick.PlayerServerScheduledTickHandler;
+import silentAbyss.core.handlers.tick.PlayerServerTickHandler;
+import silentAbyss.core.handlers.tick.ServerTickHandler;
+import silentAbyss.core.handlers.tick.WorldScheduledTickHandler;
 import silentAbyss.tileentity.TileEntityAbyssTeleporter;
 import silentAbyss.tileentity.TileEntitySigilInfuser;
 import silentAbyss.tileentity.TileTest;
@@ -14,9 +18,13 @@ public class CommonProxy {
 
 	public void registerRenderers() {}
 	
-	public void registerServerTickHandler() {
+	public void registerTickHandlers() {
 		
-		TickRegistry.registerTickHandler(new ServerTickHandler(), Side.SERVER);
+		//TickRegistry.registerTickHandler(new ServerTickHandler(), Side.SERVER);
+		TickRegistry.registerTickHandler(new PlayerServerTickHandler(), Side.SERVER);
+		TickRegistry.registerTickHandler(new PlayerClientServerTickHandler(), Side.SERVER);
+		TickRegistry.registerScheduledTickHandler(new PlayerServerScheduledTickHandler(), Side.SERVER);
+		TickRegistry.registerScheduledTickHandler(new WorldScheduledTickHandler(), Side.SERVER);
 	}
 	
 	public void registerTileEntities() {

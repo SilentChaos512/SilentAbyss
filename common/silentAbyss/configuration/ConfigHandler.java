@@ -3,7 +3,7 @@ package silentAbyss.configuration;
 import java.io.File;
 import java.util.logging.Level;
 
-import silentAbyss.core.handlers.ServerTickHandler;
+import silentAbyss.core.handlers.tick.ServerTickHandler;
 import silentAbyss.lib.BlockIds;
 import silentAbyss.lib.EnchantmentIds;
 import silentAbyss.lib.ItemIds;
@@ -78,6 +78,7 @@ public class ConfigHandler {
 			Config.CHAOS_COST_ABYSS_TELEPORTER = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_COST_ABYSS_TELEPORTER_CONFIGNAME, Config.CHAOS_COST_ABYSS_TELEPORTER_DEFAULT);
 			Config.CHAOS_COST_SIGIL = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_COST_SIGIL_CONFIGNAME, Config.CHAOS_COST_SIGIL_DEFAULT);
 			Config.CHAOS_COST_SIGIL_SCEPTER = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_COST_SIGIL_SCEPTER_CONFIGNAME, Config.CHAOS_COST_SIGIL_SCEPTER_DEFAULT);
+			Config.CHAOS_COST_PERSONAL_ELEVATION_DEVICE = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_COST_PERSONAL_ELEVATION_DEVICE_CONFIGNAME, Config.CHAOS_COST_PERSONAL_ELEVATION_DEVICE_DEFAULT);
 			Config.CHAOS_COST_MENDING = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_COST_MENDING_CONFIGNAME, Config.CHAOS_COST_MENDING_DEFAULT);
 			Config.CHAOS_COST_NIHIL = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_COST_NIHIL_CONFIGNAME, Config.CHAOS_COST_NIHIL_DEFAULT);
 			
@@ -112,6 +113,7 @@ public class ConfigHandler {
 			ItemIds.ABYSS_SIGIL = c.getItem(Strings.ABYSS_SIGIL_NAME, ItemIds.ABYSS_SIGIL_DEFAULT).getInt(ItemIds.ABYSS_SIGIL_DEFAULT);
 			ItemIds.SIGIL_STONE = c.getItem(Strings.SIGIL_STONE_NAME, ItemIds.SIGIL_STONE_DEFAULT).getInt(ItemIds.SIGIL_STONE_DEFAULT);
 			ItemIds.SIGIL_SCEPTER = c.getItem(Strings.SIGIL_SCEPTER_NAME, ItemIds.SIGIL_SCEPTER_DEFAULT).getInt(ItemIds.SIGIL_SCEPTER_DEFAULT);
+			ItemIds.PERSONAL_ELEVATION_DEVICE = getItemId(Strings.PERSONAL_ELEVATION_DEVICE_NAME, ItemIds.PERSONAL_ELEVATION_DEVICE_DEFAULT);
 			ItemIds.TOOL_START = c.getItem("tool_start_id", ItemIds.TOOL_START_DEFAULT, "Abyss tools require a total of 40 ids.").getInt(ItemIds.TOOL_START_DEFAULT);
 			
 			// Enchantment property configs

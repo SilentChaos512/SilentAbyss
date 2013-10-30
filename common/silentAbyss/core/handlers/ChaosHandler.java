@@ -15,9 +15,12 @@ public class ChaosHandler {
 
 	private static AbyssWorldData worldData = null;
 	
+	public static boolean initialized = false;
+	
 	public static void init(World world) {
 		
 		worldData = AbyssWorldData.forWorld(world);
+		initialized = true;
 	}
 	
 	public static void doWorldTick(World world) {
@@ -60,4 +63,5 @@ public class ChaosHandler {
 		double d = (double)getChaos() / baseChaos;
 		return d * d;
 	}
+	
 }
