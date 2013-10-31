@@ -145,7 +145,7 @@ public class Config {
 	 * World structure config settings
 	 */
 	public static int STRUCTURE_SHRINE_RARITY;
-	public static final int STRUCTURE_SHRINE_RARITY_DEFAULT = 128;
+	public static final int STRUCTURE_SHRINE_RARITY_DEFAULT = 256;
 	public static final String STRUCTURE_SHRINE_RARITY_CONFIGNAME = "World.ShrineRarity";
 	
 }

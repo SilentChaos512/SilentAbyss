@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 import silentAbyss.item.AbyssGem;
 import silentAbyss.item.ModItems;
 import silentAbyss.lib.Reference;
+import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -88,5 +89,15 @@ public class AbyssOre extends BlockOre {
             int j1 = 1 + par1World.rand.nextInt(5);
             this.dropXpOnBlockBreak(par1World, par2, par3, par4, j1);
         }
+    }
+	
+	@Override
+    public String getUnlocalizedName() {
+        
+        StringBuilder s = new StringBuilder();
+        s.append("tile.");
+        s.append(Strings.RESOURCE_PREFIX);
+        s.append("ore");
+        return s.toString();
     }
 }

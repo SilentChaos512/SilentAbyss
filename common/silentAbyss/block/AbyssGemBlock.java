@@ -6,6 +6,7 @@ import java.util.List;
 import silentAbyss.item.AbyssGem;
 import silentAbyss.item.ModItems;
 import silentAbyss.lib.Reference;
+import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -77,6 +78,16 @@ public class AbyssGemBlock extends BlockOreStorage {
 		
 		return par1;
 	}
+	
+	@Override
+    public String getUnlocalizedName() {
+	    
+        StringBuilder s = new StringBuilder();
+        s.append("tile.");
+        s.append(Strings.RESOURCE_PREFIX);
+        s.append("gem");
+        return s.toString();
+    }
 	
 	public static void addRecipes() {
 	    
