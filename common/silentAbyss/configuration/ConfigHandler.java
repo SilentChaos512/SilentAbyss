@@ -36,24 +36,34 @@ public class ConfigHandler {
 		try {
 			c.load();
 			
-			// Misc configs
+			/*
+			 * Misc configs.
+			 */
 			Config.SHARDS_PER_GEM = getGeneralInt(CATEGORY_ITEM_PROPERTIES, Config.SHARDS_PER_GEM_CONFIGNAME, Config.SHARDS_PER_GEM_DEFAULT,
 					"Can be 4 or 9. Default " + Config.SHARDS_PER_GEM_DEFAULT + ".");
 			if (Config.SHARDS_PER_GEM != 9) Config.SHARDS_PER_GEM = 4;
 			
-			// Graphic configs
+			/*
+			 * Graphic configs.
+			 */
 			// nothing... yet
 			
-			// Audio configs
+			/*
+			 * Audio configs.
+			 */
 			Config.ENABLE_SOUNDS = c.get(CATEGORY_AUDIO, Config.ENABLE_SOUNDS_CONFIGNAME, Config.ENABLE_SOUNDS_DEFAULT).getString();
 			
-			// Sigil configs
+			/*
+			 * Sigil configs.
+			 */
 			Config.SIGIL_BASE_BREAK_CHANCE = c.get(CATEGORY_ITEM_PROPERTIES, Config.SIGIL_BASE_BREAK_CHANCE_CONFIGNAME, Config.SIGIL_BASE_BREAK_CHANCE_DEFAULT).getInt();
 			Config.SIGIL_BASE_USE_DURATION = c.get(CATEGORY_ITEM_PROPERTIES, Config.SIGIL_BASE_USE_DURATION_CONFIGNAME, Config.SIGIL_BASE_USE_DURATION_DEFAULT).getInt();
 			Config.SIGIL_BASE_PROJECTILE_DAMAGE = c.get(CATEGORY_ITEM_PROPERTIES, Config.SIGIL_BASE_PROJECTILE_DAMAGE_CONFIGNAME, Config.SIGIL_BASE_PROJECTILE_DAMAGE_DEFAULT).getInt();
 			Config.SIGIL_BASE_SUPPORT_DURATION = c.get(CATEGORY_ITEM_PROPERTIES, Config.SIGIL_BASE_SUPPORT_DURATION_CONFIGNAME, Config.SIGIL_BASE_SUPPORT_DURATION_DEFAULT).getInt();
 			
-			// World generation configs
+			/*
+			 * World generation configs
+			 */
 			Config.WORLD_ABYSS_GEM_CLUSTER_COUNT = c.get(CATEGORY_WORLD_GEN, Config.WORLD_ABYSS_GEM_CLUSTER_COUNT_CONFIGNAME, Config.WORLD_ABYSS_GEM_CLUSTER_COUNT_DEFAULT).getInt();
 			Config.WORLD_ABYSS_GEM_CLUSTER_SIZE = c.get(CATEGORY_WORLD_GEN, Config.WORLD_ABYSS_GEM_CLUSTER_SIZE_CONFIGNAME, Config.WORLD_ABYSS_GEM_CLUSTER_SIZE_DEFAULT).getInt();
 			Config.WORLD_ABYSS_GEM_MAX_HEIGHT = c.get(CATEGORY_WORLD_GEN, Config.WORLD_ABYSS_GEM_MAX_HEIGHT_CONFIGNAME, Config.WORLD_ABYSS_GEM_MAX_HEIGHT_DEFAULT).getInt();
@@ -64,17 +74,23 @@ public class ConfigHandler {
 			Config.WORLD_PURITE_CLUSTER_SIZE = getGeneralInt(CATEGORY_WORLD_GEN, Config.WORLD_PURITE_CLUSTER_SIZE_CONFIGNAME, Config.WORLD_PURITE_CLUSTER_SIZE_DEFAULT);
 			Config.WORLD_PURITE_MAX_HEIGHT = getGeneralInt(CATEGORY_WORLD_GEN, Config.WORLD_PURITE_MAX_HEIGHT_CONFIGNAME, Config.WORLD_PURITE_MAX_HEIGHT_DEFAULT);
 			
-			// World structure configs
+			/*
+			 * World structure configs.
+			 */
 			Config.STRUCTURE_SHRINE_RARITY = getGeneralInt(CATEGORY_WORLD_STRUCTURE, Config.STRUCTURE_SHRINE_RARITY_CONFIGNAME, Config.STRUCTURE_SHRINE_RARITY_DEFAULT,
 					"The higher the number, the rarer the structure.");
 			
-			// Chaos configs
+			/*
+			 * Chaos configs.
+			 */
 			Config.CHAOS_PER_WORLD_TICK = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_PER_WORLD_TICK_CONFIGNAME, Config.CHAOS_PER_WORLD_TICK_DEFAULT,
 					"Amount of chaos added/subtracted every " + ServerTickHandler.baseWorldTickRate + " server ticks.");
 			Config.CHAOS_MAX_AMBIENT = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_MAX_AMBIENT_CONFIGNAME, Config.CHAOS_MAX_AMBIENT_DEFAULT,
 					"Maximum chaos that can accumulate from world ticks alone.");
 			
-			// Chaos cost configs
+			/*
+			 * Chaos cost configs
+			 */
 			Config.CHAOS_COST_ABYSS_TELEPORTER = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_COST_ABYSS_TELEPORTER_CONFIGNAME, Config.CHAOS_COST_ABYSS_TELEPORTER_DEFAULT);
 			Config.CHAOS_COST_SIGIL = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_COST_SIGIL_CONFIGNAME, Config.CHAOS_COST_SIGIL_DEFAULT);
 			Config.CHAOS_COST_SIGIL_SCEPTER = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_COST_SIGIL_SCEPTER_CONFIGNAME, Config.CHAOS_COST_SIGIL_SCEPTER_DEFAULT);
@@ -82,7 +98,9 @@ public class ConfigHandler {
 			Config.CHAOS_COST_MENDING = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_COST_MENDING_CONFIGNAME, Config.CHAOS_COST_MENDING_DEFAULT);
 			Config.CHAOS_COST_NIHIL = getGeneralInt(CATEGORY_WORLD_CHAOS, Config.CHAOS_COST_NIHIL_CONFIGNAME, Config.CHAOS_COST_NIHIL_DEFAULT);
 			
-			// Chaos event configs
+			/*
+			 * Chaos event configs
+			 */
 			Config.METEOR_SHOWER_RARITY = getGeneralInt(CATEGORY_WORLD_CHAOS_EVENT, Config.METEOR_SHOWER_RARITY_CONFIGNAME, Config.METEOR_SHOWER_RARITY_DEFAULT,
 					"Average number of seconds between meteor showers. Higher number = less common.");
 			Config.METEOR_SHOWER_COUNT = getGeneralInt(CATEGORY_WORLD_CHAOS_EVENT, Config.METEOR_SHOWER_COUNT_CONFIGNAME, Config.METEOR_SHOWER_COUNT_DEFAULT,
@@ -94,7 +112,9 @@ public class ConfigHandler {
 			Config.METEOR_SHOWER_WARNING_DURATION = getGeneralInt(CATEGORY_WORLD_CHAOS_EVENT, Config.METEOR_SHOWER_WARNING_DURATION_CONFIGNAME, Config.METEOR_SHOWER_WARNING_DURATION_DEFAULT,
 					"The amount of time between the warning message and shower start.");
 			
-			// Block property configs
+			/*
+			 * Block property configs.
+			 */
 			BlockIds.ABYSS_GEM_ORE = c.getBlock(Strings.ABYSS_GEM_ORE_NAME, BlockIds.ABYSS_GEM_ORE_DEFAULT).getInt(BlockIds.ABYSS_GEM_ORE_DEFAULT);
 			BlockIds.ABYSS_GEM_BLOCK = c.getBlock(Strings.ABYSS_GEM_BLOCK_NAME, BlockIds.ABYSS_GEM_BLOCK_DEFAULT).getInt(BlockIds.ABYSS_GEM_BLOCK_DEFAULT);
 			BlockIds.ABYSS_TELEPORTER = c.getBlock(Strings.ABYSS_TELEPORTER_NAME, BlockIds.ABYSS_TELEPORTER_DEFAULT).getInt(BlockIds.ABYSS_TELEPORTER_DEFAULT);
@@ -103,7 +123,9 @@ public class ConfigHandler {
 			BlockIds.BRICK_SLAB = getBlockId(Strings.BRICK_SLAB_NAME, BlockIds.BRICK_SLAB_DEFAULT);
 			BlockIds.TEST_BLOCK = c.getBlock(Strings.TEST_BLOCK_NAME, BlockIds.TEST_BLOCK_DEFAULT).getInt(BlockIds.TEST_BLOCK_DEFAULT);
 			
-			// Item property configs
+			/*
+			 * Item property configs.
+			 */
 			ItemIds.ABYSS_GEM = c.getItem(Strings.ABYSS_GEM_NAME, ItemIds.ABYSS_GEM_DEFAULT).getInt(ItemIds.ABYSS_GEM_DEFAULT);
 			ItemIds.ABYSS_SHARD = getItemId(Strings.ABYSS_SHARD_NAME, ItemIds.ABYSS_SHARD_DEFAULT);
 			ItemIds.CRAFTING_MATERIAL = getItemId(Strings.CRAFTING_MATERIAL_NAME, ItemIds.CRAFTING_MATERIAL_DEFAULT,
@@ -114,9 +136,12 @@ public class ConfigHandler {
 			ItemIds.SIGIL_STONE = c.getItem(Strings.SIGIL_STONE_NAME, ItemIds.SIGIL_STONE_DEFAULT).getInt(ItemIds.SIGIL_STONE_DEFAULT);
 			ItemIds.SIGIL_SCEPTER = c.getItem(Strings.SIGIL_SCEPTER_NAME, ItemIds.SIGIL_SCEPTER_DEFAULT).getInt(ItemIds.SIGIL_SCEPTER_DEFAULT);
 			ItemIds.PERSONAL_ELEVATION_DEVICE = getItemId(Strings.PERSONAL_ELEVATION_DEVICE_NAME, ItemIds.PERSONAL_ELEVATION_DEVICE_DEFAULT);
+			ItemIds.MOD_BOOK = getItemId(Strings.MOD_BOOK_NAME, ItemIds.MOD_BOOK_DEFAULT);
 			ItemIds.TOOL_START = c.getItem("tool_start_id", ItemIds.TOOL_START_DEFAULT, "Abyss tools require a total of 40 ids.").getInt(ItemIds.TOOL_START_DEFAULT);
 			
-			// Enchantment property configs
+			/*
+			 * Enchantment property configs.
+			 */
 			EnchantmentIds.MENDING = getEnchantmentId(Strings.MENDING_NAME, EnchantmentIds.MENDING_DEFAULT);
 			EnchantmentIds.NIHIL = getEnchantmentId(Strings.NIHIL_NAME, EnchantmentIds.NIHIL_DEFAULT);
 			EnchantmentIds.ICE_ASPECT = getEnchantmentId(Strings.ICE_ASPECT_NAME, EnchantmentIds.ICE_ASPECT_DEFAULT);

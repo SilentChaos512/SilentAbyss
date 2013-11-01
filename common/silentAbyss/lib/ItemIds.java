@@ -13,6 +13,7 @@ public class ItemIds {
 	public static int SIGIL_SCEPTER_DEFAULT = 6023;
 	public static int TOOL_START_DEFAULT = 6060;
 	public static int PERSONAL_ELEVATION_DEVICE_DEFAULT = 6030;
+	public static int MOD_BOOK_DEFAULT = 6040;
 	
 	// Current item ids
 	public static int ABYSS_GEM;
@@ -25,4 +26,5 @@ public class ItemIds {
 	public static int SIGIL_SCEPTER;
 	public static int TOOL_START;
 	public static int PERSONAL_ELEVATION_DEVICE;
+	public static int MOD_BOOK;
 }

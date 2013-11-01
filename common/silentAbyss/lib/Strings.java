@@ -6,6 +6,7 @@ public class Strings {
 	 * General keys
 	 */
 	public final static String SHRINE_CHEST = "abyssShrine";
+	public final static String BOOK_LOCATION = "books/";
 	
 	/*
 	 * Messages
@@ -53,6 +54,7 @@ public class Strings {
 	public final static String SIGIL_STONE_NAME = "abyssSigilStone";
 	public final static String SIGIL_SCEPTER_NAME = "sigilScepter";
 	public final static String PERSONAL_ELEVATION_DEVICE_NAME = "personalElevationDevice";
+	public final static String MOD_BOOK_NAME = "abyssBooks";
 
 	public final static String SWORD_RUBY_NAME = "swordAbyssRuby";
 	public final static String SWORD_EMERALD_NAME = "swordAbyssEmerald";

@@ -58,6 +58,8 @@ item.silentabyss:sigilScepterEmerald.name=Emerald Sigil Scepter
 item.silentabyss:sigilScepterSapphire.name=Sapphire Sigil Scepter
 item.silentabyss:sigilScepterTopaz.name=Topaz Sigil Scepter
 item.silentabyss:personalElevationDevice.name=Personal Elevation Device
+item.silentabyss:book.0.name=An Attempt to Explain Sigils
+item.silentabyss:book.1.name=Chaos and You
 
 # Tool localization
 
