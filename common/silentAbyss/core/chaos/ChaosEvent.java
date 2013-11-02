@@ -1,16 +1,17 @@
 package silentAbyss.core.chaos;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public abstract class ChaosEvent {
 	
-	protected World worldObj;
+	public EntityPlayer player;
 	protected int posX, posY, posZ;
 	protected boolean active = true;
 
-	public ChaosEvent(World world, int x, int y, int z, Object... params) {
+	public ChaosEvent(EntityPlayer player, int x, int y, int z, Object... params) {
 		
-		worldObj = world;
+		this.player = player;
 		posX = x;
 		posY = y;
 		posZ = z;
@@ -19,6 +20,12 @@ public abstract class ChaosEvent {
 	public boolean isActive() {
 		
 		return active;
+	}
+	
+	public void updatePosition(int x, int y, int z) {
+	    posX = x;
+	    posY = y;
+	    posZ = z;
 	}
 	
 	public abstract void doTick();

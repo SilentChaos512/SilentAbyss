@@ -1,12 +1,8 @@
 package silentAbyss.core.chaos;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
-import silentAbyss.core.util.LogHelper;
+import net.minecraft.entity.player.EntityPlayer;
 
 public class ChaosEventCollection {
 	
@@ -17,7 +13,7 @@ public class ChaosEventCollection {
 		events.add(e);
 	}
 	
-	public void doTick() {
+	public void doTick(EntityPlayer player) {
 		
 		// Remove all inactive events
 		ArrayList<ChaosEvent> deadEvents = new ArrayList<ChaosEvent>();
@@ -31,7 +27,10 @@ public class ChaosEventCollection {
 		
 		// Tick each event.
 		for (ChaosEvent e : events) {
-			e.doTick();
+		    if (player.equals(e.player)) {
+		        e.updatePosition((int)player.posX, (int)player.posY, (int)player.posZ);
+		        e.doTick();
+		    }
 		}
 	}
 }

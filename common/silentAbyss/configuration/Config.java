@@ -91,7 +91,7 @@ public class Config {
 	public static final String METEOR_SHOWER_COUNT_CONFIGNAME = "Chaos.Event.Meteor.Count";
 	
 	public static int METEOR_SHOWER_RADIUS;
-	public static final int METEOR_SHOWER_RADIUS_DEFAULT = 64;
+	public static final int METEOR_SHOWER_RADIUS_DEFAULT = 32;
 	public static final String METEOR_SHOWER_RADIUS_CONFIGNAME = "Chaos.Event.Meteor.Radius";
 	
 	public static int METEOR_SHOWER_DURATION;
