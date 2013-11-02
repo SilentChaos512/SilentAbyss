@@ -1,6 +1,5 @@
 package silentAbyss.entity.monster;
 
-import silentAbyss.core.util.LogHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -12,10 +11,18 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import silentAbyss.core.util.LogHelper;
+import silentAbyss.item.AbyssGem;
+import silentAbyss.item.GemShard;
+import silentAbyss.lib.Reference;
 
 public class EntityGrumbling extends EntityMob {
+    
+    public final static int DROP_FEATHER_RARITY = 3;
+    public final static int DROP_SHARD_RARITY = 4;
 	
 	public final static double MAX_HEALTH = 8.0;
 	public final static double MOVEMENT_SPEED = 0.3;
@@ -50,9 +57,24 @@ public class EntityGrumbling extends EntityMob {
     
     @Override
     protected void dropFewItems(boolean hitByPlayer, int lootingLevel) {
+
+        int i, numItems;
         
-        // TODO: EntityGrumbling.dropFewItems
-        return;
+        // Feathers
+        if (this.rand.nextInt(DROP_FEATHER_RARITY) == 0) {
+            numItems = this.rand.nextInt(2 + lootingLevel) + 1;
+            for (i = 0; i < numItems; ++i) {
+                this.dropItem(Item.feather.itemID, 1);
+            }
+        }
+        // Shards
+        if (hitByPlayer && this.rand.nextInt(DROP_SHARD_RARITY) == 0) {
+            numItems = this.rand.nextInt(1 + lootingLevel) + 1;
+            int gemType = this.rand.nextInt(Reference.GEM_TYPE_COUNT);
+            for (i = 0; i < numItems; ++i) {
+                this.entityDropItem(GemShard.getGem(gemType), 1);
+            }
+        }
     }
     
     @Override
@@ -65,6 +87,10 @@ public class EntityGrumbling extends EntityMob {
     @Override
     protected void attackEntity(Entity entity, float distance) {
     	
+        /*
+         * Copied from EntitySpider. I think this code makes spiders leap when attacking,
+         * but it doesn't seem to do anything here.
+         */
     	if (distance > 2.0f && distance < 6.0f) {
     		
     		if (this.onGround) {
@@ -82,5 +108,23 @@ public class EntityGrumbling extends EntityMob {
     		
     		super.attackEntity(entity, distance);
     	}
+    }
+    
+    @Override
+    protected String getLivingSound() {
+        
+        return "mob.villager.idle";
+    }
+    
+    @Override
+    protected String getHurtSound() {
+        
+        return "mob.villager.hit";
+    }
+    
+    @Override
+    protected String getDeathSound() {
+        
+        return "mob.villager.death";
     }
 }
