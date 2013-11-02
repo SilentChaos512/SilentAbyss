@@ -121,12 +121,12 @@ public class ModBook extends ItemWritableBook {
                 tags.setString("title", "An Attempt to Explain Sigils");
                 tags.setString("author", "SilentChaos512");
                 NBTTagList pages = new NBTTagList();
-                pages.appendTag(new NBTTagString("1", "§nAbyss Sigils§r\n\nSigils are powerful magical items. They can light enemies on fire, heal you, and teleport you home. Or any combination of those things and more."));
-                pages.appendTag(new NBTTagString("2", "§nCrafting§r\n\nYou will need a Sigil Infuser and some Sigil Stones. Place non-empty Sigil Stones into the Sigil Infuser to craft Abyss Sigils. The order of the Sigil Stones determines the effects (see Grammar)."));
-                pages.appendTag(new NBTTagString("3", "§nSigil Stones§r\n\nSigil Stones are the \"words\" that describe a Sigil. Up to four are allowed per Sigil. Multiple \"effect\" words are allowed on one Sigil. \"Modifiers\" are applied to the first effect that follows them."));
-                pages.appendTag(new NBTTagString("4", "§nGrammar§r\n\nSigil Stones can be divided into two rough categories: Effects (nouns) and Modifiers (adjectives)\nEffects describe what happens when a Sigil is used."));
+                pages.appendTag(new NBTTagString("1", "\u00a7nAbyss Sigils\u00a7r\n\nSigils are powerful magical items. They can light enemies on fire, heal you, and teleport you home. Or any combination of those things and more."));
+                pages.appendTag(new NBTTagString("2", "\u00a7nCrafting\u00a7r\n\nYou will need a Sigil Infuser and some Sigil Stones. Place non-empty Sigil Stones into the Sigil Infuser to craft Abyss Sigils. The order of the Sigil Stones determines the effects (see Grammar)."));
+                pages.appendTag(new NBTTagString("3", "\u00a7nSigil Stones\u00a7r\n\nSigil Stones are the \"words\" that describe a Sigil. Up to four are allowed per Sigil. Multiple \"effect\" words are allowed on one Sigil. \"Modifiers\" are applied to the first effect that follows them."));
+                pages.appendTag(new NBTTagString("4", "\u00a7nGrammar\u00a7r\n\nSigil Stones can be divided into two rough categories: Effects (nouns) and Modifiers (adjectives)\nEffects describe what happens when a Sigil is used."));
                 pages.appendTag(new NBTTagString("5", "Not all effects accept all modifiers. For example, \"Pink Teleport\" makes no sense, so the \"Pink\" word will be ignored. Nonsense modifiers have no ill effects, so feel free to color-code teleports if you need to."));
-                pages.appendTag(new NBTTagString("6", "§nExamples§r\n\nRed Amplify Amplify Fireball: Shoots a red fireball that does 100% extra damage.\nSpeed Remedy Healing Teleport: Removes potion effects (such as poison), heals 3 hearts, teleports you home, and takes less time to use."));
+                pages.appendTag(new NBTTagString("6", "\u00a7nExamples\u00a7r\n\nRed Amplify Amplify Fireball: Shoots a red fireball that does 100% extra damage.\nSpeed Remedy Healing Teleport: Removes potion effects (such as poison), heals 3 hearts, teleports you home, and takes less time to use."));
                 tags.setTag("pages", pages);
                 return tags;
             }
@@ -135,10 +135,10 @@ public class ModBook extends ItemWritableBook {
                 tags.setString("title", "Chaos and You");
                 tags.setString("author", "SilentChaos512");
                 NBTTagList pages = new NBTTagList();
-                pages.appendTag(new NBTTagString("1", "§nChaos§r\n\nChaos is a mysterious force that governs unpredictable (and often dangerous) events (Chaos Events)."));
-                pages.appendTag(new NBTTagString("2", "§nChaos Level§r\n\nThe chaos level is the sum of chaos energy in the world. It will slowly rise if below a certain level, and slowly fall if above that level. Also, using certain artifacts can alter the chaos level."));
-                pages.appendTag(new NBTTagString("3", "§nChaos Factor§r\n\nThe chaos factor rises exponentially with the chaos level. The higher the chaos factor, the higher the chance of chaos events occuring."));
-                pages.appendTag(new NBTTagString("4", "§nChaos Events§r\n\nSometimes chaos will cause strange events, called chaos events. These include meteor showers and strange creatures appearing. Walls and roofs are good defenses against many chaos events."));
+                pages.appendTag(new NBTTagString("1", "\u00a7nChaos\u00a7r\n\nChaos is a mysterious force that governs unpredictable (and often dangerous) events (Chaos Events)."));
+                pages.appendTag(new NBTTagString("2", "\u00a7nChaos Level\u00a7r\n\nThe chaos level is the sum of chaos energy in the world. It will slowly rise if below a certain level, and slowly fall if above that level. Also, using certain artifacts can alter the chaos level."));
+                pages.appendTag(new NBTTagString("3", "\u00a7nChaos Factor\u00a7r\n\nThe chaos factor rises exponentially with the chaos level. The higher the chaos factor, the higher the chance of chaos events occuring."));
+                pages.appendTag(new NBTTagString("4", "\u00a7nChaos Events\u00a7r\n\nSometimes chaos will cause strange events, called chaos events. These include meteor showers and strange creatures appearing. Walls and roofs are good defenses against many chaos events."));
                 tags.setTag("pages", pages);
                 return tags;
             }
