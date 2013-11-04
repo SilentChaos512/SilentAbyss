@@ -9,6 +9,10 @@ public class Config {
 	public static final int SHARDS_PER_GEM_DEFAULT = 9;
 	public static final String SHARDS_PER_GEM_CONFIGNAME = "ShardsPerGem";
 	
+	public static boolean PED_CREATIVE_FLIGHT;
+	public static boolean PED_CREATIVE_FLIGHT_DEFAULT = false;
+	public static final String PED_CREATIVE_FLIGHT_CONFIGNAME = "PersonalElevationDevice.CreativeFlight";
+	
 	/*
 	 * Graphic config settings
 	 */

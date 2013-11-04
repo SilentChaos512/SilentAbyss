@@ -32,6 +32,7 @@ public class ConfigHandler {
     
     public static void init(File file) {
 		c = new Configuration(file);
+		int k;
 		
 		try {
 			c.load();
@@ -42,6 +43,11 @@ public class ConfigHandler {
 			Config.SHARDS_PER_GEM = getGeneralInt(CATEGORY_ITEM_PROPERTIES, Config.SHARDS_PER_GEM_CONFIGNAME, Config.SHARDS_PER_GEM_DEFAULT,
 					"Can be 4 or 9. Default " + Config.SHARDS_PER_GEM_DEFAULT + ".");
 			if (Config.SHARDS_PER_GEM != 9) Config.SHARDS_PER_GEM = 4;
+			
+			k = Config.PED_CREATIVE_FLIGHT_DEFAULT == true ? 1 : 0;
+			k = getGeneralInt(CATEGORY_ITEM_PROPERTIES, Config.PED_CREATIVE_FLIGHT_CONFIGNAME, k,
+			        "1=PED flies like creative; 0=PED flies like jetpack. Creative flight may interfere with other mods. Default 0.");
+			Config.PED_CREATIVE_FLIGHT = k == 1;
 			
 			/*
 			 * Graphic configs.

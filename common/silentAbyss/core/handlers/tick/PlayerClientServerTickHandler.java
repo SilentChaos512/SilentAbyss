@@ -2,7 +2,10 @@ package silentAbyss.core.handlers.tick;
 
 import java.util.EnumSet;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
+import silentAbyss.configuration.Config;
+import silentAbyss.item.ModItems;
 import silentAbyss.item.armor.PersonalElevationDevice;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.ITickHandler;
@@ -21,19 +24,21 @@ public class PlayerClientServerTickHandler implements ITickHandler {
     private void personalElevationDeviceTick(EntityPlayer player) {
         
         // Personal Elevation Device
-        if (PersonalElevationDevice.playerHasEquipped(player) && player.ridingEntity == null) {
-            player.capabilities.allowFlying = true;
+        if (Config.PED_CREATIVE_FLIGHT) {
+            if (PersonalElevationDevice.playerHasEquipped(player) && player.ridingEntity == null) {
+                player.capabilities.allowFlying = true;
+            }
+            else if (!player.capabilities.isCreativeMode) {
+                player.capabilities.allowFlying = false;
+            }
         }
-        else if (!player.capabilities.isCreativeMode) {
-            player.capabilities.allowFlying = false;
+        else {
+            if (PersonalElevationDevice.playerHasEquipped(player) && Minecraft.getMinecraft().gameSettings.keyBindJump.pressed) {
+                if (player.motionY < 0.4) {
+                    player.motionY += 0.15;
+                }
+            }
         }
-        
-//        if (player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].itemID == ModItems.personalElevationDevice.itemID &&
-//                Minecraft.getMinecraft().gameSettings.keyBindJump.pressed) {
-//            if (player.motionY < 0.4) {
-//                player.motionY += 0.15;
-//            }
-//        }
     }
 
     @Override
