@@ -25,18 +25,18 @@ public class RenderTickHandler implements ITickHandler {
     private void drawHUD() {
 
         // Shows the current chaos level/factor
-        ScaledResolution res = new ScaledResolution(Minecraft.getMinecraft().gameSettings,
-                Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
-        FontRenderer fontRender = Minecraft.getMinecraft().fontRenderer;
-        Minecraft.getMinecraft().entityRenderer.setupOverlayRendering();
-        
-        StringBuilder s = new StringBuilder();
-        s.append(ChaosHandler.getChaos());
-        s.append(" (");
-        s.append(String.format("%.3f", ChaosHandler.getChaosFactor()));
-        s.append(")");
-        
-        fontRender.drawStringWithShadow(s.toString(), 100, 200, 0xFFFFFF);
+//        ScaledResolution res = new ScaledResolution(Minecraft.getMinecraft().gameSettings,
+//                Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
+//        FontRenderer fontRender = Minecraft.getMinecraft().fontRenderer;
+//        Minecraft.getMinecraft().entityRenderer.setupOverlayRendering();
+//        
+//        StringBuilder s = new StringBuilder();
+//        s.append(ChaosHandler.getChaos());
+//        s.append(" (");
+//        s.append(String.format("%.3f", ChaosHandler.getChaosFactor()));
+//        s.append(")");
+//        
+//        fontRender.drawStringWithShadow(s.toString(), 100, 200, 0xFFFFFF);
     }
 
     @Override

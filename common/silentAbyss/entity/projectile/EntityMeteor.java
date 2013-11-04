@@ -18,6 +18,11 @@ public class EntityMeteor extends EntityLargeFireball {
 		
 		super(world, x, y, z, 0, -1, 0);
 	}
+	
+	public EntityMeteor(World world, double x, double y, double z, double par5, double par6, double par7) {
+	    
+	    super(world, x, y, z, par5, par6, par7);
+	}
 
 	@Override
 	protected void onImpact(MovingObjectPosition mop) {
