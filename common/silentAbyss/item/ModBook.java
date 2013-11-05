@@ -86,8 +86,7 @@ public class ModBook extends ItemWritableBook {
         if (stack.getItemDamage() < books.length && books[stack.getItemDamage()].hasKey("author")) {
             list.add("by " + books[stack.getItemDamage()].getString("author"));
         } else {
-            LogHelper.severe("ModBook with damage value " + stack.getItemDamage()
-                    + " is missing its NBT data!");
+            LogHelper.severe("ModBook with damage value " + stack.getItemDamage() + " is missing its NBT data!");
             list.add("(book data missing!)");
         }
     }
@@ -101,11 +100,9 @@ public class ModBook extends ItemWritableBook {
 
     public static void addRecipes() {
 
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.book, 1, 0), Item.book,
-                ModItems.sigilStone);
+        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.book, 1, 0), Item.book, ModItems.sigilStone);
         for (int i = 0; i < AbyssGem.names.length; ++i) {
-            GameRegistry.addShapelessRecipe(new ItemStack(ModItems.book, 1, 1), Item.book,
-                    new ItemStack(ModItems.abyssGem, 1, i));
+            GameRegistry.addShapelessRecipe(new ItemStack(ModItems.book, 1, 1), Item.book, new ItemStack(ModItems.abyssGem, 1, i));
         }
     }
 
@@ -144,8 +141,7 @@ public class ModBook extends ItemWritableBook {
                 tags.setString("title", "Chaos and You");
                 tags.setString("author", "SilentChaos512");
                 NBTTagList pages = new NBTTagList();
-                pages.appendTag(new NBTTagString(
-                        "1",
+                pages.appendTag(new NBTTagString("1",
                         "\u00a7nChaos\u00a7r\n\nChaos is a mysterious force that governs unpredictable (and often dangerous) events (Chaos Events)."));
                 pages.appendTag(new NBTTagString(
                         "2",

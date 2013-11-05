@@ -1,155 +1,77 @@
 package silentAbyss.configuration;
 
 public class Config {
-	
-	/*
-	 * Misc. config settings
-	 */
-	public static int SHARDS_PER_GEM;
-	public static final int SHARDS_PER_GEM_DEFAULT = 9;
-	public static final String SHARDS_PER_GEM_CONFIGNAME = "ShardsPerGem";
-	
-	public static boolean PED_CREATIVE_FLIGHT;
-	public static boolean PED_CREATIVE_FLIGHT_DEFAULT = false;
-	public static final String PED_CREATIVE_FLIGHT_CONFIGNAME = "PersonalElevationDevice.CreativeFlight";
-	
-	/*
-	 * Graphic config settings
-	 */
-	// nothing... yet
-	
-	/*
-	 * Audio config settings
-	 */
-	public static String ENABLE_SOUNDS;
-	public static final String ENABLE_SOUNDS_CONFIGNAME = "Sounds.Enabled";
-	public static final String ENABLE_SOUNDS_DEFAULT = "all";
-	
-	/*
-	 * Sigil config settings
-	 */
-	public static int SIGIL_BASE_BREAK_CHANCE;
-	public static final int SIGIL_BASE_BREAK_CHANCE_DEFAULT = 50;
-	public static final String SIGIL_BASE_BREAK_CHANCE_CONFIGNAME = "Sigil.BaseBreakChance";
-	
-	public static int SIGIL_BASE_USE_DURATION;
-	public static final int SIGIL_BASE_USE_DURATION_DEFAULT = 30;
-	public static final String SIGIL_BASE_USE_DURATION_CONFIGNAME = "Sigil.BaseUseDuration";
-	
-	public static int SIGIL_BASE_PROJECTILE_DAMAGE;
-	public static final int SIGIL_BASE_PROJECTILE_DAMAGE_DEFAULT = 8;
-	public static final String SIGIL_BASE_PROJECTILE_DAMAGE_CONFIGNAME = "Sigil.BaseProjectileDamage";
-	
-	public static int SIGIL_BASE_SUPPORT_DURATION;
-	public static final int SIGIL_BASE_SUPPORT_DURATION_DEFAULT = 1200;
-	public static final String SIGIL_BASE_SUPPORT_DURATION_CONFIGNAME = "Sigil.BaseSupportDuration";
-	
-	/*
-	 * World chaos config settings
-	 */
-	public static int CHAOS_PER_WORLD_TICK;
-	public static final int CHAOS_PER_WORLD_TICK_DEFAULT = 50;
-	public static final String CHAOS_PER_WORLD_TICK_CONFIGNAME = "Chaos.ChaosPerWorldTick";
-	
-	public static int CHAOS_MAX_AMBIENT;
-	public static final int CHAOS_MAX_AMBIENT_DEFAULT = 10000;
-	public static final String CHAOS_MAX_AMBIENT_CONFIGNAME = "Chaos.MaxAmbientChaos";
-	
-	public static int CHAOS_COST_ABYSS_TELEPORTER;
-	public static final int CHAOS_COST_ABYSS_TELEPORTER_DEFAULT = 100;
-	public static final String CHAOS_COST_ABYSS_TELEPORTER_CONFIGNAME = "Chaos.Cost.AbyssTeleporter";
-	
-	public static int CHAOS_COST_SIGIL;
-	public static final int CHAOS_COST_SIGIL_DEFAULT = 25;
-	public static final String CHAOS_COST_SIGIL_CONFIGNAME = "Chaos.Cost.Sigil";
-	
-	public static int CHAOS_COST_SIGIL_SCEPTER;
-	public static final int CHAOS_COST_SIGIL_SCEPTER_DEFAULT = 50;
-	public static final String CHAOS_COST_SIGIL_SCEPTER_CONFIGNAME = "Chaos.Cost.SigilScepter";
-	
-	public static int CHAOS_COST_PERSONAL_ELEVATION_DEVICE;
-	public static final int CHAOS_COST_PERSONAL_ELEVATION_DEVICE_DEFAULT = 10;
-	public static final String CHAOS_COST_PERSONAL_ELEVATION_DEVICE_CONFIGNAME = "Chaos.Cost.PersonalElevationDevice";
-	
-	public static int CHAOS_COST_MENDING;
-	public static final int CHAOS_COST_MENDING_DEFAULT = 5;
-	public static final String CHAOS_COST_MENDING_CONFIGNAME = "Chaos.Cost.Mending";
-	
-	public static int CHAOS_COST_NIHIL;
-	public static final int CHAOS_COST_NIHIL_DEFAULT = 0;
-	public static final String CHAOS_COST_NIHIL_CONFIGNAME = "Chaos.Cost.Nihil";
-	
-	public static int CHAOS_COST_ICE_ASPECT;
-	public static final int CHAOS_COST_ICE_ASPECT_DEFAULT = 0;
-	public static final String CHAOS_COST_ICE_ASPECT_CONFIGNAME = "Chaos.Cost.IceAspect";
-	
-	/*
-	 * World chaos event config settings
-	 */
-	public static int METEOR_SHOWER_RARITY;
-	public static final int METEOR_SHOWER_RARITY_DEFAULT = 5400;
-	public static final String METEOR_SHOWER_RARITY_CONFIGNAME = "Chaos.Event.Meteor.Rarity";
-	
-	public static int METEOR_SHOWER_COUNT;
-	public static final int METEOR_SHOWER_COUNT_DEFAULT = 64;
-	public static final String METEOR_SHOWER_COUNT_CONFIGNAME = "Chaos.Event.Meteor.Count";
-	
-	public static int METEOR_SHOWER_RADIUS;
-	public static final int METEOR_SHOWER_RADIUS_DEFAULT = 32;
-	public static final String METEOR_SHOWER_RADIUS_CONFIGNAME = "Chaos.Event.Meteor.Radius";
-	
-	public static int METEOR_SHOWER_DURATION;
-	public static final int METEOR_SHOWER_DURATION_DEFAULT = 20;
-	public static final String METEOR_SHOWER_DURATION_CONFIGNAME = "Chaos.Event.Meteor.Duration";
-	
-	public static int METEOR_SHOWER_WARNING_DURATION;
-	public static final int METEOR_SHOWER_WARNING_DURATION_DEFAULT = 10;
-	public static final String METEOR_SHOWER_WARNING_DURATION_CONFIGNAME = "Chaos.Event.Meteor.WarningDuration";
-	
-	/*
-	 * World generation config settings
-	 */
-	public static int WORLD_ABYSS_GEM_CLUSTER_COUNT;
-	public static final int WORLD_ABYSS_GEM_CLUSTER_COUNT_DEFAULT = 4;
-	public static final String WORLD_ABYSS_GEM_CLUSTER_COUNT_CONFIGNAME = "World.AbyssGemClusterCount";
-	
-	public static int WORLD_ABYSS_GEM_CLUSTER_SIZE;
-	public static final int WORLD_ABYSS_GEM_CLUSTER_SIZE_DEFAULT = 8;
-	public static final String WORLD_ABYSS_GEM_CLUSTER_SIZE_CONFIGNAME = "World.AbyssGemClusterSize";
-	
-	public static int WORLD_ABYSS_GEM_MAX_HEIGHT;
-	public static final int WORLD_ABYSS_GEM_MAX_HEIGHT_DEFAULT = 40;
-	public static final String WORLD_ABYSS_GEM_MAX_HEIGHT_CONFIGNAME = "World.AbyssGemMaxHeight";
-	
-	public static int WORLD_ABYSSITE_CLUSTER_COUNT;
-	public static final int WORLD_ABYSSITE_CLUSTER_COUNT_DEFAULT = 1;
-	public static final String WORLD_ABYSSITE_CLUSTER_COUNT_CONFIGNAME = "World.AbyssiteClusterCount";
-	
-	public static int WORLD_ABYSSITE_CLUSTER_SIZE;
-	public static final int WORLD_ABYSSITE_CLUSTER_SIZE_DEFAULT = 8;
-	public static final String WORLD_ABYSSITE_CLUSTER_SIZE_CONFIGNAME = "World.AbyssiteClusterSize";
-	
-	public static int WORLD_ABYSSITE_MAX_HEIGHT;
-	public static final int WORLD_ABYSSITE_MAX_HEIGHT_DEFAULT = 20;
-	public static final String WORLD_ABYSSITE_MAX_HEIGHT_CONFIGNAME = "World.AbyssiteMaxHeight";
-	
-	public static int WORLD_PURITE_CLUSTER_COUNT;
-	public static final int WORLD_PURITE_CLUSTER_COUNT_DEFAULT = 1;
-	public static final String WORLD_PURITE_CLUSTER_COUNT_CONFIGNAME = "World.PuriteClusterCount";
-	
-	public static int WORLD_PURITE_CLUSTER_SIZE;
-	public static final int WORLD_PURITE_CLUSTER_SIZE_DEFAULT = 8;
-	public static final String WORLD_PURITE_CLUSTER_SIZE_CONFIGNAME = "World.PuriteClusterSize";
-	
-	public static int WORLD_PURITE_MAX_HEIGHT;
-	public static final int WORLD_PURITE_MAX_HEIGHT_DEFAULT = 20;
-	public static final String WORLD_PURITE_MAX_HEIGHT_CONFIGNAME = "World.PuriteMaxHeight";
-	
-	/*
-	 * World structure config settings
-	 */
-	public static int STRUCTURE_SHRINE_RARITY;
-	public static final int STRUCTURE_SHRINE_RARITY_DEFAULT = 256;
-	public static final String STRUCTURE_SHRINE_RARITY_CONFIGNAME = "World.ShrineRarity";
-	
+
+    /*
+     * Misc. config settings
+     */
+    public static ConfigOptionInt SHARDS_PER_GEM = new ConfigOptionInt("ShardsPerGem", 9);
+
+    public static boolean PED_CREATIVE_FLIGHT;
+    public static boolean PED_CREATIVE_FLIGHT_DEFAULT = false;
+    public static final String PED_CREATIVE_FLIGHT_CONFIGNAME = "PersonalElevationDevice.CreativeFlight";
+
+    /*
+     * Graphic config settings
+     */
+    // nothing... yet
+
+    /*
+     * Audio config settings
+     */
+    public static ConfigOptionString ENABLE_SOUNDS = new ConfigOptionString("Sounds.Enabled", "all");
+    public static final String[] ENABLE_SOUNDS_VALID_OPTIONS = { "all", "none" };
+
+    /*
+     * Sigil config settings
+     */
+
+    public static ConfigOptionInt SIGIL_BREAK_CHANCE = new ConfigOptionInt("Sigil.BaseBreakChance", 50);
+    public static ConfigOptionInt SIGIL_USE_DURATION = new ConfigOptionInt("Sigil.BaseUseDuration", 30);
+    public static ConfigOptionInt SIGIL_PROJECTILE_DAMAGE = new ConfigOptionInt("Sigil.BaseProjectileDamage", 8);
+    public static ConfigOptionInt SIGIL_SUPPORT_DURATION = new ConfigOptionInt("Sigil.BaseSupportDuration", 1200);
+
+    /*
+     * World chaos config settings
+     */
+
+    public static ConfigOptionInt CHAOS_PER_WORLD_TICK = new ConfigOptionInt("Chaos.ChaosPerWorldTick", 50);
+    public static ConfigOptionInt CHAOS_MAX_AMBIENT = new ConfigOptionInt("Chaos.MaxAmbientChaos", 10000);
+    public static ConfigOptionInt CHAOS_COST_ABYSS_TELEPORTER = new ConfigOptionInt("Chaos.Cost.AbyssTeleporter", 100);
+    public static ConfigOptionInt CHAOS_COST_SIGIL = new ConfigOptionInt("Chaos.Cost.Sigil", 25);
+    public static ConfigOptionInt CHAOS_COST_SIGIL_SCEPTER = new ConfigOptionInt("Chaos.Cost.SigilScepter", 50);
+    public static ConfigOptionInt CHAOS_COST_PERSONAL_ELEVATION_DEVICE = new ConfigOptionInt("Chaos.Cost.PersonalElevationDevice", 5);
+    public static ConfigOptionInt CHAOS_COST_MENDING = new ConfigOptionInt("Chaos.Cost.Mending", 100);
+    public static ConfigOptionInt CHAOS_COST_NIHIL = new ConfigOptionInt("Chaos.Cost.Nihil", 100);
+    public static ConfigOptionInt CHAOS_COST_ICE_ASPECT = new ConfigOptionInt("Chaos.Cost.IceAspect", 100);
+
+    /*
+     * World chaos event config settings
+     */
+
+    public static ConfigOptionInt METEOR_SHOWER_RARITY = new ConfigOptionInt("Chaos.Event.Meteor.Rarity", 5400);
+    public static ConfigOptionInt METEOR_SHOWER_COUNT = new ConfigOptionInt("Chaos.Event.Meteor.Count", 64);
+    public static ConfigOptionInt METEOR_SHOWER_RADIUS = new ConfigOptionInt("Chaos.Event.Meteor.Radius", 32);
+    public static ConfigOptionInt METEOR_SHOWER_DURATION = new ConfigOptionInt("Chaos.Event.Meteor.Duration", 20);
+    public static ConfigOptionInt METEOR_SHOWER_WARNING_DURATION = new ConfigOptionInt("Chaos.Event.Meteor.WarningDuration", 10);
+
+    /*
+     * World generation config settings
+     */
+
+    public static ConfigOptionInt WORLD_GEM_CLUSTER_COUNT = new ConfigOptionInt("World.AbyssGemClusterCount", 4);
+    public static ConfigOptionInt WORLD_GEM_CLUSTER_SIZE = new ConfigOptionInt("World.AbyssGemClusterSize", 8);
+    public static ConfigOptionInt WORLD_GEM_MAX_HEIGHT = new ConfigOptionInt("World.AbyssGemMaxHeight", 40);
+    public static ConfigOptionInt WORLD_ABYSSITE_CLUSTER_COUNT = new ConfigOptionInt("World.AbyssiteClusterCount", 1);
+    public static ConfigOptionInt WORLD_ABYSSITE_CLUSTER_SIZE = new ConfigOptionInt("World.AbyssiteClusterSize", 8);
+    public static ConfigOptionInt WORLD_ABYSSITE_MAX_HEIGHT = new ConfigOptionInt("World.AbyssiteMaxHeight", 20);
+    public static ConfigOptionInt WORLD_PURITE_CLUSTER_COUNT = new ConfigOptionInt("World.PuriteClusterCount", 1);
+    public static ConfigOptionInt WORLD_PURITE_CLUSTER_SIZE = new ConfigOptionInt("World.PuriteClusterSize", 8);
+    public static ConfigOptionInt WORLD_PURITE_MAX_HEIGHT = new ConfigOptionInt("World.PuriteMaxHeight", 20);
+
+    /*
+     * World structure config settings
+     */
+    public static ConfigOptionInt STRUCTURE_SHRINE_RARITY = new ConfigOptionInt("World.ShrineRarity", 256);
+
 }

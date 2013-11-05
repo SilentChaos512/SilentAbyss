@@ -1,6 +1,6 @@
 package silentAbyss.lib;
 
 public class RenderIds {
-	
-	public static int testRender;
+
+    public static int testRender;
 }

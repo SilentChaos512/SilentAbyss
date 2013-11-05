@@ -4,6 +4,6 @@ import net.minecraft.util.DamageSource;
 
 public class ModDamageSources {
 
-	public static final DamageSource meteor = new DamageSourceMeteor();
-	
+    public static final DamageSource meteor = new DamageSourceMeteor();
+
 }
