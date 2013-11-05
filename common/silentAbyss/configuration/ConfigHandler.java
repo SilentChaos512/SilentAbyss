@@ -105,7 +105,7 @@ public class ConfigHandler {
             /*
              * Chaos event configs
              */
-            Config.METEOR_SHOWER_RARITY.loadValue(c, CATEGORY_WORLD_CHAOS_EVENT);
+            Config.METEOR_SHOWER_RARITY.loadValue(c, CATEGORY_WORLD_CHAOS_EVENT, "Set to 0 to disable.");
             Config.METEOR_SHOWER_COUNT.loadValue(c, CATEGORY_WORLD_CHAOS_EVENT);
             Config.METEOR_SHOWER_RADIUS.loadValue(c, CATEGORY_WORLD_CHAOS_EVENT);
             Config.METEOR_SHOWER_DURATION.loadValue(c, CATEGORY_WORLD_CHAOS_EVENT);

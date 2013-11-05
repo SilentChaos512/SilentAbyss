@@ -38,7 +38,8 @@ public class PlayerServerScheduledTickHandler implements IScheduledTickHandler {
          */
 
         // Meteor showers
-        if (Abyss.rng.nextInt((int) (Config.METEOR_SHOWER_RARITY.value / ChaosHandler.getChaosFactor())) == 0) {
+        if (Config.METEOR_SHOWER_RARITY.value > 0
+                && Abyss.rng.nextInt((int) (Config.METEOR_SHOWER_RARITY.value / ChaosHandler.getChaosFactor())) == 0) {
             player.addChatMessage(Strings.METEOR_SHOWER_INBOUND);
             chaosEvents.add(new MeteorEvent(player, (int) player.posX, (int) player.posY, (int) player.posZ));
         }
