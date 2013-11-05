@@ -88,7 +88,7 @@ public class GemShard extends ItemSA {
         sb.append("abyss");
 
         if (d < 4) {
-            sb.append(AbyssGem.names[d]);
+            sb.append(Gem.names[d]);
         } else {
             LogHelper.severe("AbyssShard: tried to get unlocalized name for unknown shard type!");
         }
@@ -114,9 +114,9 @@ public class GemShard extends ItemSA {
 
         for (int i = 0; i < icons.length; ++i) {
             if (Config.SHARDS_PER_GEM.value == 9) {
-                GameRegistry.addShapelessRecipe(new ItemStack(ModItems.abyssShard, 9, i), AbyssGem.getGem(i));
+                GameRegistry.addShapelessRecipe(new ItemStack(ModItems.abyssShard, 9, i), Gem.getGem(i));
             } else {
-                GameRegistry.addShapelessRecipe(new ItemStack(ModItems.abyssShard, 4, i), AbyssGem.getGem(i));
+                GameRegistry.addShapelessRecipe(new ItemStack(ModItems.abyssShard, 4, i), Gem.getGem(i));
             }
         }
     }

@@ -3,7 +3,7 @@ package silentAbyss.block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-import silentAbyss.item.AbyssGem;
+import silentAbyss.item.Gem;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 
@@ -42,7 +42,7 @@ public class BrickSlabItemBlock extends ItemBlock {
         } else if (d == Reference.INDEX_PURITE) {
             s.append("Light");
         } else {
-            s.append(AbyssGem.names[d]);
+            s.append(Gem.names[d]);
         }
 
         return s.toString();

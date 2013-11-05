@@ -16,11 +16,11 @@ import silentAbyss.lib.Strings;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class AbyssOre extends BlockOre {
+public class Ore extends BlockOre {
 
     public static Icon[] icons = new Icon[Reference.GEM_TYPE_COUNT];
 
-    public AbyssOre(int par1) {
+    public Ore(int par1) {
 
         super(par1);
 

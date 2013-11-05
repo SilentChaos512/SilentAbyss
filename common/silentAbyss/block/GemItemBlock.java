@@ -3,13 +3,13 @@ package silentAbyss.block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-import silentAbyss.item.AbyssGem;
+import silentAbyss.item.Gem;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 
-public class AbyssOreItemBlock extends ItemBlock {
+public class GemItemBlock extends ItemBlock {
 
-    public AbyssOreItemBlock(int par1) {
+    public GemItemBlock(int par1) {
 
         super(par1);
         setHasSubtypes(true);
@@ -24,7 +24,7 @@ public class AbyssOreItemBlock extends ItemBlock {
     @Override
     public Icon getIconFromDamage(int par1) {
 
-        return AbyssOre.icons[par1];
+        return GemBlock.icons[par1];
     }
 
     @Override
@@ -37,15 +37,15 @@ public class AbyssOreItemBlock extends ItemBlock {
         s.append(Strings.RESOURCE_PREFIX);
 
         if (d == Reference.INDEX_ABYSSITE) {
-            s.append("oreAbyssite");
+            s.append("blockAbyssite");
             return s.toString();
         } else if (d == Reference.INDEX_PURITE) {
-            s.append("orePurite");
+            s.append("blockPurite");
             return s.toString();
         }
 
-        s.append("oreAbyss");
-        s.append(AbyssGem.names[d]);
+        s.append("blockAbyss");
+        s.append(Gem.names[d]);
         return s.toString();
     }
 }

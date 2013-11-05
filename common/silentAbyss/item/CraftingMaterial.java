@@ -82,7 +82,7 @@ public class CraftingMaterial extends ItemSA {
 
     public static void addRecipes() {
 
-        ItemStack rAbyssite = AbyssGem.getGem(Reference.INDEX_ABYSSITE);
+        ItemStack rAbyssite = Gem.getGem(Reference.INDEX_ABYSSITE);
 
         GameRegistry.addRecipe(getStack("ornateStick", 4), "gag", "gag", "gag", 'g', Item.ingotGold, 'a', rAbyssite);
     }

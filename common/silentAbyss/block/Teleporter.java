@@ -22,7 +22,7 @@ import silentAbyss.core.handlers.ChaosHandler;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.core.util.NBTHelper;
 import silentAbyss.core.util.PlayerHelper;
-import silentAbyss.item.AbyssSigil;
+import silentAbyss.item.Sigil;
 import silentAbyss.item.ModItems;
 import silentAbyss.item.tool.SigilScepter;
 import silentAbyss.item.tool.TeleporterLinker;
@@ -33,14 +33,14 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockAbyssTeleporter extends BlockContainer {
+public class Teleporter extends BlockContainer {
 
     public static Object mod;
     private Ticket ticket;
     private ChunkCoordIntPair ticketChunk;
     private Icon[] iconArray;
 
-    public BlockAbyssTeleporter(int par1) {
+    public Teleporter(int par1) {
 
         super(par1, Material.iron);
 
@@ -182,7 +182,7 @@ public class BlockAbyssTeleporter extends BlockContainer {
 
             ItemStack sigil = player.inventory.getCurrentItem();
             // Does sigil have teleport?
-            if (AbyssSigil.hasSigilEfffect(sigil, "Teleport")) {
+            if (Sigil.hasSigilEfffect(sigil, "Teleport")) {
                 NBTHelper.setXYZD(sigil.stackTagCompound, x, y, z, player.dimension);
                 player.addChatMessage(Strings.TELEPORTER_SIGIL_LINK);
 
@@ -253,6 +253,6 @@ public class BlockAbyssTeleporter extends BlockContainer {
     public static void addRecipes() {
 
         GameRegistry.addRecipe(new ItemStack(ModBlocks.abyssTeleporter, 2), "gwg", "geg", "gag", 'g', Item.ingotGold, 'w', Block.cloth,
-                'e', Item.enderPearl, 'a', AbyssGemBlock.getGem(Reference.INDEX_ABYSSITE));
+                'e', Item.enderPearl, 'a', GemBlock.getGem(Reference.INDEX_ABYSSITE));
     }
 }

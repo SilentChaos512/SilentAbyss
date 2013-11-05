@@ -7,7 +7,7 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.MinecraftForge;
-import silentAbyss.block.BlockAbyssTeleporter;
+import silentAbyss.block.Teleporter;
 import silentAbyss.block.ModBlocks;
 import silentAbyss.command.CommandHandler;
 import silentAbyss.configuration.ConfigHandler;
@@ -94,7 +94,7 @@ public class Abyss {
         proxy.registerRenderers();
 
         ForgeChunkManager.setForcedChunkLoadingCallback(this, new TicketLoader());
-        BlockAbyssTeleporter.mod = this;
+        Teleporter.mod = this;
 
         // Register gui handlers
         NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());

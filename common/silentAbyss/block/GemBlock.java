@@ -15,11 +15,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class AbyssGemBlock extends BlockOreStorage {
+public class GemBlock extends BlockOreStorage {
 
     public static Icon[] icons = new Icon[Reference.GEM_TYPE_COUNT];
 
-    public AbyssGemBlock(int par1) {
+    public GemBlock(int par1) {
 
         super(par1);
 

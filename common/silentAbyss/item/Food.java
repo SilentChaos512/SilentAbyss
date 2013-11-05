@@ -15,14 +15,14 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class AbyssFood extends ItemFood {
+public class Food extends ItemFood {
 
     private int damageValue;
     private Icon[] icons = new Icon[1];
 
     // public static String[] names = { "foodPotatoStick" };
 
-    public AbyssFood(int id, int healAmount, float saturationModifier, boolean isWolfFavoriteMeat, int damageValue) {
+    public Food(int id, int healAmount, float saturationModifier, boolean isWolfFavoriteMeat, int damageValue) {
 
         super(id - Reference.SHIFTED_ID_RANGE_CORRECTION, healAmount, saturationModifier, isWolfFavoriteMeat);
         this.damageValue = damageValue;

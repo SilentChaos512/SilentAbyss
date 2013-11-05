@@ -15,7 +15,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class AbyssGem extends ItemSA {
+public class Gem extends ItemSA {
 
     /**
      * The names of the four primary gems.
@@ -27,7 +27,7 @@ public class AbyssGem extends ItemSA {
      */
     public static Icon[] icons = new Icon[12];
 
-    public AbyssGem(int par1) {
+    public Gem(int par1) {
 
         super(par1);
 
@@ -136,8 +136,8 @@ public class AbyssGem extends ItemSA {
 
     public static void addRecipes() {
 
-        ItemStack rAbyssite = AbyssGem.getGem(Reference.INDEX_ABYSSITE);
-        ItemStack rPurite = AbyssGem.getGem(Reference.INDEX_PURITE);
+        ItemStack rAbyssite = Gem.getGem(Reference.INDEX_ABYSSITE);
+        ItemStack rPurite = Gem.getGem(Reference.INDEX_PURITE);
 
         for (int i = 0; i < 4; ++i) {
             // Supercharged gems

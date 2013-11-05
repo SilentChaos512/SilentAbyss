@@ -12,7 +12,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.core.util.NBTHelper;
-import silentAbyss.item.AbyssGem;
+import silentAbyss.item.Gem;
 import silentAbyss.item.ItemSA;
 import silentAbyss.item.ModItems;
 import silentAbyss.lib.Reference;
@@ -99,7 +99,7 @@ public class TeleporterLinker extends ItemSA {
 
     public static void addRecipes() {
 
-        GameRegistry.addRecipe(new ItemStack(ModItems.teleporterLinker), "x", "y", 'x', AbyssGem.getGem(Reference.INDEX_ABYSSITE), 'y',
+        GameRegistry.addRecipe(new ItemStack(ModItems.teleporterLinker), "x", "y", 'x', Gem.getGem(Reference.INDEX_ABYSSITE), 'y',
                 Item.ingotGold);
     }
 }

@@ -14,15 +14,15 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import silentAbyss.Abyss;
-import silentAbyss.item.AbyssGem;
+import silentAbyss.item.Gem;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import silentAbyss.tileentity.TileEntitySigilInfuser;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class BlockSigilInfuser extends BlockContainer {
+public class SigilInfuser extends BlockContainer {
 
-    public BlockSigilInfuser(int par1) {
+    public SigilInfuser(int par1) {
 
         super(par1, Material.rock);
 
@@ -100,7 +100,7 @@ public class BlockSigilInfuser extends BlockContainer {
 
     public static void addRecipes() {
 
-        GameRegistry.addRecipe(new ItemStack(ModBlocks.sigilInfuser), "aaa", "aea", 'a', AbyssGem.getGem(Reference.INDEX_ABYSSITE), 'e',
+        GameRegistry.addRecipe(new ItemStack(ModBlocks.sigilInfuser), "aaa", "aea", 'a', Gem.getGem(Reference.INDEX_ABYSSITE), 'e',
                 Block.enchantmentTable);
     }
 

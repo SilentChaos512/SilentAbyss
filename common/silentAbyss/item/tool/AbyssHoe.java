@@ -6,7 +6,7 @@ import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import silentAbyss.Abyss;
-import silentAbyss.item.AbyssGem;
+import silentAbyss.item.Gem;
 import silentAbyss.item.ModItems;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
@@ -33,7 +33,7 @@ public class AbyssHoe extends ItemHoe {
         s.append("tool.");
         s.append(Strings.RESOURCE_PREFIX);
         s.append("hoeAbyss");
-        s.append(AbyssGem.names[gemType]);
+        s.append(Gem.names[gemType]);
         if (toolMaterial == Abyss.materialEnergizedAbyssGem) {
             s.append("Plus");
         }

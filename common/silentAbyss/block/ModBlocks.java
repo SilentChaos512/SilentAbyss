@@ -22,10 +22,10 @@ public class ModBlocks {
         /*
          * Initialize blocks
          */
-        oreAbyssGem = new AbyssOre(BlockIds.ABYSS_GEM_ORE);
-        blockAbyssGem = new AbyssGemBlock(BlockIds.ABYSS_GEM_BLOCK);
-        abyssTeleporter = new BlockAbyssTeleporter(BlockIds.ABYSS_TELEPORTER);
-        sigilInfuser = new BlockSigilInfuser(BlockIds.SIGIL_INFUSER);
+        oreAbyssGem = new Ore(BlockIds.ABYSS_GEM_ORE);
+        blockAbyssGem = new GemBlock(BlockIds.ABYSS_GEM_BLOCK);
+        abyssTeleporter = new Teleporter(BlockIds.ABYSS_TELEPORTER);
+        sigilInfuser = new SigilInfuser(BlockIds.SIGIL_INFUSER);
         brick = new Brick(BlockIds.BRICK);
         brickSlab = new BrickSlab(BlockIds.BRICK_SLAB, false);
         blockTest = new BlockTest(BlockIds.TEST_BLOCK);
@@ -33,8 +33,8 @@ public class ModBlocks {
         /*
          * Register blocks
          */
-        GameRegistry.registerBlock(oreAbyssGem, AbyssOreItemBlock.class, Strings.ABYSS_GEM_ORE_NAME);
-        GameRegistry.registerBlock(blockAbyssGem, AbyssGemItemBlock.class, Strings.ABYSS_GEM_BLOCK_NAME);
+        GameRegistry.registerBlock(oreAbyssGem, OreItemBlock.class, Strings.ABYSS_GEM_ORE_NAME);
+        GameRegistry.registerBlock(blockAbyssGem, GemItemBlock.class, Strings.ABYSS_GEM_BLOCK_NAME);
         GameRegistry.registerBlock(abyssTeleporter, Strings.ABYSS_TELEPORTER_NAME);
         GameRegistry.registerBlock(sigilInfuser, Strings.SIGIL_INFUSER_NAME);
         GameRegistry.registerBlock(brick, BrickItemBlock.class, Strings.BRICK_NAME);
@@ -49,9 +49,9 @@ public class ModBlocks {
 
     public static void initBlockRecipes() {
 
-        AbyssGemBlock.addRecipes();
-        BlockAbyssTeleporter.addRecipes();
-        BlockSigilInfuser.addRecipes();
+        GemBlock.addRecipes();
+        Teleporter.addRecipes();
+        SigilInfuser.addRecipes();
         Brick.addRecipes();
         BrickSlab.addRecipes();
     }

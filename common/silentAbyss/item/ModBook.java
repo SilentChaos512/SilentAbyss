@@ -101,7 +101,7 @@ public class ModBook extends ItemWritableBook {
     public static void addRecipes() {
 
         GameRegistry.addShapelessRecipe(new ItemStack(ModItems.book, 1, 0), Item.book, ModItems.sigilStone);
-        for (int i = 0; i < AbyssGem.names.length; ++i) {
+        for (int i = 0; i < Gem.names.length; ++i) {
             GameRegistry.addShapelessRecipe(new ItemStack(ModItems.book, 1, 1), Item.book, new ItemStack(ModItems.abyssGem, 1, i));
         }
     }

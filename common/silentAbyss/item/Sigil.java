@@ -24,9 +24,9 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 // TODO: AbyssSigil class needs major cleanup.
-public class AbyssSigil extends ItemSA {
+public class Sigil extends ItemSA {
 
-    public AbyssSigil(int par1) {
+    public Sigil(int par1) {
 
         super(par1);
         maxStackSize = 64;
@@ -261,7 +261,7 @@ public class AbyssSigil extends ItemSA {
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
-        if (AbyssSigil.hasSigilEfffect(stack, "Teleport") && !NBTHelper.hasValidXYZD(stack.stackTagCompound)) {
+        if (Sigil.hasSigilEfffect(stack, "Teleport") && !NBTHelper.hasValidXYZD(stack.stackTagCompound)) {
             if (!world.isRemote) {
                 player.addChatMessage("No teleport destination set. Try right-clicking an Abyss Teleporter.");
             }

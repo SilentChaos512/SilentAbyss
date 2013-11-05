@@ -19,7 +19,7 @@ import silentAbyss.core.handlers.ChaosHandler;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.core.util.NBTHelper;
 import silentAbyss.entity.projectile.EntityProjectileMagic;
-import silentAbyss.item.AbyssGem;
+import silentAbyss.item.Gem;
 import silentAbyss.item.ItemSA;
 import silentAbyss.item.ModItems;
 import silentAbyss.lib.Reference;
@@ -31,7 +31,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class SigilScepter extends ItemSA {
 
-    public Icon[] icons = new Icon[AbyssGem.names.length];
+    public Icon[] icons = new Icon[Gem.names.length];
 
     public SigilScepter(int par1) {
 
@@ -202,10 +202,10 @@ public class SigilScepter extends ItemSA {
 
     public static void addRecipes() {
 
-        for (int i = 0; i < AbyssGem.names.length; ++i) {
+        for (int i = 0; i < Gem.names.length; ++i) {
             GameRegistry.addShapedRecipe(new ItemStack(ModItems.sigilScepter, 1, i), "gng", "isi", "psp", 'g', new ItemStack(
                     ModItems.abyssGem, 1, i), 'n', Item.netherStar, 'i', Item.ingotGold, 's',
-                    new ItemStack(ModItems.craftingMaterial, 1, 0), 'p', AbyssGem.getGem(Reference.INDEX_PURITE));
+                    new ItemStack(ModItems.craftingMaterial, 1, 0), 'p', Gem.getGem(Reference.INDEX_PURITE));
         }
 
         // This allows the scepter's effect to be set by crafting it with sigil
@@ -261,7 +261,7 @@ public class SigilScepter extends ItemSA {
         s.append("item.");
         s.append(Strings.RESOURCE_PREFIX);
         s.append(Strings.SIGIL_SCEPTER_NAME);
-        s.append(AbyssGem.names[stack.getItemDamage()]);
+        s.append(Gem.names[stack.getItemDamage()]);
         return s.toString();
     }
 
@@ -270,7 +270,7 @@ public class SigilScepter extends ItemSA {
     public void registerIcons(IconRegister iconRegister) {
 
         for (int i = 0; i < 4; ++i) {
-            icons[i] = iconRegister.registerIcon("SilentAbyss:SigilScepter" + AbyssGem.names[i]);
+            icons[i] = iconRegister.registerIcon("SilentAbyss:SigilScepter" + Gem.names[i]);
         }
     }
 

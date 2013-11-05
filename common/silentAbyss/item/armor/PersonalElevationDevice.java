@@ -8,7 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import silentAbyss.item.AbyssGem;
+import silentAbyss.item.Gem;
 import silentAbyss.item.ItemSA;
 import silentAbyss.item.ModItems;
 import silentAbyss.lib.Reference;
@@ -71,8 +71,8 @@ public class PersonalElevationDevice extends ItemSA {
     public static void addRecipes() {
 
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.personalElevationDevice), "cac", "cgc", "cpc", 'c',
-                AbyssGem.getGem(Reference.INDEX_CONUNDRUMITE), 'a', AbyssGem.getGem(Reference.INDEX_ABYSSITE), 'p',
-                AbyssGem.getGem(Reference.INDEX_PURITE), 'g', Item.ingotGold);
+                Gem.getGem(Reference.INDEX_CONUNDRUMITE), 'a', Gem.getGem(Reference.INDEX_ABYSSITE), 'p',
+                Gem.getGem(Reference.INDEX_PURITE), 'g', Item.ingotGold);
     }
 
     /**
