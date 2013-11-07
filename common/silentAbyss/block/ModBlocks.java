@@ -1,8 +1,11 @@
 package silentAbyss.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.oredict.OreDictionary;
 import silentAbyss.lib.BlockIds;
+import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -51,6 +54,16 @@ public class ModBlocks {
          * Set harvest levels
          */
         MinecraftForge.setBlockHarvestLevel(ore, "pickaxe", 2);
+
+        /*
+         * Ore dictionary
+         */
+        OreDictionary.registerOre("oreRuby", new ItemStack(ore, 1, Reference.INDEX_RUBY));
+        OreDictionary.registerOre("oreEmerald", new ItemStack(ore, 1, Reference.INDEX_EMERALD));
+        OreDictionary.registerOre("oreSapphire", new ItemStack(ore, 1, Reference.INDEX_SAPPHIRE));
+        OreDictionary.registerOre("oreTopaz", new ItemStack(ore, 1, Reference.INDEX_TOPAZ));
+        OreDictionary.registerOre("oreAbyssite", new ItemStack(ore, 1, Reference.INDEX_ABYSSITE));
+        OreDictionary.registerOre("orePurite", new ItemStack(ore, 1, Reference.INDEX_PURITE));
     }
 
     public static void initBlockRecipes() {
