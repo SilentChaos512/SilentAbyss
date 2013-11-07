@@ -64,7 +64,7 @@ public class WorldGenAbyssShrine extends WorldGenerator {
         world.setBlock(x - 2, y, z + 0, ModBlocks.brick.blockID, 3, 2);
         world.setBlock(x - 2, y, z + 1, ModBlocks.brick.blockID, 3, 2);
         // Gemstone block in center
-        world.setBlock(x, y, z, ModBlocks.blockAbyssGem.blockID, m, 2);
+        world.setBlock(x, y, z, ModBlocks.gem.blockID, m, 2);
 
         /*
          * 2

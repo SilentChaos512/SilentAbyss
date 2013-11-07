@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,6 +23,7 @@ import silentAbyss.item.ModItems;
 import silentAbyss.lib.Reference;
 import silentAbyss.network.PacketHandler;
 import silentAbyss.world.AbyssWorldGenerator;
+import silentAbyss.world.WorldProviderAbyss;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -102,10 +104,9 @@ public class Abyss {
         // Register world generator
         GameRegistry.registerWorldGenerator(new AbyssWorldGenerator());
 
-        // Abyss dimension. On hold for the moment.
-        // DimensionManager.registerProviderType(dimension,
-        // WorldProviderAbyss.class, false);
-        // DimensionManager.registerDimension(dimension, dimension);
+        // Abyss dimension. WIP.
+         DimensionManager.registerProviderType(dimension, WorldProviderAbyss.class, false);
+         DimensionManager.registerDimension(dimension, dimension);
     }
 
     @EventHandler

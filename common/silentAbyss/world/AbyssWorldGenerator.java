@@ -48,7 +48,7 @@ public class AbyssWorldGenerator implements IWorldGenerator {
             x = chunkX + random.nextInt(16);
             y = random.nextInt(Config.WORLD_GEM_MAX_HEIGHT.value);
             z = chunkZ + random.nextInt(16);
-            new WorldGenMinable(ModBlocks.oreAbyssGem.blockID, random.nextInt(4), Config.WORLD_GEM_CLUSTER_SIZE.value, Block.stone.blockID)
+            new WorldGenMinable(ModBlocks.ore.blockID, random.nextInt(4), Config.WORLD_GEM_CLUSTER_SIZE.value, Block.stone.blockID)
                     .generate(world, random, x, y, z);
         }
 
@@ -57,7 +57,7 @@ public class AbyssWorldGenerator implements IWorldGenerator {
             x = chunkX + random.nextInt(16);
             y = random.nextInt(Config.WORLD_ABYSSITE_MAX_HEIGHT.value);
             z = chunkZ + random.nextInt(16);
-            new WorldGenMinable(ModBlocks.oreAbyssGem.blockID, Reference.INDEX_ABYSSITE, Config.WORLD_ABYSSITE_CLUSTER_SIZE.value,
+            new WorldGenMinable(ModBlocks.ore.blockID, Reference.INDEX_ABYSSITE, Config.WORLD_ABYSSITE_CLUSTER_SIZE.value,
                     Block.stone.blockID).generate(world, random, x, y, z);
         }
 
@@ -66,7 +66,7 @@ public class AbyssWorldGenerator implements IWorldGenerator {
             x = chunkX + random.nextInt(16);
             y = random.nextInt(Config.WORLD_PURITE_MAX_HEIGHT.value);
             z = chunkZ + random.nextInt(16);
-            new WorldGenMinable(ModBlocks.oreAbyssGem.blockID, Reference.INDEX_PURITE, Config.WORLD_PURITE_CLUSTER_SIZE.value,
+            new WorldGenMinable(ModBlocks.ore.blockID, Reference.INDEX_PURITE, Config.WORLD_PURITE_CLUSTER_SIZE.value,
                     Block.stone.blockID).generate(world, random, x, y, z);
         }
 

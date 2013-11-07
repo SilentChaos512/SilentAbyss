@@ -120,6 +120,8 @@ public class ConfigHandler {
             BlockIds.SIGIL_INFUSER = getBlockId(Strings.SIGIL_INFUSER_NAME, BlockIds.SIGIL_INFUSER_DEFAULT);
             BlockIds.BRICK = getBlockId(Strings.BRICK_NAME, BlockIds.BRICK_DEFAULT);
             BlockIds.BRICK_SLAB = getBlockId(Strings.BRICK_SLAB_NAME, BlockIds.BRICK_SLAB_DEFAULT);
+            BlockIds.PORTAL_FRAME = getBlockId(Strings.PORTAL_FRAME_NAME, BlockIds.PORTAL_FRAME_DEFAULT);
+            BlockIds.PORTAL = getBlockId(Strings.PORTAL_NAME, BlockIds.PORTAL_DEFAULT);
             BlockIds.TEST_BLOCK = getBlockId(Strings.TEST_BLOCK_NAME, BlockIds.TEST_BLOCK_DEFAULT);
 
             /*

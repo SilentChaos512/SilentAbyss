@@ -36,6 +36,7 @@ public class Strings {
 
     /*
      * Block name constants
+     * TODO: Make these shorter?
      */
     public final static String ABYSS_GEM_ORE_NAME = "oreAbyssGem";
     public final static String ABYSS_GEM_BLOCK_NAME = "blockAbyssGem";
@@ -44,6 +45,8 @@ public class Strings {
     public final static String SIGIL_INFUSER_NAME = "sigilInfuser";
     public final static String BRICK_NAME = "blockAbyssBrick";
     public final static String BRICK_SLAB_NAME = "blockAbyssBrickSlab";
+    public final static String PORTAL_FRAME_NAME = "blockAbyssPortalFrame";
+    public final static String PORTAL_NAME = "blockAbyssPortal";
     public final static String TEST_BLOCK_NAME = "blockTest";
 
     /*

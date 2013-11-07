@@ -1,5 +1,12 @@
 package silentAbyss.core.util;
 
+import silentAbyss.item.tool.AbyssAxe;
+import silentAbyss.item.tool.AbyssHoe;
+import silentAbyss.item.tool.AbyssPickaxe;
+import silentAbyss.item.tool.AbyssShovel;
+import silentAbyss.item.tool.AbyssSword;
+import silentAbyss.item.tool.SigilScepter;
+import silentAbyss.item.tool.TeleporterLinker;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,5 +29,15 @@ public class PlayerHelper {
 
         return player.inventory.getCurrentItem() != null && stack != null
                 && player.inventory.getCurrentItem().getItem().itemID == stack.itemID;
+    }
+
+    public static boolean isPlayerHoldingToolToCreatePortal(EntityPlayer player) {
+
+        if (player.inventory.getCurrentItem() != null) {
+            Item item = player.inventory.getCurrentItem().getItem();
+            return item instanceof TeleporterLinker || item instanceof AbyssSword || item instanceof AbyssPickaxe
+                    || item instanceof AbyssShovel || item instanceof AbyssAxe || item instanceof AbyssHoe || item instanceof SigilScepter;
+        }
+        return false;
     }
 }

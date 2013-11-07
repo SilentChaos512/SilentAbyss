@@ -38,7 +38,7 @@ public class GemBlock extends BlockOreStorage {
      */
     public static ItemStack getGem(int meta) {
 
-        return new ItemStack(ModBlocks.blockAbyssGem, 1, meta);
+        return new ItemStack(ModBlocks.gem, 1, meta);
     }
 
     @SideOnly(Side.CLIENT)
@@ -92,7 +92,7 @@ public class GemBlock extends BlockOreStorage {
 
         for (int i = 0; i < icons.length; ++i) {
             gem = new ItemStack(ModItems.abyssGem, 1, i);
-            block = new ItemStack(ModBlocks.blockAbyssGem, 1, i);
+            block = new ItemStack(ModBlocks.gem, 1, i);
             GameRegistry.addShapelessRecipe(block, gem, gem, gem, gem, gem, gem, gem, gem, gem);
             GameRegistry.addShapelessRecipe(new ItemStack(ModItems.abyssGem, 9, i), block);
         }

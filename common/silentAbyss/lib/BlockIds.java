@@ -9,6 +9,8 @@ public class BlockIds {
     public static int BRICK_SLAB_DEFAULT = 3206;
     public static int ABYSS_TELEPORTER_DEFAULT = 3210;
     public static int SIGIL_INFUSER_DEFAULT = 3211;
+    public static int PORTAL_FRAME_DEFAULT = 3215;
+    public static int PORTAL_DEFAULT = 3216;
     public static int TEST_BLOCK_DEFAULT = 3300;
 
     // Current block ids
@@ -18,6 +20,8 @@ public class BlockIds {
     public static int BRICK_SLAB;
     public static int ABYSS_TELEPORTER;
     public static int SIGIL_INFUSER;
+    public static int PORTAL_FRAME;
+    public static int PORTAL;
     public static int TEST_BLOCK;
 
 }

@@ -1,5 +1,7 @@
 package silentAbyss.lib;
 
+import java.util.Arrays;
+
 public class Reference {
 
     public static final boolean DEBUG_MODE = false;
@@ -33,5 +35,9 @@ public class Reference {
     public static final int INDEX_TOPAZ_PLUS = 9;
     public static final int INDEX_CONUNDRUMITE = 10;
     public static final int INDEX_ABYSS_DIAMOND = 11;
+
+    public static final String[] allGemNames = { "Ruby", "Emerald", "Sapphire", "Topaz", "Abyssite", "Purite", "RubyPlus", "EmeraldPlus",
+            "SapphirePlus", "TopazPlus", "Conundrumite", "AbyssDiamond" };
+    public static final String[] basicGemNames = Arrays.copyOfRange(allGemNames, 0, 6);
 
 }
