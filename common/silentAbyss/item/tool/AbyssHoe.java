@@ -73,7 +73,7 @@ public class AbyssHoe extends ItemHoe {
     public boolean getIsRepairable(ItemStack stack1, ItemStack stack2) {
 
         boolean isSupercharged = toolMaterial == Abyss.materialEnergizedAbyssGem;
-        ItemStack material = new ItemStack(ModItems.abyssGem, 1, gemType + (isSupercharged ? 4 : 0));
+        ItemStack material = new ItemStack(ModItems.abyssGem, 1, gemType + (isSupercharged ? 6 : 0));
         if (material.itemID == stack2.itemID && material.getItemDamage() == stack2.getItemDamage()) {
             return true;
         } else {

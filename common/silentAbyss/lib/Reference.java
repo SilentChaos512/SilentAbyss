@@ -8,7 +8,7 @@ public class Reference {
 
     public static final String MOD_ID = "SilentAbyss";
     public static final String MOD_NAME = "Silent's Abyss";
-    public static final String VERSION_NUMBER = "0.4.02"; // "@VERSION@ (build @BUILD_NUMBER@)";
+    public static final String VERSION_NUMBER = "0.4.03"; // "@VERSION@ (build @BUILD_NUMBER@)";
     public static final String CHANNEL_NAME = MOD_ID;
     public static final String DEPENDENCIES = "required-after:Forge@[9.10.1.849,)";
 

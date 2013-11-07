@@ -26,6 +26,7 @@ tile.silentabyss:blockAbyssBrickSlabSapphire.name=Sapphire-Speckled Brick Slab
 tile.silentabyss:blockAbyssBrickSlabTopaz.name=Topaz-Speckled Brick Slab
 tile.silentabyss:blockAbyssBrickSlabDark.name=Dark Abyss Brick Slab
 tile.silentabyss:blockAbyssBrickSlabLight.name=Light Abyss Brick Slab
+tile.silentabyss:portalFrame.name=Abyss Portal Frame
 tile.silentabyss:blockTest.name=Test Block
 
 # Item localizations
