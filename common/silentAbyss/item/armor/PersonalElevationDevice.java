@@ -53,13 +53,13 @@ public class PersonalElevationDevice extends ItemSA {
         return stack;
     }
 
-    @Override
-    public void onUpdate(ItemStack stack, World world, Entity entity, int par4, boolean par5) {
-
-        if (Minecraft.getMinecraft().gameSettings.keyBindJump.pressed) {
-            entity.fallDistance = 0;
-        }
-    }
+//    @Override
+//    public void onUpdate(ItemStack stack, World world, Entity entity, int par4, boolean par5) {
+//
+//        if (Minecraft.getMinecraft().gameSettings.keyBindJump.pressed) {
+//            entity.fallDistance = 0;
+//        }
+//    }
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
