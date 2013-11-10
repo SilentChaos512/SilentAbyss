@@ -112,6 +112,13 @@ public class Strings {
     public final static String MENDING_NAME = "Mending";
     public final static String NIHIL_NAME = "Nihil";
     public final static String ICE_ASPECT_NAME = "Ice Aspect";
+    
+    /*
+     * Entity name constants
+     */
+    public final static String ENTITY_PROJECTILE_MAGIC_NAME = "Magic Projectile";
+    public final static String ENTITY_METEOR_NAME = "Abyss Meteor";
+    public final static String ENTITY_GRUMBLING_NAME = "Grumbling";
 
     /*
      * Tile entity name constants

@@ -34,8 +34,6 @@ public class ClientProxy extends CommonProxy {
          * Items
          */
         MinecraftForgeClient.registerItemRenderer(ModBlocks.blockTest.blockID, new ItemTestRenderer());
-        // MinecraftForgeClient.registerItemRenderer(ModItems.pickaxeAbyssRuby.itemID,
-        // new ToolRenderer());
 
         /*
          * Mobs

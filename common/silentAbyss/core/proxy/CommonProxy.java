@@ -23,8 +23,7 @@ public class CommonProxy {
 
     public void registerTickHandlers() {
 
-        // TickRegistry.registerTickHandler(new ServerTickHandler(),
-        // Side.SERVER);
+        // TickRegistry.registerTickHandler(new ServerTickHandler(), Side.SERVER);
         TickRegistry.registerTickHandler(new PlayerServerTickHandler(), Side.SERVER);
         //TickRegistry.registerTickHandler(new PlayerClientServerTickHandler(), Side.SERVER);
         TickRegistry.registerScheduledTickHandler(new PlayerServerScheduledTickHandler(), Side.SERVER);
