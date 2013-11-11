@@ -35,10 +35,10 @@ public class EntityMeteor extends EntityLargeFireball {
         this.posX = entity.posX + (Abyss.rng.nextDouble() * 2 * Config.METEOR_SHOWER_RADIUS.value - Config.METEOR_SHOWER_RADIUS.value);
         this.posY = entity.posY + Abyss.rng.nextInt(250) + 50;
         this.posZ = entity.posZ + (Abyss.rng.nextDouble() * 2 * Config.METEOR_SHOWER_RADIUS.value - Config.METEOR_SHOWER_RADIUS.value);
-        
-        if (world.isRemote) {
-            this.setVelocity(0.0, -4.0, 0.0);
-        }
+
+//        if (world.isRemote) {
+//            this.setVelocity(0.0, -4.0, 0.0);
+//        }
     }
 
     @Override

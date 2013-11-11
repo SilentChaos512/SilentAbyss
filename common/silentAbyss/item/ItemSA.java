@@ -20,4 +20,12 @@ public class ItemSA extends Item {
         // Not sure about this...
         itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
     }
+
+    /**
+     * Adds all recipes to make this item to the GameRegistry. Used to separate
+     * out recipe code so that ModItems is easier to read.
+     */
+    public void addRecipes() {
+
+    };
 }

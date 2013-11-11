@@ -80,7 +80,8 @@ public class CraftingMaterial extends ItemSA {
         }
     }
 
-    public static void addRecipes() {
+    @Override
+    public void addRecipes() {
 
         ItemStack rAbyssite = Gem.getGem(Reference.INDEX_ABYSSITE);
 

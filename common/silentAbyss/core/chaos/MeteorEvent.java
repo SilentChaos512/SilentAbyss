@@ -29,10 +29,7 @@ public class MeteorEvent extends ChaosEvent {
 
             EntityMeteor meteor;
             for (int i = 0; i < Config.METEOR_SHOWER_COUNT.value; ++i) {
-//                meteor = new EntityMeteor(player.worldObj,
-//                        posX + (Abyss.rng.nextDouble() * 2 * Config.METEOR_SHOWER_RADIUS.value - Config.METEOR_SHOWER_RADIUS.value),
-//                        posY + Abyss.rng.nextInt(250) + 50,
-//                        posZ + (Abyss.rng.nextDouble() * 2 * Config.METEOR_SHOWER_RADIUS.value - Config.METEOR_SHOWER_RADIUS.value));
+                // This is the only constructor that works on a server...
                 meteor = new EntityMeteor(player.worldObj, player, 0.0, -20.0, 0.0);
                 player.worldObj.spawnEntityInWorld(meteor);
             }

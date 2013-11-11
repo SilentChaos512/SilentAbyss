@@ -55,8 +55,9 @@ public class SigilStone extends ItemSA {
         }
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
     @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 
         int damage = stack.getItemDamage();
@@ -70,7 +71,8 @@ public class SigilStone extends ItemSA {
         }
     }
 
-    public static void addRecipes() {
+    @Override
+    public void addRecipes() {
 
         // Base sigil stone.
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.sigilStone, 64), "sss", "sas", "sss", 's', Block.stone, 'a',

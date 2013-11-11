@@ -200,7 +200,8 @@ public class SigilScepter extends ItemSA {
         return stack;
     }
 
-    public static void addRecipes() {
+    @Override
+    public void addRecipes() {
 
         for (int i = 0; i < Gem.names.length; ++i) {
             GameRegistry.addShapedRecipe(new ItemStack(ModItems.sigilScepter, 1, i), "gng", "isi", "psp", 'g', new ItemStack(

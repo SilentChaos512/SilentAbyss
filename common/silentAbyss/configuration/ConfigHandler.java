@@ -136,6 +136,7 @@ public class ConfigHandler {
             ItemIds.ABYSS_SIGIL = getItemId(Strings.ABYSS_SIGIL_NAME, ItemIds.ABYSS_SIGIL_DEFAULT);
             ItemIds.SIGIL_STONE = getItemId(Strings.SIGIL_STONE_NAME, ItemIds.SIGIL_STONE_DEFAULT);
             ItemIds.SIGIL_SCEPTER = getItemId(Strings.SIGIL_SCEPTER_NAME, ItemIds.SIGIL_SCEPTER_DEFAULT);
+            ItemIds.ENCHANT_TOKEN = getItemId(Strings.ENCHANT_TOKEN_NAME, ItemIds.ENCHANT_TOKEN_DEFAULT);
             ItemIds.PERSONAL_ELEVATION_DEVICE = getItemId(Strings.PERSONAL_ELEVATION_DEVICE_NAME, ItemIds.PERSONAL_ELEVATION_DEVICE_DEFAULT);
             ItemIds.MOD_BOOK = getItemId(Strings.MOD_BOOK_NAME, ItemIds.MOD_BOOK_DEFAULT);
             ItemIds.TOOL_START = getItemId("tool_start_id", ItemIds.TOOL_START_DEFAULT, "Abyss tools require a total of 40 IDs.");

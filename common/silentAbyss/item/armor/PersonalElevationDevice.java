@@ -68,7 +68,8 @@ public class PersonalElevationDevice extends ItemSA {
                 .toString();
     }
 
-    public static void addRecipes() {
+    @Override
+    public void addRecipes() {
 
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.personalElevationDevice), "cac", "cgc", "cpc", 'c',
                 Gem.getGem(Reference.INDEX_CONUNDRUMITE), 'a', Gem.getGem(Reference.INDEX_ABYSSITE), 'p',

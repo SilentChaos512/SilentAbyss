@@ -110,7 +110,8 @@ public class GemShard extends ItemSA {
         icons[Reference.INDEX_PURITE] = iconRegister.registerIcon(Reference.MOD_ID + ":PuriteShard");
     }
 
-    public static void addRecipes() {
+    @Override
+    public void addRecipes() {
 
         for (int i = 0; i < icons.length; ++i) {
             if (Config.SHARDS_PER_GEM.value == 9) {

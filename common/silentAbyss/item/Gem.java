@@ -134,7 +134,8 @@ public class Gem extends ItemSA {
         icons[Reference.INDEX_ABYSS_DIAMOND] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssDiamond");
     }
 
-    public static void addRecipes() {
+    @Override
+    public void addRecipes() {
 
         ItemStack rAbyssite = Gem.getGem(Reference.INDEX_ABYSSITE);
         ItemStack rPurite = Gem.getGem(Reference.INDEX_PURITE);

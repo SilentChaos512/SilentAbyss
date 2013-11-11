@@ -1,5 +1,6 @@
 package silentAbyss.item;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
@@ -17,6 +18,7 @@ import silentAbyss.item.tool.TeleporterLinker;
 import silentAbyss.lib.ItemIds;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
+import silentAbyss.recipe.EnchantToolRecipe;
 
 public class ModItems {
 
@@ -28,6 +30,7 @@ public class ModItems {
     public static Item abyssSigil;
     public static Item sigilStone;
     public static Item sigilScepter;
+    public static Item enchantToken;
     public static Item personalElevationDevice;
     public static Item book;
 
@@ -86,6 +89,7 @@ public class ModItems {
         abyssSigil = new Sigil(ItemIds.ABYSS_SIGIL);
         sigilStone = new SigilStone(ItemIds.SIGIL_STONE);
         sigilScepter = new SigilScepter(ItemIds.SIGIL_SCEPTER);
+        enchantToken = new EnchantToken(ItemIds.ENCHANT_TOKEN);
         personalElevationDevice = new PersonalElevationDevice(ItemIds.PERSONAL_ELEVATION_DEVICE);
         book = new ModBook(ItemIds.MOD_BOOK);
 
@@ -145,15 +149,16 @@ public class ModItems {
 
     public static void initItemRecipes() {
 
-        Gem.addRecipes();
-        GemShard.addRecipes();
-        CraftingMaterial.addRecipes();
+        ((ItemSA) abyssGem).addRecipes();
+        ((ItemSA) abyssShard).addRecipes();
+        ((ItemSA) craftingMaterial).addRecipes();
         Food.addRecipes();
-        SigilStone.addRecipes();
-        SigilScepter.addRecipes();
-        TeleporterLinker.addRecipes();
-        PersonalElevationDevice.addRecipes();
+        ((ItemSA) sigilStone).addRecipes();
+        ((ItemSA) sigilScepter).addRecipes();
+        ((ItemSA) teleporterLinker).addRecipes();
+        ((ItemSA) personalElevationDevice).addRecipes();
         ModBook.addRecipes();
+        GameRegistry.addRecipe(new EnchantToolRecipe());
 
         ItemStack rAbyssRuby = Gem.getGem(Reference.INDEX_RUBY);
         ItemStack rAbyssEmerald = Gem.getGem(Reference.INDEX_EMERALD);

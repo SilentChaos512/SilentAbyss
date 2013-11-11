@@ -16,6 +16,7 @@ import silentAbyss.core.handlers.GuiHandler;
 import silentAbyss.core.handlers.event.LivingFallEventHandler;
 import silentAbyss.core.handlers.event.WorldLoadEventHandler;
 import silentAbyss.core.proxy.CommonProxy;
+import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.enchantment.ModEnchantments;
 import silentAbyss.entity.ModEntities;
@@ -86,6 +87,8 @@ public class Abyss {
 
         ModBlocks.initBlockRecipes();
         ModItems.initItemRecipes();
+        
+        LocalizationHelper.init();
     }
 
     @EventHandler

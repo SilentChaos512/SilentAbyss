@@ -97,7 +97,8 @@ public class TeleporterLinker extends ItemSA {
         itemIcon = iconActive;
     }
 
-    public static void addRecipes() {
+    @Override
+    public void addRecipes() {
 
         GameRegistry.addRecipe(new ItemStack(ModItems.teleporterLinker), "x", "y", 'x', Gem.getGem(Reference.INDEX_ABYSSITE), 'y',
                 Item.ingotGold);

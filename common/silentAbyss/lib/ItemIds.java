@@ -11,6 +11,7 @@ public class ItemIds {
     public static int ABYSS_SIGIL_DEFAULT = 6022;
     public static int SIGIL_STONE_DEFAULT = 6021;
     public static int SIGIL_SCEPTER_DEFAULT = 6023;
+    public static int ENCHANT_TOKEN_DEFAULT = 6024;
     public static int TOOL_START_DEFAULT = 6060;
     public static int PERSONAL_ELEVATION_DEVICE_DEFAULT = 6030;
     public static int MOD_BOOK_DEFAULT = 6040;
@@ -24,6 +25,7 @@ public class ItemIds {
     public static int ABYSS_SIGIL;
     public static int SIGIL_STONE;
     public static int SIGIL_SCEPTER;
+    public static int ENCHANT_TOKEN;
     public static int TOOL_START;
     public static int PERSONAL_ELEVATION_DEVICE;
     public static int MOD_BOOK;
