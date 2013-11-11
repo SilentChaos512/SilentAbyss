@@ -155,6 +155,7 @@ public class ModItems {
         Food.addRecipes();
         ((ItemSA) sigilStone).addRecipes();
         ((ItemSA) sigilScepter).addRecipes();
+        ((ItemSA) enchantToken).addRecipes();
         ((ItemSA) teleporterLinker).addRecipes();
         ((ItemSA) personalElevationDevice).addRecipes();
         ModBook.addRecipes();

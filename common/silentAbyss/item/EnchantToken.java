@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
@@ -30,6 +31,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class EnchantToken extends ItemSA {
 
+    /**
+     * Small class for storing enchantment data in hash map\
+     */
     public static class EnchData {
 
         public byte validTools;
@@ -53,7 +57,6 @@ public class EnchantToken extends ItemSA {
     public final static byte T_SHOVEL = 4;
     public final static byte T_AXE = 2;
     public final static byte T_HOE = 1;
-    // private final static char VALID_TOOL_SEP = '@';
 
     /**
      * Stores the enchantments that there are tokens for.
@@ -124,15 +127,6 @@ public class EnchantToken extends ItemSA {
         if (enchants.containsKey(key)) {
             s = enchants.get(key).getName();
             s = I18n.getString(s);
-
-            // try {
-            // s = enchants.get(key);
-            // int k = s.indexOf(VALID_TOOL_SEP);
-            // s = s.substring(0, k);
-            // s = I18n.getString(s);
-            // }
-            // catch (Exception ex) {
-            // }
         }
 
         return s;
@@ -147,14 +141,9 @@ public class EnchantToken extends ItemSA {
     public static String validToolsFor(int key) {
 
         List l = new ArrayList<String>();
-        // String str = enchants.get(key);
-        // int k = str.indexOf(VALID_TOOL_SEP);
         int k = enchants.get(key).validTools;
 
         try {
-            // str = str.substring(k + 1);
-            // k = Integer.parseInt(str);
-
             if ((k & T_SWORD) != 0)
                 l.add("Sword");
             if ((k & T_PICKAXE) != 0)
@@ -168,6 +157,7 @@ public class EnchantToken extends ItemSA {
 
             StringBuilder sb = new StringBuilder();
 
+            // Separate each item with commas
             for (Object o : l) {
                 if (sb.length() > 0) {
                     sb.append(", ");
@@ -178,15 +168,22 @@ public class EnchantToken extends ItemSA {
             return sb.toString();
         }
         catch (Exception ex) {
-            // LogHelper.warning(ex);
         }
 
         return "";
     }
 
+    /**
+     * Determine if token can be applied to the tool. Checks that the tool is
+     * the right type, the enchantments don't conflict, and the enchantment can
+     * be "leveled up".
+     * 
+     * @param token
+     * @param tool
+     * @return
+     */
     public static boolean capApplyTokenToTool(ItemStack token, ItemStack tool) {
 
-        // int k = getValidToolId(token.getItemDamage());
         int k = token.getItemDamage();
         if (!enchants.containsKey(k)) {
             return false;
@@ -198,17 +195,8 @@ public class EnchantToken extends ItemSA {
         if ((tool.getItem() instanceof AbyssSword && (k & T_SWORD) != 0)
                 || (tool.getItem() instanceof AbyssPickaxe && (k & T_PICKAXE) != 0)
                 || (tool.getItem() instanceof AbyssShovel && (k & T_SHOVEL) != 0)
-                || (tool.getItem() instanceof AbyssAxe && (k & T_AXE) != 0)
-                || (tool.getItem() instanceof AbyssHoe && (k & T_HOE) != 0)) {
+                || (tool.getItem() instanceof AbyssAxe && (k & T_AXE) != 0) || (tool.getItem() instanceof AbyssHoe && (k & T_HOE) != 0)) {
             // Token and tool type match.
-            // Create NBT tag compound for tool if it does not exist.
-//            if (tool.stackTagCompound == null) {
-//                tool.setTagCompound(new NBTTagCompound());
-//            }
-//            if (!tool.stackTagCompound.hasKey("ench")) {
-//                tool.stackTagCompound.setTag("ench", new NBTTagList("ench"));
-//            }
-
             // Does tool have any enchantments?
             if (tool.hasTagCompound()) {
                 if (!tool.stackTagCompound.hasKey("ench")) {
@@ -218,7 +206,7 @@ public class EnchantToken extends ItemSA {
             else if (!tool.hasTagCompound()) {
                 return true;
             }
-            
+
             // Does tool already have this enchantment? If so, can it be
             // upgraded?
             k = EnchantmentHelper.getEnchantmentLevel(e.enchantment.effectId, tool);
@@ -233,40 +221,41 @@ public class EnchantToken extends ItemSA {
                     }
                 }
                 return true;
-                // tool.addEnchantment(e.enchantment, 1);
             }
             else if (k < e.getMaxLevel()) {
                 // Tool has enchantment, but it can be leveled up.
                 return true;
-                // NBTTagList nbtTagList = (NBTTagList)
-                // tool.stackTagCompound.getTag("ench");
-                // for (int i = 0; i < nbtTagList.tagCount(); ++i) {
-                // if (nbtTagList.)
-                // }
             }
         }
-        
+
         return false;
     }
-    
+
+    /**
+     * Applies the token's enchantment to the tool. Need to check
+     * canApplyTokenToTool before calling.
+     * 
+     * @param token
+     * @param tool
+     */
     public static void enchantTool(ItemStack token, ItemStack tool) {
-        
+
         int k = token.getItemDamage();
         EnchData e = enchants.get(k);
         k = EnchantmentHelper.getEnchantmentLevel(e.enchantment.effectId, tool);
-        
+
         // Adding enchantment is easy, leveling it up is a bit harder.
         if (k == 0) {
             tool.addEnchantment(e.enchantment, 0);
         }
-        
+
         if (tool.stackTagCompound == null) {
             tool.setTagCompound(new NBTTagCompound());
         }
         if (!tool.stackTagCompound.hasKey("ench")) {
             tool.stackTagCompound.setTag("ench", new NBTTagList("ench"));
         }
-        
+
         NBTTagCompound t;
         for (int i = 0; i < tool.getEnchantmentTagList().tagCount(); ++i) {
             t = (NBTTagCompound) tool.getEnchantmentTagList().tagAt(i);
@@ -277,27 +266,6 @@ public class EnchantToken extends ItemSA {
             }
         }
     }
-
-    // /**
-    // * Gets the number after VALID_TOOL_SEP in enchantment name.
-    // * @param key
-    // * @return
-    // */
-    // public static int getValidToolId(int key) {
-    //
-    // int k = 0;
-    //
-    // try {
-    // String s = enchants.get(key);
-    // int j = s.indexOf(VALID_TOOL_SEP);
-    // s = s.substring(j + 1);
-    // k = Integer.parseInt(s);
-    // }
-    // catch (Exception ex) {
-    // }
-    //
-    // return k;
-    // }
 
     @Override
     @SuppressWarnings({ "rawtypes", "unchecked" })
@@ -361,7 +329,42 @@ public class EnchantToken extends ItemSA {
     @Override
     public void addRecipes() {
 
+        ItemStack baseToken = new ItemStack(this, 1, 0), ruby = Gem.getGem(Reference.INDEX_RUBY), emerald = Gem
+                .getGem(Reference.INDEX_EMERALD), sapphire = Gem.getGem(Reference.INDEX_SAPPHIRE), topaz = Gem
+                .getGem(Reference.INDEX_TOPAZ), abyssite = Gem.getGem(Reference.INDEX_ABYSSITE), purite = Gem
+                .getGem(Reference.INDEX_PURITE);
+
         GameRegistry.addShapedRecipe(new ItemStack(this, 8, 0), "ggg", "rdr", "ggg", 'g', Item.ingotGold, 'r', Item.redstone, 'd',
                 Gem.getGem(Reference.INDEX_ABYSS_DIAMOND));
+        
+        addTokenRecipe(Enchantment.baneOfArthropods.effectId, ruby, Item.spiderEye, baseToken);
+        addTokenRecipe(Enchantment.efficiency.effectId, emerald, Item.goldNugget, baseToken);
+        addTokenRecipe(Enchantment.fireAspect.effectId, ruby, Item.blazePowder, baseToken);
+        addTokenRecipe(Enchantment.fortune.effectId, topaz, Item.diamond, baseToken);
+        addTokenRecipe(Enchantment.knockback.effectId, emerald, Item.feather, baseToken);
+        addTokenRecipe(Enchantment.looting.effectId, topaz, Item.emerald, baseToken);
+        addTokenRecipe(Enchantment.sharpness.effectId, ruby, Item.flint, baseToken);
+        addTokenRecipe(Enchantment.silkTouch.effectId, abyssite, Item.emerald, baseToken);
+        addTokenRecipe(Enchantment.smite.effectId, ruby, Item.rottenFlesh, baseToken);
+        addTokenRecipe(Enchantment.unbreaking.effectId, sapphire, Item.ingotIron, baseToken);
+        
+        addTokenRecipe(ModEnchantments.iceAspect.effectId, sapphire, Item.snowball, baseToken);
+        addTokenRecipe(ModEnchantments.mending.effectId, purite, Block.cobblestoneMossy, baseToken);
+        addTokenRecipe(ModEnchantments.nihil.effectId, purite, Item.potato, baseToken);
+    }
+
+    private void addTokenRecipe(int key, ItemStack gem, ItemStack otherMaterial, ItemStack baseToken) {
+
+        GameRegistry.addShapedRecipe(new ItemStack(this, 1, key), "ggg", "mtm", " m ", 'g', gem, 'm', otherMaterial, 't', baseToken);
+    }
+    
+    private void addTokenRecipe(int key, ItemStack gem, Block otherMaterial, ItemStack baseToken) {
+        
+        addTokenRecipe(key, gem, new ItemStack(otherMaterial), baseToken);
+    }
+    
+    private void addTokenRecipe(int key, ItemStack gem, Item otherMaterial, ItemStack baseToken) {
+        
+        addTokenRecipe(key, gem, new ItemStack(otherMaterial), baseToken);
     }
 }
