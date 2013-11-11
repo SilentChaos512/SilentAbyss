@@ -1,9 +1,12 @@
 package silentAbyss.item;
 
+import java.util.Arrays;
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
@@ -15,7 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class CraftingMaterial extends ItemSA {
 
-    public static final String[] names = { "ornateStick" };
+    public static final String[] names = { Strings.ORNATE_STICK_NAME, Strings.MYSTERY_GOO_NAME };
     public static Icon[] icons = new Icon[names.length];
 
     public CraftingMaterial(int id) {
@@ -30,7 +33,9 @@ public class CraftingMaterial extends ItemSA {
     public static ItemStack getStack(String name) {
 
         for (int i = 0; i < names.length; ++i) {
-            if (names[i].equals(name)) { return new ItemStack(ModItems.craftingMaterial, 1, i); }
+            if (names[i].equals(name)) {
+                return new ItemStack(ModItems.craftingMaterial, 1, i);
+            }
         }
 
         return null;
@@ -39,7 +44,9 @@ public class CraftingMaterial extends ItemSA {
     public static ItemStack getStack(String name, int count) {
 
         for (int i = 0; i < names.length; ++i) {
-            if (names[i].equals(name)) { return new ItemStack(ModItems.craftingMaterial, count, i); }
+            if (names[i].equals(name)) {
+                return new ItemStack(ModItems.craftingMaterial, count, i);
+            }
         }
 
         return null;
@@ -58,6 +65,22 @@ public class CraftingMaterial extends ItemSA {
 
         for (int i = 0; i < icons.length; ++i) {
             list.add(new ItemStack(this, 1, i));
+        }
+    }
+    
+    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+
+        switch (stack.getItemDamage()) {
+            case 0: {
+                list.add("\u00a7oBling bling.");
+                break;
+            }
+            case 1: {
+                list.add("\u00a7oFeels right at home in space.");
+            }
         }
     }
 
@@ -85,6 +108,7 @@ public class CraftingMaterial extends ItemSA {
 
         ItemStack rAbyssite = Gem.getGem(Reference.INDEX_ABYSSITE);
 
-        GameRegistry.addRecipe(getStack("ornateStick", 4), "gag", "gag", "gag", 'g', Item.ingotGold, 'a', rAbyssite);
+        GameRegistry.addRecipe(getStack(Strings.ORNATE_STICK_NAME, 4), "gag", "gag", "gag", 'g', Item.ingotGold, 'a', rAbyssite);
+        GameRegistry.addRecipe(getStack(Strings.MYSTERY_GOO_NAME, 1), " m ", "mam", " m ", 'm', Block.cobblestoneMossy, 'a', rAbyssite);
     }
 }

@@ -87,6 +87,7 @@ public class Abyss {
 
         ModBlocks.initBlockRecipes();
         ModItems.initItemRecipes();
+        ModItems.addRandomChestGenLoot();
         
         LocalizationHelper.init();
     }

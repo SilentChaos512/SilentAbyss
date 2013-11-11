@@ -349,7 +349,7 @@ public class EnchantToken extends ItemSA {
         addTokenRecipe(Enchantment.unbreaking.effectId, sapphire, Item.ingotIron, baseToken);
         
         addTokenRecipe(ModEnchantments.iceAspect.effectId, sapphire, Item.snowball, baseToken);
-        addTokenRecipe(ModEnchantments.mending.effectId, purite, Block.cobblestoneMossy, baseToken);
+        addTokenRecipe(ModEnchantments.mending.effectId, purite, CraftingMaterial.getStack(Strings.MYSTERY_GOO_NAME), baseToken);
         addTokenRecipe(ModEnchantments.nihil.effectId, purite, Item.potato, baseToken);
     }
 

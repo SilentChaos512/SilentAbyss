@@ -1,5 +1,7 @@
 package silentAbyss.item.armor;
 
+import java.util.List;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -60,6 +62,14 @@ public class PersonalElevationDevice extends ItemSA {
 //            entity.fallDistance = 0;
 //        }
 //    }
+    
+    @Override
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+
+        list.add("\u00a7oPedro says \"hi\".");
+    }
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {

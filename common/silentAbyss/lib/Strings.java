@@ -56,6 +56,8 @@ public class Strings {
     public final static String ABYSSITE_NAME = "abyssite";
     public final static String ABYSS_SHARD_NAME = "abyssShard";
     public final static String CRAFTING_MATERIAL_NAME = "craftingMaterials";
+    public final static String ORNATE_STICK_NAME = "ornateStick";
+    public final static String MYSTERY_GOO_NAME = "mysteryGoo";
     public final static String POTATO_STICK_NAME = "foodPotatoStick";
     public final static String TELEPORTER_LINKER_NAME = "teleporterLinker";
     public final static String ABYSS_SIGIL_NAME = "abyssSigil";

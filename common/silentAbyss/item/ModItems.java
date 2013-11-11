@@ -1,12 +1,14 @@
 package silentAbyss.item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.oredict.OreDictionary;
 import silentAbyss.Abyss;
+import silentAbyss.enchantment.ModEnchantments;
 import silentAbyss.item.armor.PersonalElevationDevice;
 import silentAbyss.item.tool.AbyssAxe;
 import silentAbyss.item.tool.AbyssHoe;
@@ -141,10 +143,6 @@ public class ModItems {
         OreDictionary.registerOre("gemTopaz", new ItemStack(abyssGem, 1, 3));
         OreDictionary.registerOre("gemAbyssite", Gem.getGem(Reference.INDEX_ABYSSITE));
         OreDictionary.registerOre("gemPurite", Gem.getGem(Reference.INDEX_PURITE));
-
-        // Other stuff
-        addRandomChestGenLoot();
-
     }
 
     public static void initItemRecipes() {
@@ -217,7 +215,7 @@ public class ModItems {
         AbyssHoe.addRecipe(new ItemStack(hoeAbyssTopazPlus), rAbyssTopazPlus, true);
     }
 
-    private static void addRandomChestGenLoot() {
+    public static void addRandomChestGenLoot() {
 
         // Abyssite - can spawn in most chests.
         ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(
@@ -286,10 +284,8 @@ public class ModItems {
                 new WeightedRandomChestContent(new ItemStack(ModItems.potatoStick), 1, 4, 33));
 
         // Shrine chests
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
-                new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_ABYSSITE), 1, 4, 15));
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
-                new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_PURITE), 1, 4, 15));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_ABYSSITE), 1, 4, 25));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_PURITE), 1, 4, 25));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
                 new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 0), 1, 4, 100));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
@@ -302,14 +298,20 @@ public class ModItems {
                 new WeightedRandomChestContent(new ItemStack(ModItems.craftingMaterial, 1, 0), 2, 4, 10));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
                 new WeightedRandomChestContent(new ItemStack(ModItems.teleporterLinker), 1, 1, 1));
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.pickaxeGold), 1, 1, 5));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.pickaxeGold), 1, 1, 1));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.enderPearl), 1, 4, 35));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.ingotIron), 4, 10, 40));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.ingotGold), 2, 6, 20));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.diamond), 1, 4, 7));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.book), 4, 8, 16));
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.book, 1, 0), 1, 1, 22));
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.book, 1, 1), 1, 1, 22));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.book, 1, 0), 1, 1, 16));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.book, 1, 1), 1, 1, 16));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
+                new WeightedRandomChestContent(new ItemStack(ModItems.enchantToken, 1, ModEnchantments.mending.effectId), 1, 1, 5));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
+                new WeightedRandomChestContent(new ItemStack(ModItems.enchantToken, 1, Enchantment.fortune.effectId), 1, 1, 5));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
+                new WeightedRandomChestContent(new ItemStack(ModItems.enchantToken, 1, Enchantment.silkTouch.effectId), 1, 1, 5));
 
         // Some configuring...
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).setMin(8);
