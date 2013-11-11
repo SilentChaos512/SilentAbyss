@@ -299,7 +299,7 @@ public class ModItems {
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
                 new WeightedRandomChestContent(new ItemStack(ModItems.teleporterLinker), 1, 1, 1));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.pickaxeGold), 1, 1, 1));
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.enderPearl), 1, 4, 35));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.enderPearl), 1, 4, 70));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.ingotIron), 4, 10, 40));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.ingotGold), 2, 6, 20));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.diamond), 1, 4, 7));
@@ -307,11 +307,11 @@ public class ModItems {
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.book, 1, 0), 1, 1, 16));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.book, 1, 1), 1, 1, 16));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.enchantToken, 1, ModEnchantments.mending.effectId), 1, 1, 5));
+                new WeightedRandomChestContent(new ItemStack(ModItems.enchantToken, 1, ModEnchantments.mending.effectId), 1, 1, 7));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.enchantToken, 1, Enchantment.fortune.effectId), 1, 1, 5));
+                new WeightedRandomChestContent(new ItemStack(ModItems.enchantToken, 1, Enchantment.fortune.effectId), 1, 1, 7));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.enchantToken, 1, Enchantment.silkTouch.effectId), 1, 1, 5));
+                new WeightedRandomChestContent(new ItemStack(ModItems.enchantToken, 1, Enchantment.silkTouch.effectId), 1, 1, 7));
 
         // Some configuring...
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).setMin(8);
