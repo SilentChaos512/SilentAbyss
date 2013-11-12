@@ -120,3 +120,11 @@ enchantment.Nihil=Nihil
 # Death messages
 
 death.attack.abyssMeteor=%1$s was crushed by a meteor
+
+
+# Misc text
+
+misc.ornateStick=Bling bling.
+misc.mysteryGoo=Feels right at home in space.
+misc.foodPotatoStick=Totally not like the Mindcrack logo.
+misc.personalElevationDevice=Pedro says "hi".

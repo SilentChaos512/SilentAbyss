@@ -1,5 +1,6 @@
 package silentAbyss.core.util;
 
+import net.minecraft.client.resources.I18n;
 import silentAbyss.lib.Localizations;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -7,7 +8,13 @@ public class LocalizationHelper {
 
     public static String getLocalizedString(String key) {
 
-        return LanguageRegistry.instance().getStringLocalization(key);
+        //return LanguageRegistry.instance().getStringLocalization(key);
+        return I18n.getString(key);
+    }
+    
+    public static String getMessageText(String key) {
+        
+        return (new StringBuilder()).append("\u00a7o").append(getLocalizedString("misc." + key)).toString();
     }
     
     public static boolean isXMLLanguageFile(String fileName) {

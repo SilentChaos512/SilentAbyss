@@ -10,6 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.item.Gem;
 import silentAbyss.item.ItemSA;
 import silentAbyss.item.ModItems;
@@ -19,6 +20,15 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+/**
+ * My flying device.
+ * 
+ * FIXME: Generates chaos when flying by other means (ie Morph).
+ * TODO: Ability to equip by shift-clicking.
+ * 
+ * @author SilentChaos512
+ * 
+ */
 public class PersonalElevationDevice extends ItemSA {
 
     public PersonalElevationDevice(int id) {
@@ -55,20 +65,12 @@ public class PersonalElevationDevice extends ItemSA {
         return stack;
     }
 
-//    @Override
-//    public void onUpdate(ItemStack stack, World world, Entity entity, int par4, boolean par5) {
-//
-//        if (Minecraft.getMinecraft().gameSettings.keyBindJump.pressed) {
-//            entity.fallDistance = 0;
-//        }
-//    }
-    
     @Override
     @SuppressWarnings({ "rawtypes", "unchecked" })
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 
-        list.add("\u00a7oPedro says \"hi\".");
+        list.add(LocalizationHelper.getMessageText(Strings.PERSONAL_ELEVATION_DEVICE_NAME));
     }
 
     @Override

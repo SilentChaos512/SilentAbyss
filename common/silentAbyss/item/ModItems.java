@@ -85,7 +85,7 @@ public class ModItems {
          */
         abyssGem = new Gem(ItemIds.ABYSS_GEM);
         abyssShard = new GemShard(ItemIds.ABYSS_SHARD);
-        potatoStick = new Food(ItemIds.POTATO_STICK, 8, 0.8f, false, 0);
+        potatoStick = new Food(ItemIds.POTATO_STICK, 8, 0.8f, false);
         craftingMaterial = new CraftingMaterial(ItemIds.CRAFTING_MATERIAL);
         teleporterLinker = new TeleporterLinker(ItemIds.TELEPORTER_LINKER);
         abyssSigil = new Sigil(ItemIds.ABYSS_SIGIL);
