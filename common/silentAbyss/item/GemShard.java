@@ -17,6 +17,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class GemShard extends ItemSA {
 
+    @SideOnly(Side.CLIENT)
     public static Icon[] icons = new Icon[Reference.GEM_TYPE_COUNT];
 
     public GemShard(int id) {

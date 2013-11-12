@@ -11,6 +11,7 @@ import net.minecraft.item.ItemWritableBook;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.lib.Reference;
@@ -99,6 +100,26 @@ public class ModBook extends ItemWritableBook {
 
         itemIcon = iconRegister.registerIcon("book_written");
     }
+    
+//    @SideOnly(Side.CLIENT)
+//    @Override
+//    public boolean requiresMultipleRenderPasses() {
+//        
+//        return true;
+//    }
+//    
+//    @SideOnly(Side.CLIENT)
+//    @Override
+//    public Icon getIconFromDamageForRenderPass(int meta, int pass) {
+//        
+//        // Just testing multi-pass rendering
+//        if (pass == 1) {
+//            return ModItems.sigilStone.getIconFromDamage(0);
+//        }
+//        else {
+//            return this.getIconFromDamage(0);
+//        }
+//    }
 
     public static void addRecipes() {
 

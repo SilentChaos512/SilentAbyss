@@ -5,11 +5,13 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -19,6 +21,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class CraftingMaterial extends ItemSA {
 
     public static final String[] names = { Strings.ORNATE_STICK_NAME, Strings.MYSTERY_GOO_NAME };
+    @SideOnly(Side.CLIENT)
     public static Icon[] icons = new Icon[names.length];
 
     public CraftingMaterial(int id) {
@@ -73,15 +76,7 @@ public class CraftingMaterial extends ItemSA {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 
-        switch (stack.getItemDamage()) {
-            case 0: {
-                list.add("\u00a7oBling bling.");
-                break;
-            }
-            case 1: {
-                list.add("\u00a7oFeels right at home in space.");
-            }
-        }
+        list.add(LocalizationHelper.getMessageText(names[stack.getItemDamage()]));
     }
 
     @Override

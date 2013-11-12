@@ -25,6 +25,7 @@ public class Gem extends ItemSA {
     /**
      * All icons by damage value, includes compound gems and duplicates.
      */
+    @SideOnly(Side.CLIENT)
     public static Icon[] icons = new Icon[12];
 
     public Gem(int par1) {

@@ -17,6 +17,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class GemBlock extends BlockOreStorage {
 
+    @SideOnly(Side.CLIENT)
     public static Icon[] icons = new Icon[Reference.GEM_TYPE_COUNT];
 
     public GemBlock(int par1) {
