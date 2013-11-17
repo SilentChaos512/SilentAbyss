@@ -36,4 +36,8 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(TileEntitySigilInfuser.class, "tileEntitySigilInfuser");
         GameRegistry.registerTileEntity(TileTest.class, "tileTest");
     }
+    
+    public void registerKeyHandlers() {
+        
+    }
 }

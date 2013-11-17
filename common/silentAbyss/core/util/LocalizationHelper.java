@@ -14,7 +14,7 @@ public class LocalizationHelper {
     
     public static String getMessageText(String key) {
         
-        return (new StringBuilder()).append("\u00a7o").append(getLocalizedString("misc." + key)).toString();
+        return (new StringBuilder()).append("\u00a7o").append(getLocalizedString("misc.silentabyss:" + key)).toString();
     }
     
     public static boolean isXMLLanguageFile(String fileName) {

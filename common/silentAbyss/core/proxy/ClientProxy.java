@@ -10,6 +10,7 @@ import silentAbyss.client.renderer.item.ItemTestRenderer;
 import silentAbyss.client.renderer.tileentity.TileEntityTestRenderer;
 import silentAbyss.core.handlers.tick.PlayerClientServerTickHandler;
 import silentAbyss.core.handlers.tick.RenderTickHandler;
+import silentAbyss.core.util.KeyHelper;
 import silentAbyss.entity.monster.EntityGrumbling;
 import silentAbyss.entity.projectile.EntityMeteor;
 import silentAbyss.entity.projectile.EntityProjectileMagic;
@@ -61,5 +62,11 @@ public class ClientProxy extends CommonProxy {
         super.registerTileEntities();
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileTest.class, new TileEntityTestRenderer());
+    }
+    
+    @Override
+    public void registerKeyHandlers() {
+        
+        KeyHelper.init();
     }
 }

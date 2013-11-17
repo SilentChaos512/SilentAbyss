@@ -1,6 +1,5 @@
 package silentAbyss.item;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,6 +20,7 @@ import silentAbyss.lib.ItemIds;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import silentAbyss.recipe.EnchantToolRecipe;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModItems {
 

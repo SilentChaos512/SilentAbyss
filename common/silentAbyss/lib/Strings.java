@@ -6,7 +6,7 @@ public class Strings {
      * General keys
      */
     public final static String SHRINE_CHEST = "abyssShrine";
-    public final static String BOOK_LOCATION = "books/";
+    public final static String BOOK_LOCATION = "/assets/" + Reference.MOD_ID + "/books/";
 
     /*
      * Messages

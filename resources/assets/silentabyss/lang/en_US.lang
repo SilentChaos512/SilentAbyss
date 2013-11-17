@@ -124,7 +124,7 @@ death.attack.abyssMeteor=%1$s was crushed by a meteor
 
 # Misc text
 
-misc.ornateStick=Bling bling.
-misc.mysteryGoo=Feels right at home in space.
-misc.foodPotatoStick=Totally not like the Mindcrack logo.
-misc.personalElevationDevice=Pedro says "hi".
+misc.silentabyss:ornateStick=Bling bling.
+misc.silentabyss:mysteryGoo=Feels right at home in space.
+misc.silentabyss:foodPotatoStick=Totally not like the Mindcrack logo.
+misc.silentabyss:personalElevationDevice=Pedro says "hi".

@@ -1,6 +1,13 @@
 package silentAbyss.item;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+
+import com.google.common.io.Files;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -11,7 +18,6 @@ import net.minecraft.item.ItemWritableBook;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
-import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.lib.Reference;
@@ -132,6 +138,16 @@ public class ModBook extends ItemWritableBook {
     private static NBTTagCompound tagForBook(int meta) {
 
         // It would be better to read from a file, but MC is not cooperating >_<
+
+//        File path = new File(Strings.BOOK_LOCATION + "book0.txt");
+//        try {
+//            LogHelper.debug(Files.readFirstLine(path, StandardCharsets.UTF_8));
+//        }
+//        catch (IOException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+        
         switch (meta) {
             case 0: {
                 NBTTagCompound tags = new NBTTagCompound();

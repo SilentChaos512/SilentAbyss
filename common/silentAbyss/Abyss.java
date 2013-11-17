@@ -8,8 +8,8 @@ import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.MinecraftForge;
-import silentAbyss.block.Teleporter;
 import silentAbyss.block.ModBlocks;
+import silentAbyss.block.Teleporter;
 import silentAbyss.command.CommandHandler;
 import silentAbyss.configuration.ConfigHandler;
 import silentAbyss.core.handlers.GuiHandler;
@@ -72,8 +72,6 @@ public class Abyss {
 
         LogHelper.init();
 
-        LogHelper.info("Pimping your world!");
-
         ConfigHandler.init(event.getSuggestedConfigurationFile());
 
         if (FMLCommonHandler.instance().getSide().isClient()) {
@@ -88,7 +86,7 @@ public class Abyss {
         ModBlocks.initBlockRecipes();
         ModItems.initItemRecipes();
         ModItems.addRandomChestGenLoot();
-        
+
         LocalizationHelper.init();
     }
 
@@ -98,6 +96,7 @@ public class Abyss {
         proxy.registerTickHandlers();
         proxy.registerTileEntities();
         proxy.registerRenderers();
+        proxy.registerKeyHandlers();
 
         ForgeChunkManager.setForcedChunkLoadingCallback(this, new TicketLoader());
         Teleporter.mod = this;
@@ -109,8 +108,8 @@ public class Abyss {
         GameRegistry.registerWorldGenerator(new AbyssWorldGenerator());
 
         // Abyss dimension. WIP.
-         DimensionManager.registerProviderType(dimension, WorldProviderAbyss.class, false);
-         DimensionManager.registerDimension(dimension, dimension);
+        DimensionManager.registerProviderType(dimension, WorldProviderAbyss.class, false);
+        DimensionManager.registerDimension(dimension, dimension);
     }
 
     @EventHandler

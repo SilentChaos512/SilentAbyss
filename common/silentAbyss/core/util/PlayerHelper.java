@@ -40,4 +40,15 @@ public class PlayerHelper {
         }
         return false;
     }
+    
+    public static ItemStack getStackAfterEquipped(EntityPlayer player) {
+        
+        int i = player.inventory.currentItem + 1;
+        
+        if (i >= player.inventory.getHotbarSize()) {
+            return null;
+        }
+        
+        return player.inventory.getStackInSlot(i);
+    }
 }
