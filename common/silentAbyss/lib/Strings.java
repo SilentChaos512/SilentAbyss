@@ -44,7 +44,7 @@ public class Strings {
     public final static String ABYSS_TELEPORTER_NAME = "abyssTeleporter";
     public final static String SIGIL_INFUSER_NAME = "sigilInfuser";
     public final static String BRICK_NAME = "blockAbyssBrick";
-    public final static String BRICK_SLAB_NAME = "blockAbyssBrickSlab";
+    public final static String LAMP_NAME = "blockLamp";
     public final static String PORTAL_FRAME_NAME = "blockAbyssPortalFrame";
     public final static String PORTAL_NAME = "blockAbyssPortal";
     public final static String TEST_BLOCK_NAME = "blockTest";

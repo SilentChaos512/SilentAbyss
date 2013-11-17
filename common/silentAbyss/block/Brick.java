@@ -79,8 +79,6 @@ public class Brick extends Block {
         for (int i = 0; i < icons.length; ++i) {
             GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.brick, 8, i), "sss", "sgs", "sss", 's', Block.stoneBrick, 'g',
                     new ItemStack(ModItems.abyssShard, 1, i));
-            // Slabs -> bricks
-            GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.brick, 1, i), "s", "s", 's', new ItemStack(ModBlocks.brickSlab, 1, i));
         }
     }
 }

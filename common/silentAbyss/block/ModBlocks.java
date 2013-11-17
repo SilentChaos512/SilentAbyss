@@ -17,7 +17,7 @@ public class ModBlocks {
     public static Block abyssTeleporter;
     public static Block sigilInfuser;
     public static Block brick;
-    public static Block brickSlab;
+    public static BlockSA lamp;
     public static Block portalFrame;
     public static Block portal;
     public static Block blockTest;
@@ -32,7 +32,7 @@ public class ModBlocks {
         abyssTeleporter = new Teleporter(BlockIds.ABYSS_TELEPORTER);
         sigilInfuser = new SigilInfuser(BlockIds.SIGIL_INFUSER);
         brick = new Brick(BlockIds.BRICK);
-        brickSlab = new BrickSlab(BlockIds.BRICK_SLAB, false);
+        lamp = new Lamp(BlockIds.LAMP);
         portalFrame = new PortalFrame(BlockIds.PORTAL_FRAME);
         portal = new Portal(BlockIds.PORTAL);
         blockTest = new BlockTest(BlockIds.TEST_BLOCK);
@@ -45,7 +45,7 @@ public class ModBlocks {
         GameRegistry.registerBlock(abyssTeleporter, Strings.ABYSS_TELEPORTER_NAME);
         GameRegistry.registerBlock(sigilInfuser, Strings.SIGIL_INFUSER_NAME);
         GameRegistry.registerBlock(brick, BrickItemBlock.class, Strings.BRICK_NAME);
-        GameRegistry.registerBlock(brickSlab, BrickSlabItemBlock.class, Strings.BRICK_SLAB_NAME);
+        GameRegistry.registerBlock(lamp, LampItemBlock.class, Strings.LAMP_NAME);
         GameRegistry.registerBlock(portalFrame, Strings.PORTAL_FRAME_NAME);
         GameRegistry.registerBlock(portal, Strings.PORTAL_NAME);
         GameRegistry.registerBlock(blockTest, Strings.TEST_BLOCK_NAME);
@@ -72,7 +72,7 @@ public class ModBlocks {
         Teleporter.addRecipes();
         SigilInfuser.addRecipes();
         Brick.addRecipes();
-        BrickSlab.addRecipes();
+        lamp.addRecipes();
         PortalFrame.addRecipes();
     }
 }
