@@ -15,7 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockSA extends Block {
 
-    public static Icon[] icons;
+    public Icon[] icons;
     
     public boolean hasSubtypes = true;
 
@@ -75,6 +75,11 @@ public class BlockSA extends Block {
     public String getUnlocalizedName() {
         
         return (new StringBuilder()).append("tile.").append(Strings.RESOURCE_PREFIX).append(this.blockID).toString();
+    }
+    
+    public String getUnlocalizedName(String tileName) {
+        
+        return (new StringBuilder()).append("tile.").append(Strings.RESOURCE_PREFIX).append(tileName).toString();
     }
 
     /**

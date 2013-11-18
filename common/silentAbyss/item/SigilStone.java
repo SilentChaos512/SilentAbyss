@@ -10,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.Icon;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.lib.Reference;
@@ -20,14 +21,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class SigilStone extends ItemSA {
 
-    public static final String[] names = { "Empty",
-
-            "Black", // 1
-            "Red", "Green", "Brown", "Blue", "Purple", "Cyan", "LightGray", "Gray", "Pink", "Lime", "Yellow", "LightBlue", "Magenta",
-            "Orange", "White", // 16
-
-            "Fireball", // 17
-            "Icebolt", "Lightning", "Earthquake", "Healing", "Resistance", "Remedy", "Cloak", "Teleport", // 25
+    public static final String[] names = { "Empty", "Black", "Red", "Green", "Brown", "Blue", "Purple", "Cyan", "LightGray", "Gray",
+            "Pink", "Lime", "Yellow", "LightBlue", "Magenta", "Orange", "White", "Fireball", "Icebolt", "Lightning", "Earthquake",
+            "Healing", "Resistance", "Remedy", "Cloak", "Teleport", // 25
             "Amplify", "Speed" };
 
     public SigilStone(int par1) {
@@ -122,7 +118,9 @@ public class SigilStone extends ItemSA {
     public static boolean isColorSigil(String name) {
 
         for (int i = 1; i < 17; ++i) {
-            if (names[i].equals(name)) { return true; }
+            if (names[i].equals(name)) {
+                return true;
+            }
         }
 
         return false;
@@ -131,11 +129,6 @@ public class SigilStone extends ItemSA {
     @Override
     public String getUnlocalizedName(ItemStack stack) {
 
-        StringBuilder s = new StringBuilder();
-        s.append("item.");
-        s.append(Strings.RESOURCE_PREFIX);
-        s.append(Strings.SIGIL_STONE_NAME);
-
-        return s.toString();
+        return getUnlocalizedName(Strings.SIGIL_STONE_NAME);
     }
 }

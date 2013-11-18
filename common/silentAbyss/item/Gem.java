@@ -22,15 +22,10 @@ public class Gem extends ItemSA {
      */
     public static final String[] names = { "Ruby", "Emerald", "Sapphire", "Topaz" };
 
-    /**
-     * All icons by damage value, includes compound gems and duplicates.
-     */
-    public static Icon[] icons = new Icon[12];
+    public Gem(int id) {
 
-    public Gem(int par1) {
-
-        super(par1);
-
+        super(id);
+        icons = new Icon[12];
         setMaxStackSize(64);
         setHasSubtypes(true);
         setMaxDamage(0);
@@ -47,22 +42,6 @@ public class Gem extends ItemSA {
     public EnumRarity getRarity(ItemStack itemStack) {
 
         return itemStack.getItemDamage() > 3 ? EnumRarity.rare : EnumRarity.common;
-    }
-
-    @Override
-    public Icon getIconFromDamage(int i) {
-
-        return icons[i];
-    }
-
-    @Override
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    @SideOnly(Side.CLIENT)
-    public void getSubItems(int itemID, CreativeTabs tabs, List list) {
-
-        for (int i = 0; i < icons.length; ++i) {
-            list.add(getGem(i));
-        }
     }
 
     /**

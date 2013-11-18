@@ -66,7 +66,6 @@ public class EnchantToken extends ItemSA {
     public EnchantToken(int id) {
 
         super(id);
-
         setMaxStackSize(64);
         setHasSubtypes(true);
         setMaxDamage(0);
@@ -312,11 +311,7 @@ public class EnchantToken extends ItemSA {
     @Override
     public String getUnlocalizedName(ItemStack stack) {
 
-        StringBuilder s = new StringBuilder();
-        s.append("item.");
-        s.append(Strings.RESOURCE_PREFIX);
-        s.append(Strings.ENCHANT_TOKEN_NAME);
-        return s.toString();
+        return getUnlocalizedName(Strings.ENCHANT_TOKEN_NAME);
     }
 
     @SideOnly(Side.CLIENT)

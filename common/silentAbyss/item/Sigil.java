@@ -340,11 +340,6 @@ public class Sigil extends ItemSA {
     @Override
     public String getUnlocalizedName(ItemStack stack) {
 
-        StringBuilder s = new StringBuilder();
-        s.append("item.");
-        s.append(Strings.RESOURCE_PREFIX);
-        s.append(Strings.ABYSS_SIGIL_NAME);
-
-        return s.toString();
+        return getUnlocalizedName(Strings.ABYSS_SIGIL_NAME);
     }
 }

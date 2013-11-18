@@ -26,7 +26,7 @@ public class LampItemBlock extends ItemBlock {
     @SideOnly(Side.CLIENT)
     public Icon getIconFromDamage(int meta) {
 
-        return Lamp.icons[meta];
+        return ModBlocks.lamp.icons[meta];
     }
 
     @Override

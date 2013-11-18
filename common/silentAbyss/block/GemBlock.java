@@ -3,7 +3,7 @@ package silentAbyss.block;
 import java.util.List;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockOreStorage;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -15,14 +15,12 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class GemBlock extends BlockOreStorage {
+public class GemBlock extends BlockSA {
 
-    public static Icon[] icons = new Icon[Reference.GEM_TYPE_COUNT];
+    public GemBlock(int id) {
 
-    public GemBlock(int par1) {
-
-        super(par1);
-
+        super(id, Material.iron);
+        icons = new Icon[Reference.GEM_TYPE_COUNT];
         setHardness(3.0f);
         setResistance(10.0f);
         setStepSound(Block.soundMetalFootstep);
@@ -53,40 +51,14 @@ public class GemBlock extends BlockOreStorage {
         icons[Reference.INDEX_PURITE] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockPurite");
     }
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public Icon getIcon(int side, int meta) {
-
-        return icons[meta];
-    }
-
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void getSubBlocks(int par1, CreativeTabs tab, List subItems) {
-
-        for (int i = 0; i < icons.length; ++i) {
-            subItems.add(new ItemStack(this, 1, i));
-        }
-    }
-
-    @Override
-    public int damageDropped(int par1) {
-
-        return par1;
-    }
-
     @Override
     public String getUnlocalizedName() {
 
-        StringBuilder s = new StringBuilder();
-        s.append("tile.");
-        s.append(Strings.RESOURCE_PREFIX);
-        s.append("gem");
-        return s.toString();
+        return getUnlocalizedName("gem");
     }
 
-    public static void addRecipes() {
+    @Override
+    public void addRecipes() {
 
         ItemStack gem, block;
 

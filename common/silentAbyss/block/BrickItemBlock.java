@@ -24,7 +24,7 @@ public class BrickItemBlock extends ItemBlock {
     @Override
     public Icon getIconFromDamage(int damageValue) {
 
-        return Brick.icons[damageValue];
+        return ModBlocks.brick.icons[damageValue];
     }
 
     @Override

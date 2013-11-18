@@ -12,11 +12,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class ModBlocks {
 
     // Mod block instances
-    public static Block ore;
-    public static Block gem;
+    public static BlockSA ore;
+    public static BlockSA gem;
     public static Block abyssTeleporter;
     public static Block sigilInfuser;
-    public static Block brick;
+    public static BlockSA brick;
     public static BlockSA lamp;
     public static Block portalFrame;
     public static Block portal;
@@ -68,10 +68,10 @@ public class ModBlocks {
 
     public static void initBlockRecipes() {
 
-        GemBlock.addRecipes();
+        gem.addRecipes();
         Teleporter.addRecipes();
         SigilInfuser.addRecipes();
-        Brick.addRecipes();
+        brick.addRecipes();
         lamp.addRecipes();
         PortalFrame.addRecipes();
     }

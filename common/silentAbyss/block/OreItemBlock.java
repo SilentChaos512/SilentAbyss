@@ -24,7 +24,7 @@ public class OreItemBlock extends ItemBlock {
     @Override
     public Icon getIconFromDamage(int par1) {
 
-        return Ore.icons[par1];
+        return ModBlocks.ore.icons[par1];
     }
 
     @Override

@@ -21,12 +21,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class CraftingMaterial extends ItemSA {
 
     public static final String[] names = { Strings.ORNATE_STICK_NAME, Strings.MYSTERY_GOO_NAME };
-    
-    public static Icon[] icons = new Icon[names.length];
 
     public CraftingMaterial(int id) {
 
         super(id);
+        icons = new Icon[names.length];
         setMaxStackSize(64);
         setHasSubtypes(true);
         setMaxDamage(0);
@@ -54,22 +53,6 @@ public class CraftingMaterial extends ItemSA {
 
         return null;
     }
-
-    @Override
-    public Icon getIconFromDamage(int i) {
-
-        return icons[i];
-    }
-
-    @Override
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    @SideOnly(Side.CLIENT)
-    public void getSubItems(int id, CreativeTabs tabs, List list) {
-
-        for (int i = 0; i < icons.length; ++i) {
-            list.add(new ItemStack(this, 1, i));
-        }
-    }
     
     @Override
     @SuppressWarnings({ "rawtypes", "unchecked" })
@@ -80,13 +63,9 @@ public class CraftingMaterial extends ItemSA {
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack itemStack) {
+    public String getUnlocalizedName(ItemStack stack) {
 
-        StringBuilder s = new StringBuilder();
-        s.append("item.");
-        s.append(Strings.RESOURCE_PREFIX);
-        s.append(names[itemStack.getItemDamage()]);
-        return s.toString();
+        return getUnlocalizedName(names[stack.getItemDamage()]);
     }
 
     @SideOnly(Side.CLIENT)
@@ -94,7 +73,7 @@ public class CraftingMaterial extends ItemSA {
     public void registerIcons(IconRegister iconRegister) {
 
         for (int i = 0; i < names.length; ++i) {
-            icons[i] = iconRegister.registerIcon(Reference.MOD_ID + ":" + names[i]);
+            icons[i] = iconRegister.registerIcon(Strings.RESOURCE_PREFIX + names[i]);
         }
     }
 

@@ -24,7 +24,7 @@ public class GemItemBlock extends ItemBlock {
     @Override
     public Icon getIconFromDamage(int par1) {
 
-        return GemBlock.icons[par1];
+        return ModBlocks.gem.icons[par1];
     }
 
     @Override

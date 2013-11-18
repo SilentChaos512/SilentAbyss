@@ -17,11 +17,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class GemShard extends ItemSA {
 
-    public static Icon[] icons = new Icon[Reference.GEM_TYPE_COUNT];
-
     public GemShard(int id) {
 
         super(id);
+        icons = new Icon[Reference.GEM_TYPE_COUNT];
         setMaxStackSize(64);
         setHasSubtypes(true);
         setMaxDamage(0);
@@ -50,22 +49,6 @@ public class GemShard extends ItemSA {
     public EnumRarity getRarity(ItemStack stack) {
 
         return stack.getItemDamage() > 3 ? EnumRarity.rare : EnumRarity.common;
-    }
-
-    @Override
-    public Icon getIconFromDamage(int i) {
-
-        return icons[i];
-    }
-
-    @Override
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    @SideOnly(Side.CLIENT)
-    public void getSubItems(int id, CreativeTabs tabs, List list) {
-
-        for (int i = 0; i < icons.length; ++i) {
-            list.add(new ItemStack(id, 1, i));
-        }
     }
 
     @Override

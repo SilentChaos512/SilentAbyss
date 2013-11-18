@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockOre;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -16,14 +16,12 @@ import silentAbyss.lib.Strings;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Ore extends BlockOre {
+public class Ore extends BlockSA {
 
-    public static Icon[] icons = new Icon[Reference.GEM_TYPE_COUNT];
+    public Ore(int id) {
 
-    public Ore(int par1) {
-
-        super(par1);
-
+        super(id, Material.rock);
+        icons = new Icon[Reference.GEM_TYPE_COUNT];
         setHardness(3.0f);
         setResistance(5.0f);
         setStepSound(Block.soundStoneFootstep);
@@ -42,23 +40,6 @@ public class Ore extends BlockOre {
         icons[Reference.INDEX_PURITE] = iconRegister.registerIcon(Reference.MOD_ID + ":OrePurite");
     }
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public Icon getIcon(int side, int meta) {
-
-        return icons[meta];
-    }
-
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void getSubBlocks(int par1, CreativeTabs tab, List subItems) {
-
-        for (int i = 0; i < icons.length; ++i) {
-            subItems.add(new ItemStack(this, 1, i));
-        }
-    }
-
     @Override
     public int idDropped(int par1, Random random, int par2) {
 
@@ -66,15 +47,31 @@ public class Ore extends BlockOre {
     }
 
     @Override
-    public int damageDropped(int par1) {
+    public int damageDropped(int meta) {
 
-        return par1;
+        return meta;
     }
 
     @Override
     public int quantityDropped(Random random) {
 
         return 1;
+    }
+
+    public int quantityDroppedWithBonus(int par1, Random random) {
+        
+        if (par1 > 0) {
+            int j = random.nextInt(par1 + 2) - 1;
+            
+            if (j < 0) {
+                j = 0;
+            }
+            
+            return quantityDropped(random) * (j + 1);
+        }
+        else {
+            return quantityDropped(random);
+        }
     }
 
     @Override
@@ -91,10 +88,6 @@ public class Ore extends BlockOre {
     @Override
     public String getUnlocalizedName() {
 
-        StringBuilder s = new StringBuilder();
-        s.append("tile.");
-        s.append(Strings.RESOURCE_PREFIX);
-        s.append("ore");
-        return s.toString();
+        return getUnlocalizedName("ore");
     }
 }
