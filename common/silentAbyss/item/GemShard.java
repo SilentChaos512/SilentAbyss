@@ -17,7 +17,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class GemShard extends ItemSA {
 
-    @SideOnly(Side.CLIENT)
     public static Icon[] icons = new Icon[Reference.GEM_TYPE_COUNT];
 
     public GemShard(int id) {
@@ -42,7 +41,7 @@ public class GemShard extends ItemSA {
     }
 
     @Override
-    public boolean hasEffect(ItemStack stack) {
+    public boolean hasEffect(ItemStack stack, int pass) {
 
         return stack.getItemDamage() > 3;
     }

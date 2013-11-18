@@ -17,7 +17,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class Brick extends Block {
 
-    @SideOnly(Side.CLIENT)
     public static Icon[] icons = new Icon[Reference.GEM_TYPE_COUNT];
 
     public Brick(int id) {

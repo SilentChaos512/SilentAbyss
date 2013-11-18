@@ -18,7 +18,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class Ore extends BlockOre {
 
-    @SideOnly(Side.CLIENT)
     public static Icon[] icons = new Icon[Reference.GEM_TYPE_COUNT];
 
     public Ore(int par1) {

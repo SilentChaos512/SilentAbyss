@@ -286,7 +286,7 @@ public class Sigil extends ItemSA {
     }
 
     @Override
-    public boolean hasEffect(ItemStack itemStack) {
+    public boolean hasEffect(ItemStack itemStack, int pass) {
 
         return true;
     }

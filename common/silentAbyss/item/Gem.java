@@ -25,7 +25,6 @@ public class Gem extends ItemSA {
     /**
      * All icons by damage value, includes compound gems and duplicates.
      */
-    @SideOnly(Side.CLIENT)
     public static Icon[] icons = new Icon[12];
 
     public Gem(int par1) {
@@ -39,7 +38,7 @@ public class Gem extends ItemSA {
     }
 
     @Override
-    public boolean hasEffect(ItemStack itemStack) {
+    public boolean hasEffect(ItemStack itemStack, int pass) {
 
         return itemStack.getItemDamage() > 3;
     }

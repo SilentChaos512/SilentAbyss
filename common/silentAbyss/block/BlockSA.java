@@ -14,8 +14,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 
 public class BlockSA extends Block {
-    
-    @SideOnly(Side.CLIENT)
+
     public static Icon[] icons;
     
     public boolean hasSubtypes = true;

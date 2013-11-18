@@ -286,7 +286,7 @@ public class EnchantToken extends ItemSA {
     }
 
     @Override
-    public boolean hasEffect(ItemStack stack) {
+    public boolean hasEffect(ItemStack stack, int pass) {
 
         return stack.getItemDamage() != 0;
     }

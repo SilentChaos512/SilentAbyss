@@ -21,7 +21,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class CraftingMaterial extends ItemSA {
 
     public static final String[] names = { Strings.ORNATE_STICK_NAME, Strings.MYSTERY_GOO_NAME };
-    @SideOnly(Side.CLIENT)
+    
     public static Icon[] icons = new Icon[names.length];
 
     public CraftingMaterial(int id) {

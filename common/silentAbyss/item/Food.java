@@ -18,7 +18,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class Food extends ItemFood {
 
-    @SideOnly(Side.CLIENT)
     private Icon[] icons = new Icon[1];
 
     public Food(int id, int healAmount, float saturationModifier, boolean isWolfFavoriteMeat) {

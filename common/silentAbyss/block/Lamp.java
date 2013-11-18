@@ -58,6 +58,8 @@ public class Lamp extends BlockSA {
                     'i', Item.ingotIron, 'g', Item.glowstone, 'r', Item.redstone, 's', Gem.getGem(i));
             GameRegistry.addShapedRecipe(new ItemStack(this, 1, i), "iri", "gsg", "iri",
                     'i', Item.ingotIron, 'g', Item.glowstone, 'r', Item.redstone, 's', Gem.getGem(i));
+            
+            // Redstone torch + lamp = inverted lamp?
         }
     }
 }

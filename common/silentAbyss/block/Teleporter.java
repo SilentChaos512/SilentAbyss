@@ -40,8 +40,7 @@ public class Teleporter extends BlockContainer {
     public static Object mod;
     private Ticket ticket;
     private ChunkCoordIntPair ticketChunk;
-    
-    @SideOnly(Side.CLIENT)
+
     private Icon[] iconArray;
 
     public Teleporter(int par1) {
