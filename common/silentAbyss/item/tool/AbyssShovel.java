@@ -103,9 +103,9 @@ public class AbyssShovel extends ItemSpade {
                     int px = x + d.offsetX;
                     int py = y + d.offsetY;
                     int pz = z + d.offsetZ;
-                    int playerX = (int) player.posX;
-                    int playerY = (int) player.posY;
-                    int playerZ = (int) player.posZ;
+                    int playerX = (int) Math.floor(player.posX);
+                    int playerY = (int) Math.floor(player.posY);
+                    int playerZ = (int) Math.floor(player.posZ);
                     
                     if (px == playerX && (py == playerY || py == playerY + 1 || py == playerY - 1) && pz == playerZ) {
                         return false;
