@@ -1,5 +1,6 @@
 package silentAbyss.item.tool;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
@@ -13,6 +14,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import silentAbyss.Abyss;
 import silentAbyss.item.Gem;
 import silentAbyss.item.ModItems;
+import silentAbyss.item.TorchBandolier;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -79,38 +81,42 @@ public class AbyssAxe extends ItemAxe {
         ItemStack material = new ItemStack(ModItems.abyssGem, 1, gemType + (isSupercharged ? 6 : 0));
         if (material.itemID == stack2.itemID && material.getItemDamage() == stack2.getItemDamage()) {
             return true;
-        } else {
+        }
+        else {
             return super.getIsRepairable(stack1, stack2);
         }
     }
-    
+
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY,
             float hitZ) {
-        
+
         boolean used = false;
         int toolSlot = player.inventory.currentItem;
         int itemSlot = toolSlot + 1;
         ItemStack nextStack = null;
-        
+
         if (toolSlot < 8) {
             nextStack = player.inventory.getStackInSlot(itemSlot);
             if (nextStack != null) {
                 Item item = nextStack.getItem();
-                if (item instanceof ItemBlock) {
+                if (item instanceof ItemBlock || item instanceof TorchBandolier) {
                     ForgeDirection d = ForgeDirection.VALID_DIRECTIONS[side];
-                    
+
                     int px = x + d.offsetX;
                     int py = y + d.offsetY;
                     int pz = z + d.offsetZ;
                     int playerX = (int) Math.floor(player.posX);
                     int playerY = (int) Math.floor(player.posY);
                     int playerZ = (int) Math.floor(player.posZ);
-                    
-                    if (px == playerX && (py == playerY || py == playerY + 1 || py == playerY - 1) && pz == playerZ) {
+
+                    // Check for overlap with player, except for torches and
+                    // torch bandolier
+                    if (item.itemID != Block.torchWood.blockID && item.itemID != ModItems.torchBandolier.itemID && px == playerX
+                            && (py == playerY || py == playerY + 1 || py == playerY - 1) && pz == playerZ) {
                         return false;
                     }
-                    
+
                     used = item.onItemUse(nextStack, player, world, x, y, z, side, hitX, hitY, hitZ);
                     if (nextStack.stackSize < 1) {
                         nextStack = null;
@@ -119,7 +125,7 @@ public class AbyssAxe extends ItemAxe {
                 }
             }
         }
-        
+
         return used;
     }
 
@@ -128,7 +134,8 @@ public class AbyssAxe extends ItemAxe {
         if (energized) {
             GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] { "gg ", "gs ", " s ", 'g', material, 's',
                     new ItemStack(ModItems.craftingMaterial, 1, 0) }));
-        } else {
+        }
+        else {
             GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] { "gg ", "gs ", " s ", 'g', material, 's', "stickWood" }));
         }
     }

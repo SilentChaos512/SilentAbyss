@@ -44,5 +44,10 @@ public class KeyHelper {
 
         return gs.keyBindJump.pressed;
     }
+    
+    public static boolean isSneak() {
+
+        return gs.keyBindSneak.pressed;
+    }
 
 }

@@ -24,16 +24,17 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModItems {
 
-    public static Item abyssGem;
-    public static Item abyssShard;
+    public static ItemSA abyssGem;
+    public static ItemSA abyssShard;
     public static Item potatoStick;
-    public static Item craftingMaterial;
-    public static Item teleporterLinker;
-    public static Item abyssSigil;
-    public static Item sigilStone;
-    public static Item sigilScepter;
-    public static Item enchantToken;
-    public static Item personalElevationDevice;
+    public static ItemSA torchBandolier;
+    public static ItemSA craftingMaterial;
+    public static ItemSA teleporterLinker;
+    public static ItemSA abyssSigil;
+    public static ItemSA sigilStone;
+    public static ItemSA sigilScepter;
+    public static ItemSA enchantToken;
+    public static ItemSA personalElevationDevice;
     public static Item book;
 
     public static Item swordAbyssRuby;
@@ -86,6 +87,7 @@ public class ModItems {
         abyssGem = new Gem(ItemIds.ABYSS_GEM);
         abyssShard = new GemShard(ItemIds.ABYSS_SHARD);
         potatoStick = new Food(ItemIds.POTATO_STICK, 8, 0.8f, false);
+        torchBandolier = new TorchBandolier(ItemIds.TORCH_BANDOLIER);
         craftingMaterial = new CraftingMaterial(ItemIds.CRAFTING_MATERIAL);
         teleporterLinker = new TeleporterLinker(ItemIds.TELEPORTER_LINKER);
         abyssSigil = new Sigil(ItemIds.ABYSS_SIGIL);
@@ -147,15 +149,16 @@ public class ModItems {
 
     public static void initItemRecipes() {
 
-        ((ItemSA) abyssGem).addRecipes();
-        ((ItemSA) abyssShard).addRecipes();
-        ((ItemSA) craftingMaterial).addRecipes();
+        abyssGem.addRecipes();
+        abyssShard.addRecipes();
+        craftingMaterial.addRecipes();
         Food.addRecipes();
-        ((ItemSA) sigilStone).addRecipes();
-        ((ItemSA) sigilScepter).addRecipes();
-        ((ItemSA) enchantToken).addRecipes();
-        ((ItemSA) teleporterLinker).addRecipes();
-        ((ItemSA) personalElevationDevice).addRecipes();
+        torchBandolier.addRecipes();
+        sigilStone.addRecipes();
+        sigilScepter.addRecipes();
+        enchantToken.addRecipes();
+        teleporterLinker.addRecipes();
+        personalElevationDevice.addRecipes();
         ModBook.addRecipes();
         GameRegistry.addRecipe(new EnchantToolRecipe());
 

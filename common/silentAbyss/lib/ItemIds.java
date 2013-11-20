@@ -7,6 +7,7 @@ public class ItemIds {
     public static int ABYSS_SHARD_DEFAULT = 6001;
     public static int CRAFTING_MATERIAL_DEFAULT = 6009;
     public static int POTATO_STICK_DEFAULT = 6010;
+    public static int TORCH_BANDOLIER_DEFAULT = 6019;
     public static int TELEPORTER_LINKER_DEFAULT = 6020;
     public static int ABYSS_SIGIL_DEFAULT = 6022;
     public static int SIGIL_STONE_DEFAULT = 6021;
@@ -21,6 +22,7 @@ public class ItemIds {
     public static int ABYSS_SHARD;
     public static int CRAFTING_MATERIAL;
     public static int POTATO_STICK;
+    public static int TORCH_BANDOLIER;
     public static int TELEPORTER_LINKER;
     public static int ABYSS_SIGIL;
     public static int SIGIL_STONE;

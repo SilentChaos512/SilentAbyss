@@ -132,6 +132,7 @@ public class ConfigHandler {
             ItemIds.CRAFTING_MATERIAL = getItemId(Strings.CRAFTING_MATERIAL_NAME, ItemIds.CRAFTING_MATERIAL_DEFAULT,
                     "The ID for various crafting items, such as Ornate Sticks.");
             ItemIds.POTATO_STICK = getItemId(Strings.POTATO_STICK_NAME, ItemIds.POTATO_STICK_DEFAULT);
+            ItemIds.TORCH_BANDOLIER = getItemId(Strings.TORCH_BANDOLIER_NAME, ItemIds.TORCH_BANDOLIER_DEFAULT);
             ItemIds.TELEPORTER_LINKER = getItemId(Strings.TELEPORTER_LINKER_NAME, ItemIds.TELEPORTER_LINKER_DEFAULT);
             ItemIds.ABYSS_SIGIL = getItemId(Strings.ABYSS_SIGIL_NAME, ItemIds.ABYSS_SIGIL_DEFAULT);
             ItemIds.SIGIL_STONE = getItemId(Strings.SIGIL_STONE_NAME, ItemIds.SIGIL_STONE_DEFAULT);

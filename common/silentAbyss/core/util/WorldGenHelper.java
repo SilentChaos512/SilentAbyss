@@ -5,7 +5,7 @@ import net.minecraft.block.Block;
 public class WorldGenHelper {
 
     public static final int[] groundBlocks = { Block.grass.blockID, Block.dirt.blockID, Block.stone.blockID, Block.sand.blockID,
-            Block.sandStone.blockID };
+            Block.sandStone.blockID, Block.hardenedClay.blockID };
 
     public static boolean isBlockGround(int id) {
 

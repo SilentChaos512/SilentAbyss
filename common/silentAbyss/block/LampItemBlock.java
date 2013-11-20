@@ -8,31 +8,24 @@ import silentAbyss.lib.Strings;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class LampItemBlock extends ItemBlock {
+public class LampItemBlock extends ItemBlockSA {
 
     public LampItemBlock(int id) {
 
         super(id);
-        setHasSubtypes(true);
-    }
-
-    @Override
-    public int getMetadata(int meta) {
-
-        return meta;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public Icon getIconFromDamage(int meta) {
 
-        return ModBlocks.lamp.icons[meta];
+        return ModBlocks.lamp.getIcon(0, meta);
     }
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
 
-        return (new StringBuilder()).append("tile.").append(Strings.RESOURCE_PREFIX).append("lamp")
-                .append(Reference.basicGemNames[stack.getItemDamage()]).toString();
+        int d = stack.getItemDamage();
+        return getUnlocalizedName(Strings.LAMP_NAME + Reference.basicGemNames[d]);
     }
 }

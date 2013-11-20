@@ -26,24 +26,29 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void registerRenderers() {
 
-        /*
-         * Blocks
-         */
+        registerRenderersBlocks();
+        registerRenderersItems();
+        registerRenderersMobs();
+        registerRenderersProjectiles();
+    }
+    
+    private void registerRenderersBlocks() {
+     
         RenderIds.testRender = RenderingRegistry.getNextAvailableRenderId();
-
-        /*
-         * Items
-         */
+    }
+    
+    private void registerRenderersItems() {
+        
         MinecraftForgeClient.registerItemRenderer(ModBlocks.blockTest.blockID, new ItemTestRenderer());
-
-        /*
-         * Mobs
-         */
+    }
+    
+    private void registerRenderersMobs() {
+        
         RenderingRegistry.registerEntityRenderingHandler(EntityGrumbling.class, new RenderGrumbling(new ModelGrumbling(), 0.5F));
-
-        /*
-         * Projectiles
-         */
+    }
+    
+    private void registerRenderersProjectiles() {
+        
         RenderingRegistry.registerEntityRenderingHandler(EntityProjectileMagic.class, new RenderProjectileMagic());
         RenderingRegistry.registerEntityRenderingHandler(EntityMeteor.class, new RenderFireball(0));
     }
