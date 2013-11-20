@@ -10,6 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Icon;
 import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.lib.Reference;
@@ -59,6 +60,7 @@ public class CraftingMaterial extends ItemSA {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 
+        list.add(LocalizationHelper.getMessageText(Strings.CRAFTING_MATERIAL_NAME, EnumChatFormatting.DARK_GRAY));
         list.add(LocalizationHelper.getMessageText(names[stack.getItemDamage()]));
     }
 
@@ -83,6 +85,6 @@ public class CraftingMaterial extends ItemSA {
         ItemStack rAbyssite = Gem.getGem(Reference.INDEX_ABYSSITE);
 
         GameRegistry.addRecipe(getStack(Strings.ORNATE_STICK_NAME, 4), "gag", "gag", "gag", 'g', Item.ingotGold, 'a', rAbyssite);
-        GameRegistry.addRecipe(getStack(Strings.MYSTERY_GOO_NAME, 1), " m ", "mam", " m ", 'm', Block.cobblestoneMossy, 'a', rAbyssite);
+        GameRegistry.addRecipe(getStack(Strings.MYSTERY_GOO_NAME, 1), "mmm", "mam", "mmm", 'm', Block.cobblestoneMossy, 'a', rAbyssite);
     }
 }

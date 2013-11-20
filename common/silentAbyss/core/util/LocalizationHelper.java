@@ -1,6 +1,7 @@
 package silentAbyss.core.util;
 
 import net.minecraft.client.resources.I18n;
+import net.minecraft.util.EnumChatFormatting;
 import silentAbyss.lib.Localizations;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -14,7 +15,12 @@ public class LocalizationHelper {
     
     public static String getMessageText(String key) {
         
-        return (new StringBuilder()).append("\u00a7o").append(getLocalizedString("misc.silentabyss:" + key)).toString();
+        return getMessageText(key, EnumChatFormatting.ITALIC);
+    }
+    
+    public static String getMessageText(String key, EnumChatFormatting format) {
+        
+        return (new StringBuilder()).append(format).append(getLocalizedString("misc.silentabyss:" + key)).toString();
     }
     
     public static boolean isXMLLanguageFile(String fileName) {

@@ -14,9 +14,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import silentAbyss.block.GemBlock;
 import silentAbyss.enchantment.ModEnchantments;
 import silentAbyss.item.tool.AbyssAxe;
 import silentAbyss.item.tool.AbyssHoe;
@@ -324,42 +324,49 @@ public class EnchantToken extends ItemSA {
     @Override
     public void addRecipes() {
 
-        ItemStack baseToken = new ItemStack(this, 1, 0), ruby = Gem.getGem(Reference.INDEX_RUBY), emerald = Gem
-                .getGem(Reference.INDEX_EMERALD), sapphire = Gem.getGem(Reference.INDEX_SAPPHIRE), topaz = Gem
-                .getGem(Reference.INDEX_TOPAZ), abyssite = Gem.getGem(Reference.INDEX_ABYSSITE), purite = Gem
-                .getGem(Reference.INDEX_PURITE);
+        ItemStack baseToken = new ItemStack(this, 1, 0);
+        ItemStack ruby = GemBlock.getGem(Reference.INDEX_RUBY);
+        ItemStack emerald = GemBlock.getGem(Reference.INDEX_EMERALD);
+        ItemStack sapphire = GemBlock.getGem(Reference.INDEX_SAPPHIRE);
+        ItemStack topaz = GemBlock.getGem(Reference.INDEX_TOPAZ);
+        ItemStack abyssite = GemBlock.getGem(Reference.INDEX_ABYSSITE);
+        ItemStack purite = GemBlock.getGem(Reference.INDEX_PURITE);
 
         GameRegistry.addShapedRecipe(new ItemStack(this, 8, 0), "ggg", "rdr", "ggg", 'g', Item.ingotGold, 'r', Item.redstone, 'd',
                 Gem.getGem(Reference.INDEX_ABYSS_DIAMOND));
         
-        addTokenRecipe(Enchantment.baneOfArthropods.effectId, ruby, Item.spiderEye, baseToken);
-        addTokenRecipe(Enchantment.efficiency.effectId, emerald, Item.goldNugget, baseToken);
-        addTokenRecipe(Enchantment.fireAspect.effectId, ruby, Item.blazePowder, baseToken);
-        addTokenRecipe(Enchantment.fortune.effectId, topaz, Item.diamond, baseToken);
-        addTokenRecipe(Enchantment.knockback.effectId, emerald, Item.feather, baseToken);
-        addTokenRecipe(Enchantment.looting.effectId, topaz, Item.emerald, baseToken);
-        addTokenRecipe(Enchantment.sharpness.effectId, ruby, Item.flint, baseToken);
-        addTokenRecipe(Enchantment.silkTouch.effectId, abyssite, Item.emerald, baseToken);
-        addTokenRecipe(Enchantment.smite.effectId, ruby, Item.rottenFlesh, baseToken);
-        addTokenRecipe(Enchantment.unbreaking.effectId, sapphire, Item.ingotIron, baseToken);
+        addTokenRecipe(Enchantment.baneOfArthropods.effectId, ruby, 1, Item.spiderEye, 4, baseToken);
+        addTokenRecipe(Enchantment.efficiency.effectId, emerald, 1, Item.ingotGold, 3, baseToken);
+        addTokenRecipe(Enchantment.fireAspect.effectId, ruby, 1, Item.blazePowder, 4, baseToken);
+        addTokenRecipe(Enchantment.fortune.effectId, topaz, 1, Block.blockDiamond, 1, baseToken);
+        addTokenRecipe(Enchantment.knockback.effectId, emerald, 1, Item.feather, 5, baseToken);
+        addTokenRecipe(Enchantment.looting.effectId, topaz, 1, Item.emerald, 2, baseToken);
+        addTokenRecipe(Enchantment.sharpness.effectId, ruby, 1, Item.flint, 5, baseToken);
+        addTokenRecipe(Enchantment.silkTouch.effectId, abyssite, 1, Item.emerald, 2, baseToken);
+        addTokenRecipe(Enchantment.smite.effectId, ruby, 1, Item.rottenFlesh, 5, baseToken);
+        addTokenRecipe(Enchantment.unbreaking.effectId, sapphire, 1, Item.ingotIron, 5, baseToken);
         
-        addTokenRecipe(ModEnchantments.iceAspect.effectId, sapphire, Item.snowball, baseToken);
-        addTokenRecipe(ModEnchantments.mending.effectId, purite, CraftingMaterial.getStack(Strings.MYSTERY_GOO_NAME), baseToken);
-        addTokenRecipe(ModEnchantments.nihil.effectId, purite, Item.potato, baseToken);
-    }
-
-    private void addTokenRecipe(int key, ItemStack gem, ItemStack otherMaterial, ItemStack baseToken) {
-
-        GameRegistry.addShapedRecipe(new ItemStack(this, 1, key), "ggg", "mtm", " m ", 'g', gem, 'm', otherMaterial, 't', baseToken);
+        addTokenRecipe(ModEnchantments.iceAspect.effectId, sapphire, 1, Block.blockSnow, 3, baseToken);
+        addTokenRecipe(ModEnchantments.mending.effectId, purite, 1, CraftingMaterial.getStack(Strings.MYSTERY_GOO_NAME), 3, baseToken);
+        addTokenRecipe(ModEnchantments.nihil.effectId, purite, 1, Item.potato, 2, baseToken);
     }
     
-    private void addTokenRecipe(int key, ItemStack gem, Block otherMaterial, ItemStack baseToken) {
+    private void addTokenRecipe(int key, ItemStack gem, int gemCount, ItemStack otherMaterial, int otherCount, ItemStack baseToken) {
         
-        addTokenRecipe(key, gem, new ItemStack(otherMaterial), baseToken);
+        String row1 = gemCount == 1 ? " g " : (gemCount == 2 ? "g g" : "ggg");
+        String row2 = otherCount < 4 ? " t " : "mtm";
+        String row3 = otherCount == 1 ? " m " : (otherCount == 2 || otherCount == 4 ? "m m" : "mmm");
+        
+        GameRegistry.addShapedRecipe(new ItemStack(this, 1, key), row1, row2, row3, 'g', gem, 'm', otherMaterial, 't', baseToken);
     }
     
-    private void addTokenRecipe(int key, ItemStack gem, Item otherMaterial, ItemStack baseToken) {
+    private void addTokenRecipe(int key, ItemStack gem, int gemCount, Block otherMaterial, int otherCount, ItemStack baseToken) {
         
-        addTokenRecipe(key, gem, new ItemStack(otherMaterial), baseToken);
+        addTokenRecipe(key, gem, gemCount, new ItemStack(otherMaterial), otherCount, baseToken);
+    }
+    
+    private void addTokenRecipe(int key, ItemStack gem, int gemCount, Item otherMaterial, int otherCount, ItemStack baseToken) {
+        
+        addTokenRecipe(key, gem, gemCount, new ItemStack(otherMaterial), otherCount, baseToken);
     }
 }
