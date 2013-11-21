@@ -3,11 +3,15 @@ package silentAbyss.core.handlers.tick;
 import java.util.EnumSet;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import silentAbyss.Abyss;
 import silentAbyss.configuration.Config;
 import silentAbyss.core.chaos.ChaosEventCollection;
 import silentAbyss.core.chaos.MeteorEvent;
 import silentAbyss.core.handlers.ChaosHandler;
+import silentAbyss.core.util.LogHelper;
+import silentAbyss.item.ModItems;
+import silentAbyss.item.TorchBandolier;
 import silentAbyss.item.armor.PersonalElevationDevice;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.IScheduledTickHandler;
@@ -20,6 +24,7 @@ public class PlayerServerScheduledTickHandler implements IScheduledTickHandler {
     public void onPlayerTick(EntityPlayer player) {
 
         chaosTick(player);
+        itemTicks(player);
     }
 
     private void chaosTick(EntityPlayer player) {
@@ -45,6 +50,17 @@ public class PlayerServerScheduledTickHandler implements IScheduledTickHandler {
         }
 
         chaosEvents.doTick(player);
+    }
+    
+    private void itemTicks(EntityPlayer player) {
+        
+        for (ItemStack stack : player.inventory.mainInventory) {
+            if (stack != null) {
+                if (Config.TORCH_BANDOLIER_AUTO_FILL.value && stack.itemID == ModItems.torchBandolier.itemID) {
+                    ((TorchBandolier) stack.getItem()).absorbTorches(stack, player);
+                }
+            }
+        }
     }
 
     @Override

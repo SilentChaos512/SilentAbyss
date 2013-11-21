@@ -42,12 +42,9 @@ public class ConfigHandler {
             /*
              * Misc configs.
              */
+            Config.PED_CREATIVE_FLIGHT.loadValue(c, CATEGORY_ITEM_PROPERTIES);
             Config.SHARDS_PER_GEM.loadValue(c, CATEGORY_ITEM_PROPERTIES).validate();
-
-            k = Config.PED_CREATIVE_FLIGHT_DEFAULT == true ? 1 : 0;
-            k = getGeneralInt(CATEGORY_ITEM_PROPERTIES, Config.PED_CREATIVE_FLIGHT_CONFIGNAME, k,
-                    "1=PED flies like creative; 0=PED flies like jetpack. Creative flight may interfere with other mods. Default 0.");
-            Config.PED_CREATIVE_FLIGHT = k == 1;
+            Config.TORCH_BANDOLIER_AUTO_FILL.loadValue(c, CATEGORY_ITEM_PROPERTIES);
 
             /*
              * Graphic configs.

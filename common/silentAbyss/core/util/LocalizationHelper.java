@@ -20,6 +20,11 @@ public class LocalizationHelper {
     
     public static String getMessageText(String key, EnumChatFormatting format) {
         
+        return getMessageText(key, format.toString());
+    }
+    
+    public static String getMessageText(String key, String format) {
+        
         return (new StringBuilder()).append(format).append(getLocalizedString("misc.silentabyss:" + key)).toString();
     }
     

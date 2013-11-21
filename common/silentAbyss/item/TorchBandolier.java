@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
@@ -36,10 +37,8 @@ public class TorchBandolier extends ItemSA {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 
-        if (stack.getItemDamage() == MAX_DAMAGE) {
-            list.add(LocalizationHelper.getMessageText(Strings.TORCH_BANDOLIER_NAME));
-        }
-        else {
+        list.add(LocalizationHelper.getMessageText(Strings.TORCH_BANDOLIER_NAME));
+        if (stack.getItemDamage() < MAX_DAMAGE) {
             list.add((new StringBuilder()).append(EnumChatFormatting.YELLOW).append(MAX_DAMAGE - stack.getItemDamage()).append(" / ")
                     .append(MAX_DAMAGE).toString());
         }
@@ -71,28 +70,34 @@ public class TorchBandolier extends ItemSA {
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
         if (player.isSneaking()) {
-            // Absorb a stack of torches.
-            ItemStack torches;
-            for (int i = 0; i < player.inventory.getSizeInventory(); ++i) {
-                torches = player.inventory.getStackInSlot(i);
-                if (torches != null && torches.itemID == Block.torchWood.blockID) {
-                    int damage = stack.getItemDamage();
+            return absorbTorches(stack, player);
+        }
 
-                    // Decrease damage value of torch bandolier, reduce stack
-                    // size of torch stack.
-                    if (damage - torches.stackSize < 0) {
-                        stack.damageItem(-damage, player);
-                        torches.stackSize -= damage;
-                    }
-                    else {
-                        stack.damageItem(-torches.stackSize, player);
-                        torches.stackSize = 0;
-                    }
+        return stack;
+    }
 
-                    // If torch stack is empty, get rid of it.
-                    if (torches.stackSize <= 0) {
-                        player.inventory.setInventorySlotContents(i, null);
-                    }
+    public ItemStack absorbTorches(ItemStack stack, EntityPlayer player) {
+
+        ItemStack torches;
+        for (int i = 0; i < player.inventory.getSizeInventory(); ++i) {
+            torches = player.inventory.getStackInSlot(i);
+            if (torches != null && torches.itemID == Block.torchWood.blockID) {
+                int damage = stack.getItemDamage();
+
+                // Decrease damage value of torch bandolier, reduce stack
+                // size of torch stack.
+                if (damage - torches.stackSize < 0) {
+                    stack.damageItem(-damage, player);
+                    torches.stackSize -= damage;
+                }
+                else {
+                    stack.damageItem(-torches.stackSize, player);
+                    torches.stackSize = 0;
+                }
+
+                // If torch stack is empty, get rid of it.
+                if (torches.stackSize <= 0) {
+                    player.inventory.setInventorySlotContents(i, null);
                 }
             }
         }
@@ -101,7 +106,8 @@ public class TorchBandolier extends ItemSA {
     }
 
     /**
-     * Place a torch, if possible. Mostly the same code Abyss tools use to place blocks.
+     * Place a torch, if possible. Mostly the same code Abyss tools use to place
+     * blocks.
      */
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY,
@@ -133,7 +139,7 @@ public class TorchBandolier extends ItemSA {
     @Override
     public void addRecipes() {
 
-        GameRegistry.addShapedRecipe(new ItemStack(this), "lll", "gpg", "lll", 'l', Item.leather, 'g', Item.ingotGold, 'p',
-                Gem.getGem(Reference.INDEX_PURITE));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(this), true, new Object[] { "lll", "sgs", "lll", 'l', Item.leather, 's',
+                "stickWood", 'g', Strings.ORE_DICT_GEM_BASIC }));
     }
 }

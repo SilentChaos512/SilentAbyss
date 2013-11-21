@@ -87,47 +87,6 @@ public class AbyssHoe extends ItemHoe {
             return super.getIsRepairable(stack1, stack2);
         }
     }
-    
-    @Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY,
-            float hitZ) {
-
-        boolean used = false;
-        int toolSlot = player.inventory.currentItem;
-        int itemSlot = toolSlot + 1;
-        ItemStack nextStack = null;
-
-        if (toolSlot < 8) {
-            nextStack = player.inventory.getStackInSlot(itemSlot);
-            if (nextStack != null) {
-                Item item = nextStack.getItem();
-                if (item instanceof ItemBlock || item instanceof TorchBandolier) {
-                    ForgeDirection d = ForgeDirection.VALID_DIRECTIONS[side];
-
-                    int px = x + d.offsetX;
-                    int py = y + d.offsetY;
-                    int pz = z + d.offsetZ;
-                    int playerX = (int) Math.floor(player.posX);
-                    int playerY = (int) Math.floor(player.posY);
-                    int playerZ = (int) Math.floor(player.posZ);
-
-                    // Check for overlap with player, except for torches and torch bandolier
-                    if (item.itemID != Block.torchWood.blockID && item.itemID != ModItems.torchBandolier.itemID && px == playerX
-                            && (py == playerY || py == playerY + 1 || py == playerY - 1) && pz == playerZ) {
-                        return false;
-                    }
-
-                    used = item.onItemUse(nextStack, player, world, x, y, z, side, hitX, hitY, hitZ);
-                    if (nextStack.stackSize < 1) {
-                        nextStack = null;
-                        player.inventory.setInventorySlotContents(itemSlot, null);
-                    }
-                }
-            }
-        }
-
-        return used;
-    }
 
     public static void addRecipe(ItemStack tool, ItemStack material, boolean energized) {
 

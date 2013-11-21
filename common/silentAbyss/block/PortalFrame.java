@@ -58,7 +58,7 @@ public class PortalFrame extends Block {
 
     public static void addRecipes() {
 
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.portalFrame), "sas", "isi", "sps", 's', Block.stone, 'i', Item.ingotIron, 'a',
-                Gem.getGem(Reference.INDEX_ABYSSITE), 'p', Gem.getGem(Reference.INDEX_PURITE));
+//        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.portalFrame), "sas", "isi", "sps", 's', Block.stone, 'i', Item.ingotIron, 'a',
+//                Gem.getGem(Reference.INDEX_ABYSSITE), 'p', Gem.getGem(Reference.INDEX_PURITE));
     }
 }

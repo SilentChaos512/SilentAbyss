@@ -64,7 +64,12 @@ public class ItemSA extends Item {
 
     public String getUnlocalizedName(String itemName) {
 
-        return (new StringBuilder()).append("item.").append(Strings.RESOURCE_PREFIX).append(itemName).toString();
+        return getUnlocalizedName(itemName, "item");
+    }
+
+    public String getUnlocalizedName(String itemName, String prefix) {
+
+        return (new StringBuilder()).append(prefix).append(".").append(Strings.RESOURCE_PREFIX).append(itemName).toString();
     }
 
     /**

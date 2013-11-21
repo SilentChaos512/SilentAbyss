@@ -12,28 +12,22 @@ tile.silentabyss:blockAbyssSapphire.name=Abyss Sapphire Block
 tile.silentabyss:blockAbyssTopaz.name=Abyss Topaz Block
 tile.silentabyss:blockAbyssite.name=Abyssite Block
 tile.silentabyss:blockPurite.name=Purite Block
-tile.silentabyss:abyssTeleporter.name=Abyss Teleporter
-tile.silentabyss:sigilInfuser.name=Sigil Infuser
+tile.silentabyss:Teleporter.name=Abyss Teleporter
+tile.silentabyss:SigilInfuser.name=Sigil Infuser
 tile.silentabyss:blockAbyssBrickRuby.name=Ruby-Speckled Bricks
 tile.silentabyss:blockAbyssBrickEmerald.name=Emerald-Speckled Bricks
 tile.silentabyss:blockAbyssBrickSapphire.name=Sapphire-Speckled Bricks
 tile.silentabyss:blockAbyssBrickTopaz.name=Topaz-Speckled Bricks
 tile.silentabyss:blockAbyssBrickDark.name=Dark Abyss Bricks
 tile.silentabyss:blockAbyssBrickLight.name=Light Abyss Bricks
-tile.silentabyss:lampRuby.name=Ruby Lamp
-tile.silentabyss:lampEmerald.name=Emerald Lamp
-tile.silentabyss:lampSapphire.name=Sapphire Lamp
-tile.silentabyss:lampTopaz.name=Topaz Lamp
-tile.silentabyss:lampAbyssite.name=Abyssite Lamp
-tile.silentabyss:lampPurite.name=Purite Lamp
-tile.silentabyss:lampRubyInverted.name=Ruby Lamp (Inverted)
-tile.silentabyss:lampEmeraldInverted.name=Emerald Lamp (Inverted)
-tile.silentabyss:lampSapphireInverted.name=Sapphire Lamp (Inverted)
-tile.silentabyss:lampTopazInverted.name=Topaz Lamp (Inverted)
-tile.silentabyss:lampAbyssiteInverted.name=Abyssite Lamp (Inverted)
-tile.silentabyss:lampPuriteInverted.name=Purite Lamp (Inverted)
+tile.silentabyss:LampRuby.name=Ruby Lamp
+tile.silentabyss:LampEmerald.name=Emerald Lamp
+tile.silentabyss:LampSapphire.name=Sapphire Lamp
+tile.silentabyss:LampTopaz.name=Topaz Lamp
+tile.silentabyss:LampAbyssite.name=Abyssite Lamp
+tile.silentabyss:LampPurite.name=Purite Lamp
 tile.silentabyss:portalFrame.name=Abyss Portal Frame [WIP]
-tile.silentabyss:blockTest.name=Test Block
+tile.silentabyss:Test.name=Test Block
 
 # Item localizations
 
@@ -55,19 +49,19 @@ item.silentabyss:abyssSapphireShard.name=Abyss Sapphire Shard
 item.silentabyss:abyssTopazShard.name=Abyss Topaz Shard
 item.silentabyss:abyssiteShard.name=Abyssite Shard
 item.silentabyss:puriteShard.name=Purite Shard
-item.silentabyss:foodPotatoStick.name=Potato on a Stick
+item.silentabyss:PotatoStick.name=Potato on a Stick
 item.silentabyss:TorchBandolier.name=Torch Bandolier
-item.silentabyss:ornateStick.name=Ornate Stick
-item.silentabyss:mysteryGoo.name=Mystery Goo
-item.silentabyss:teleporterLinker.name=Teleporter Linker
-item.silentabyss:abyssSigil.name=Abyss Sigil
-item.silentabyss:abyssSigilStone.name=Sigil Stone
-item.silentabyss:sigilScepterRuby.name=Ruby Sigil Scepter
-item.silentabyss:sigilScepterEmerald.name=Emerald Sigil Scepter
-item.silentabyss:sigilScepterSapphire.name=Sapphire Sigil Scepter
-item.silentabyss:sigilScepterTopaz.name=Topaz Sigil Scepter
-item.silentabyss:enchantmentToken.name=Enchantment Token
-item.silentabyss:personalElevationDevice.name=Personal Elevation Device
+item.silentabyss:OrnateStick.name=Ornate Stick
+item.silentabyss:MysteryGoo.name=Mystery Goo
+item.silentabyss:TeleporterLinker.name=Teleporter Linker
+item.silentabyss:Sigil.name=Abyss Sigil
+item.silentabyss:SigilStone.name=Sigil Stone
+item.silentabyss:SigilScepterRuby.name=Ruby Sigil Scepter
+item.silentabyss:SigilScepterEmerald.name=Emerald Sigil Scepter
+item.silentabyss:SigilScepterSapphire.name=Sapphire Sigil Scepter
+item.silentabyss:SigilScepterTopaz.name=Topaz Sigil Scepter
+item.silentabyss:EnchantmentToken.name=Enchantment Token
+item.silentabyss:PersonalElevationDevice.name=Personal Elevation Device
 item.silentabyss:book.0.name=An Attempt to Explain Sigils
 item.silentabyss:book.1.name=Chaos and You
 
@@ -128,12 +122,11 @@ enchantment.Nihil=Nihil
 
 death.attack.abyssMeteor=%1$s was crushed by a meteor
 
-
 # Misc text
 
-misc.silentabyss:craftingMaterials=Crafting material.
-misc.silentabyss:ornateStick=Bling bling.
-misc.silentabyss:mysteryGoo=Feels right at home in space.
-misc.silentabyss:foodPotatoStick=Totally not like the Mindcrack logo.
-misc.silentabyss:personalElevationDevice=Pedro says "hi".
+misc.silentabyss:CraftingMaterials=Crafting material.
+misc.silentabyss:OrnateStick=Bling bling.
+misc.silentabyss:MysteryGoo=Feels right at home in space.
+misc.silentabyss:PotatoStick=Totally not like the Mindcrack logo.
+misc.silentabyss:PersonalElevationDevice=Pedro says "hi".
 misc.silentabyss:TorchBandolier=Can store and dispense torches.

@@ -5,11 +5,9 @@ public class Config {
     /*
      * Misc. config settings
      */
+    public static ConfigOptionBoolean PED_CREATIVE_FLIGHT = new ConfigOptionBoolean("PersonalElevationDevice.CreativeFlight", false);
     public static ConfigOptionInt SHARDS_PER_GEM = new ConfigOptionInt("ShardsPerGem", 9);
-
-    public static boolean PED_CREATIVE_FLIGHT;
-    public static boolean PED_CREATIVE_FLIGHT_DEFAULT = false;
-    public static final String PED_CREATIVE_FLIGHT_CONFIGNAME = "PersonalElevationDevice.CreativeFlight";
+    public static ConfigOptionBoolean TORCH_BANDOLIER_AUTO_FILL = new ConfigOptionBoolean("TorchBandolier.AutoFill", true);
 
     /*
      * Graphic config settings
@@ -49,7 +47,7 @@ public class Config {
      * World chaos event config settings
      */
 
-    public static ConfigOptionInt METEOR_SHOWER_RARITY = new ConfigOptionInt("Chaos.Event.Meteor.Rarity", 5400);
+    public static ConfigOptionInt METEOR_SHOWER_RARITY = new ConfigOptionInt("Chaos.Event.Meteor.Rarity", 0);
     public static ConfigOptionInt METEOR_SHOWER_COUNT = new ConfigOptionInt("Chaos.Event.Meteor.Count", 64);
     public static ConfigOptionInt METEOR_SHOWER_RADIUS = new ConfigOptionInt("Chaos.Event.Meteor.Radius", 32);
     public static ConfigOptionInt METEOR_SHOWER_DURATION = new ConfigOptionInt("Chaos.Event.Meteor.Duration", 20);

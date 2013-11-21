@@ -145,6 +145,9 @@ public class ModItems {
         OreDictionary.registerOre("gemTopaz", new ItemStack(abyssGem, 1, 3));
         OreDictionary.registerOre("gemAbyssite", Gem.getGem(Reference.INDEX_ABYSSITE));
         OreDictionary.registerOre("gemPurite", Gem.getGem(Reference.INDEX_PURITE));
+        for (int i = 0; i < 4; ++i) {
+            OreDictionary.registerOre(Strings.ORE_DICT_GEM_BASIC, new ItemStack(abyssGem, 1, i));
+        }
     }
 
     public static void initItemRecipes() {

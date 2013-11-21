@@ -25,7 +25,7 @@ public class PlayerClientServerTickHandler implements ITickHandler {
     private void personalElevationDeviceTick(EntityPlayer player) {
 
         // Personal Elevation Device
-        if (Config.PED_CREATIVE_FLIGHT) {
+        if (Config.PED_CREATIVE_FLIGHT.value) {
             if (PersonalElevationDevice.playerHasEquipped(player) && player.ridingEntity == null) {
                 player.capabilities.allowFlying = true;
             }
