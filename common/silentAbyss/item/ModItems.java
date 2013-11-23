@@ -27,6 +27,7 @@ public class ModItems {
     public static ItemSA abyssGem;
     public static ItemSA abyssShard;
     public static Item potatoStick;
+    public static ItemSA kittySummon;
     public static ItemSA torchBandolier;
     public static ItemSA craftingMaterial;
     public static ItemSA teleporterLinker;
@@ -87,6 +88,7 @@ public class ModItems {
         abyssGem = new Gem(ItemIds.ABYSS_GEM);
         abyssShard = new GemShard(ItemIds.ABYSS_SHARD);
         potatoStick = new Food(ItemIds.POTATO_STICK, 8, 0.8f, false);
+        kittySummon = new KittySummon(ItemIds.KITTY_SUMMON);
         torchBandolier = new TorchBandolier(ItemIds.TORCH_BANDOLIER);
         craftingMaterial = new CraftingMaterial(ItemIds.CRAFTING_MATERIAL);
         teleporterLinker = new TeleporterLinker(ItemIds.TELEPORTER_LINKER);
@@ -156,6 +158,7 @@ public class ModItems {
         abyssShard.addRecipes();
         craftingMaterial.addRecipes();
         Food.addRecipes();
+        kittySummon.addRecipes();
         torchBandolier.addRecipes();
         sigilStone.addRecipes();
         sigilScepter.addRecipes();

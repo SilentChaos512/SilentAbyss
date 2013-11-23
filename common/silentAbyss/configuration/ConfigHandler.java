@@ -107,36 +107,8 @@ public class ConfigHandler {
             Config.METEOR_SHOWER_DURATION.loadValue(c, CATEGORY_WORLD_CHAOS_EVENT);
             Config.METEOR_SHOWER_WARNING_DURATION.loadValue(c, CATEGORY_WORLD_CHAOS_EVENT);
 
-            /*
-             * Block property configs.
-             */
-            BlockIds.ABYSS_GEM_ORE = getBlockId(Strings.ABYSS_GEM_ORE_NAME, BlockIds.ABYSS_GEM_ORE_DEFAULT);
-            BlockIds.ABYSS_GEM_BLOCK = getBlockId(Strings.ABYSS_GEM_BLOCK_NAME, BlockIds.ABYSS_GEM_BLOCK_DEFAULT);
-            BlockIds.ABYSS_TELEPORTER = getBlockId(Strings.ABYSS_TELEPORTER_NAME, BlockIds.ABYSS_TELEPORTER_DEFAULT);
-            BlockIds.SIGIL_INFUSER = getBlockId(Strings.SIGIL_INFUSER_NAME, BlockIds.SIGIL_INFUSER_DEFAULT);
-            BlockIds.BRICK = getBlockId(Strings.BRICK_NAME, BlockIds.BRICK_DEFAULT);
-            BlockIds.LAMP = getBlockId(Strings.LAMP_NAME, BlockIds.LAMP_DEFAULT);
-            BlockIds.PORTAL_FRAME = getBlockId(Strings.PORTAL_FRAME_NAME, BlockIds.PORTAL_FRAME_DEFAULT);
-            BlockIds.PORTAL = getBlockId(Strings.PORTAL_NAME, BlockIds.PORTAL_DEFAULT);
-            BlockIds.TEST_BLOCK = getBlockId(Strings.TEST_BLOCK_NAME, BlockIds.TEST_BLOCK_DEFAULT);
-
-            /*
-             * Item property configs.
-             */
-            ItemIds.ABYSS_GEM = getItemId(Strings.ABYSS_GEM_NAME, ItemIds.ABYSS_GEM_DEFAULT);
-            ItemIds.ABYSS_SHARD = getItemId(Strings.ABYSS_SHARD_NAME, ItemIds.ABYSS_SHARD_DEFAULT);
-            ItemIds.CRAFTING_MATERIAL = getItemId(Strings.CRAFTING_MATERIAL_NAME, ItemIds.CRAFTING_MATERIAL_DEFAULT,
-                    "The ID for various crafting items, such as Ornate Sticks.");
-            ItemIds.POTATO_STICK = getItemId(Strings.POTATO_STICK_NAME, ItemIds.POTATO_STICK_DEFAULT);
-            ItemIds.TORCH_BANDOLIER = getItemId(Strings.TORCH_BANDOLIER_NAME, ItemIds.TORCH_BANDOLIER_DEFAULT);
-            ItemIds.TELEPORTER_LINKER = getItemId(Strings.TELEPORTER_LINKER_NAME, ItemIds.TELEPORTER_LINKER_DEFAULT);
-            ItemIds.ABYSS_SIGIL = getItemId(Strings.ABYSS_SIGIL_NAME, ItemIds.ABYSS_SIGIL_DEFAULT);
-            ItemIds.SIGIL_STONE = getItemId(Strings.SIGIL_STONE_NAME, ItemIds.SIGIL_STONE_DEFAULT);
-            ItemIds.SIGIL_SCEPTER = getItemId(Strings.SIGIL_SCEPTER_NAME, ItemIds.SIGIL_SCEPTER_DEFAULT);
-            ItemIds.ENCHANT_TOKEN = getItemId(Strings.ENCHANT_TOKEN_NAME, ItemIds.ENCHANT_TOKEN_DEFAULT);
-            ItemIds.PERSONAL_ELEVATION_DEVICE = getItemId(Strings.PERSONAL_ELEVATION_DEVICE_NAME, ItemIds.PERSONAL_ELEVATION_DEVICE_DEFAULT);
-            ItemIds.MOD_BOOK = getItemId(Strings.MOD_BOOK_NAME, ItemIds.MOD_BOOK_DEFAULT);
-            ItemIds.TOOL_START = getItemId("tool_start_id", ItemIds.TOOL_START_DEFAULT, "Abyss tools require a total of 40 IDs.");
+            loadBlockIds(c);
+            loadItemIds(c);
 
             /*
              * Enchantment property configs.
@@ -149,6 +121,38 @@ public class ConfigHandler {
         } finally {
             c.save();
         }
+    }
+    
+    private static void loadBlockIds(Configuration c) {
+        
+        BlockIds.ABYSS_GEM_ORE = getBlockId(Strings.ABYSS_GEM_ORE_NAME, BlockIds.ABYSS_GEM_ORE_DEFAULT);
+        BlockIds.ABYSS_GEM_BLOCK = getBlockId(Strings.ABYSS_GEM_BLOCK_NAME, BlockIds.ABYSS_GEM_BLOCK_DEFAULT);
+        BlockIds.ABYSS_TELEPORTER = getBlockId(Strings.ABYSS_TELEPORTER_NAME, BlockIds.ABYSS_TELEPORTER_DEFAULT);
+        BlockIds.SIGIL_INFUSER = getBlockId(Strings.SIGIL_INFUSER_NAME, BlockIds.SIGIL_INFUSER_DEFAULT);
+        BlockIds.BRICK = getBlockId(Strings.BRICK_NAME, BlockIds.BRICK_DEFAULT);
+        BlockIds.LAMP = getBlockId(Strings.LAMP_NAME, BlockIds.LAMP_DEFAULT);
+        BlockIds.PORTAL_FRAME = getBlockId(Strings.PORTAL_FRAME_NAME, BlockIds.PORTAL_FRAME_DEFAULT);
+        BlockIds.PORTAL = getBlockId(Strings.PORTAL_NAME, BlockIds.PORTAL_DEFAULT);
+        BlockIds.TEST_BLOCK = getBlockId(Strings.TEST_BLOCK_NAME, BlockIds.TEST_BLOCK_DEFAULT);
+    }
+    
+    private static void loadItemIds(Configuration c) {
+        
+        ItemIds.ABYSS_GEM = getItemId(Strings.ABYSS_GEM_NAME, ItemIds.ABYSS_GEM_DEFAULT);
+        ItemIds.ABYSS_SHARD = getItemId(Strings.ABYSS_SHARD_NAME, ItemIds.ABYSS_SHARD_DEFAULT);
+        ItemIds.CRAFTING_MATERIAL = getItemId(Strings.CRAFTING_MATERIAL_NAME, ItemIds.CRAFTING_MATERIAL_DEFAULT,
+                "The ID for various crafting items, such as Ornate Sticks.");
+        ItemIds.POTATO_STICK = getItemId(Strings.POTATO_STICK_NAME, ItemIds.POTATO_STICK_DEFAULT);
+        ItemIds.KITTY_SUMMON = getItemId(Strings.KITTY_SUMMON_NAME, ItemIds.KITTY_SUMMON_DEFAULT);
+        ItemIds.TORCH_BANDOLIER = getItemId(Strings.TORCH_BANDOLIER_NAME, ItemIds.TORCH_BANDOLIER_DEFAULT);
+        ItemIds.TELEPORTER_LINKER = getItemId(Strings.TELEPORTER_LINKER_NAME, ItemIds.TELEPORTER_LINKER_DEFAULT);
+        ItemIds.ABYSS_SIGIL = getItemId(Strings.ABYSS_SIGIL_NAME, ItemIds.ABYSS_SIGIL_DEFAULT);
+        ItemIds.SIGIL_STONE = getItemId(Strings.SIGIL_STONE_NAME, ItemIds.SIGIL_STONE_DEFAULT);
+        ItemIds.SIGIL_SCEPTER = getItemId(Strings.SIGIL_SCEPTER_NAME, ItemIds.SIGIL_SCEPTER_DEFAULT);
+        ItemIds.ENCHANT_TOKEN = getItemId(Strings.ENCHANT_TOKEN_NAME, ItemIds.ENCHANT_TOKEN_DEFAULT);
+        ItemIds.PERSONAL_ELEVATION_DEVICE = getItemId(Strings.PERSONAL_ELEVATION_DEVICE_NAME, ItemIds.PERSONAL_ELEVATION_DEVICE_DEFAULT);
+        ItemIds.MOD_BOOK = getItemId(Strings.MOD_BOOK_NAME, ItemIds.MOD_BOOK_DEFAULT);
+        ItemIds.TOOL_START = getItemId("tool_start_id", ItemIds.TOOL_START_DEFAULT, "Abyss tools require a total of 40 IDs.");
     }
 
     private static int getBlockId(String name, int default_id) {

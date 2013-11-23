@@ -15,6 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ItemSA extends Item {
 
     public Icon[] icons;
+    public boolean isGlowing = false;
 
     public ItemSA(int id) {
 
@@ -26,6 +27,13 @@ public class ItemSA extends Item {
     public void registerIcons(IconRegister iconRegister) {
 
         itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean hasEffect(ItemStack stack, int pass) {
+        
+        return isGlowing;
     }
 
     @Override

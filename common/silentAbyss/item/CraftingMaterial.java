@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Icon;
 import silentAbyss.core.util.LocalizationHelper;
+import silentAbyss.core.util.RecipeHelper;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -21,7 +22,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class CraftingMaterial extends ItemSA {
 
-    public static final String[] names = { Strings.ORNATE_STICK_NAME, Strings.MYSTERY_GOO_NAME };
+    public static final String[] names = { Strings.ORNATE_STICK_NAME, Strings.MYSTERY_GOO_NAME, Strings.YARN_BALL_NAME };
 
     public CraftingMaterial(int id) {
 
@@ -54,7 +55,7 @@ public class CraftingMaterial extends ItemSA {
 
         return null;
     }
-    
+
     @Override
     @SuppressWarnings({ "rawtypes", "unchecked" })
     @SideOnly(Side.CLIENT)
@@ -86,5 +87,6 @@ public class CraftingMaterial extends ItemSA {
 
         GameRegistry.addRecipe(getStack(Strings.ORNATE_STICK_NAME, 4), "gag", "gag", "gag", 'g', Item.ingotGold, 'a', rAbyssite);
         GameRegistry.addRecipe(getStack(Strings.MYSTERY_GOO_NAME, 1), "mmm", "mam", "mmm", 'm', Block.cobblestoneMossy, 'a', rAbyssite);
+        RecipeHelper.addSurround(getStack(Strings.YARN_BALL_NAME), new ItemStack(Item.goldNugget), Item.silk);
     }
 }

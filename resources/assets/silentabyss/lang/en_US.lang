@@ -50,9 +50,11 @@ item.silentabyss:abyssTopazShard.name=Abyss Topaz Shard
 item.silentabyss:abyssiteShard.name=Abyssite Shard
 item.silentabyss:puriteShard.name=Purite Shard
 item.silentabyss:PotatoStick.name=Potato on a Stick
+item.silentabyss:KittySummon.name=Summon Kitty
 item.silentabyss:TorchBandolier.name=Torch Bandolier
 item.silentabyss:OrnateStick.name=Ornate Stick
 item.silentabyss:MysteryGoo.name=Mystery Goo
+item.silentabyss:YarnBall.name=Ball of Yarn
 item.silentabyss:TeleporterLinker.name=Teleporter Linker
 item.silentabyss:Sigil.name=Abyss Sigil
 item.silentabyss:SigilStone.name=Sigil Stone
@@ -111,6 +113,7 @@ tool.silentabyss:hoeAbyssTopazPlus.name=Supercharged Abyss Topaz Hoe
 # Entity localization
 
 entity.Grumbling.name=Grumbling
+entity.Crimson Creeper.name=Crimson Creeper
 
 # Enchantment localization
 
@@ -127,8 +130,10 @@ death.attack.abyssMeteor=%1$s was crushed by a meteor
 misc.silentabyss:CraftingMaterials=Crafting material.
 misc.silentabyss:OrnateStick=Bling bling.
 misc.silentabyss:MysteryGoo=Feels right at home in space.
+misc.silentabyss:YarnBall=It's not shiny, but cats seem to like it.
 misc.silentabyss:PotatoStick=Totally not like the Mindcrack logo.
 misc.silentabyss:PersonalElevationDevice=Pedro says "hi".
 misc.silentabyss:TorchBandolier=Can store and dispense torches.
 misc.silentabyss:TorchBandolierAutoFillOn=Auto-fill mode ON.
 misc.silentabyss:TorchBandolierAutoFillOff=Auto-fill mode OFF.
+misc.silentabyss:KittySummon=A much less annoying way to get cats.

@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.entity.RenderFireball;
 import net.minecraftforge.client.MinecraftForgeClient;
 import silentAbyss.block.ModBlocks;
 import silentAbyss.client.model.ModelGrumbling;
+import silentAbyss.client.renderer.entity.RenderCrimsonCreeper;
 import silentAbyss.client.renderer.entity.RenderGrumbling;
 import silentAbyss.client.renderer.entity.RenderProjectileMagic;
 import silentAbyss.client.renderer.item.ItemTestRenderer;
@@ -11,6 +12,7 @@ import silentAbyss.client.renderer.tileentity.TileEntityTestRenderer;
 import silentAbyss.core.handlers.tick.PlayerClientServerTickHandler;
 import silentAbyss.core.handlers.tick.RenderTickHandler;
 import silentAbyss.core.util.KeyHelper;
+import silentAbyss.entity.monster.CrimsonCreeper;
 import silentAbyss.entity.monster.EntityGrumbling;
 import silentAbyss.entity.projectile.EntityMeteor;
 import silentAbyss.entity.projectile.EntityProjectileMagic;
@@ -45,6 +47,7 @@ public class ClientProxy extends CommonProxy {
     private void registerRenderersMobs() {
         
         RenderingRegistry.registerEntityRenderingHandler(EntityGrumbling.class, new RenderGrumbling(new ModelGrumbling(), 0.5F));
+        RenderingRegistry.registerEntityRenderingHandler(CrimsonCreeper.class, new RenderCrimsonCreeper());
     }
     
     private void registerRenderersProjectiles() {

@@ -26,6 +26,8 @@ public class Textures {
     // Model textures
     public final static ResourceLocation ENTITY_GRUMBLING = ResourceLocationHelper.getResourceLocation(ENTITY_SHEET_LOCATION
             + "Grumbling.png");
+    public final static ResourceLocation ENTITY_CRIMSON_CREEPER = ResourceLocationHelper.getResourceLocation(ENTITY_SHEET_LOCATION
+            + "CrimsonCreeper.png");
 
     // Effect textures
     public final static ResourceLocation EFFECT_MAGIC_PROJECTILE = ResourceLocationHelper.getResourceLocation(EFFECTS_LOCATION

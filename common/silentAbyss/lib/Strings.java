@@ -61,7 +61,9 @@ public class Strings {
     public final static String CRAFTING_MATERIAL_NAME = "CraftingMaterials";
     public final static String ORNATE_STICK_NAME = "OrnateStick";
     public final static String MYSTERY_GOO_NAME = "MysteryGoo";
+    public final static String YARN_BALL_NAME = "YarnBall";
     public final static String POTATO_STICK_NAME = "PotatoStick";
+    public final static String KITTY_SUMMON_NAME = "KittySummon";
     public final static String TORCH_BANDOLIER_NAME = "TorchBandolier";
     public final static String TELEPORTER_LINKER_NAME = "TeleporterLinker";
     public final static String ABYSS_SIGIL_NAME = "Sigil";
@@ -84,6 +86,7 @@ public class Strings {
     public final static String ENTITY_PROJECTILE_MAGIC_NAME = "Magic Projectile";
     public final static String ENTITY_METEOR_NAME = "Abyss Meteor";
     public final static String ENTITY_GRUMBLING_NAME = "Grumbling";
+    public final static String ENTITY_CRIMSON_CREEPER_NAME = "Crimson Creeper";
 
     /*
      * Tile entity name constants
