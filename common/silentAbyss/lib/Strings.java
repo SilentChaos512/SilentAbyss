@@ -38,6 +38,7 @@ public class Strings {
     /*
      * NBT related constants
      */
+    public static final String TORCH_BANDOLIER_AUTO_FILL = "AutoFill";
 
     /*
      * Block name constants

@@ -7,7 +7,6 @@ public class Config {
      */
     public static ConfigOptionBoolean PED_CREATIVE_FLIGHT = new ConfigOptionBoolean("PersonalElevationDevice.CreativeFlight", false);
     public static ConfigOptionInt SHARDS_PER_GEM = new ConfigOptionInt("ShardsPerGem", 9);
-    public static ConfigOptionBoolean TORCH_BANDOLIER_AUTO_FILL = new ConfigOptionBoolean("TorchBandolier.AutoFill", true);
 
     /*
      * Graphic config settings

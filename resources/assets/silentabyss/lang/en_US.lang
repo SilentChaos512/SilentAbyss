@@ -130,3 +130,5 @@ misc.silentabyss:MysteryGoo=Feels right at home in space.
 misc.silentabyss:PotatoStick=Totally not like the Mindcrack logo.
 misc.silentabyss:PersonalElevationDevice=Pedro says "hi".
 misc.silentabyss:TorchBandolier=Can store and dispense torches.
+misc.silentabyss:TorchBandolierAutoFillOn=Auto-fill mode ON.
+misc.silentabyss:TorchBandolierAutoFillOff=Auto-fill mode OFF.

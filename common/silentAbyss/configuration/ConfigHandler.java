@@ -44,7 +44,6 @@ public class ConfigHandler {
              */
             Config.PED_CREATIVE_FLIGHT.loadValue(c, CATEGORY_ITEM_PROPERTIES);
             Config.SHARDS_PER_GEM.loadValue(c, CATEGORY_ITEM_PROPERTIES).validate();
-            Config.TORCH_BANDOLIER_AUTO_FILL.loadValue(c, CATEGORY_ITEM_PROPERTIES);
 
             /*
              * Graphic configs.

@@ -1,7 +1,6 @@
 package silentAbyss.item.tool;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -92,18 +91,6 @@ public abstract class ItemToolSA extends ItemSA {
     public String getUnlocalizedName(ItemStack stack) {
 
         return getUnlocalizedName(Integer.toString(itemID), "tool");
-    }
-
-    @Override
-    public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
-
-        for (int i = 0; i < this.blocksEffectiveAgainst.length; ++i) {
-            if (this.blocksEffectiveAgainst[i] == par2Block) {
-                return this.efficiencyOnProperMaterial;
-            }
-        }
-
-        return 1.0F;
     }
 
     @Override

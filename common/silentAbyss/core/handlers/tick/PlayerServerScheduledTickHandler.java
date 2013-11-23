@@ -9,7 +9,6 @@ import silentAbyss.configuration.Config;
 import silentAbyss.core.chaos.ChaosEventCollection;
 import silentAbyss.core.chaos.MeteorEvent;
 import silentAbyss.core.handlers.ChaosHandler;
-import silentAbyss.core.util.LogHelper;
 import silentAbyss.item.ModItems;
 import silentAbyss.item.TorchBandolier;
 import silentAbyss.item.armor.PersonalElevationDevice;
@@ -51,12 +50,13 @@ public class PlayerServerScheduledTickHandler implements IScheduledTickHandler {
 
         chaosEvents.doTick(player);
     }
-    
+
     private void itemTicks(EntityPlayer player) {
-        
+
         for (ItemStack stack : player.inventory.mainInventory) {
             if (stack != null) {
-                if (Config.TORCH_BANDOLIER_AUTO_FILL.value && stack.itemID == ModItems.torchBandolier.itemID) {
+                if (stack.itemID == ModItems.torchBandolier.itemID && stack.stackTagCompound != null
+                        && stack.stackTagCompound.getBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL)) {
                     ((TorchBandolier) stack.getItem()).absorbTorches(stack, player);
                 }
             }

@@ -8,12 +8,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import silentAbyss.core.util.LocalizationHelper;
-import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -37,7 +37,17 @@ public class TorchBandolier extends ItemSA {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 
+        // Item description
         list.add(LocalizationHelper.getMessageText(Strings.TORCH_BANDOLIER_NAME));
+        // Auto-fill mode
+        if (stack.stackTagCompound != null) {
+            if (stack.stackTagCompound.hasKey(Strings.TORCH_BANDOLIER_AUTO_FILL) && stack.stackTagCompound.getBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL)) {
+                list.add(LocalizationHelper.getMessageText(Strings.TORCH_BANDOLIER_NAME + "AutoFillOn", EnumChatFormatting.GREEN));
+            }
+            else {
+                list.add(LocalizationHelper.getMessageText(Strings.TORCH_BANDOLIER_NAME + "AutoFillOff", EnumChatFormatting.RED));
+            }
+        }
         if (stack.getItemDamage() < MAX_DAMAGE) {
             list.add((new StringBuilder()).append(EnumChatFormatting.YELLOW).append(MAX_DAMAGE - stack.getItemDamage()).append(" / ")
                     .append(MAX_DAMAGE).toString());
@@ -61,6 +71,12 @@ public class TorchBandolier extends ItemSA {
     public void onCreated(ItemStack stack, World world, EntityPlayer player) {
 
         setDamage(stack, MAX_DAMAGE);
+        
+        if (stack.stackTagCompound == null) {
+            stack.stackTagCompound = new NBTTagCompound();
+        }
+        
+        stack.stackTagCompound.setBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL, true);
     }
 
     /**
@@ -69,8 +85,26 @@ public class TorchBandolier extends ItemSA {
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
-        if (player.isSneaking()) {
-            return absorbTorches(stack, player);
+        if (!world.isRemote) {
+            if (player.isSneaking()) {
+                if (stack.stackTagCompound == null) {
+                    stack.stackTagCompound = new NBTTagCompound();
+                }
+                
+                boolean autoFill = true;
+                if (stack.stackTagCompound.hasKey(Strings.TORCH_BANDOLIER_AUTO_FILL)) {
+                    autoFill = !stack.stackTagCompound.getBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL);
+                }
+                
+                stack.stackTagCompound.setBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL, autoFill);
+                
+                if (autoFill) {
+                    player.addChatMessage(LocalizationHelper.getMessageText(Strings.TORCH_BANDOLIER_NAME + "AutoFillOn", EnumChatFormatting.GREEN));
+                }
+                else {
+                    player.addChatMessage(LocalizationHelper.getMessageText(Strings.TORCH_BANDOLIER_NAME + "AutoFillOff", EnumChatFormatting.RED));
+                }
+            }
         }
 
         return stack;
