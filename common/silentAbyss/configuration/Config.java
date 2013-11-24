@@ -23,10 +23,9 @@ public class Config {
      * Sigil config settings
      */
 
-    public static ConfigOptionInt SIGIL_BREAK_CHANCE = new ConfigOptionInt("Sigil.BaseBreakChance", 50);
     public static ConfigOptionInt SIGIL_USE_DURATION = new ConfigOptionInt("Sigil.BaseUseDuration", 30);
     public static ConfigOptionInt SIGIL_PROJECTILE_DAMAGE = new ConfigOptionInt("Sigil.BaseProjectileDamage", 8);
-    public static ConfigOptionInt SIGIL_SUPPORT_DURATION = new ConfigOptionInt("Sigil.BaseSupportDuration", 1200);
+    public static ConfigOptionInt SIGIL_SUPPORT_DURATION = new ConfigOptionInt("Sigil.BaseSupportDuration", 2400);
 
     /*
      * World chaos config settings

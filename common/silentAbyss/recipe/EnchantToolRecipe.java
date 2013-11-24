@@ -1,17 +1,12 @@
 package silentAbyss.recipe;
 
 import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 import silentAbyss.core.util.InventoryHelper;
 import silentAbyss.item.EnchantToken;
-import silentAbyss.item.tool.AbyssAxe;
-import silentAbyss.item.tool.AbyssHoe;
-import silentAbyss.item.tool.AbyssPickaxe;
-import silentAbyss.item.tool.AbyssShovel;
-import silentAbyss.item.tool.AbyssSword;
+import silentAbyss.item.Sigil;
 
 public class EnchantToolRecipe implements IRecipe {
 
@@ -27,7 +22,7 @@ public class EnchantToolRecipe implements IRecipe {
         for (int i = 0; i < inventorycrafting.getSizeInventory(); ++i) {
             stack = inventorycrafting.getStackInSlot(i);
             if (stack != null) {
-                if (InventoryHelper.isAbyssTool(stack)) {
+                if (InventoryHelper.isAbyssTool(stack) || stack.getItem() instanceof Sigil) {
                     ++numTools;
                     tool = stack;
                 }
@@ -54,7 +49,7 @@ public class EnchantToolRecipe implements IRecipe {
         for (int i = 0; i < inventorycrafting.getSizeInventory(); ++i) {
             s = inventorycrafting.getStackInSlot(i);
             if (s != null) {
-                if (InventoryHelper.isAbyssTool(s)) {
+                if (InventoryHelper.isAbyssTool(s) || s.getItem() instanceof Sigil) {
                     tool = s;
                 }
                 else if (s.getItem() instanceof EnchantToken) {

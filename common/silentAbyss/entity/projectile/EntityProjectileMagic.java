@@ -9,7 +9,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-import silentAbyss.item.SigilStone;
 
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
@@ -113,23 +112,17 @@ public class EntityProjectileMagic extends EntityThrowable implements IEntityAdd
         return this;
     }
 
-    public EntityProjectileMagic setColor(String color) {
+    public EntityProjectileMagic setColor(int color) {
 
         int c = 0xFFFFFF;
 
-        for (int i = 1; i < 17; ++i) {
-            if (SigilStone.names[i].equals(color)) {
-                c = ItemDye.dyeColors[i - 1];
-                break;
-            }
+        if (color < ItemDye.dyeColors.length) {
+            c = ItemDye.dyeColors[color];
         }
 
         colorR = c >> 16 & 255;
         colorG = c >> 8 & 255;
         colorB = c & 255;
-
-        // AbyssLog.print("" + c);
-        // AbyssLog.print(AbyssLog.coord(colorR, colorG, colorB));
 
         return this;
     }

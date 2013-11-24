@@ -16,12 +16,14 @@ public class Strings {
     /*
      * Messages
      */
-    public final static String TELEPORTER_LINK_START = "\u00a77Teleporter link started.";
-    public final static String TELEPORTER_LINK_END = "\u00a77Teleporter link created.";
-    public final static String TELEPORTER_LINK_FAIL = "\u00a74Teleporter link failed.";
-    public final static String TELEPORTER_SIGIL_LINK = "\u00a72Sigils linked!";
-    public final static String TELEPORTER_SCEPTER_LINK = "\u00a72Scepter linked!";
-    public final static String TELEPORTER_NO_DESTINATION = "\u00a77No destination set.";
+    public final static String SIGIL_NO_EFFECT = "SigilNoEffect";
+    public final static String SIGIL_TELEPORT_NOT_LINKED = "SigilTeleportNotLinked";
+    public final static String TELEPORTER_INVALID = "TeleporterInvalid";
+    public final static String TELEPORTER_LINK_START = "TeleporterLinkStart";
+    public final static String TELEPORTER_LINK_END = "TeleporterLinkEnd";
+    public final static String TELEPORTER_LINK_FAIL = "TeleporterLinkFail";
+    public final static String TELEPORTER_SIGIL_LINK = "SigilTeleportLinked";
+    public final static String TELEPORTER_NO_DESTINATION = "TeleporterNoDestination";
 
     public final static String METEOR_SHOWER_INBOUND = "\u00a76You sense meteors approaching.";
 
@@ -38,6 +40,10 @@ public class Strings {
     /*
      * NBT related constants
      */
+    public static final String SIGIL_EFFECT_ID = "EffectID";
+    public static final String SIGIL_COLOR = "Color";
+    public static final String SIGIL_POWER = "Power";
+    public static final String SIGIL_SPEED = "Speed";
     public static final String TORCH_BANDOLIER_AUTO_FILL = "AutoFill";
 
     /*
@@ -66,8 +72,8 @@ public class Strings {
     public final static String KITTY_SUMMON_NAME = "KittySummon";
     public final static String TORCH_BANDOLIER_NAME = "TorchBandolier";
     public final static String TELEPORTER_LINKER_NAME = "TeleporterLinker";
-    public final static String ABYSS_SIGIL_NAME = "Sigil";
-    public final static String SIGIL_STONE_NAME = "SigilStone";
+    public final static String SIGIL_NAME = "Sigil";
+    public final static String SIGIL_RUNE_NAME = "SigilRune";
     public final static String SIGIL_SCEPTER_NAME = "SigilScepter";
     public final static String ENCHANT_TOKEN_NAME = "EnchantmentToken";
     public final static String PERSONAL_ELEVATION_DEVICE_NAME = "PersonalElevationDevice";

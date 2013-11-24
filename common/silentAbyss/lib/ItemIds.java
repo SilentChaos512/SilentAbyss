@@ -11,7 +11,7 @@ public class ItemIds {
     public static int TORCH_BANDOLIER_DEFAULT = 6019;
     public static int TELEPORTER_LINKER_DEFAULT = 6020;
     public static int ABYSS_SIGIL_DEFAULT = 6022;
-    public static int SIGIL_STONE_DEFAULT = 6021;
+    public static int SIGIL_RUNE_DEFAULT = 6021;
     public static int SIGIL_SCEPTER_DEFAULT = 6023;
     public static int ENCHANT_TOKEN_DEFAULT = 6024;
     public static int TOOL_START_DEFAULT = 6060;
@@ -27,7 +27,7 @@ public class ItemIds {
     public static int TORCH_BANDOLIER;
     public static int TELEPORTER_LINKER;
     public static int ABYSS_SIGIL;
-    public static int SIGIL_STONE;
+    public static int SIGIL_RUNE;
     public static int SIGIL_SCEPTER;
     public static int ENCHANT_TOKEN;
     public static int TOOL_START;

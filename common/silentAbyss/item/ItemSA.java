@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
@@ -15,7 +16,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ItemSA extends Item {
 
     public Icon[] icons;
-    public boolean isGlowing = false;
+    protected boolean isGlowing = false;
+    protected EnumRarity rarity = EnumRarity.common;
 
     public ItemSA(int id) {
 
@@ -34,6 +36,12 @@ public class ItemSA extends Item {
     public boolean hasEffect(ItemStack stack, int pass) {
         
         return isGlowing;
+    }
+
+    @Override
+    public EnumRarity getRarity(ItemStack itemStack) {
+
+        return rarity;
     }
 
     @Override

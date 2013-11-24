@@ -123,7 +123,7 @@ public class ModBook extends ItemWritableBook {
 
     public static void addRecipes() {
 
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.book, 1, 0), Item.book, ModItems.sigilStone);
+        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.book, 1, 0), Item.book, ModItems.sigilRune);
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.book, 1, 1), new Object[] { Item.book, Strings.ORE_DICT_GEM_BASIC }));
     }
 

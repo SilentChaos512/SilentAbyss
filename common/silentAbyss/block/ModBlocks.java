@@ -15,7 +15,6 @@ public class ModBlocks {
     public static BlockSA ore;
     public static BlockSA gem;
     public static Block abyssTeleporter;
-    public static Block sigilInfuser;
     public static BlockSA brick;
     public static BlockSA lamp;
     public static Block portalFrame;
@@ -30,7 +29,6 @@ public class ModBlocks {
         ore = new Ore(BlockIds.ABYSS_GEM_ORE);
         gem = new GemBlock(BlockIds.ABYSS_GEM_BLOCK);
         abyssTeleporter = new Teleporter(BlockIds.ABYSS_TELEPORTER);
-        sigilInfuser = new SigilInfuser(BlockIds.SIGIL_INFUSER);
         brick = new Brick(BlockIds.BRICK);
         lamp = new Lamp(BlockIds.LAMP);
         portalFrame = new PortalFrame(BlockIds.PORTAL_FRAME);
@@ -43,7 +41,6 @@ public class ModBlocks {
         GameRegistry.registerBlock(ore, OreItemBlock.class, Strings.ABYSS_GEM_ORE_NAME);
         GameRegistry.registerBlock(gem, GemItemBlock.class, Strings.ABYSS_GEM_BLOCK_NAME);
         GameRegistry.registerBlock(abyssTeleporter, Strings.ABYSS_TELEPORTER_NAME);
-        GameRegistry.registerBlock(sigilInfuser, Strings.SIGIL_INFUSER_NAME);
         GameRegistry.registerBlock(brick, BrickItemBlock.class, Strings.BRICK_NAME);
         GameRegistry.registerBlock(lamp, LampItemBlock.class, Strings.LAMP_NAME);
         GameRegistry.registerBlock(portalFrame, Strings.PORTAL_FRAME_NAME);
@@ -70,7 +67,6 @@ public class ModBlocks {
 
         gem.addRecipes();
         Teleporter.addRecipes();
-        SigilInfuser.addRecipes();
         brick.addRecipes();
         lamp.addRecipes();
         PortalFrame.addRecipes();

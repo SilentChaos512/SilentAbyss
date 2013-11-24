@@ -52,6 +52,7 @@ public class EnchantToken extends ItemSA {
 
     // These constants are used to store which tools an enchantment is valid
     // for. See init().
+    public final static byte T_SIGIL = 32;
     public final static byte T_SWORD = 16;
     public final static byte T_PICKAXE = 8;
     public final static byte T_SHOVEL = 4;
@@ -90,7 +91,7 @@ public class EnchantToken extends ItemSA {
         addEnchantment(Enchantment.sharpness, T_SWORD | T_AXE);
         addEnchantment(Enchantment.silkTouch, T_SWORD | T_PICKAXE | T_SHOVEL | T_AXE);
         addEnchantment(Enchantment.smite, T_SWORD | T_AXE | T_HOE);
-        addEnchantment(Enchantment.unbreaking, T_SWORD | T_PICKAXE | T_SHOVEL | T_AXE | T_HOE);
+        addEnchantment(Enchantment.unbreaking, T_SWORD | T_PICKAXE | T_SHOVEL | T_AXE | T_HOE | T_SIGIL);
 
         addEnchantment(ModEnchantments.iceAspect, T_SWORD);
         addEnchantment(ModEnchantments.mending, T_SWORD | T_PICKAXE | T_SHOVEL | T_AXE | T_HOE);
@@ -153,6 +154,8 @@ public class EnchantToken extends ItemSA {
                 l.add("Axe");
             if ((k & T_HOE) != 0)
                 l.add("Hoe");
+            if ((k & T_SIGIL) != 0)
+                l.add("Sigil");
 
             StringBuilder sb = new StringBuilder();
 
@@ -194,7 +197,9 @@ public class EnchantToken extends ItemSA {
         if ((tool.getItem() instanceof AbyssSword && (k & T_SWORD) != 0)
                 || (tool.getItem() instanceof AbyssPickaxe && (k & T_PICKAXE) != 0)
                 || (tool.getItem() instanceof AbyssShovel && (k & T_SHOVEL) != 0)
-                || (tool.getItem() instanceof AbyssAxe && (k & T_AXE) != 0) || (tool.getItem() instanceof AbyssHoe && (k & T_HOE) != 0)) {
+                || (tool.getItem() instanceof AbyssAxe && (k & T_AXE) != 0)
+                || (tool.getItem() instanceof Sigil && (k & T_SIGIL) != 0)
+                || (tool.getItem() instanceof AbyssHoe && (k & T_HOE) != 0)) {
             // Token and tool type match.
             // Does tool have any enchantments?
             if (tool.hasTagCompound()) {

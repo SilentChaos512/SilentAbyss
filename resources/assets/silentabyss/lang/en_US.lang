@@ -56,8 +56,8 @@ item.silentabyss:OrnateStick.name=Ornate Stick
 item.silentabyss:MysteryGoo.name=Mystery Goo
 item.silentabyss:YarnBall.name=Ball of Yarn
 item.silentabyss:TeleporterLinker.name=Teleporter Linker
-item.silentabyss:Sigil.name=Abyss Sigil
-item.silentabyss:SigilStone.name=Sigil Stone
+item.silentabyss:Sigil.name=Sigil
+item.silentabyss:SigilRune.name=Sigil Rune
 item.silentabyss:SigilScepterRuby.name=Ruby Sigil Scepter
 item.silentabyss:SigilScepterEmerald.name=Emerald Sigil Scepter
 item.silentabyss:SigilScepterSapphire.name=Sapphire Sigil Scepter
@@ -125,6 +125,44 @@ enchantment.Nihil=Nihil
 
 death.attack.abyssMeteor=%1$s was crushed by a meteor
 
+# Sigil
+sigil.silentabyss:Empty=Empty
+sigil.silentabyss:Fireball=Fireball
+sigil.silentabyss:Icebolt=Icebolt
+sigil.silentabyss:Lightning=Lightning
+sigil.silentabyss:Earthquake=Earthquake
+sigil.silentabyss:Teleport=Teleport
+sigil.silentabyss:Healing=Healing
+sigil.silentabyss:Regeneration=Regeneration
+sigil.silentabyss:Remedy=Remedy
+sigil.silentabyss:Swiftness=Swiftness
+sigil.silentabyss:Jump=Jump
+sigil.silentabyss:Haste=Haste
+sigil.silentabyss:Strength=Strength
+sigil.silentabyss:Resistance=Resistance
+sigil.silentabyss:FireResistance=Fire Resistance
+sigil.silentabyss:Cloak=Cloak
+sigil.silentabyss:Amplify=Power
+sigil.silentabyss:Speed=Cast Time
+
+# Colors
+color.silentabyss:black=Black
+color.silentabyss:red=Red
+color.silentabyss:green=Green
+color.silentabyss:brown=Brown
+color.silentabyss:blue=Blue
+color.silentabyss:purple=Purple
+color.silentabyss:cyan=Cyan
+color.silentabyss:silver=Light Gray
+color.silentabyss:gray=Gray
+color.silentabyss:pink=Pink
+color.silentabyss:lime=Lime
+color.silentabyss:yellow=Yellow
+color.silentabyss:lightBlue=Light Blue
+color.silentabyss:magenta=Magenta
+color.silentabyss:orange=Orange
+color.silentabyss:white=White
+
 # Misc text
 
 misc.silentabyss:CraftingMaterials=Crafting material.
@@ -137,3 +175,13 @@ misc.silentabyss:TorchBandolier=Can store and dispense torches.
 misc.silentabyss:TorchBandolierAutoFillOn=Auto-fill mode ON.
 misc.silentabyss:TorchBandolierAutoFillOff=Auto-fill mode OFF.
 misc.silentabyss:KittySummon=A much less annoying way to get cats.
+
+misc.silentabyss:SigilNoEffect=No effect. Craft with some Sigil Runes.
+misc.silentabyss:SigilTeleportNotLinked=No destination set. Try right-clicking an Abyss Teleporter.
+misc.silentabyss:SigilTeleportLinked=Sigil linked!
+misc.silentabyss:TeleporterInvalid=Invalid location for teleport.
+misc.silentabyss:TeleporterLinkStart=Teleporter link started.
+misc.silentabyss:TeleporterLinkEnd=Teleporter link created.
+misc.silentabyss:TeleporterLinkFail=Teleporter link failed.
+misc.silentabyss:TeleporterNoDestination=No destination set.
+misc.silentabyss:TeleportDestinationInvalid=Invalid teleport destination.

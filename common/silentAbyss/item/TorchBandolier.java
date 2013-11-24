@@ -85,19 +85,19 @@ public class TorchBandolier extends ItemSA {
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
-        if (!world.isRemote) {
-            if (player.isSneaking()) {
-                if (stack.stackTagCompound == null) {
-                    stack.stackTagCompound = new NBTTagCompound();
-                }
-                
-                boolean autoFill = true;
-                if (stack.stackTagCompound.hasKey(Strings.TORCH_BANDOLIER_AUTO_FILL)) {
-                    autoFill = !stack.stackTagCompound.getBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL);
-                }
-                
-                stack.stackTagCompound.setBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL, autoFill);
-                
+        if (player.isSneaking()) {
+            if (stack.stackTagCompound == null) {
+                stack.stackTagCompound = new NBTTagCompound();
+            }
+            
+            boolean autoFill = true;
+            if (stack.stackTagCompound.hasKey(Strings.TORCH_BANDOLIER_AUTO_FILL)) {
+                autoFill = !stack.stackTagCompound.getBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL);
+            }
+            
+            stack.stackTagCompound.setBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL, autoFill);
+            
+            if (world.isRemote) {
                 if (autoFill) {
                     player.addChatMessage(LocalizationHelper.getMessageText(Strings.TORCH_BANDOLIER_NAME + "AutoFillOn", EnumChatFormatting.GREEN));
                 }

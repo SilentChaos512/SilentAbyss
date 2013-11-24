@@ -58,7 +58,6 @@ public class ConfigHandler {
             /*
              * Sigil configs.
              */
-            Config.SIGIL_BREAK_CHANCE.loadValue(c, CATEGORY_ITEM_PROPERTIES);
             Config.SIGIL_USE_DURATION.loadValue(c, CATEGORY_ITEM_PROPERTIES);
             Config.SIGIL_PROJECTILE_DAMAGE.loadValue(c, CATEGORY_ITEM_PROPERTIES);
             Config.SIGIL_SUPPORT_DURATION.loadValue(c, CATEGORY_ITEM_PROPERTIES);
@@ -128,7 +127,6 @@ public class ConfigHandler {
         BlockIds.ABYSS_GEM_ORE = getBlockId(Strings.ABYSS_GEM_ORE_NAME, BlockIds.ABYSS_GEM_ORE_DEFAULT);
         BlockIds.ABYSS_GEM_BLOCK = getBlockId(Strings.ABYSS_GEM_BLOCK_NAME, BlockIds.ABYSS_GEM_BLOCK_DEFAULT);
         BlockIds.ABYSS_TELEPORTER = getBlockId(Strings.ABYSS_TELEPORTER_NAME, BlockIds.ABYSS_TELEPORTER_DEFAULT);
-        BlockIds.SIGIL_INFUSER = getBlockId(Strings.SIGIL_INFUSER_NAME, BlockIds.SIGIL_INFUSER_DEFAULT);
         BlockIds.BRICK = getBlockId(Strings.BRICK_NAME, BlockIds.BRICK_DEFAULT);
         BlockIds.LAMP = getBlockId(Strings.LAMP_NAME, BlockIds.LAMP_DEFAULT);
         BlockIds.PORTAL_FRAME = getBlockId(Strings.PORTAL_FRAME_NAME, BlockIds.PORTAL_FRAME_DEFAULT);
@@ -146,8 +144,8 @@ public class ConfigHandler {
         ItemIds.KITTY_SUMMON = getItemId(Strings.KITTY_SUMMON_NAME, ItemIds.KITTY_SUMMON_DEFAULT);
         ItemIds.TORCH_BANDOLIER = getItemId(Strings.TORCH_BANDOLIER_NAME, ItemIds.TORCH_BANDOLIER_DEFAULT);
         ItemIds.TELEPORTER_LINKER = getItemId(Strings.TELEPORTER_LINKER_NAME, ItemIds.TELEPORTER_LINKER_DEFAULT);
-        ItemIds.ABYSS_SIGIL = getItemId(Strings.ABYSS_SIGIL_NAME, ItemIds.ABYSS_SIGIL_DEFAULT);
-        ItemIds.SIGIL_STONE = getItemId(Strings.SIGIL_STONE_NAME, ItemIds.SIGIL_STONE_DEFAULT);
+        ItemIds.ABYSS_SIGIL = getItemId(Strings.SIGIL_NAME, ItemIds.ABYSS_SIGIL_DEFAULT);
+        ItemIds.SIGIL_RUNE = getItemId(Strings.SIGIL_RUNE_NAME, ItemIds.SIGIL_RUNE_DEFAULT);
         ItemIds.SIGIL_SCEPTER = getItemId(Strings.SIGIL_SCEPTER_NAME, ItemIds.SIGIL_SCEPTER_DEFAULT);
         ItemIds.ENCHANT_TOKEN = getItemId(Strings.ENCHANT_TOKEN_NAME, ItemIds.ENCHANT_TOKEN_DEFAULT);
         ItemIds.PERSONAL_ELEVATION_DEVICE = getItemId(Strings.PERSONAL_ELEVATION_DEVICE_NAME, ItemIds.PERSONAL_ELEVATION_DEVICE_DEFAULT);

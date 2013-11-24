@@ -14,12 +14,12 @@ import silentAbyss.item.tool.AbyssHoe;
 import silentAbyss.item.tool.AbyssPickaxe;
 import silentAbyss.item.tool.AbyssShovel;
 import silentAbyss.item.tool.AbyssSword;
-import silentAbyss.item.tool.SigilScepter;
 import silentAbyss.item.tool.TeleporterLinker;
 import silentAbyss.lib.ItemIds;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import silentAbyss.recipe.EnchantToolRecipe;
+import silentAbyss.recipe.SigilRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModItems {
@@ -31,9 +31,8 @@ public class ModItems {
     public static ItemSA torchBandolier;
     public static ItemSA craftingMaterial;
     public static ItemSA teleporterLinker;
-    public static ItemSA abyssSigil;
-    public static ItemSA sigilStone;
-    public static ItemSA sigilScepter;
+    public static ItemSA sigil;
+    public static ItemSA sigilRune;
     public static ItemSA enchantToken;
     public static ItemSA personalElevationDevice;
     public static Item book;
@@ -92,9 +91,8 @@ public class ModItems {
         torchBandolier = new TorchBandolier(ItemIds.TORCH_BANDOLIER);
         craftingMaterial = new CraftingMaterial(ItemIds.CRAFTING_MATERIAL);
         teleporterLinker = new TeleporterLinker(ItemIds.TELEPORTER_LINKER);
-        abyssSigil = new Sigil(ItemIds.ABYSS_SIGIL);
-        sigilStone = new SigilStone(ItemIds.SIGIL_STONE);
-        sigilScepter = new SigilScepter(ItemIds.SIGIL_SCEPTER);
+        sigil = new Sigil(ItemIds.ABYSS_SIGIL);
+        sigilRune = new SigilRune(ItemIds.SIGIL_RUNE);
         enchantToken = new EnchantToken(ItemIds.ENCHANT_TOKEN);
         personalElevationDevice = new PersonalElevationDevice(ItemIds.PERSONAL_ELEVATION_DEVICE);
         book = new ModBook(ItemIds.MOD_BOOK);
@@ -160,13 +158,14 @@ public class ModItems {
         Food.addRecipes();
         kittySummon.addRecipes();
         torchBandolier.addRecipes();
-        sigilStone.addRecipes();
-        sigilScepter.addRecipes();
+        sigil.addRecipes();
+        sigilRune.addRecipes();
         enchantToken.addRecipes();
         teleporterLinker.addRecipes();
         personalElevationDevice.addRecipes();
         ModBook.addRecipes();
         GameRegistry.addRecipe(new EnchantToolRecipe());
+        GameRegistry.addRecipe(new SigilRecipe());
 
         ItemStack rAbyssRuby = Gem.getGem(Reference.INDEX_RUBY);
         ItemStack rAbyssEmerald = Gem.getGem(Reference.INDEX_EMERALD);

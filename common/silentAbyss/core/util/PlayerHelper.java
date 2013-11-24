@@ -5,7 +5,6 @@ import silentAbyss.item.tool.AbyssHoe;
 import silentAbyss.item.tool.AbyssPickaxe;
 import silentAbyss.item.tool.AbyssShovel;
 import silentAbyss.item.tool.AbyssSword;
-import silentAbyss.item.tool.SigilScepter;
 import silentAbyss.item.tool.TeleporterLinker;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -36,7 +35,7 @@ public class PlayerHelper {
         if (player.inventory.getCurrentItem() != null) {
             Item item = player.inventory.getCurrentItem().getItem();
             return item instanceof TeleporterLinker || item instanceof AbyssSword || item instanceof AbyssPickaxe
-                    || item instanceof AbyssShovel || item instanceof AbyssAxe || item instanceof AbyssHoe || item instanceof SigilScepter;
+                    || item instanceof AbyssShovel || item instanceof AbyssAxe || item instanceof AbyssHoe;
         }
         return false;
     }
