@@ -22,7 +22,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ModBook extends ItemWritableBook {
 
-    public static NBTTagCompound[] books = { tagForBook(0), tagForBook(1) };
+    public static NBTTagCompound[] books = { tagForBook(0) };
 
     public ModBook(int id) {
 
@@ -123,8 +123,7 @@ public class ModBook extends ItemWritableBook {
 
     public static void addRecipes() {
 
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.book, 1, 0), Item.book, ModItems.sigilRune);
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.book, 1, 1), new Object[] { Item.book, Strings.ORE_DICT_GEM_BASIC }));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.book, 1, 0), new Object[] { Item.book, Strings.ORE_DICT_GEM_BASIC }));
     }
 
     private static NBTTagCompound tagForBook(int meta) {
@@ -142,32 +141,6 @@ public class ModBook extends ItemWritableBook {
         
         switch (meta) {
             case 0: {
-                NBTTagCompound tags = new NBTTagCompound();
-                tags.setString("title", "An Attempt to Explain Sigils");
-                tags.setString("author", "SilentChaos512");
-                NBTTagList pages = new NBTTagList();
-                pages.appendTag(new NBTTagString(
-                        "1",
-                        "\u00a7nAbyss Sigils\u00a7r\n\nSigils are powerful magical items. They can light enemies on fire, heal you, and teleport you home. Or any combination of those things and more."));
-                pages.appendTag(new NBTTagString(
-                        "2",
-                        "\u00a7nCrafting\u00a7r\n\nYou will need a Sigil Infuser and some Sigil Stones. Place non-empty Sigil Stones into the Sigil Infuser to craft Abyss Sigils. The order of the Sigil Stones determines the effects (see Grammar)."));
-                pages.appendTag(new NBTTagString(
-                        "3",
-                        "\u00a7nSigil Stones\u00a7r\n\nSigil Stones are the \"words\" that describe a Sigil. Up to four are allowed per Sigil. Multiple \"effect\" words are allowed on one Sigil. \"Modifiers\" are applied to the first effect that follows them."));
-                pages.appendTag(new NBTTagString(
-                        "4",
-                        "\u00a7nGrammar\u00a7r\n\nSigil Stones can be divided into two rough categories: Effects (nouns) and Modifiers (adjectives)\nEffects describe what happens when a Sigil is used."));
-                pages.appendTag(new NBTTagString(
-                        "5",
-                        "Not all effects accept all modifiers. For example, \"Pink Teleport\" makes no sense, so the \"Pink\" word will be ignored. Nonsense modifiers have no ill effects, so feel free to color-code teleports if you need to."));
-                pages.appendTag(new NBTTagString(
-                        "6",
-                        "\u00a7nExamples\u00a7r\n\nRed Amplify Amplify Fireball: Shoots a red fireball that does 100% extra damage.\nSpeed Remedy Healing Teleport: Removes potion effects (such as poison), heals 3 hearts, teleports you home, and takes less time to use."));
-                tags.setTag("pages", pages);
-                return tags;
-            }
-            case 1: {
                 NBTTagCompound tags = new NBTTagCompound();
                 tags.setString("title", "Chaos and You");
                 tags.setString("author", "SilentChaos512");

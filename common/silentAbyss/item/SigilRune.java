@@ -12,6 +12,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Icon;
 import silentAbyss.core.sigil.SigilEffect;
 import silentAbyss.core.util.LocalizationHelper;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -120,17 +121,17 @@ public class SigilRune extends ItemSA {
     @Override
     public void addRecipes() {
 
-        ItemStack shardRuby = GemShard.getGem(Reference.INDEX_RUBY);
-        ItemStack shardEmerald = GemShard.getGem(Reference.INDEX_EMERALD);
-        ItemStack shardSapphire = GemShard.getGem(Reference.INDEX_SAPPHIRE);
-        ItemStack shardTopaz = GemShard.getGem(Reference.INDEX_TOPAZ);
-        ItemStack shardAbyssite = GemShard.getGem(Reference.INDEX_ABYSSITE);
-        ItemStack shardPurite = GemShard.getGem(Reference.INDEX_PURITE);
+        ItemStack shardRuby = EnumGem.RUBY.getShard();
+        ItemStack shardEmerald = EnumGem.EMERALD.getShard();
+        ItemStack shardSapphire = EnumGem.SAPPHIRE.getShard();
+        ItemStack shardTopaz = EnumGem.TOPAZ.getShard();
+        ItemStack shardAbyssite = EnumGem.ABYSSITE.getShard();
+        ItemStack shardPurite = EnumGem.PURITE.getShard();
         
-        addRuneRecipe(SigilEffect.fireball.id, Gem.getGem(Reference.INDEX_RUBY), shardAbyssite);
-        addRuneRecipe(SigilEffect.icebolt.id, Gem.getGem(Reference.INDEX_SAPPHIRE), shardAbyssite);
-        addRuneRecipe(SigilEffect.lightning.id, Gem.getGem(Reference.INDEX_EMERALD), shardAbyssite);
-        addRuneRecipe(SigilEffect.earthquake.id, Gem.getGem(Reference.INDEX_TOPAZ), shardAbyssite);
+        addRuneRecipe(SigilEffect.fireball.id, EnumGem.RUBY.getItem(), shardAbyssite);
+        addRuneRecipe(SigilEffect.icebolt.id, EnumGem.SAPPHIRE.getItem(), shardAbyssite);
+        addRuneRecipe(SigilEffect.lightning.id, EnumGem.EMERALD.getItem(), shardAbyssite);
+        addRuneRecipe(SigilEffect.earthquake.id, EnumGem.TOPAZ.getItem(), shardAbyssite);
         addRuneRecipe(SigilEffect.teleport.id, Item.enderPearl, shardAbyssite);
         addRuneRecipe(SigilEffect.healing.id, Item.speckledMelon, shardRuby);
         addRuneRecipe(SigilEffect.regen.id, Item.ghastTear, shardSapphire);

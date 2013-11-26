@@ -8,6 +8,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.relauncher.Side;
@@ -15,26 +16,46 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemSA extends Item {
 
-    public Icon[] icons;
+    public Icon[] icons = null;
+    protected boolean basicGemSubtypes = false;
+    protected String itemName = "";
     protected boolean isGlowing = false;
     protected EnumRarity rarity = EnumRarity.common;
 
     public ItemSA(int id) {
 
         super(id - Reference.SHIFTED_ID_RANGE_CORRECTION);
+        setUnlocalizedName(Integer.toString(id));
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconRegister) {
+    public void registerIcons(IconRegister reg) {
 
-        itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
+        if (basicGemSubtypes) {
+            registerIconsForBasicGems(reg);
+        }
+        else {
+            itemIcon = reg.registerIcon(Strings.RESOURCE_PREFIX + getUnlocalizedName());
+        }
     }
-    
+
+    @SideOnly(Side.CLIENT)
+    public void registerIconsForBasicGems(IconRegister reg) {
+
+        if (icons == null || icons.length != EnumGem.basic().length) {
+            icons = new Icon[EnumGem.basic().length];
+        }
+
+        for (int i = 0; i < EnumGem.basic().length; ++i) {
+            icons[i] = reg.registerIcon(Strings.RESOURCE_PREFIX + this.itemName + EnumGem.basic()[i].name);
+        }
+    }
+
     @Override
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack, int pass) {
-        
+
         return isGlowing;
     }
 
@@ -74,8 +95,17 @@ public class ItemSA extends Item {
     @Override
     public String getUnlocalizedName(ItemStack stack) {
 
-        return (new StringBuilder()).append("item.").append(Strings.RESOURCE_PREFIX).append(this.itemID).append("-")
-                .append(stack.getItemDamage()).toString();
+        int d = stack.getItemDamage();
+
+        if (basicGemSubtypes && d < EnumGem.basic().length) {
+            return getUnlocalizedName(itemName + EnumGem.basic()[d].name, "item");
+        }
+        else if (hasSubtypes) {
+            return getUnlocalizedName(itemName + "-" + Integer.toString(d), "item");
+        }
+        else {
+            return getUnlocalizedName(itemName, "item");
+        }
     }
 
     public String getUnlocalizedName(String itemName) {
@@ -86,6 +116,18 @@ public class ItemSA extends Item {
     public String getUnlocalizedName(String itemName, String prefix) {
 
         return (new StringBuilder()).append(prefix).append(".").append(Strings.RESOURCE_PREFIX).append(itemName).toString();
+    }
+
+    @Override
+    public Item setUnlocalizedName(String itemName) {
+
+        this.itemName = itemName;
+        return super.setUnlocalizedName(itemName);
+    }
+
+    public void setHasBasicGemSubtypes(boolean value) {
+
+        basicGemSubtypes = value;
     }
 
     /**

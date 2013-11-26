@@ -13,10 +13,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import silentAbyss.Abyss;
-import silentAbyss.item.EnumGem;
 import silentAbyss.item.Gem;
 import silentAbyss.item.ModItems;
 import silentAbyss.item.TorchBandolier;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -44,7 +44,7 @@ public class AbyssAxe extends ItemToolSA {
         s.append("tool.");
         s.append(Strings.RESOURCE_PREFIX);
         s.append("axeAbyss");
-        s.append(Gem.names[gemType.getID()]);
+        s.append(Gem.names[gemType.id]);
         if (toolMaterial == Abyss.materialEnergizedAbyssGem) {
             s.append("Plus");
         }
@@ -58,7 +58,7 @@ public class AbyssAxe extends ItemToolSA {
 
         String s = "SilentAbyss:AxeAbyss";
 
-        switch (gemType.getID()) {
+        switch (gemType.id) {
             case 0:
                 s += "Ruby";
                 break;

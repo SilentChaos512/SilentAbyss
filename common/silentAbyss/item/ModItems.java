@@ -15,8 +15,8 @@ import silentAbyss.item.tool.AbyssPickaxe;
 import silentAbyss.item.tool.AbyssShovel;
 import silentAbyss.item.tool.AbyssSword;
 import silentAbyss.item.tool.TeleporterLinker;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.ItemIds;
-import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import silentAbyss.recipe.EnchantToolRecipe;
 import silentAbyss.recipe.SigilRecipe;
@@ -143,8 +143,8 @@ public class ModItems {
         OreDictionary.registerOre("gemEmerald", new ItemStack(abyssGem, 1, 1));
         OreDictionary.registerOre("gemSapphire", new ItemStack(abyssGem, 1, 2));
         OreDictionary.registerOre("gemTopaz", new ItemStack(abyssGem, 1, 3));
-        OreDictionary.registerOre("gemAbyssite", Gem.getGem(Reference.INDEX_ABYSSITE));
-        OreDictionary.registerOre("gemPurite", Gem.getGem(Reference.INDEX_PURITE));
+        OreDictionary.registerOre("gemAbyssite", EnumGem.ABYSSITE.getItem());
+        OreDictionary.registerOre("gemPurite", EnumGem.PURITE.getItem());
         for (int i = 0; i < 4; ++i) {
             OreDictionary.registerOre(Strings.ORE_DICT_GEM_BASIC, new ItemStack(abyssGem, 1, i));
         }
@@ -167,14 +167,14 @@ public class ModItems {
         GameRegistry.addRecipe(new EnchantToolRecipe());
         GameRegistry.addRecipe(new SigilRecipe());
 
-        ItemStack rAbyssRuby = Gem.getGem(Reference.INDEX_RUBY);
-        ItemStack rAbyssEmerald = Gem.getGem(Reference.INDEX_EMERALD);
-        ItemStack rAbyssSapphire = Gem.getGem(Reference.INDEX_SAPPHIRE);
-        ItemStack rAbyssTopaz = Gem.getGem(Reference.INDEX_TOPAZ);
-        ItemStack rAbyssRubyPlus = Gem.getGem(Reference.INDEX_RUBY_PLUS);
-        ItemStack rAbyssEmeraldPlus = Gem.getGem(Reference.INDEX_EMERALD_PLUS);
-        ItemStack rAbyssSapphirePlus = Gem.getGem(Reference.INDEX_SAPPHIRE_PLUS);
-        ItemStack rAbyssTopazPlus = Gem.getGem(Reference.INDEX_TOPAZ_PLUS);
+        ItemStack rAbyssRuby = EnumGem.RUBY.getItem();
+        ItemStack rAbyssEmerald = EnumGem.EMERALD.getItem();
+        ItemStack rAbyssSapphire = EnumGem.SAPPHIRE.getItem();
+        ItemStack rAbyssTopaz = EnumGem.TOPAZ.getItem();
+        ItemStack rAbyssRubyPlus = EnumGem.RUBY_PLUS.getItem();
+        ItemStack rAbyssEmeraldPlus = EnumGem.EMERALD_PLUS.getItem();
+        ItemStack rAbyssSapphirePlus = EnumGem.SAPPHIRE_PLUS.getItem();
+        ItemStack rAbyssTopazPlus = EnumGem.TOPAZ_PLUS.getItem();
 
         // Abyss tools
         AbyssSword.addRecipe(new ItemStack(swordAbyssRuby), rAbyssRuby, false);
@@ -226,32 +226,29 @@ public class ModItems {
     public static void addRandomChestGenLoot() {
 
         // Abyssite - can spawn in most chests.
-        ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(
-                new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_ABYSSITE), 1, 4, 20));
+        ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(EnumGem.ABYSSITE.getItem(), 1, 4, 20));
         ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(
-                new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_ABYSSITE), 1, 4, 20));
+                new WeightedRandomChestContent(EnumGem.ABYSSITE.getItem(), 1, 4, 20));
         ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(
-                new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_ABYSSITE), 1, 4, 20));
+                new WeightedRandomChestContent(EnumGem.ABYSSITE.getItem(), 1, 4, 20));
         ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(
-                new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_ABYSSITE), 1, 4, 20));
+                new WeightedRandomChestContent(EnumGem.ABYSSITE.getItem(), 1, 4, 20));
         ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(
-                new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_ABYSSITE), 1, 4, 20));
+                new WeightedRandomChestContent(EnumGem.ABYSSITE.getItem(), 1, 4, 20));
         ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(
-                new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_ABYSSITE), 1, 4, 20));
+                new WeightedRandomChestContent(EnumGem.ABYSSITE.getItem(), 1, 4, 20));
 
         // Purite - can spawn in most chests.
-        ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(
-                new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_PURITE), 1, 4, 20));
-        ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(
-                new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_PURITE), 1, 4, 20));
+        ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(EnumGem.PURITE.getItem(), 1, 4, 20));
+        ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(EnumGem.PURITE.getItem(), 1, 4, 20));
         ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(
-                new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_PURITE), 1, 4, 20));
+                new WeightedRandomChestContent(EnumGem.PURITE.getItem(), 1, 4, 20));
         ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(
-                new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_PURITE), 1, 4, 20));
-        ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(
-                new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_PURITE), 1, 4, 20));
-        ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(
-                new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_PURITE), 1, 4, 20));
+                new WeightedRandomChestContent(EnumGem.PURITE.getItem(), 1, 4, 20));
+        ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR)
+                .addItem(new WeightedRandomChestContent(EnumGem.PURITE.getItem(), 1, 4, 20));
+        ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING)
+                .addItem(new WeightedRandomChestContent(EnumGem.PURITE.getItem(), 1, 4, 20));
 
         // Abyss gems - rarely in bonus chest, infrequently in pyramids
         ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(
@@ -292,8 +289,8 @@ public class ModItems {
                 new WeightedRandomChestContent(new ItemStack(ModItems.potatoStick), 1, 4, 33));
 
         // Shrine chests
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_ABYSSITE), 1, 4, 25));
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(Gem.getGem(Reference.INDEX_PURITE), 1, 4, 25));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(EnumGem.ABYSSITE.getItem(), 1, 4, 25));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(EnumGem.PURITE.getItem(), 1, 4, 25));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
                 new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 0), 1, 4, 100));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(

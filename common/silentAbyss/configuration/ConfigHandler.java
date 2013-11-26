@@ -124,9 +124,9 @@ public class ConfigHandler {
     
     private static void loadBlockIds(Configuration c) {
         
-        BlockIds.ABYSS_GEM_ORE = getBlockId(Strings.ABYSS_GEM_ORE_NAME, BlockIds.ABYSS_GEM_ORE_DEFAULT);
-        BlockIds.ABYSS_GEM_BLOCK = getBlockId(Strings.ABYSS_GEM_BLOCK_NAME, BlockIds.ABYSS_GEM_BLOCK_DEFAULT);
-        BlockIds.ABYSS_TELEPORTER = getBlockId(Strings.ABYSS_TELEPORTER_NAME, BlockIds.ABYSS_TELEPORTER_DEFAULT);
+        BlockIds.ABYSS_GEM_ORE = getBlockId(Strings.ORE_NAME, BlockIds.ABYSS_GEM_ORE_DEFAULT);
+        BlockIds.ABYSS_GEM_BLOCK = getBlockId(Strings.GEM_BLOCK_NAME, BlockIds.ABYSS_GEM_BLOCK_DEFAULT);
+        BlockIds.ABYSS_TELEPORTER = getBlockId(Strings.TELEPORTER_NAME, BlockIds.ABYSS_TELEPORTER_DEFAULT);
         BlockIds.BRICK = getBlockId(Strings.BRICK_NAME, BlockIds.BRICK_DEFAULT);
         BlockIds.LAMP = getBlockId(Strings.LAMP_NAME, BlockIds.LAMP_DEFAULT);
         BlockIds.PORTAL_FRAME = getBlockId(Strings.PORTAL_FRAME_NAME, BlockIds.PORTAL_FRAME_DEFAULT);
@@ -136,8 +136,8 @@ public class ConfigHandler {
     
     private static void loadItemIds(Configuration c) {
         
-        ItemIds.ABYSS_GEM = getItemId(Strings.ABYSS_GEM_NAME, ItemIds.ABYSS_GEM_DEFAULT);
-        ItemIds.ABYSS_SHARD = getItemId(Strings.ABYSS_SHARD_NAME, ItemIds.ABYSS_SHARD_DEFAULT);
+        ItemIds.ABYSS_GEM = getItemId(Strings.GEM_NAME, ItemIds.ABYSS_GEM_DEFAULT);
+        ItemIds.ABYSS_SHARD = getItemId(Strings.SHARD_NAME, ItemIds.ABYSS_SHARD_DEFAULT);
         ItemIds.CRAFTING_MATERIAL = getItemId(Strings.CRAFTING_MATERIAL_NAME, ItemIds.CRAFTING_MATERIAL_DEFAULT,
                 "The ID for various crafting items, such as Ornate Sticks.");
         ItemIds.POTATO_STICK = getItemId(Strings.POTATO_STICK_NAME, ItemIds.POTATO_STICK_DEFAULT);

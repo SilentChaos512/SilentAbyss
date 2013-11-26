@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 import silentAbyss.lib.BlockIds;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -17,7 +18,7 @@ public class ModBlocks {
     public static Block abyssTeleporter;
     public static BlockSA brick;
     public static BlockSA lamp;
-    public static Block portalFrame;
+    public static BlockSA portalFrame;
     public static Block portal;
     public static Block blockTest;
 
@@ -38,9 +39,9 @@ public class ModBlocks {
         /*
          * Register blocks
          */
-        GameRegistry.registerBlock(ore, OreItemBlock.class, Strings.ABYSS_GEM_ORE_NAME);
-        GameRegistry.registerBlock(gem, GemItemBlock.class, Strings.ABYSS_GEM_BLOCK_NAME);
-        GameRegistry.registerBlock(abyssTeleporter, Strings.ABYSS_TELEPORTER_NAME);
+        GameRegistry.registerBlock(ore, OreItemBlock.class, Strings.ORE_NAME);
+        GameRegistry.registerBlock(gem, GemItemBlock.class, Strings.GEM_BLOCK_NAME);
+        GameRegistry.registerBlock(abyssTeleporter, Strings.TELEPORTER_NAME);
         GameRegistry.registerBlock(brick, BrickItemBlock.class, Strings.BRICK_NAME);
         GameRegistry.registerBlock(lamp, LampItemBlock.class, Strings.LAMP_NAME);
         GameRegistry.registerBlock(portalFrame, Strings.PORTAL_FRAME_NAME);
@@ -55,12 +56,12 @@ public class ModBlocks {
         /*
          * Ore dictionary
          */
-        OreDictionary.registerOre("oreRuby", new ItemStack(ore, 1, Reference.INDEX_RUBY));
-        OreDictionary.registerOre("oreEmerald", new ItemStack(ore, 1, Reference.INDEX_EMERALD));
-        OreDictionary.registerOre("oreSapphire", new ItemStack(ore, 1, Reference.INDEX_SAPPHIRE));
-        OreDictionary.registerOre("oreTopaz", new ItemStack(ore, 1, Reference.INDEX_TOPAZ));
-        OreDictionary.registerOre("oreAbyssite", new ItemStack(ore, 1, Reference.INDEX_ABYSSITE));
-        OreDictionary.registerOre("orePurite", new ItemStack(ore, 1, Reference.INDEX_PURITE));
+        OreDictionary.registerOre("oreRuby", new ItemStack(ore, 1, EnumGem.RUBY.id));
+        OreDictionary.registerOre("oreEmerald", new ItemStack(ore, 1, EnumGem.EMERALD.id));
+        OreDictionary.registerOre("oreSapphire", new ItemStack(ore, 1, EnumGem.SAPPHIRE.id));
+        OreDictionary.registerOre("oreTopaz", new ItemStack(ore, 1, EnumGem.TOPAZ.id));
+        OreDictionary.registerOre("oreAbyssite", new ItemStack(ore, 1, EnumGem.ABYSSITE.id));
+        OreDictionary.registerOre("orePurite", new ItemStack(ore, 1, EnumGem.PURITE.id));
     }
 
     public static void initBlockRecipes() {
@@ -69,6 +70,6 @@ public class ModBlocks {
         Teleporter.addRecipes();
         brick.addRecipes();
         lamp.addRecipes();
-        PortalFrame.addRecipes();
+        portalFrame.addRecipes();
     }
 }

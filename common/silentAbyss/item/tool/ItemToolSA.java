@@ -14,10 +14,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.ForgeHooks;
 import silentAbyss.Abyss;
-import silentAbyss.item.EnumGem;
 import silentAbyss.item.ItemSA;
 import silentAbyss.item.ModItems;
 import silentAbyss.item.TorchBandolier;
+import silentAbyss.lib.EnumGem;
 
 import com.google.common.collect.Multimap;
 
@@ -132,7 +132,7 @@ public abstract class ItemToolSA extends ItemSA {
     public boolean getIsRepairable(ItemStack stack1, ItemStack stack2) {
 
         boolean isSupercharged = toolMaterial == Abyss.materialEnergizedAbyssGem;
-        ItemStack material = new ItemStack(ModItems.abyssGem, 1, gemType.getID() + (isSupercharged ? 6 : 0));
+        ItemStack material = new ItemStack(ModItems.abyssGem, 1, gemType.id + (isSupercharged ? 6 : 0));
         if (material.itemID == stack2.itemID && material.getItemDamage() == stack2.getItemDamage()) {
             return true;
         }

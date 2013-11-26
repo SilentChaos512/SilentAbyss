@@ -23,6 +23,7 @@ import silentAbyss.item.tool.AbyssHoe;
 import silentAbyss.item.tool.AbyssPickaxe;
 import silentAbyss.item.tool.AbyssShovel;
 import silentAbyss.item.tool.AbyssSword;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -330,15 +331,15 @@ public class EnchantToken extends ItemSA {
     public void addRecipes() {
 
         ItemStack baseToken = new ItemStack(this, 1, 0);
-        ItemStack ruby = GemBlock.getGem(Reference.INDEX_RUBY);
-        ItemStack emerald = GemBlock.getGem(Reference.INDEX_EMERALD);
-        ItemStack sapphire = GemBlock.getGem(Reference.INDEX_SAPPHIRE);
-        ItemStack topaz = GemBlock.getGem(Reference.INDEX_TOPAZ);
-        ItemStack abyssite = GemBlock.getGem(Reference.INDEX_ABYSSITE);
-        ItemStack purite = GemBlock.getGem(Reference.INDEX_PURITE);
+        ItemStack ruby = EnumGem.RUBY.getBlock();
+        ItemStack emerald = EnumGem.EMERALD.getBlock();
+        ItemStack sapphire = EnumGem.SAPPHIRE.getBlock();
+        ItemStack topaz = EnumGem.TOPAZ.getBlock();
+        ItemStack abyssite = EnumGem.ABYSSITE.getBlock();
+        ItemStack purite = EnumGem.PURITE.getBlock();
 
         GameRegistry.addShapedRecipe(new ItemStack(this, 8, 0), "ggg", "rdr", "ggg", 'g', Item.ingotGold, 'r', Item.redstone, 'd',
-                Gem.getGem(Reference.INDEX_ABYSS_DIAMOND));
+                EnumGem.ABYSS_DIAMOND.getItem());
         
         addTokenRecipe(Enchantment.baneOfArthropods.effectId, ruby, 1, Item.spiderEye, 4, baseToken);
         addTokenRecipe(Enchantment.efficiency.effectId, emerald, 1, Item.ingotGold, 3, baseToken);

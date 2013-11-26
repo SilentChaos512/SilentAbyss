@@ -1,71 +1,65 @@
 # Block localizations
 
-tile.silentabyss:oreAbyssRuby.name=Abyss Ruby Ore
-tile.silentabyss:oreAbyssEmerald.name=Abyss Emerald Ore
-tile.silentabyss:oreAbyssSapphire.name=Abyss Sapphire Ore
-tile.silentabyss:oreAbyssTopaz.name=Abyss Topaz Ore
-tile.silentabyss:oreAbyssite.name=Abyssite Ore
-tile.silentabyss:orePurite.name=Purite Ore
-tile.silentabyss:blockAbyssRuby.name=Abyss Ruby Block
-tile.silentabyss:blockAbyssEmerald.name=Abyss Emerald Block
-tile.silentabyss:blockAbyssSapphire.name=Abyss Sapphire Block
-tile.silentabyss:blockAbyssTopaz.name=Abyss Topaz Block
-tile.silentabyss:blockAbyssite.name=Abyssite Block
-tile.silentabyss:blockPurite.name=Purite Block
-tile.silentabyss:Teleporter.name=Abyss Teleporter
-tile.silentabyss:SigilInfuser.name=Sigil Infuser
-tile.silentabyss:blockAbyssBrickRuby.name=Ruby-Speckled Bricks
-tile.silentabyss:blockAbyssBrickEmerald.name=Emerald-Speckled Bricks
-tile.silentabyss:blockAbyssBrickSapphire.name=Sapphire-Speckled Bricks
-tile.silentabyss:blockAbyssBrickTopaz.name=Topaz-Speckled Bricks
-tile.silentabyss:blockAbyssBrickDark.name=Dark Abyss Bricks
-tile.silentabyss:blockAbyssBrickLight.name=Light Abyss Bricks
+tile.silentabyss:BlockGemRuby.name=Abyss Ruby Block
+tile.silentabyss:BlockGemEmerald.name=Abyss Emerald Block
+tile.silentabyss:BlockGemSapphire.name=Abyss Sapphire Block
+tile.silentabyss:BlockGemTopaz.name=Abyss Topaz Block
+tile.silentabyss:BlockGemAbyssite.name=Abyssite Block
+tile.silentabyss:BlockGemPurite.name=Purite Block
+tile.silentabyss:BrickRuby.name=Ruby-Speckled Bricks
+tile.silentabyss:BrickEmerald.name=Emerald-Speckled Bricks
+tile.silentabyss:BrickSapphire.name=Sapphire-Speckled Bricks
+tile.silentabyss:BrickTopaz.name=Topaz-Speckled Bricks
+tile.silentabyss:BrickAbyssite.name=Dark Abyss Bricks
+tile.silentabyss:BrickPurite.name=Light Abyss Bricks
 tile.silentabyss:LampRuby.name=Ruby Lamp
 tile.silentabyss:LampEmerald.name=Emerald Lamp
 tile.silentabyss:LampSapphire.name=Sapphire Lamp
 tile.silentabyss:LampTopaz.name=Topaz Lamp
 tile.silentabyss:LampAbyssite.name=Abyssite Lamp
 tile.silentabyss:LampPurite.name=Purite Lamp
-tile.silentabyss:portalFrame.name=Abyss Portal Frame [WIP]
+tile.silentabyss:OreRuby.name=Abyss Ruby Ore
+tile.silentabyss:OreEmerald.name=Abyss Emerald Ore
+tile.silentabyss:OreSapphire.name=Abyss Sapphire Ore
+tile.silentabyss:OreTopaz.name=Abyss Topaz Ore
+tile.silentabyss:OreAbyssite.name=Abyssite Ore
+tile.silentabyss:OrePurite.name=Purite Ore
+tile.silentabyss:PortalFrame.name=Abyss Portal Frame [WIP]
+tile.silentabyss:Teleporter.name=Abyss Teleporter
 tile.silentabyss:Test.name=Test Block
 
 # Item localizations
 
-item.silentabyss:abyssRuby.name=Abyss Ruby
-item.silentabyss:abyssEmerald.name=Abyss Emerald
-item.silentabyss:abyssSapphire.name=Abyss Sapphire
-item.silentabyss:abyssTopaz.name=Abyss Topaz
-item.silentabyss:abyssRubyPlus.name=Supercharged Abyss Ruby
-item.silentabyss:abyssEmeraldPlus.name=Supercharged Abyss Emerald
-item.silentabyss:abyssSapphirePlus.name=Supercharged Abyss Sapphire
-item.silentabyss:abyssTopazPlus.name=Supercharged Abyss Topaz
-item.silentabyss:abyssDiamond.name=Abyss Diamond
-item.silentabyss:abyssite.name=Abyssite
-item.silentabyss:purite.name=Purite
-item.silentabyss:conundrumite.name=Conundrumite
-item.silentabyss:abyssRubyShard.name=Abyss Ruby Shard
-item.silentabyss:abyssEmeraldShard.name=Abyss Emerald Shard
-item.silentabyss:abyssSapphireShard.name=Abyss Sapphire Shard
-item.silentabyss:abyssTopazShard.name=Abyss Topaz Shard
-item.silentabyss:abyssiteShard.name=Abyssite Shard
-item.silentabyss:puriteShard.name=Purite Shard
-item.silentabyss:PotatoStick.name=Potato on a Stick
+item.silentabyss:EnchantmentToken.name=Enchantment Token
+item.silentabyss:GemRuby.name=Abyss Ruby
+item.silentabyss:GemEmerald.name=Abyss Emerald
+item.silentabyss:GemSapphire.name=Abyss Sapphire
+item.silentabyss:GemTopaz.name=Abyss Topaz
+item.silentabyss:GemRubyPlus.name=Supercharged Abyss Ruby
+item.silentabyss:GemEmeraldPlus.name=Supercharged Abyss Emerald
+item.silentabyss:GemSapphirePlus.name=Supercharged Abyss Sapphire
+item.silentabyss:GemTopazPlus.name=Supercharged Abyss Topaz
+item.silentabyss:GemAbyssDiamond.name=Abyss Diamond
+item.silentabyss:GemAbyssite.name=Abyssite
+item.silentabyss:GemPurite.name=Purite
+item.silentabyss:GemConundrumite.name=Conundrumite
 item.silentabyss:KittySummon.name=Summon Kitty
-item.silentabyss:TorchBandolier.name=Torch Bandolier
-item.silentabyss:OrnateStick.name=Ornate Stick
 item.silentabyss:MysteryGoo.name=Mystery Goo
-item.silentabyss:YarnBall.name=Ball of Yarn
-item.silentabyss:TeleporterLinker.name=Teleporter Linker
+item.silentabyss:OrnateStick.name=Ornate Stick
+item.silentabyss:PersonalElevationDevice.name=Personal Elevation Device
+item.silentabyss:PotatoStick.name=Potato on a Stick
+item.silentabyss:ShardRuby.name=Abyss Ruby Shard
+item.silentabyss:ShardEmerald.name=Abyss Emerald Shard
+item.silentabyss:ShardSapphire.name=Abyss Sapphire Shard
+item.silentabyss:ShardTopaz.name=Abyss Topaz Shard
+item.silentabyss:ShardAbyssite.name=Abyssite Shard
+item.silentabyss:ShardPurite.name=Purite Shard
 item.silentabyss:Sigil.name=Sigil
 item.silentabyss:SigilRune.name=Sigil Rune
-item.silentabyss:SigilScepterRuby.name=Ruby Sigil Scepter
-item.silentabyss:SigilScepterEmerald.name=Emerald Sigil Scepter
-item.silentabyss:SigilScepterSapphire.name=Sapphire Sigil Scepter
-item.silentabyss:SigilScepterTopaz.name=Topaz Sigil Scepter
-item.silentabyss:EnchantmentToken.name=Enchantment Token
-item.silentabyss:PersonalElevationDevice.name=Personal Elevation Device
-item.silentabyss:book.0.name=An Attempt to Explain Sigils
-item.silentabyss:book.1.name=Chaos and You
+item.silentabyss:TeleporterLinker.name=Teleporter Linker
+item.silentabyss:TorchBandolier.name=Torch Bandolier
+item.silentabyss:YarnBall.name=Ball of Yarn
+item.silentabyss:book.0.name=Chaos and You
 
 # Tool localization
 
@@ -112,8 +106,8 @@ tool.silentabyss:hoeAbyssTopazPlus.name=Supercharged Abyss Topaz Hoe
 
 # Entity localization
 
-entity.Grumbling.name=Grumbling
 entity.Crimson Creeper.name=Crimson Creeper
+entity.Grumbling.name=Grumbling
 
 # Enchantment localization
 
@@ -126,26 +120,28 @@ enchantment.Nihil=Nihil
 death.attack.abyssMeteor=%1$s was crushed by a meteor
 
 # Sigil
+
 sigil.silentabyss:Empty=Empty
-sigil.silentabyss:Fireball=Fireball
-sigil.silentabyss:Icebolt=Icebolt
-sigil.silentabyss:Lightning=Lightning
+sigil.silentabyss:Amplify=Power
+sigil.silentabyss:Cloak=Cloak
 sigil.silentabyss:Earthquake=Earthquake
-sigil.silentabyss:Teleport=Teleport
+sigil.silentabyss:Fireball=Fireball
+sigil.silentabyss:FireResistance=Fire Resistance
+sigil.silentabyss:Haste=Haste
 sigil.silentabyss:Healing=Healing
+sigil.silentabyss:Icebolt=Icebolt
+sigil.silentabyss:Jump=Jump
+sigil.silentabyss:Lightning=Lightning
 sigil.silentabyss:Regeneration=Regeneration
 sigil.silentabyss:Remedy=Remedy
-sigil.silentabyss:Swiftness=Swiftness
-sigil.silentabyss:Jump=Jump
-sigil.silentabyss:Haste=Haste
-sigil.silentabyss:Strength=Strength
 sigil.silentabyss:Resistance=Resistance
-sigil.silentabyss:FireResistance=Fire Resistance
-sigil.silentabyss:Cloak=Cloak
-sigil.silentabyss:Amplify=Power
 sigil.silentabyss:Speed=Cast Time
+sigil.silentabyss:Strength=Strength
+sigil.silentabyss:Swiftness=Swiftness
+sigil.silentabyss:Teleport=Teleport
 
 # Colors
+
 color.silentabyss:black=Black
 color.silentabyss:red=Red
 color.silentabyss:green=Green
@@ -166,22 +162,22 @@ color.silentabyss:white=White
 # Misc text
 
 misc.silentabyss:CraftingMaterials=Crafting material.
-misc.silentabyss:OrnateStick=Bling bling.
-misc.silentabyss:MysteryGoo=Feels right at home in space.
-misc.silentabyss:YarnBall=It's not shiny, but cats seem to like it.
-misc.silentabyss:PotatoStick=Totally not like the Mindcrack logo.
-misc.silentabyss:PersonalElevationDevice=Pedro says "hi".
-misc.silentabyss:TorchBandolier=Can store and dispense torches.
-misc.silentabyss:TorchBandolierAutoFillOn=Auto-fill mode ON.
-misc.silentabyss:TorchBandolierAutoFillOff=Auto-fill mode OFF.
 misc.silentabyss:KittySummon=A much less annoying way to get cats.
-
+misc.silentabyss:MysteryGoo=Feels right at home in space.
+misc.silentabyss:OrnateStick=Bling bling.
+misc.silentabyss:PersonalElevationDevice=Pedro says "hi".
+misc.silentabyss:PotatoStick=Totally not like the Mindcrack logo.
+misc.silentabyss:Repairable=Can be repaired.
 misc.silentabyss:SigilNoEffect=No effect. Craft with some Sigil Runes.
-misc.silentabyss:SigilTeleportNotLinked=No destination set. Try right-clicking an Abyss Teleporter.
 misc.silentabyss:SigilTeleportLinked=Sigil linked!
+misc.silentabyss:SigilTeleportNotLinked=No destination set. Try right-clicking an Abyss Teleporter.
+misc.silentabyss:TeleportDestinationInvalid=Invalid teleport destination.
 misc.silentabyss:TeleporterInvalid=Invalid location for teleport.
-misc.silentabyss:TeleporterLinkStart=Teleporter link started.
 misc.silentabyss:TeleporterLinkEnd=Teleporter link created.
 misc.silentabyss:TeleporterLinkFail=Teleporter link failed.
+misc.silentabyss:TeleporterLinkStart=Teleporter link started.
 misc.silentabyss:TeleporterNoDestination=No destination set.
-misc.silentabyss:TeleportDestinationInvalid=Invalid teleport destination.
+misc.silentabyss:TorchBandolier=Can store and dispense torches.
+misc.silentabyss:TorchBandolierAutoFillOff=Auto-fill mode OFF.
+misc.silentabyss:TorchBandolierAutoFillOn=Auto-fill mode ON.
+misc.silentabyss:YarnBall=It's not shiny, but cats seem to like it.

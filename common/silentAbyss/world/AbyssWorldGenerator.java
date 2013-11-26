@@ -8,7 +8,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import silentAbyss.block.ModBlocks;
 import silentAbyss.configuration.Config;
-import silentAbyss.lib.Reference;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.world.gen.feature.WorldGenAbyssShrine;
 import cpw.mods.fml.common.IWorldGenerator;
 
@@ -57,8 +57,8 @@ public class AbyssWorldGenerator implements IWorldGenerator {
             x = chunkX + random.nextInt(16);
             y = random.nextInt(Config.WORLD_ABYSSITE_MAX_HEIGHT.value);
             z = chunkZ + random.nextInt(16);
-            new WorldGenMinable(ModBlocks.ore.blockID, Reference.INDEX_ABYSSITE, Config.WORLD_ABYSSITE_CLUSTER_SIZE.value,
-                    Block.stone.blockID).generate(world, random, x, y, z);
+            new WorldGenMinable(ModBlocks.ore.blockID, EnumGem.ABYSSITE.id, Config.WORLD_ABYSSITE_CLUSTER_SIZE.value, Block.stone.blockID)
+                    .generate(world, random, x, y, z);
         }
 
         // Purite
@@ -66,8 +66,8 @@ public class AbyssWorldGenerator implements IWorldGenerator {
             x = chunkX + random.nextInt(16);
             y = random.nextInt(Config.WORLD_PURITE_MAX_HEIGHT.value);
             z = chunkZ + random.nextInt(16);
-            new WorldGenMinable(ModBlocks.ore.blockID, Reference.INDEX_PURITE, Config.WORLD_PURITE_CLUSTER_SIZE.value,
-                    Block.stone.blockID).generate(world, random, x, y, z);
+            new WorldGenMinable(ModBlocks.ore.blockID, EnumGem.PURITE.id, Config.WORLD_PURITE_CLUSTER_SIZE.value, Block.stone.blockID)
+                    .generate(world, random, x, y, z);
         }
 
         // Structures

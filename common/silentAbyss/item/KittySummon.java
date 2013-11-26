@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Facing;
 import net.minecraft.world.World;
 import silentAbyss.core.util.LocalizationHelper;
-import silentAbyss.lib.Reference;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -48,17 +48,25 @@ public class KittySummon extends ItemSA {
             EntityOcelot kitty = new EntityOcelot(world);
             kitty.setPosition(x, y, z);
             world.spawnEntityInWorld(kitty);
-            
+
             // Make the ocelot tame
             kitty.setTamed(true);
             kitty.setTameSkin(1 + world.rand.nextInt(3));
             kitty.setOwner(player.getCommandSenderName());
-            world.setEntityState(kitty, (byte)7);
+            world.setEntityState(kitty, (byte) 7);
+
+            // Easter egg names
+            if (player.getEntityName().equals(Strings.PLAYER_SILENT)) {
+                kitty.setCustomNameTag(Strings.CAT_SILENT[world.rand.nextInt(Strings.CAT_SILENT.length)]);
+            }
+            else if (player.getEntityName().equals(Strings.PLAYER_CHAOTIC)) {
+                kitty.setCustomNameTag(Strings.CAT_CHAOTIC[world.rand.nextInt(Strings.CAT_CHAOTIC.length)]);
+            }
         }
 
         return true;
     }
-    
+
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister) {
@@ -82,7 +90,7 @@ public class KittySummon extends ItemSA {
     @Override
     public void addRecipes() {
 
-        GameRegistry.addShapelessRecipe(new ItemStack(this), Item.fishRaw, Gem.getGem(Reference.INDEX_CONUNDRUMITE),
+        GameRegistry.addShapelessRecipe(new ItemStack(this), Item.fishRaw, EnumGem.CONUNDRUMITE.getItem(),
                 CraftingMaterial.getStack(Strings.YARN_BALL_NAME));
     }
 }

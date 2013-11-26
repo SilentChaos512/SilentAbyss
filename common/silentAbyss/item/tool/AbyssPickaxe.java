@@ -8,9 +8,9 @@ import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import silentAbyss.Abyss;
-import silentAbyss.item.EnumGem;
 import silentAbyss.item.Gem;
 import silentAbyss.item.ModItems;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -54,7 +54,7 @@ public class AbyssPickaxe extends ItemToolSA {
         s.append("tool.");
         s.append(Strings.RESOURCE_PREFIX);
         s.append("pickaxeAbyss");
-        s.append(Gem.names[gemType.getID()]);
+        s.append(Gem.names[gemType.id]);
         if (toolMaterial == Abyss.materialEnergizedAbyssGem) {
             s.append("Plus");
         }
@@ -68,7 +68,7 @@ public class AbyssPickaxe extends ItemToolSA {
 
         String s = "SilentAbyss:PickaxeAbyss";
 
-        switch (gemType.getID()) {
+        switch (gemType.id) {
             case 0:
                 s += "Ruby";
                 break;

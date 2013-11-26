@@ -16,7 +16,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.item.GemShard;
-import silentAbyss.lib.Reference;
+import silentAbyss.lib.EnumGem;
 
 public class EntityGrumbling extends EntityMob {
 
@@ -69,7 +69,7 @@ public class EntityGrumbling extends EntityMob {
         // Shards
         if (hitByPlayer && rand.nextInt(DROP_SHARD_RARITY) == 0) {
             numItems = rand.nextInt(1 + lootingLevel) + 1;
-            int gemType = rand.nextInt(Reference.GEM_TYPE_COUNT);
+            int gemType = rand.nextInt(EnumGem.basic().length);
             for (i = 0; i < numItems; ++i) {
                 entityDropItem(GemShard.getGem(gemType), 1);
             }

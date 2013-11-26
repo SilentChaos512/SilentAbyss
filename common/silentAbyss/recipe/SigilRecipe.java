@@ -10,7 +10,6 @@ import silentAbyss.core.sigil.SigilEffect;
 import silentAbyss.item.Sigil;
 import silentAbyss.item.SigilRune;
 
-
 public class SigilRecipe implements IRecipe {
 
     @Override

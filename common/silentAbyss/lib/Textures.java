@@ -15,7 +15,7 @@ public class Textures {
 
     // Item/Block sprite sheets
     public final static ResourceLocation TEST_BLOCK = ResourceLocationHelper
-            .getResourceLocation(BLOCK_SHEET_LOCATION + "BlockAbyssite.png");
+            .getResourceLocation(BLOCK_SHEET_LOCATION + "BlockGemAbyssite.png");
 
     // Armor sprite sheets
 

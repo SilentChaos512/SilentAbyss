@@ -1,43 +1,29 @@
 package silentAbyss.block;
 
-import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import silentAbyss.item.ModItems;
-import silentAbyss.lib.Reference;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Strings;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class Ore extends BlockSA {
 
     public Ore(int id) {
 
         super(id, Material.rock);
-        icons = new Icon[Reference.GEM_TYPE_COUNT];
+        icons = new Icon[EnumGem.basic().length];
         setHardness(3.0f);
         setResistance(5.0f);
         setStepSound(Block.soundStoneFootstep);
         setCreativeTab(CreativeTabs.tabBlock);
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void registerIcons(IconRegister iconRegister) {
-
-        icons[Reference.INDEX_RUBY] = iconRegister.registerIcon(Reference.MOD_ID + ":OreAbyssRuby");
-        icons[Reference.INDEX_EMERALD] = iconRegister.registerIcon(Reference.MOD_ID + ":OreAbyssEmerald");
-        icons[Reference.INDEX_SAPPHIRE] = iconRegister.registerIcon(Reference.MOD_ID + ":OreAbyssSapphire");
-        icons[Reference.INDEX_TOPAZ] = iconRegister.registerIcon(Reference.MOD_ID + ":OreAbyssTopaz");
-        icons[Reference.INDEX_ABYSSITE] = iconRegister.registerIcon(Reference.MOD_ID + ":OreAbyssite");
-        icons[Reference.INDEX_PURITE] = iconRegister.registerIcon(Reference.MOD_ID + ":OrePurite");
+        setHasSubtypes(true);
+        setHasBasicGemSubtypes(true);
+        setUnlocalizedName(Strings.ORE_NAME);
     }
 
     @Override

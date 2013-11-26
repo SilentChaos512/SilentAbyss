@@ -14,6 +14,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Icon;
 import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.core.util.RecipeHelper;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -83,7 +84,7 @@ public class CraftingMaterial extends ItemSA {
     @Override
     public void addRecipes() {
 
-        ItemStack rAbyssite = Gem.getGem(Reference.INDEX_ABYSSITE);
+        ItemStack rAbyssite = EnumGem.ABYSSITE.getItem();
 
         GameRegistry.addRecipe(getStack(Strings.ORNATE_STICK_NAME, 4), "gag", "gag", "gag", 'g', Item.ingotGold, 'a', rAbyssite);
         GameRegistry.addRecipe(getStack(Strings.MYSTERY_GOO_NAME, 1), "mmm", "mam", "mmm", 'm', Block.cobblestoneMossy, 'a', rAbyssite);

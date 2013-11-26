@@ -12,10 +12,9 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.core.util.NBTHelper;
-import silentAbyss.item.Gem;
 import silentAbyss.item.ItemSA;
 import silentAbyss.item.ModItems;
-import silentAbyss.lib.Reference;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -75,7 +74,8 @@ public class TeleporterLinker extends ItemSA {
         NBTTagCompound tags = stack.getTagCompound();
         if (tags.getInteger("State") == 0) {
             list.add("\u00a7oNot linked");
-        } else {
+        }
+        else {
             list.add("\u00a7oLinked to " + LogHelper.coord(tags.getInteger("X"), tags.getInteger("Y"), tags.getInteger("Z")));
         }
     }
@@ -100,7 +100,6 @@ public class TeleporterLinker extends ItemSA {
     @Override
     public void addRecipes() {
 
-        GameRegistry.addRecipe(new ItemStack(ModItems.teleporterLinker), "x", "y", 'x', Gem.getGem(Reference.INDEX_ABYSSITE), 'y',
-                Item.ingotGold);
+        GameRegistry.addRecipe(new ItemStack(ModItems.teleporterLinker), "x", "y", 'x', EnumGem.ABYSSITE.getItem(), 'y', Item.ingotGold);
     }
 }

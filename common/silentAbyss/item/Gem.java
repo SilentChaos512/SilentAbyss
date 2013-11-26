@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import silentAbyss.configuration.Config;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -57,75 +58,42 @@ public class Gem extends ItemSA {
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack itemStack) {
+    public String getUnlocalizedName(ItemStack stack) {
 
-        int d = itemStack.getItemDamage();
-
-        StringBuilder s = new StringBuilder();
-        s.append("item.");
-        s.append(Strings.RESOURCE_PREFIX);
-        if (d == Reference.INDEX_ABYSSITE) {
-            s.append("abyssite");
-            return s.toString();
-        } else if (d == Reference.INDEX_PURITE) {
-            s.append("purite");
-            return s.toString();
-        } else if (d == Reference.INDEX_CONUNDRUMITE) {
-            s.append("conundrumite");
-            return s.toString();
+        int d = stack.getItemDamage();
+        
+        if (d < EnumGem.all().length) {
+            return getUnlocalizedName("Gem" + EnumGem.all()[d].name);
         }
-
-        s.append("abyss");
-
-        if (d == Reference.INDEX_ABYSS_DIAMOND) {
-            // Abyss diamond
-            s.append("Diamond");
-        } else if (d < 4) {
-            // Regular gems.
-            s.append(names[d]);
-        } else {
-            // Energized gems.
-            s.append(names[d - Reference.INDEX_RUBY_PLUS]);
-            s.append("Plus");
+        else {
+            return super.getUnlocalizedName(stack);
         }
-
-        return s.toString();
     }
 
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IconRegister iconRegister) {
 
-        icons[Reference.INDEX_RUBY] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssRuby");
-        icons[Reference.INDEX_EMERALD] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssEmerald");
-        icons[Reference.INDEX_SAPPHIRE] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssSapphire");
-        icons[Reference.INDEX_TOPAZ] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssTopaz");
-
-        icons[Reference.INDEX_ABYSSITE] = iconRegister.registerIcon(Reference.MOD_ID + ":Abyssite");
-        icons[Reference.INDEX_PURITE] = iconRegister.registerIcon(Reference.MOD_ID + ":Purite");
-
-        icons[Reference.INDEX_RUBY_PLUS] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssRuby");
-        icons[Reference.INDEX_EMERALD_PLUS] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssEmerald");
-        icons[Reference.INDEX_SAPPHIRE_PLUS] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssSapphire");
-        icons[Reference.INDEX_TOPAZ_PLUS] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssTopaz");
-
-        icons[Reference.INDEX_CONUNDRUMITE] = iconRegister.registerIcon(Reference.MOD_ID + ":Conundrumite");
-        icons[Reference.INDEX_ABYSS_DIAMOND] = iconRegister.registerIcon(Reference.MOD_ID + ":AbyssDiamond");
+        String s;
+        for (int i = 0; i < EnumGem.all().length; ++i) {
+            s = EnumGem.all()[i].name.replace("Plus", "");
+            icons[i] = iconRegister.registerIcon(Strings.RESOURCE_PREFIX + "Gem" + s);
+        }
     }
 
     @Override
     public void addRecipes() {
 
-        ItemStack rAbyssite = Gem.getGem(Reference.INDEX_ABYSSITE);
-        ItemStack rPurite = Gem.getGem(Reference.INDEX_PURITE);
+        ItemStack rAbyssite = EnumGem.ABYSSITE.getItem();
+        ItemStack rPurite = EnumGem.PURITE.getItem();
 
         for (int i = 0; i < 4; ++i) {
             // Supercharged gems
-            GameRegistry.addRecipe(getGem(i + Reference.INDEX_RUBY_PLUS), "rar", "rgr", "rpr", 'r', Item.redstone, 'a', rAbyssite, 'p',
+            GameRegistry.addRecipe(getGem(i + EnumGem.RUBY_PLUS.id), "rar", "rgr", "rpr", 'r', Item.redstone, 'a', rAbyssite, 'p',
                     rPurite, 'g', getGem(i));
         }
 
-        for (int i = 0; i < Reference.GEM_TYPE_COUNT; ++i) {
+        for (int i = 0; i < EnumGem.basic().length; ++i) {
             // Shards
             if (Config.SHARDS_PER_GEM.value == 9) {
                 GameRegistry.addShapedRecipe(getGem(i), "ggg", "ggg", "ggg", 'g', new ItemStack(ModItems.abyssShard, 1, i));
@@ -135,10 +103,10 @@ public class Gem extends ItemSA {
         }
 
         // Conundrumite
-        GameRegistry.addRecipe(new ItemStack(ModItems.abyssGem, 1, Reference.INDEX_CONUNDRUMITE), " a ", "pdp", " a ", 'a', rAbyssite, 'p',
+        GameRegistry.addRecipe(EnumGem.CONUNDRUMITE.getItem(), " a ", "pdp", " a ", 'a', rAbyssite, 'p',
                 rPurite, 'd', Item.diamond);
         // Abyss diamond
-        GameRegistry.addRecipe(getGem(Reference.INDEX_ABYSS_DIAMOND), "rar", "rgr", "rpr", 'r', Item.redstone, 'a', rAbyssite, 'p',
+        GameRegistry.addRecipe(EnumGem.ABYSS_DIAMOND.getItem(), "rar", "rgr", "rpr", 'r', Item.redstone, 'a', rAbyssite, 'p',
                 rPurite, 'g', Item.diamond);
     }
 }

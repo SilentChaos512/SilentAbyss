@@ -21,7 +21,7 @@ import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.core.util.NBTHelper;
 import silentAbyss.core.util.RecipeHelper;
-import silentAbyss.lib.Reference;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -38,9 +38,16 @@ public class Sigil extends ItemSA {
         setMaxDamage(64); // TODO: Make config option
         setMaxStackSize(1);
         setCreativeTab(CreativeTabs.tabTools);
+        setUnlocalizedName(Strings.SIGIL_NAME);
 
         isGlowing = true;
         rarity = EnumRarity.rare;
+    }
+
+    @Override
+    public boolean getIsRepairable(ItemStack stack1, ItemStack stack2) {
+
+        return stack2.getItem() instanceof Gem && stack2.getItemDamage() == EnumGem.CONUNDRUMITE.id;
     }
 
     @Override
@@ -52,6 +59,7 @@ public class Sigil extends ItemSA {
         if (stack.stackTagCompound != null) {
             if (getEffectID(stack) == 0) {
                 list.add(LocalizationHelper.getMessageText(Strings.SIGIL_NO_EFFECT, ""));
+                list.add(LocalizationHelper.getMessageText(Strings.REPAIRABLE, ""));
                 return;
             }
             String color = LocalizationHelper.getLocalizedString("color.silentabyss:" + ItemDye.dyeColorNames[getColor(stack)]);
@@ -75,6 +83,7 @@ public class Sigil extends ItemSA {
         }
         else {
             list.add(LocalizationHelper.getMessageText(Strings.SIGIL_NO_EFFECT, ""));
+            list.add(LocalizationHelper.getMessageText(Strings.REPAIRABLE, ""));
         }
     }
 
@@ -124,6 +133,9 @@ public class Sigil extends ItemSA {
             stack.stackTagCompound = new NBTTagCompound();
         }
 
+        if (!stack.stackTagCompound.hasKey(Strings.SIGIL_COLOR)) {
+            stack.stackTagCompound.setInteger(Strings.SIGIL_COLOR, 15);
+        }
         if (!stack.stackTagCompound.hasKey(Strings.SIGIL_EFFECT_ID)) {
             stack.stackTagCompound.setInteger(Strings.SIGIL_EFFECT_ID, 0);
         }
@@ -239,15 +251,8 @@ public class Sigil extends ItemSA {
     }
 
     @Override
-    public String getUnlocalizedName(ItemStack stack) {
-
-        return getUnlocalizedName(Strings.SIGIL_NAME);
-    }
-
-    @Override
     public void addRecipes() {
 
-        RecipeHelper.addSurround(new ItemStack(this), Gem.getGem(Reference.INDEX_CONUNDRUMITE), new Object[] { Item.redstone,
-                Item.ingotGold });
+        RecipeHelper.addSurround(new ItemStack(this), EnumGem.CONUNDRUMITE.getItem(), new Object[] { Item.redstone, Item.ingotGold });
     }
 }

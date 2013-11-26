@@ -16,6 +16,7 @@ public class Strings {
     /*
      * Messages
      */
+    public final static String REPAIRABLE = "Repairable";
     public final static String SIGIL_NO_EFFECT = "SigilNoEffect";
     public final static String SIGIL_TELEPORT_NOT_LINKED = "SigilTeleportNotLinked";
     public final static String TELEPORTER_INVALID = "TeleporterInvalid";
@@ -49,12 +50,11 @@ public class Strings {
     /*
      * Block name constants
      */
-    public final static String ABYSS_GEM_ORE_NAME = "Ore";
-    public final static String ABYSS_GEM_BLOCK_NAME = "GemBlock";
-    public final static String ABYSS_TELEPORTER_NAME = "Teleporter";
-    public final static String SIGIL_INFUSER_NAME = "SigilInfuser";
+    public final static String ORE_NAME = "Ore";
+    public final static String GEM_BLOCK_NAME = "BlockGem";
     public final static String BRICK_NAME = "Brick";
     public final static String LAMP_NAME = "Lamp";
+    public final static String TELEPORTER_NAME = "Teleporter";
     public final static String PORTAL_FRAME_NAME = "PortalFrame";
     public final static String PORTAL_NAME = "Portal";
     public final static String TEST_BLOCK_NAME = "Test";
@@ -62,8 +62,8 @@ public class Strings {
     /*
      * Item name constants
      */
-    public final static String ABYSS_GEM_NAME = "Gem";
-    public final static String ABYSS_SHARD_NAME = "Shard";
+    public final static String GEM_NAME = "Gem";
+    public final static String SHARD_NAME = "Shard";
     public final static String CRAFTING_MATERIAL_NAME = "CraftingMaterials";
     public final static String ORNATE_STICK_NAME = "OrnateStick";
     public final static String MYSTERY_GOO_NAME = "MysteryGoo";
@@ -101,4 +101,12 @@ public class Strings {
     /*
      * Container related constants
      */
+    
+    /*
+     * Easter eggs
+     */
+    public final static String PLAYER_SILENT = "SilentAngelV";
+    public final static String PLAYER_CHAOTIC = "ChaoticAngel_V";
+    public final static String[] CAT_SILENT = { "Crimson", "Inferno", "Jared", "Popo" };
+    public final static String[] CAT_CHAOTIC = { "Jerry", "Tundra", "James", "Chris", "Flaffle" };
 }

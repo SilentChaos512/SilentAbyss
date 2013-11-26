@@ -28,7 +28,7 @@ import silentAbyss.core.util.PlayerHelper;
 import silentAbyss.item.ModItems;
 import silentAbyss.item.Sigil;
 import silentAbyss.item.tool.TeleporterLinker;
-import silentAbyss.lib.Reference;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Strings;
 import silentAbyss.tileentity.TileEntityAbyssTeleporter;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -51,6 +51,7 @@ public class Teleporter extends BlockContainer {
         setResistance(12.0f);
         setStepSound(Block.soundGlassFootstep);
         setCreativeTab(CreativeTabs.tabBlock);
+        setUnlocalizedName(Strings.TELEPORTER_NAME);
     }
 
     @Override
@@ -254,20 +255,20 @@ public class Teleporter extends BlockContainer {
         
         return false;
     }
-
+    
     @Override
     public String getUnlocalizedName() {
 
         StringBuilder s = new StringBuilder();
         s.append("tile.");
         s.append(Strings.RESOURCE_PREFIX);
-        s.append(Strings.ABYSS_TELEPORTER_NAME);
+        s.append(Strings.TELEPORTER_NAME);
         return s.toString();
     }
 
     public static void addRecipes() {
 
         GameRegistry.addRecipe(new ItemStack(ModBlocks.abyssTeleporter, 2), "gwg", "geg", "gag", 'g', Item.ingotGold, 'w', Block.cloth,
-                'e', Item.enderPearl, 'a', GemBlock.getGem(Reference.INDEX_ABYSSITE));
+                'e', Item.enderPearl, 'a', EnumGem.ABYSSITE.getBlock());
     }
 }

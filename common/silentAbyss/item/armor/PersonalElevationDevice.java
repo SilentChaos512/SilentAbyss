@@ -2,7 +2,6 @@ package silentAbyss.item.armor;
 
 import java.util.List;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -11,9 +10,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import silentAbyss.core.util.LocalizationHelper;
-import silentAbyss.item.Gem;
 import silentAbyss.item.ItemSA;
 import silentAbyss.item.ModItems;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -23,8 +22,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 /**
  * My flying device.
  * 
- * FIXME: Generates chaos when flying by other means (ie Morph).
- * TODO: Ability to equip by shift-clicking.
+ * FIXME: Generates chaos when flying by other means (ie Morph). TODO: Ability
+ * to equip by shift-clicking.
  * 
  * @author SilentChaos512
  * 
@@ -84,8 +83,7 @@ public class PersonalElevationDevice extends ItemSA {
     public void addRecipes() {
 
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.personalElevationDevice), "cac", "cgc", "cpc", 'c',
-                Gem.getGem(Reference.INDEX_CONUNDRUMITE), 'a', Gem.getGem(Reference.INDEX_ABYSSITE), 'p',
-                Gem.getGem(Reference.INDEX_PURITE), 'g', Item.ingotGold);
+                EnumGem.CONUNDRUMITE.getItem(), 'a', EnumGem.ABYSSITE.getItem(), 'p', EnumGem.PURITE.getItem(), 'g', Item.ingotGold);
     }
 
     /**

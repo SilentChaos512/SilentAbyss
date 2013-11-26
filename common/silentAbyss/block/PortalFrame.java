@@ -1,25 +1,18 @@
 package silentAbyss.block;
 
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import silentAbyss.core.util.PlayerHelper;
-import silentAbyss.item.Gem;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
-import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class PortalFrame extends Block {
+public class PortalFrame extends BlockSA {
 
     public PortalFrame(int id) {
 
@@ -28,6 +21,7 @@ public class PortalFrame extends Block {
         setResistance(20.0f);
         setStepSound(Block.soundMetalFootstep);
         setCreativeTab(CreativeTabs.tabBlock);
+        setUnlocalizedName(Strings.PORTAL_FRAME_NAME);
     }
 
     @Override
@@ -39,26 +33,10 @@ public class PortalFrame extends Block {
         return false;
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
-    public void registerIcons(IconRegister reg) {
-
-        blockIcon = reg.registerIcon(Reference.MOD_ID + ":PortalFrame");
-    }
-
-    @Override
-    public String getUnlocalizedName() {
-
-        StringBuilder s = new StringBuilder();
-        s.append("tile.");
-        s.append(Strings.RESOURCE_PREFIX);
-        s.append("portalFrame");
-        return s.toString();
-    }
-
-    public static void addRecipes() {
+    public void addRecipes() {
 
 //        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.portalFrame), "sas", "isi", "sps", 's', Block.stone, 'i', Item.ingotIron, 'a',
-//                Gem.getGem(Reference.INDEX_ABYSSITE), 'p', Gem.getGem(Reference.INDEX_PURITE));
+//                EnumGem.ABYSSITE.getItem(), 'p', EnumGem.PURITE.getItem());
     }
 }

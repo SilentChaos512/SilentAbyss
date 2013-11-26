@@ -1,30 +1,28 @@
 package silentAbyss.block;
 
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import silentAbyss.item.ModItems;
-import silentAbyss.lib.Reference;
+import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class GemBlock extends BlockSA {
 
     public GemBlock(int id) {
 
         super(id, Material.iron);
-        icons = new Icon[Reference.GEM_TYPE_COUNT];
+        icons = new Icon[EnumGem.basic().length];
         setHardness(3.0f);
         setResistance(10.0f);
         setStepSound(Block.soundMetalFootstep);
         setCreativeTab(CreativeTabs.tabBlock);
+        setHasSubtypes(true);
+        setHasBasicGemSubtypes(true);
+        setUnlocalizedName(Strings.GEM_BLOCK_NAME);
     }
 
     /**
@@ -38,25 +36,7 @@ public class GemBlock extends BlockSA {
 
         return new ItemStack(ModBlocks.gem, 1, meta);
     }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void registerIcons(IconRegister iconRegister) {
-
-        icons[Reference.INDEX_RUBY] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockAbyssRuby");
-        icons[Reference.INDEX_EMERALD] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockAbyssEmerald");
-        icons[Reference.INDEX_SAPPHIRE] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockAbyssSapphire");
-        icons[Reference.INDEX_TOPAZ] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockAbyssTopaz");
-        icons[Reference.INDEX_ABYSSITE] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockAbyssite");
-        icons[Reference.INDEX_PURITE] = iconRegister.registerIcon(Reference.MOD_ID + ":BlockPurite");
-    }
-
-    @Override
-    public String getUnlocalizedName() {
-
-        return getUnlocalizedName("gem");
-    }
-
+    
     @Override
     public void addRecipes() {
 
