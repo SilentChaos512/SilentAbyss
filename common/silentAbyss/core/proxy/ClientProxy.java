@@ -8,6 +8,7 @@ import silentAbyss.client.renderer.entity.RenderCrimsonCreeper;
 import silentAbyss.client.renderer.entity.RenderGrumbling;
 import silentAbyss.client.renderer.entity.RenderProjectileMagic;
 import silentAbyss.client.renderer.item.ItemTestRenderer;
+import silentAbyss.client.renderer.item.RenderSigil;
 import silentAbyss.client.renderer.tileentity.TileEntityTestRenderer;
 import silentAbyss.core.handlers.tick.PlayerClientServerTickHandler;
 import silentAbyss.core.handlers.tick.RenderTickHandler;
@@ -16,6 +17,7 @@ import silentAbyss.entity.monster.CrimsonCreeper;
 import silentAbyss.entity.monster.EntityGrumbling;
 import silentAbyss.entity.projectile.EntityMeteor;
 import silentAbyss.entity.projectile.EntityProjectileMagic;
+import silentAbyss.item.ModItems;
 import silentAbyss.lib.RenderIds;
 import silentAbyss.tileentity.TileTest;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -33,25 +35,26 @@ public class ClientProxy extends CommonProxy {
         registerRenderersMobs();
         registerRenderersProjectiles();
     }
-    
+
     private void registerRenderersBlocks() {
-     
+
         RenderIds.testRender = RenderingRegistry.getNextAvailableRenderId();
     }
-    
+
     private void registerRenderersItems() {
-        
+
+        MinecraftForgeClient.registerItemRenderer(ModItems.sigil.itemID, new RenderSigil());
         MinecraftForgeClient.registerItemRenderer(ModBlocks.blockTest.blockID, new ItemTestRenderer());
     }
-    
+
     private void registerRenderersMobs() {
-        
+
         RenderingRegistry.registerEntityRenderingHandler(EntityGrumbling.class, new RenderGrumbling(new ModelGrumbling(), 0.5F));
         RenderingRegistry.registerEntityRenderingHandler(CrimsonCreeper.class, new RenderCrimsonCreeper());
     }
-    
+
     private void registerRenderersProjectiles() {
-        
+
         RenderingRegistry.registerEntityRenderingHandler(EntityProjectileMagic.class, new RenderProjectileMagic());
         RenderingRegistry.registerEntityRenderingHandler(EntityMeteor.class, new RenderFireball(0));
     }
@@ -71,10 +74,10 @@ public class ClientProxy extends CommonProxy {
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileTest.class, new TileEntityTestRenderer());
     }
-    
+
     @Override
     public void registerKeyHandlers() {
-        
+
         KeyHelper.init();
     }
 }

@@ -16,6 +16,7 @@ public class Strings {
     /*
      * Messages
      */
+    public final static String DYEABLE = "Dyeable";
     public final static String REPAIRABLE = "Repairable";
     public final static String SIGIL_NO_EFFECT = "SigilNoEffect";
     public final static String SIGIL_TELEPORT_NOT_LINKED = "SigilTeleportNotLinked";

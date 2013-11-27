@@ -29,9 +29,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 // TODO: AbyssSigil class needs major cleanup.
 public class Sigil extends ItemSA {
 
-    @SideOnly(Side.CLIENT)
-    Icon iconIdle, iconCharged;
-
     public Sigil(int par1) {
 
         super(par1);
@@ -58,7 +55,8 @@ public class Sigil extends ItemSA {
         // TODO Change this
         if (stack.stackTagCompound != null) {
             if (getEffectID(stack) == 0) {
-                list.add(LocalizationHelper.getMessageText(Strings.SIGIL_NO_EFFECT, ""));
+                list.add(LocalizationHelper.getMessageText(Strings.SIGIL_NO_EFFECT, EnumChatFormatting.GOLD));
+                list.add(LocalizationHelper.getMessageText(Strings.DYEABLE, ""));
                 list.add(LocalizationHelper.getMessageText(Strings.REPAIRABLE, ""));
                 return;
             }
@@ -82,7 +80,8 @@ public class Sigil extends ItemSA {
             }
         }
         else {
-            list.add(LocalizationHelper.getMessageText(Strings.SIGIL_NO_EFFECT, ""));
+            list.add(LocalizationHelper.getMessageText(Strings.SIGIL_NO_EFFECT, EnumChatFormatting.GOLD));
+            list.add(LocalizationHelper.getMessageText(Strings.DYEABLE, ""));
             list.add(LocalizationHelper.getMessageText(Strings.REPAIRABLE, ""));
         }
     }
@@ -221,33 +220,13 @@ public class Sigil extends ItemSA {
     @Override
     public EnumAction getItemUseAction(ItemStack itemStack) {
 
-        return EnumAction.bow;
+        return EnumAction.none;
     }
 
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IconRegister iconRegister) {
 
-        iconIdle = iconRegister.registerIcon(Strings.RESOURCE_PREFIX + "Sigil");
-        iconCharged = iconRegister.registerIcon(Strings.RESOURCE_PREFIX + "SigilCharged");
-        itemIcon = iconIdle;
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public Icon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
-
-        if (usingItem == null || usingItem.itemID != this.itemID) {
-            return iconIdle;
-        }
-
-        int timeUsed = this.getMaxItemUseDuration(stack) - useRemaining;
-
-        if (timeUsed > getChargeTime(stack)) {
-            return iconCharged;
-        }
-
-        return iconIdle;
     }
 
     @Override

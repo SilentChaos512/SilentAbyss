@@ -14,8 +14,8 @@ public class Textures {
     public final static String EFFECTS_LOCATION = "textures/effects/";
 
     // Item/Block sprite sheets
-    public final static ResourceLocation TEST_BLOCK = ResourceLocationHelper
-            .getResourceLocation(BLOCK_SHEET_LOCATION + "BlockGemAbyssite.png");
+    public final static ResourceLocation TEST_BLOCK = ResourceLocationHelper.getResourceLocation(BLOCK_SHEET_LOCATION
+            + "BlockGemAbyssite.png");
 
     // Armor sprite sheets
 
@@ -28,6 +28,7 @@ public class Textures {
             + "Grumbling.png");
     public final static ResourceLocation ENTITY_CRIMSON_CREEPER = ResourceLocationHelper.getResourceLocation(ENTITY_SHEET_LOCATION
             + "CrimsonCreeper.png");
+    public final static ResourceLocation ITEM_SIGIL = ResourceLocationHelper.getResourceLocation(MODEL_SHEET_LOCATION + "Sigil.png");
 
     // Effect textures
     public final static ResourceLocation EFFECT_MAGIC_PROJECTILE = ResourceLocationHelper.getResourceLocation(EFFECTS_LOCATION

@@ -13,8 +13,7 @@ import silentAbyss.block.Teleporter;
 import silentAbyss.command.CommandHandler;
 import silentAbyss.configuration.ConfigHandler;
 import silentAbyss.core.handlers.GuiHandler;
-import silentAbyss.core.handlers.event.LivingFallEventHandler;
-import silentAbyss.core.handlers.event.WorldLoadEventHandler;
+import silentAbyss.core.handlers.event.AbyssEventHandler;
 import silentAbyss.core.proxy.CommonProxy;
 import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.core.util.LogHelper;
@@ -115,7 +114,6 @@ public class Abyss {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
 
-        MinecraftForge.EVENT_BUS.register(new LivingFallEventHandler());
-        MinecraftForge.EVENT_BUS.register(new WorldLoadEventHandler());
+        MinecraftForge.EVENT_BUS.register(new AbyssEventHandler());
     }
 }
