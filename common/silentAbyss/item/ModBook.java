@@ -14,6 +14,7 @@ import net.minecraft.nbt.NBTTagString;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import silentAbyss.core.util.LogHelper;
+import silentAbyss.core.util.PlayerHelper;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -40,6 +41,11 @@ public class ModBook extends ItemWritableBook {
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
+        // Error catcher, in case books were removed (which one has been)
+        if (stack.getItemDamage() >= books.length) {
+            PlayerHelper.addChatMessage(player, Strings.BAD_BOOK, true);
+        }
+        
         // Create a temporary written book with the desired NBT.
         // We don't want every instance of mod book to have lots of NBT data in
         // the world save.
@@ -90,7 +96,7 @@ public class ModBook extends ItemWritableBook {
             list.add("by " + books[stack.getItemDamage()].getString("author"));
         } else {
             LogHelper.severe("ModBook with damage value " + stack.getItemDamage() + " is missing its NBT data!");
-            list.add("(book data missing!)");
+            list.add("by Faceless Man");
         }
     }
 

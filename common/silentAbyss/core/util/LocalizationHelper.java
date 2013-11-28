@@ -3,6 +3,8 @@ package silentAbyss.core.util;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.EnumChatFormatting;
 import silentAbyss.lib.Localizations;
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -14,7 +16,12 @@ public class LocalizationHelper {
     public static String getLocalizedString(String key) {
 
         //return LanguageRegistry.instance().getStringLocalization(key);
-        return I18n.getString(key);
+        if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+            return I18n.getString(key);
+        }
+        else {
+            return "";
+        }
     }
 
     public static String getMessageText(String key) {

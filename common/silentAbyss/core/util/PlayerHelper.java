@@ -9,6 +9,7 @@ import silentAbyss.item.tool.TeleporterLinker;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 
 public class PlayerHelper {
 
@@ -49,5 +50,29 @@ public class PlayerHelper {
         }
         
         return player.inventory.getStackInSlot(i);
+    }
+    
+    public static void addChatMessage(EntityPlayer player, String key, boolean fromLocalizationFile) {
+        
+        if (player.worldObj.isRemote) {
+            if (fromLocalizationFile) {
+                player.addChatMessage(LocalizationHelper.getMessageText(key, ""));
+            }
+            else {
+                player.addChatMessage(key);
+            }
+        }
+    }
+    
+    public static void addChatMessage(EntityPlayer player, String key, EnumChatFormatting format, boolean fromLocalizationFile) {
+        
+        if (player.worldObj.isRemote) {
+            if (fromLocalizationFile) {
+                player.addChatMessage(LocalizationHelper.getMessageText(key, format));
+            }
+            else {
+                player.addChatMessage(key);
+            }
+        }
     }
 }

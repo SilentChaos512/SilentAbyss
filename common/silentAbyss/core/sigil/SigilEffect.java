@@ -14,6 +14,7 @@ import silentAbyss.configuration.Config;
 import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.core.util.NBTHelper;
+import silentAbyss.core.util.PlayerHelper;
 import silentAbyss.entity.projectile.EntityProjectileMagic;
 import silentAbyss.item.Sigil;
 import silentAbyss.lib.Strings;
@@ -160,7 +161,7 @@ public class SigilEffect {
         NBTTagCompound tags = stack.stackTagCompound;
         if (!NBTHelper.hasValidXYZD(tags) || tags.getInteger("Y") <= 0) {
             LogHelper.warning("Invalid location for teleport effect");
-            player.addChatMessage(LocalizationHelper.getMessageText(Strings.TELEPORTER_INVALID, ""));
+            PlayerHelper.addChatMessage(player, Strings.TELEPORTER_INVALID, true);
             return;
         }
         

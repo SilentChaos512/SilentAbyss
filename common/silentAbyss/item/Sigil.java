@@ -20,6 +20,7 @@ import silentAbyss.core.sigil.SigilEffect;
 import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.core.util.NBTHelper;
+import silentAbyss.core.util.PlayerHelper;
 import silentAbyss.core.util.RecipeHelper;
 import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Strings;
@@ -116,7 +117,7 @@ public class Sigil extends ItemSA {
             return stack;
         }
         else if (j == SigilEffect.teleport.id && !NBTHelper.hasValidXYZD(stack.stackTagCompound)) {
-            player.addChatMessage(LocalizationHelper.getMessageText(Strings.SIGIL_TELEPORT_NOT_LINKED));
+            PlayerHelper.addChatMessage(player, Strings.SIGIL_TELEPORT_NOT_LINKED, true);
             return stack;
         }
         else if (j != 0) {

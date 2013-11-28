@@ -2,19 +2,15 @@ package silentAbyss.item.tool;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import silentAbyss.Abyss;
+import silentAbyss.core.util.LogHelper;
 import silentAbyss.item.Gem;
 import silentAbyss.item.ModItems;
-import silentAbyss.item.TorchBandolier;
 import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -26,6 +22,7 @@ public class AbyssShovel extends ItemToolSA {
     public AbyssShovel(int id, EnumToolMaterial toolMaterial, int gemType) {
 
         super(id, 1.0f, toolMaterial, EnumGem.values()[gemType], ItemSpade.blocksEffectiveAgainst);
+        MinecraftForge.setToolClass(this, "shovel", toolMaterial == Abyss.materialEnergizedAbyssGem ? 3 : 2);
     }
 
     @Override

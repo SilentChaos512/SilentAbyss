@@ -310,7 +310,6 @@ public class ModItems {
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.diamond), 1, 4, 7));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.book), 4, 8, 16));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.book, 1, 0), 1, 1, 16));
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.book, 1, 1), 1, 1, 16));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
                 new WeightedRandomChestContent(new ItemStack(ModItems.enchantToken, 1, ModEnchantments.mending.effectId), 1, 1, 7));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(

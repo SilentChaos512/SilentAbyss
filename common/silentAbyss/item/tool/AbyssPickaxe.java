@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import silentAbyss.Abyss;
 import silentAbyss.item.Gem;
@@ -21,6 +22,7 @@ public class AbyssPickaxe extends ItemToolSA {
     public AbyssPickaxe(int id, EnumToolMaterial toolMaterial, int gemType) {
 
         super(id, 2.0f, toolMaterial, EnumGem.values()[gemType], ItemPickaxe.blocksEffectiveAgainst);
+        MinecraftForge.setToolClass(this, "pickaxe", toolMaterial == Abyss.materialEnergizedAbyssGem ? 3 : 2);
     }
 
     @Override

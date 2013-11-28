@@ -82,23 +82,17 @@ public class Teleporter extends BlockContainer {
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
 
-        if (world.isRemote) {
-            return true;
-        }
-
         // Dye
         if (PlayerHelper.isPlayerHoldingItem(player, Item.dyePowder)) {
             return dyeTeleporter(world, x, y, z, player);
         }
         // Link teleporters
         if (PlayerHelper.isPlayerHoldingItem(player, ModItems.teleporterLinker)) {
-
             return linkTeleporters(world, x, y, z, player);
         }
         // Link sigils
         if (PlayerHelper.isPlayerHoldingItem(player, ModItems.sigil)) {
-
-            return linkSigil(x, y, z, player);
+            return linkSigil(world, x, y, z, player);
         }
 
         TileEntityAbyssTeleporter tile = (TileEntityAbyssTeleporter) world.getBlockTileEntity(x, y, z);
@@ -107,20 +101,22 @@ public class Teleporter extends BlockContainer {
             // Safety checks:
             // Destination above y=0?
             if (tile.destY == 0) {
-                player.addChatMessage(LocalizationHelper.getMessageText(Strings.TELEPORTER_NO_DESTINATION, ""));
+
+                PlayerHelper.addChatMessage(player, Strings.TELEPORTER_NO_DESTINATION, true);
                 return true;
             }
 
-            // Spawn some particles.
-            // FIXME: Can't spawn particles?
-            for (int l = 0; l < 128; ++l) {
-                double d0 = x - 0.5 + Abyss.rng.nextDouble();
-                double d1 = y + 0.5 + Abyss.rng.nextDouble() * 2 + 2;
-                double d2 = z - 0.5 + Abyss.rng.nextDouble();
-                double d3 = 0;
-                double d4 = 0;
-                double d5 = 0;
-                player.worldObj.spawnParticle("portal", d0, d1, d2, d3, d4, d5);
+            // Spawn some particles. Apparently this has to be on client-side.
+            if (world.isRemote) {
+                for (int l = 0; l < 128; ++l) {
+                    double d0 = x - 0.5 + Abyss.rng.nextDouble() + 0.5;
+                    double d1 = y + 0.5 + Abyss.rng.nextDouble() * 2;
+                    double d2 = z - 0.5 + Abyss.rng.nextDouble() + 0.5;
+                    double d3 = 0;
+                    double d4 = 0;
+                    double d5 = 0;
+                    player.worldObj.spawnParticle("portal", d0, d1, d2, d3, d4, d5);
+                }
             }
 
             // Teleport player if everything is OK.
@@ -139,9 +135,13 @@ public class Teleporter extends BlockContainer {
 
         return true;
     }
-    
+
     private boolean dyeTeleporter(World world, int x, int y, int z, EntityPlayer player) {
-        
+
+        if (world.isRemote) {
+            return true;
+        }
+
         ItemStack dyeStack = player.inventory.getCurrentItem();
         int color = dyeStack.getItemDamage();
         color = ~color & 15;
@@ -166,12 +166,12 @@ public class Teleporter extends BlockContainer {
             t.destZ = tz;
             t.destD = td;
         }
-        
+
         return true;
     }
-    
+
     private boolean linkTeleporters(World world, int x, int y, int z, EntityPlayer player) {
-        
+
         ItemStack linker = player.inventory.getCurrentItem();
         if (linker.stackTagCompound == null) {
             TeleporterLinker.resetTagCompound(linker);
@@ -190,7 +190,7 @@ public class Teleporter extends BlockContainer {
             tags.setInteger("State", 1);
             NBTHelper.setXYZD(tags, x, y, z, player.dimension);
             linker.setItemDamage(1);
-            player.addChatMessage(LocalizationHelper.getMessageText(Strings.TELEPORTER_LINK_START, EnumChatFormatting.GRAY));
+            PlayerHelper.addChatMessage(player, Strings.TELEPORTER_LINK_START, true);
 
             // Force load this chunk so we can find the first teleporter
             // when linking to the second.
@@ -207,12 +207,12 @@ public class Teleporter extends BlockContainer {
 
             // Safety check
             if (t1 == null) {
-                player.addChatMessage(LocalizationHelper.getMessageText(Strings.TELEPORTER_LINK_FAIL, EnumChatFormatting.DARK_RED));
+                PlayerHelper.addChatMessage(player, Strings.TELEPORTER_LINK_FAIL, EnumChatFormatting.DARK_RED, true);
                 LogHelper.warning("A teleporter link failed because teleporter 1 could not be found.");
                 return false;
             }
             else if (t2 == null) {
-                player.addChatMessage(LocalizationHelper.getMessageText(Strings.TELEPORTER_LINK_FAIL, EnumChatFormatting.DARK_RED));
+                PlayerHelper.addChatMessage(player, Strings.TELEPORTER_LINK_FAIL, EnumChatFormatting.DARK_RED, true);
                 LogHelper.warning("A teleporter link failed because teleporter 2 could not be found.");
                 return false;
             }
@@ -226,7 +226,8 @@ public class Teleporter extends BlockContainer {
             t2.destY = tags.getInteger("Y");
             t2.destZ = tags.getInteger("Z");
             t2.destD = tags.getInteger("D");
-            player.addChatMessage(LocalizationHelper.getMessageText(Strings.TELEPORTER_LINK_END, EnumChatFormatting.GRAY));
+
+            PlayerHelper.addChatMessage(player, Strings.TELEPORTER_LINK_END, true);
 
             tags.setInteger("State", 0);
             linker.setItemDamage(0);
@@ -240,22 +241,22 @@ public class Teleporter extends BlockContainer {
 
         return true;
     }
-    
-    private boolean linkSigil(int x, int y, int z, EntityPlayer player) {
-        
+
+    private boolean linkSigil(World world, int x, int y, int z, EntityPlayer player) {
+
         ItemStack sigil = player.inventory.getCurrentItem();
-        
+
         // Does sigil have teleport?
         if (((Sigil) sigil.getItem()).getEffectID(sigil) == SigilEffect.teleport.id) {
             NBTHelper.setXYZD(sigil.stackTagCompound, x, y, z, player.dimension);
-            player.addChatMessage(LocalizationHelper.getMessageText(Strings.TELEPORTER_SIGIL_LINK, EnumChatFormatting.GREEN));
+            PlayerHelper.addChatMessage(player, Strings.TELEPORTER_SIGIL_LINK, EnumChatFormatting.GREEN, true);
 
             return true;
         }
-        
+
         return false;
     }
-    
+
     @Override
     public String getUnlocalizedName() {
 

@@ -11,6 +11,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import silentAbyss.Abyss;
 import silentAbyss.item.Gem;
@@ -27,6 +28,7 @@ public class AbyssAxe extends ItemToolSA {
     public AbyssAxe(int id, EnumToolMaterial toolMaterial, int gemType) {
 
         super(id, 3.0f, toolMaterial, EnumGem.values()[gemType], ItemAxe.blocksEffectiveAgainst);
+        MinecraftForge.setToolClass(this, "axe", toolMaterial == Abyss.materialEnergizedAbyssGem ? 3 : 2);
     }
 
     @Override
