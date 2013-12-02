@@ -13,8 +13,10 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.core.util.PlayerHelper;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -129,7 +131,7 @@ public class ModBook extends ItemWritableBook {
 
     public static void addRecipes() {
 
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.book, 1, 0), new Object[] { Item.book, Strings.ORE_DICT_GEM_BASIC }));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(SARegistry.getItem(Names.MOD_BOOK), 1, 0), new Object[] { Item.book, Strings.ORE_DICT_GEM_BASIC }));
     }
 
     private static NBTTagCompound tagForBook(int meta) {

@@ -10,11 +10,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.core.util.NBTHelper;
 import silentAbyss.item.ItemSA;
 import silentAbyss.item.ModItems;
 import silentAbyss.lib.EnumGem;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -29,17 +31,7 @@ public class TeleporterLinker extends ItemSA {
         super(par1);
 
         setCreativeTab(CreativeTabs.tabTools);
-        setUnlocalizedName(Strings.TELEPORTER_LINKER_NAME);
-    }
-
-    @Override
-    public String getUnlocalizedName(ItemStack stack) {
-
-        StringBuilder s = new StringBuilder();
-        s.append("item.");
-        s.append(Strings.RESOURCE_PREFIX);
-        s.append(Strings.TELEPORTER_LINKER_NAME);
-        return s.toString();
+        setUnlocalizedName(Names.TELEPORTER_LINKER);
     }
 
     @Override
@@ -50,7 +42,7 @@ public class TeleporterLinker extends ItemSA {
 
     public static void resetTagCompound(ItemStack stack) {
 
-        if (stack.itemID != ModItems.teleporterLinker.itemID) {
+        if (stack.itemID != SARegistry.getItem(Names.TELEPORTER_LINKER).itemID) {
             LogHelper.warning("Attempted to reset Teleporter Linker tag compound on a different item type!");
             return;
         }
@@ -100,6 +92,6 @@ public class TeleporterLinker extends ItemSA {
     @Override
     public void addRecipes() {
 
-        GameRegistry.addRecipe(new ItemStack(ModItems.teleporterLinker), "x", "y", 'x', EnumGem.ABYSSITE.getItem(), 'y', Item.ingotGold);
+        GameRegistry.addRecipe(new ItemStack(this), "x", "y", 'x', EnumGem.ABYSSITE.getItem(), 'y', Item.ingotGold);
     }
 }

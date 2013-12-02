@@ -23,6 +23,7 @@ import silentAbyss.core.util.NBTHelper;
 import silentAbyss.core.util.PlayerHelper;
 import silentAbyss.core.util.RecipeHelper;
 import silentAbyss.lib.EnumGem;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -36,7 +37,7 @@ public class Sigil extends ItemSA {
         setMaxDamage(64); // TODO: Make config option
         setMaxStackSize(1);
         setCreativeTab(CreativeTabs.tabTools);
-        setUnlocalizedName(Strings.SIGIL_NAME);
+        setUnlocalizedName(Names.SIGIL);
 
         isGlowing = true;
         rarity = EnumRarity.rare;
@@ -113,7 +114,8 @@ public class Sigil extends ItemSA {
 
         int j = getEffectID(stack);
 
-        if (stack.stackTagCompound == null) {
+        if (stack.stackTagCompound == null || j == 0) {
+            PlayerHelper.addChatMessage(player, Strings.SIGIL_NO_EFFECT, true);
             return stack;
         }
         else if (j == SigilEffect.teleport.id && !NBTHelper.hasValidXYZD(stack.stackTagCompound)) {

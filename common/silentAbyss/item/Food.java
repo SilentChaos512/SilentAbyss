@@ -7,9 +7,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.core.util.LocalizationHelper;
+import silentAbyss.core.util.LogHelper;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -18,11 +22,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class Food extends ItemFood {
 
-    private Icon[] icons = new Icon[1];
+    protected final String itemName;
 
-    public Food(int id, int healAmount, float saturationModifier, boolean isWolfFavoriteMeat) {
+    public Food(int id, int healAmount, float saturationModifier, boolean isWolfFavoriteMeat, String name) {
 
         super(id - Reference.SHIFTED_ID_RANGE_CORRECTION, healAmount, saturationModifier, isWolfFavoriteMeat);
+        this.itemName = name;
     }
 
     @Override
@@ -30,24 +35,27 @@ public class Food extends ItemFood {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 
-        list.add(LocalizationHelper.getMessageText(Strings.POTATO_STICK_NAME));
+        list.add(LocalizationHelper.getMessageText(itemName));
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
-    public void registerIcons(IconRegister iconRegister) {
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister reg) {
 
-        icons[0] = iconRegister.registerIcon("SilentAbyss:PotatoStick");
-        itemIcon = icons[0];
+        itemIcon = reg.registerIcon(Strings.RESOURCE_PREFIX + itemName);
     }
 
     @Override
     public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
 
         super.onEaten(stack, world, player);
-        if (stack.getItemDamage() == 0) {
-            // Potato on a stick.
-            // TODO: Return a stick to player?
+
+        if (itemName.equals(Names.POTATO_STICK)) {
+
+        }
+        else if (itemName.equals(Names.SUGAR_COOKIE)) {
+            player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 600, 1, true));
+            player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 600, 1, true));
         }
 
         return stack;
@@ -59,13 +67,14 @@ public class Food extends ItemFood {
         StringBuilder s = new StringBuilder();
         s.append("item.");
         s.append(Strings.RESOURCE_PREFIX);
-        s.append(Strings.POTATO_STICK_NAME);
+        s.append(itemName);
 
         return s.toString();
     }
 
     public static void addRecipes() {
 
-        GameRegistry.addRecipe(new ItemStack(ModItems.potatoStick), " x", "y ", 'x', Item.bakedPotato, 'y', Item.stick);
+        GameRegistry.addRecipe(new ItemStack(SARegistry.getItem(Names.POTATO_STICK)), " x", "y ", 'x', Item.bakedPotato, 'y', Item.stick);
+        GameRegistry.addRecipe(new ItemStack(SARegistry.getItem(Names.SUGAR_COOKIE)), " s ", "www", " s ", 's', Item.sugar, 'w', Item.wheat);
     }
 }

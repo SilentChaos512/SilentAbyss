@@ -2,13 +2,13 @@ package silentAbyss.block;
 
 import silentAbyss.lib.Names;
 
-public class LampItemBlock extends ItemBlockSA {
+public class ClearGlassItemBlock extends ItemBlockSA {
 
-    public LampItemBlock(int id) {
+    public ClearGlassItemBlock(int id) {
 
         super(id);
         setHasSubtypes(true);
         setHasBasicGemSubtypes(true);
-        setUnlocalizedName(Names.LAMP);
+        setUnlocalizedName(Names.CLEAR_GLASS);
     }
 }

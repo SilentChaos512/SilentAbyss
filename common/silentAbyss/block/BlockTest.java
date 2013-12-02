@@ -24,7 +24,7 @@ public class BlockTest extends BlockContainer {
 
         unlocalizedName.append("tile.");
         unlocalizedName.append(Strings.RESOURCE_PREFIX);
-        unlocalizedName.append(Strings.TEST_BLOCK_NAME);
+        unlocalizedName.append("Test");
 
         return unlocalizedName.toString();
     }

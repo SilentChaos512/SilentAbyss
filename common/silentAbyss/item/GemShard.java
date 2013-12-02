@@ -8,8 +8,10 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import silentAbyss.configuration.Config;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.lib.EnumGem;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -25,7 +27,7 @@ public class GemShard extends ItemSA {
         setMaxStackSize(64);
         setHasSubtypes(true);
         setHasBasicGemSubtypes(true);
-        setUnlocalizedName(Strings.SHARD_NAME);
+        setUnlocalizedName(Names.SHARD);
         setMaxDamage(0);
         setCreativeTab(CreativeTabs.tabMaterials);
     }
@@ -39,7 +41,7 @@ public class GemShard extends ItemSA {
      */
     public static ItemStack getGem(int meta) {
 
-        return new ItemStack(ModItems.abyssShard, 1, meta);
+        return new ItemStack(SARegistry.getItem(Names.SHARD), 1, meta);
     }
 
     @Override
@@ -59,10 +61,10 @@ public class GemShard extends ItemSA {
 
         for (int i = 0; i < icons.length; ++i) {
             if (Config.SHARDS_PER_GEM.value == 9) {
-                GameRegistry.addShapelessRecipe(new ItemStack(ModItems.abyssShard, 9, i), Gem.getGem(i));
+                GameRegistry.addShapelessRecipe(new ItemStack(SARegistry.getItem(Names.SHARD), 9, i), Gem.getGem(i));
             }
             else {
-                GameRegistry.addShapelessRecipe(new ItemStack(ModItems.abyssShard, 4, i), Gem.getGem(i));
+                GameRegistry.addShapelessRecipe(new ItemStack(SARegistry.getItem(Names.SHARD), 4, i), Gem.getGem(i));
             }
         }
     }

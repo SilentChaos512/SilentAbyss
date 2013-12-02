@@ -19,7 +19,6 @@ public class WorldScheduledTickHandler implements IScheduledTickHandler {
     @Override
     public void tickStart(EnumSet<TickType> type, Object... tickData) {
 
-        // LogHelper.debug("world tick");
         onWorldTick((World) tickData[0]);
     }
 

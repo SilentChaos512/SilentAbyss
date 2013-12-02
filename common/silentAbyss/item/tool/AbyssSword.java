@@ -13,9 +13,11 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import silentAbyss.Abyss;
 import silentAbyss.configuration.Config;
 import silentAbyss.core.handlers.ChaosHandler;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.enchantment.ModEnchantments;
 import silentAbyss.item.Gem;
-import silentAbyss.item.ModItems;
+import silentAbyss.lib.EnumGem;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -32,6 +34,8 @@ public class AbyssSword extends ItemSword {
         super(par1 - Reference.SHIFTED_ID_RANGE_CORRECTION, par2EnumToolMaterial);
         this.gemType = gemType;
         toolMaterial = par2EnumToolMaterial;
+        boolean b = toolMaterial == Abyss.materialEnergizedAbyssGem;
+        addRecipe(new ItemStack(this), EnumGem.values()[gemType + (b ? 6 : 0)].getItem(), b);
     }
 
     @Override
@@ -81,10 +85,11 @@ public class AbyssSword extends ItemSword {
     public boolean getIsRepairable(ItemStack stack1, ItemStack stack2) {
 
         boolean isSupercharged = toolMaterial == Abyss.materialEnergizedAbyssGem;
-        ItemStack material = new ItemStack(ModItems.abyssGem, 1, gemType + (isSupercharged ? 6 : 0));
+        ItemStack material = new ItemStack(SARegistry.getItem(Names.GEM_ITEM), 1, gemType + (isSupercharged ? 6 : 0));
         if (material.itemID == stack2.itemID && material.getItemDamage() == stack2.getItemDamage()) {
             return true;
-        } else {
+        }
+        else {
             return super.getIsRepairable(stack1, stack2);
         }
     }
@@ -93,8 +98,9 @@ public class AbyssSword extends ItemSword {
 
         if (energized) {
             GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] { " g ", " g ", " s ", 'g', material, 's',
-                    new ItemStack(ModItems.craftingMaterial, 1, 0) }));
-        } else {
+                    new ItemStack(SARegistry.getItem(Names.CRAFTING_MATERIALS), 1, 0) }));
+        }
+        else {
             GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] { " g ", " g ", " s ", 'g', material, 's', "stickWood" }));
         }
     }

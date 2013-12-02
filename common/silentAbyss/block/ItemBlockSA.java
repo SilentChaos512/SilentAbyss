@@ -3,6 +3,8 @@ package silentAbyss.block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Strings;
 
@@ -16,6 +18,17 @@ public class ItemBlockSA extends ItemBlock {
         super(id);
         setHasSubtypes(true);
         setUnlocalizedName(Integer.toString(id));
+    }
+    
+    @Override
+    public Icon getIconFromDamage(int meta) {
+
+        if (hasSubtypes && SARegistry.getBlockSA(itemName) != null) {
+            return SARegistry.getBlockSA(itemName).icons[meta];
+        }
+        else {
+            return super.getIconFromDamage(meta);
+        }
     }
 
     @Override

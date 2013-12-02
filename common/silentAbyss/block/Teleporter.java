@@ -20,8 +20,8 @@ import net.minecraftforge.common.ForgeChunkManager.Type;
 import silentAbyss.Abyss;
 import silentAbyss.configuration.Config;
 import silentAbyss.core.handlers.ChaosHandler;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.core.sigil.SigilEffect;
-import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.core.util.NBTHelper;
 import silentAbyss.core.util.PlayerHelper;
@@ -29,6 +29,7 @@ import silentAbyss.item.ModItems;
 import silentAbyss.item.Sigil;
 import silentAbyss.item.tool.TeleporterLinker;
 import silentAbyss.lib.EnumGem;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Strings;
 import silentAbyss.tileentity.TileEntityAbyssTeleporter;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -51,7 +52,7 @@ public class Teleporter extends BlockContainer {
         setResistance(12.0f);
         setStepSound(Block.soundGlassFootstep);
         setCreativeTab(CreativeTabs.tabBlock);
-        setUnlocalizedName(Strings.TELEPORTER_NAME);
+        setUnlocalizedName(Names.TELEPORTER);
     }
 
     @Override
@@ -87,11 +88,11 @@ public class Teleporter extends BlockContainer {
             return dyeTeleporter(world, x, y, z, player);
         }
         // Link teleporters
-        if (PlayerHelper.isPlayerHoldingItem(player, ModItems.teleporterLinker)) {
+        if (PlayerHelper.isPlayerHoldingItem(player, SARegistry.getItem(Names.TELEPORTER_LINKER))) {
             return linkTeleporters(world, x, y, z, player);
         }
         // Link sigils
-        if (PlayerHelper.isPlayerHoldingItem(player, ModItems.sigil)) {
+        if (PlayerHelper.isPlayerHoldingItem(player, SARegistry.getItem(Names.SIGIL))) {
             return linkSigil(world, x, y, z, player);
         }
 
@@ -263,13 +264,13 @@ public class Teleporter extends BlockContainer {
         StringBuilder s = new StringBuilder();
         s.append("tile.");
         s.append(Strings.RESOURCE_PREFIX);
-        s.append(Strings.TELEPORTER_NAME);
+        s.append(Names.TELEPORTER);
         return s.toString();
     }
 
     public static void addRecipes() {
 
-        GameRegistry.addRecipe(new ItemStack(ModBlocks.abyssTeleporter, 2), "gwg", "geg", "gag", 'g', Item.ingotGold, 'w', Block.cloth,
+        GameRegistry.addRecipe(new ItemStack(SARegistry.getBlock(Names.TELEPORTER), 2), "gwg", "geg", "gag", 'g', Item.ingotGold, 'w', Block.cloth,
                 'e', Item.enderPearl, 'a', EnumGem.ABYSSITE.getBlock());
     }
 }

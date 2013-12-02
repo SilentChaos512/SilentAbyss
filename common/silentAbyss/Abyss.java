@@ -15,6 +15,7 @@ import silentAbyss.configuration.ConfigHandler;
 import silentAbyss.core.handlers.GuiHandler;
 import silentAbyss.core.handlers.event.AbyssEventHandler;
 import silentAbyss.core.proxy.CommonProxy;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.enchantment.ModEnchantments;
@@ -47,7 +48,7 @@ public class Abyss {
     public static Random rng = new Random();
 
     // Abyss dimension id.
-    public static int dimension = 8;
+    public final static int dimension = 8;
 
     static int modEntityID = 0;
     static int startEntityId = 300;
@@ -84,9 +85,12 @@ public class Abyss {
 
         ModBlocks.initBlockRecipes();
         ModItems.initItemRecipes();
+        SARegistry.addRecipesAndOreDictEntries();
         ModItems.addRandomChestGenLoot();
 
         LocalizationHelper.init();
+        
+        ConfigHandler.save();
     }
 
     @EventHandler

@@ -19,7 +19,7 @@ public class BiomeGen1 extends BiomeGenBase {
         this.topBlock = (byte) Block.grass.blockID;
         this.fillerBlock = (byte) Block.dirt.blockID;
         this.setBiomeName("Abyss1");
-        this.waterColorMultiplier = 0xE42D17;
+        this.waterColorMultiplier = 0x2A1A98;
+        setTemperatureRainfall(1.0F, 0.9F);
     }
-
 }

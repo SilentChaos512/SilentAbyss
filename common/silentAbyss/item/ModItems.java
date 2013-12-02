@@ -5,8 +5,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
-import net.minecraftforge.oredict.OreDictionary;
 import silentAbyss.Abyss;
+import silentAbyss.configuration.ConfigHandler;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.enchantment.ModEnchantments;
 import silentAbyss.item.armor.PersonalElevationDevice;
 import silentAbyss.item.tool.AbyssAxe;
@@ -16,214 +17,73 @@ import silentAbyss.item.tool.AbyssShovel;
 import silentAbyss.item.tool.AbyssSword;
 import silentAbyss.item.tool.TeleporterLinker;
 import silentAbyss.lib.EnumGem;
-import silentAbyss.lib.ItemIds;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Strings;
-import silentAbyss.recipe.EnchantToolRecipe;
-import silentAbyss.recipe.SigilRecipe;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModItems {
 
-    public static ItemSA abyssGem;
-    public static ItemSA abyssShard;
-    public static Item potatoStick;
-    public static ItemSA kittySummon;
-    public static ItemSA torchBandolier;
-    public static ItemSA craftingMaterial;
-    public static ItemSA teleporterLinker;
-    public static ItemSA sigil;
-    public static ItemSA sigilRune;
-    public static ItemSA enchantToken;
-    public static ItemSA personalElevationDevice;
-    public static Item book;
-
-    public static Item swordAbyssRuby;
-    public static Item swordAbyssEmerald;
-    public static Item swordAbyssSapphire;
-    public static Item swordAbyssTopaz;
-    public static Item pickaxeAbyssRuby;
-    public static Item pickaxeAbyssEmerald;
-    public static Item pickaxeAbyssSapphire;
-    public static Item pickaxeAbyssTopaz;
-    public static Item shovelAbyssRuby;
-    public static Item shovelAbyssEmerald;
-    public static Item shovelAbyssSapphire;
-    public static Item shovelAbyssTopaz;
-    public static Item axeAbyssRuby;
-    public static Item axeAbyssEmerald;
-    public static Item axeAbyssSapphire;
-    public static Item axeAbyssTopaz;
-    public static Item hoeAbyssRuby;
-    public static Item hoeAbyssEmerald;
-    public static Item hoeAbyssSapphire;
-    public static Item hoeAbyssTopaz;
-
-    public static Item swordAbyssRubyPlus;
-    public static Item swordAbyssEmeraldPlus;
-    public static Item swordAbyssSapphirePlus;
-    public static Item swordAbyssTopazPlus;
-    public static Item pickaxeAbyssRubyPlus;
-    public static Item pickaxeAbyssEmeraldPlus;
-    public static Item pickaxeAbyssSapphirePlus;
-    public static Item pickaxeAbyssTopazPlus;
-    public static Item shovelAbyssRubyPlus;
-    public static Item shovelAbyssEmeraldPlus;
-    public static Item shovelAbyssSapphirePlus;
-    public static Item shovelAbyssTopazPlus;
-    public static Item axeAbyssRubyPlus;
-    public static Item axeAbyssEmeraldPlus;
-    public static Item axeAbyssSapphirePlus;
-    public static Item axeAbyssTopazPlus;
-    public static Item hoeAbyssRubyPlus;
-    public static Item hoeAbyssEmeraldPlus;
-    public static Item hoeAbyssSapphirePlus;
-    public static Item hoeAbyssTopazPlus;
+    public final static int CHAOS_METER_ID = 6017;
+    public final static int CRAFTING_MATERIAL_ID = 6009;
+    public final static int ENCHANT_TOKEN_ID = 6024;
+    public final static int GEM_ID = 6000;
+    public final static int KITTY_SUMMON_ID = 6018;
+    public final static int MOD_BOOK_ID = 6040;
+    public final static int PERSONAL_ELEVATION_DEVICE_ID = 6030;
+    public final static int POTATO_STICK_ID = 6010;
+    public final static int SHARD_ID = 6001;
+    public final static int SIGIL_ID = 6022;
+    public final static int SIGIL_RUNE_ID = 6021;
+    public final static int SUGAR_COOKIE_ID = 6011;
+    public final static int TELEPORTER_LINKER_ID = 6020;
+    public final static int TOOL_START_ID = 6060;
+    public final static int TORCH_BANDOLIER_ID = 6019;
 
     public static void init() {
 
-        /*
-         * Initialize item variables
-         */
-        abyssGem = new Gem(ItemIds.ABYSS_GEM);
-        abyssShard = new GemShard(ItemIds.ABYSS_SHARD);
-        potatoStick = new Food(ItemIds.POTATO_STICK, 8, 0.8f, false);
-        kittySummon = new KittySummon(ItemIds.KITTY_SUMMON);
-        torchBandolier = new TorchBandolier(ItemIds.TORCH_BANDOLIER);
-        craftingMaterial = new CraftingMaterial(ItemIds.CRAFTING_MATERIAL);
-        teleporterLinker = new TeleporterLinker(ItemIds.TELEPORTER_LINKER);
-        sigil = new Sigil(ItemIds.ABYSS_SIGIL);
-        sigilRune = new SigilRune(ItemIds.SIGIL_RUNE);
-        enchantToken = new EnchantToken(ItemIds.ENCHANT_TOKEN);
-        personalElevationDevice = new PersonalElevationDevice(ItemIds.PERSONAL_ELEVATION_DEVICE);
-        book = new ModBook(ItemIds.MOD_BOOK);
+        SARegistry.registerItem(ChaosMeter.class, Names.CHAOS_METER, CHAOS_METER_ID);
+        SARegistry.registerItem(CraftingMaterial.class, Names.CRAFTING_MATERIALS, CRAFTING_MATERIAL_ID,
+                "The ID for various crafting items, such as Ornate Sticks.");
+        SARegistry.registerItem(EnchantToken.class, Names.ENCHANT_TOKEN, ENCHANT_TOKEN_ID);
+        SARegistry.registerItem(Food.class, Names.POTATO_STICK, POTATO_STICK_ID, "", new Object[] { 8, 0.8f, false, Names.POTATO_STICK });
+        SARegistry.registerItem(Food.class, Names.SUGAR_COOKIE, SUGAR_COOKIE_ID, "", new Object[] { 2, 0.4f, false, Names.SUGAR_COOKIE });
+        SARegistry.registerItem(Gem.class, Names.GEM_ITEM, GEM_ID);
+        SARegistry.registerItem(GemShard.class, Names.SHARD, SHARD_ID);
+        SARegistry.registerItem(KittySummon.class, Names.KITTY_SUMMON, KITTY_SUMMON_ID);
+        SARegistry.registerItem(ModBook.class, Names.MOD_BOOK, MOD_BOOK_ID);
+        SARegistry.registerItem(PersonalElevationDevice.class, Names.PERSONAL_ELEVATION_DEVICE, PERSONAL_ELEVATION_DEVICE_ID);
+        SARegistry.registerItem(Sigil.class, Names.SIGIL, SIGIL_ID);
+        SARegistry.registerItem(SigilRune.class, Names.SIGIL_RUNE, SIGIL_RUNE_ID);
+        SARegistry.registerItem(TeleporterLinker.class, Names.TELEPORTER_LINKER, TELEPORTER_LINKER_ID);
+        SARegistry.registerItem(TorchBandolier.class, Names.TORCH_BANDOLIER, TORCH_BANDOLIER_ID);
 
-        swordAbyssRuby = new AbyssSword(ItemIds.TOOL_START + 0, Abyss.materialRegularAbyssGem, 0);
-        pickaxeAbyssRuby = new AbyssPickaxe(ItemIds.TOOL_START + 1, Abyss.materialRegularAbyssGem, 0);
-        shovelAbyssRuby = new AbyssShovel(ItemIds.TOOL_START + 2, Abyss.materialRegularAbyssGem, 0);
-        axeAbyssRuby = new AbyssAxe(ItemIds.TOOL_START + 3, Abyss.materialRegularAbyssGem, 0);
-        hoeAbyssRuby = new AbyssHoe(ItemIds.TOOL_START + 4, Abyss.materialRegularAbyssGem, 0);
-        swordAbyssEmerald = new AbyssSword(ItemIds.TOOL_START + 5, Abyss.materialRegularAbyssGem, 1);
-        pickaxeAbyssEmerald = new AbyssPickaxe(ItemIds.TOOL_START + 6, Abyss.materialRegularAbyssGem, 1);
-        shovelAbyssEmerald = new AbyssShovel(ItemIds.TOOL_START + 7, Abyss.materialRegularAbyssGem, 1);
-        axeAbyssEmerald = new AbyssAxe(ItemIds.TOOL_START + 8, Abyss.materialRegularAbyssGem, 1);
-        hoeAbyssEmerald = new AbyssHoe(ItemIds.TOOL_START + 9, Abyss.materialRegularAbyssGem, 1);
-        swordAbyssSapphire = new AbyssSword(ItemIds.TOOL_START + 10, Abyss.materialRegularAbyssGem, 2);
-        pickaxeAbyssSapphire = new AbyssPickaxe(ItemIds.TOOL_START + 11, Abyss.materialRegularAbyssGem, 2);
-        shovelAbyssSapphire = new AbyssShovel(ItemIds.TOOL_START + 12, Abyss.materialRegularAbyssGem, 2);
-        axeAbyssSapphire = new AbyssAxe(ItemIds.TOOL_START + 13, Abyss.materialRegularAbyssGem, 2);
-        hoeAbyssSapphire = new AbyssHoe(ItemIds.TOOL_START + 14, Abyss.materialRegularAbyssGem, 2);
-        swordAbyssTopaz = new AbyssSword(ItemIds.TOOL_START + 15, Abyss.materialRegularAbyssGem, 3);
-        pickaxeAbyssTopaz = new AbyssPickaxe(ItemIds.TOOL_START + 16, Abyss.materialRegularAbyssGem, 3);
-        shovelAbyssTopaz = new AbyssShovel(ItemIds.TOOL_START + 17, Abyss.materialRegularAbyssGem, 3);
-        axeAbyssTopaz = new AbyssAxe(ItemIds.TOOL_START + 18, Abyss.materialRegularAbyssGem, 3);
-        hoeAbyssTopaz = new AbyssHoe(ItemIds.TOOL_START + 19, Abyss.materialRegularAbyssGem, 3);
-        swordAbyssRubyPlus = new AbyssSword(ItemIds.TOOL_START + 20, Abyss.materialEnergizedAbyssGem, 0);
-        pickaxeAbyssRubyPlus = new AbyssPickaxe(ItemIds.TOOL_START + 21, Abyss.materialEnergizedAbyssGem, 0);
-        shovelAbyssRubyPlus = new AbyssShovel(ItemIds.TOOL_START + 22, Abyss.materialEnergizedAbyssGem, 0);
-        axeAbyssRubyPlus = new AbyssAxe(ItemIds.TOOL_START + 23, Abyss.materialEnergizedAbyssGem, 0);
-        hoeAbyssRubyPlus = new AbyssHoe(ItemIds.TOOL_START + 24, Abyss.materialEnergizedAbyssGem, 0);
-        swordAbyssEmeraldPlus = new AbyssSword(ItemIds.TOOL_START + 25, Abyss.materialEnergizedAbyssGem, 1);
-        pickaxeAbyssEmeraldPlus = new AbyssPickaxe(ItemIds.TOOL_START + 26, Abyss.materialEnergizedAbyssGem, 1);
-        shovelAbyssEmeraldPlus = new AbyssShovel(ItemIds.TOOL_START + 27, Abyss.materialEnergizedAbyssGem, 1);
-        axeAbyssEmeraldPlus = new AbyssAxe(ItemIds.TOOL_START + 28, Abyss.materialEnergizedAbyssGem, 1);
-        hoeAbyssEmeraldPlus = new AbyssHoe(ItemIds.TOOL_START + 29, Abyss.materialEnergizedAbyssGem, 1);
-        swordAbyssSapphirePlus = new AbyssSword(ItemIds.TOOL_START + 30, Abyss.materialEnergizedAbyssGem, 2);
-        pickaxeAbyssSapphirePlus = new AbyssPickaxe(ItemIds.TOOL_START + 31, Abyss.materialEnergizedAbyssGem, 2);
-        shovelAbyssSapphirePlus = new AbyssShovel(ItemIds.TOOL_START + 32, Abyss.materialEnergizedAbyssGem, 2);
-        axeAbyssSapphirePlus = new AbyssAxe(ItemIds.TOOL_START + 33, Abyss.materialEnergizedAbyssGem, 2);
-        hoeAbyssSapphirePlus = new AbyssHoe(ItemIds.TOOL_START + 34, Abyss.materialEnergizedAbyssGem, 2);
-        swordAbyssTopazPlus = new AbyssSword(ItemIds.TOOL_START + 35, Abyss.materialEnergizedAbyssGem, 3);
-        pickaxeAbyssTopazPlus = new AbyssPickaxe(ItemIds.TOOL_START + 36, Abyss.materialEnergizedAbyssGem, 3);
-        shovelAbyssTopazPlus = new AbyssShovel(ItemIds.TOOL_START + 37, Abyss.materialEnergizedAbyssGem, 3);
-        axeAbyssTopazPlus = new AbyssAxe(ItemIds.TOOL_START + 38, Abyss.materialEnergizedAbyssGem, 3);
-        hoeAbyssTopazPlus = new AbyssHoe(ItemIds.TOOL_START + 39, Abyss.materialEnergizedAbyssGem, 3);
-
-        // Ore dictionary
-        OreDictionary.registerOre("gemRuby", new ItemStack(abyssGem, 1, 0));
-        OreDictionary.registerOre("gemEmerald", new ItemStack(abyssGem, 1, 1));
-        OreDictionary.registerOre("gemSapphire", new ItemStack(abyssGem, 1, 2));
-        OreDictionary.registerOre("gemTopaz", new ItemStack(abyssGem, 1, 3));
-        OreDictionary.registerOre("gemAbyssite", EnumGem.ABYSSITE.getItem());
-        OreDictionary.registerOre("gemPurite", EnumGem.PURITE.getItem());
-        for (int i = 0; i < 4; ++i) {
-            OreDictionary.registerOre(Strings.ORE_DICT_GEM_BASIC, new ItemStack(abyssGem, 1, i));
+        // Register tools.
+        int id = TOOL_START_ID - 1;
+        int gemType; // 0-3
+        Object[] params = new Object[] { null, 0 }; // Constructor parameters
+        for (int i = 0; i < 8; ++i) {
+            // 8 loops, first regular gems, then supercharged.
+            boolean supercharged = i > 3;
+            gemType = supercharged ? i - 4 : i;
+            params[0] = supercharged ? Abyss.materialEnergizedAbyssGem : Abyss.materialRegularAbyssGem;
+            params[1] = gemType;
+            String s = EnumGem.values()[gemType].name + (supercharged ? " Plus" : "");
+            SARegistry.registerItem(AbyssSword.class, "Sword " + s, ++id, "", params);
+            SARegistry.registerItem(AbyssPickaxe.class, "Pickaxe " + s, ++id, "", params);
+            SARegistry.registerItem(AbyssShovel.class, "Shovel " + s, ++id, "", params);
+            SARegistry.registerItem(AbyssAxe.class, "Axe " + s, ++id, "", params);
+            SARegistry.registerItem(AbyssHoe.class, "Hoe " + s, ++id, "", params);
         }
     }
 
     public static void initItemRecipes() {
 
-        abyssGem.addRecipes();
-        abyssShard.addRecipes();
-        craftingMaterial.addRecipes();
         Food.addRecipes();
-        kittySummon.addRecipes();
-        torchBandolier.addRecipes();
-        sigil.addRecipes();
-        sigilRune.addRecipes();
-        enchantToken.addRecipes();
-        teleporterLinker.addRecipes();
-        personalElevationDevice.addRecipes();
-        ModBook.addRecipes();
-        GameRegistry.addRecipe(new EnchantToolRecipe());
-        GameRegistry.addRecipe(new SigilRecipe());
-
-        ItemStack rAbyssRuby = EnumGem.RUBY.getItem();
-        ItemStack rAbyssEmerald = EnumGem.EMERALD.getItem();
-        ItemStack rAbyssSapphire = EnumGem.SAPPHIRE.getItem();
-        ItemStack rAbyssTopaz = EnumGem.TOPAZ.getItem();
-        ItemStack rAbyssRubyPlus = EnumGem.RUBY_PLUS.getItem();
-        ItemStack rAbyssEmeraldPlus = EnumGem.EMERALD_PLUS.getItem();
-        ItemStack rAbyssSapphirePlus = EnumGem.SAPPHIRE_PLUS.getItem();
-        ItemStack rAbyssTopazPlus = EnumGem.TOPAZ_PLUS.getItem();
-
-        // Abyss tools
-        AbyssSword.addRecipe(new ItemStack(swordAbyssRuby), rAbyssRuby, false);
-        AbyssSword.addRecipe(new ItemStack(swordAbyssEmerald), rAbyssEmerald, false);
-        AbyssSword.addRecipe(new ItemStack(swordAbyssSapphire), rAbyssSapphire, false);
-        AbyssSword.addRecipe(new ItemStack(swordAbyssTopaz), rAbyssTopaz, false);
-        AbyssSword.addRecipe(new ItemStack(swordAbyssRubyPlus), rAbyssRubyPlus, true);
-        AbyssSword.addRecipe(new ItemStack(swordAbyssEmeraldPlus), rAbyssEmeraldPlus, true);
-        AbyssSword.addRecipe(new ItemStack(swordAbyssSapphirePlus), rAbyssSapphirePlus, true);
-        AbyssSword.addRecipe(new ItemStack(swordAbyssTopazPlus), rAbyssTopazPlus, true);
-
-        AbyssPickaxe.addRecipe(new ItemStack(pickaxeAbyssRuby), rAbyssRuby, false);
-        AbyssPickaxe.addRecipe(new ItemStack(pickaxeAbyssEmerald), rAbyssEmerald, false);
-        AbyssPickaxe.addRecipe(new ItemStack(pickaxeAbyssSapphire), rAbyssSapphire, false);
-        AbyssPickaxe.addRecipe(new ItemStack(pickaxeAbyssTopaz), rAbyssTopaz, false);
-        AbyssPickaxe.addRecipe(new ItemStack(pickaxeAbyssRubyPlus), rAbyssRubyPlus, true);
-        AbyssPickaxe.addRecipe(new ItemStack(pickaxeAbyssEmeraldPlus), rAbyssEmeraldPlus, true);
-        AbyssPickaxe.addRecipe(new ItemStack(pickaxeAbyssSapphirePlus), rAbyssSapphirePlus, true);
-        AbyssPickaxe.addRecipe(new ItemStack(pickaxeAbyssTopazPlus), rAbyssTopazPlus, true);
-
-        AbyssShovel.addRecipe(new ItemStack(shovelAbyssRuby), rAbyssRuby, false);
-        AbyssShovel.addRecipe(new ItemStack(shovelAbyssEmerald), rAbyssEmerald, false);
-        AbyssShovel.addRecipe(new ItemStack(shovelAbyssSapphire), rAbyssSapphire, false);
-        AbyssShovel.addRecipe(new ItemStack(shovelAbyssTopaz), rAbyssTopaz, false);
-        AbyssShovel.addRecipe(new ItemStack(shovelAbyssRubyPlus), rAbyssRubyPlus, true);
-        AbyssShovel.addRecipe(new ItemStack(shovelAbyssEmeraldPlus), rAbyssEmeraldPlus, true);
-        AbyssShovel.addRecipe(new ItemStack(shovelAbyssSapphirePlus), rAbyssSapphirePlus, true);
-        AbyssShovel.addRecipe(new ItemStack(shovelAbyssTopazPlus), rAbyssTopazPlus, true);
-
-        AbyssAxe.addRecipe(new ItemStack(axeAbyssRuby), rAbyssRuby, false);
-        AbyssAxe.addRecipe(new ItemStack(axeAbyssEmerald), rAbyssEmerald, false);
-        AbyssAxe.addRecipe(new ItemStack(axeAbyssSapphire), rAbyssSapphire, false);
-        AbyssAxe.addRecipe(new ItemStack(axeAbyssTopaz), rAbyssTopaz, false);
-        AbyssAxe.addRecipe(new ItemStack(axeAbyssRubyPlus), rAbyssRubyPlus, true);
-        AbyssAxe.addRecipe(new ItemStack(axeAbyssEmeraldPlus), rAbyssEmeraldPlus, true);
-        AbyssAxe.addRecipe(new ItemStack(axeAbyssSapphirePlus), rAbyssSapphirePlus, true);
-        AbyssAxe.addRecipe(new ItemStack(axeAbyssTopazPlus), rAbyssTopazPlus, true);
-
-        AbyssHoe.addRecipe(new ItemStack(hoeAbyssRuby), rAbyssRuby, false);
-        AbyssHoe.addRecipe(new ItemStack(hoeAbyssEmerald), rAbyssEmerald, false);
-        AbyssHoe.addRecipe(new ItemStack(hoeAbyssSapphire), rAbyssSapphire, false);
-        AbyssHoe.addRecipe(new ItemStack(hoeAbyssTopaz), rAbyssTopaz, false);
-        AbyssHoe.addRecipe(new ItemStack(hoeAbyssRubyPlus), rAbyssRubyPlus, true);
-        AbyssHoe.addRecipe(new ItemStack(hoeAbyssEmeraldPlus), rAbyssEmeraldPlus, true);
-        AbyssHoe.addRecipe(new ItemStack(hoeAbyssSapphirePlus), rAbyssSapphirePlus, true);
-        AbyssHoe.addRecipe(new ItemStack(hoeAbyssTopazPlus), rAbyssTopazPlus, true);
     }
 
     public static void addRandomChestGenLoot() {
+
+        ItemStack potatoStick = new ItemStack(SARegistry.getItem(Names.POTATO_STICK));
+        Item enchantToken = SARegistry.getItem(Names.ENCHANT_TOKEN);
 
         // Abyssite - can spawn in most chests.
         ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(EnumGem.ABYSSITE.getItem(), 1, 4, 20));
@@ -251,71 +111,53 @@ public class ModItems {
                 .addItem(new WeightedRandomChestContent(EnumGem.PURITE.getItem(), 1, 4, 20));
 
         // Abyss gems - rarely in bonus chest, infrequently in pyramids
-        ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 0), 1, 4, 5));
-        ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 1), 1, 4, 5));
-        ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 2), 1, 4, 5));
-        ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 3), 1, 4, 5));
+        ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(new WeightedRandomChestContent(EnumGem.RUBY.getItem(), 1, 4, 5));
+        ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(new WeightedRandomChestContent(EnumGem.EMERALD.getItem(), 1, 4, 5));
+        ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(new WeightedRandomChestContent(EnumGem.SAPPHIRE.getItem(), 1, 4, 5));
+        ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(new WeightedRandomChestContent(EnumGem.TOPAZ.getItem(), 1, 4, 5));
+        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(new WeightedRandomChestContent(EnumGem.RUBY.getItem(), 1, 4, 50));
         ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 0), 1, 4, 50));
+                new WeightedRandomChestContent(EnumGem.EMERALD.getItem(), 1, 4, 50));
         ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 1), 1, 4, 50));
-        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 2), 1, 4, 50));
-        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 3), 1, 4, 50));
+                new WeightedRandomChestContent(EnumGem.SAPPHIRE.getItem(), 1, 4, 50));
+        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_DESERT_CHEST)
+                .addItem(new WeightedRandomChestContent(EnumGem.TOPAZ.getItem(), 1, 4, 50));
+        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(new WeightedRandomChestContent(EnumGem.RUBY.getItem(), 1, 4, 35));
         ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 0), 1, 4, 35));
+                new WeightedRandomChestContent(EnumGem.EMERALD.getItem(), 1, 4, 35));
         ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 1), 1, 4, 35));
-        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 2), 1, 4, 35));
-        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 3), 1, 4, 35));
+                new WeightedRandomChestContent(EnumGem.SAPPHIRE.getItem(), 1, 4, 35));
+        ChestGenHooks.getInfo(ChestGenHooks.PYRAMID_JUNGLE_CHEST)
+                .addItem(new WeightedRandomChestContent(EnumGem.TOPAZ.getItem(), 1, 4, 35));
 
         // Taters on sticks! - fairly common
-        ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.potatoStick), 1, 4, 17));
-        ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.potatoStick), 1, 4, 44));
-        ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.potatoStick), 1, 4, 44));
-        ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.potatoStick), 1, 4, 33));
-        ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.potatoStick), 1, 4, 33));
+        ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST).addItem(new WeightedRandomChestContent(potatoStick, 1, 4, 17));
+        ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(potatoStick, 1, 4, 44));
+        ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(potatoStick, 1, 4, 44));
+        ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR).addItem(new WeightedRandomChestContent(potatoStick, 1, 4, 33));
+        ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING).addItem(new WeightedRandomChestContent(potatoStick, 1, 4, 33));
 
         // Shrine chests
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(EnumGem.ABYSSITE.getItem(), 1, 4, 25));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(EnumGem.PURITE.getItem(), 1, 4, 25));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(EnumGem.RUBY.getItem(), 1, 4, 100));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(EnumGem.EMERALD.getItem(), 1, 4, 100));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(EnumGem.SAPPHIRE.getItem(), 1, 4, 100));
+        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(EnumGem.TOPAZ.getItem(), 1, 4, 100));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 0), 1, 4, 100));
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 1), 1, 4, 100));
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 2), 1, 4, 100));
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.abyssGem, 1, 3), 1, 4, 100));
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.craftingMaterial, 1, 0), 2, 4, 10));
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.teleporterLinker), 1, 1, 1));
+                new WeightedRandomChestContent(new ItemStack(SARegistry.getItem(Names.CRAFTING_MATERIALS), 1, 0), 2, 4, 10));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.pickaxeGold), 1, 1, 1));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.enderPearl), 1, 4, 70));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.ingotIron), 4, 10, 40));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.ingotGold), 2, 6, 20));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.diamond), 1, 4, 7));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(Item.book), 4, 8, 16));
-        ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(ModItems.book, 1, 0), 1, 1, 16));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.enchantToken, 1, ModEnchantments.mending.effectId), 1, 1, 7));
+                new WeightedRandomChestContent(new ItemStack(enchantToken, 1, ModEnchantments.mending.effectId), 1, 1, 7));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.enchantToken, 1, Enchantment.fortune.effectId), 1, 1, 7));
+                new WeightedRandomChestContent(new ItemStack(enchantToken, 1, Enchantment.fortune.effectId), 1, 1, 7));
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).addItem(
-                new WeightedRandomChestContent(new ItemStack(ModItems.enchantToken, 1, Enchantment.silkTouch.effectId), 1, 1, 7));
+                new WeightedRandomChestContent(new ItemStack(enchantToken, 1, Enchantment.silkTouch.effectId), 1, 1, 7));
 
         // Some configuring...
         ChestGenHooks.getInfo(Strings.SHRINE_CHEST).setMin(8);

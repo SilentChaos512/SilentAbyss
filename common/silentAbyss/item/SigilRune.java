@@ -13,6 +13,7 @@ import net.minecraft.util.Icon;
 import silentAbyss.core.sigil.SigilEffect;
 import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.lib.EnumGem;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -77,14 +78,14 @@ public class SigilRune extends ItemSA {
     @Override
     public String getUnlocalizedName(ItemStack stack) {
 
-        return getUnlocalizedName(Strings.SIGIL_RUNE_NAME);
+        return getUnlocalizedName(Names.SIGIL_RUNE);
     }
 
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IconRegister reg) {
 
-        String s = Strings.RESOURCE_PREFIX + Strings.SIGIL_RUNE_NAME;
+        String s = Strings.RESOURCE_PREFIX + Names.SIGIL_RUNE;
         iconBlank = reg.registerIcon(s);
         iconD = reg.registerIcon(s + "_D");
         iconM = reg.registerIcon(s + "_M");

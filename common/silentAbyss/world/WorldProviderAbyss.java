@@ -5,6 +5,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 import silentAbyss.Abyss;
+import silentAbyss.world.biome.ModBiomes;
 import silentAbyss.world.gen.ChunkProviderAbyss;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -16,7 +17,7 @@ public class WorldProviderAbyss extends WorldProvider {
     @Override
     public void registerWorldChunkManager() {
 
-        worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.extremeHills, 0.8F, 0.1F);
+        worldChunkMgr = new WorldChunkManagerHell(ModBiomes.biome1, 0.8F, 0.1F);
         dimensionId = Abyss.dimension;
         hasNoSky = false;
     }

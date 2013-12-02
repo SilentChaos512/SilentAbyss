@@ -10,14 +10,16 @@ import silentAbyss.client.renderer.entity.RenderProjectileMagic;
 import silentAbyss.client.renderer.item.ItemTestRenderer;
 import silentAbyss.client.renderer.item.RenderSigil;
 import silentAbyss.client.renderer.tileentity.TileEntityTestRenderer;
-import silentAbyss.core.handlers.tick.PlayerClientServerTickHandler;
+import silentAbyss.core.handlers.tick.PlayerClientTickHandler;
 import silentAbyss.core.handlers.tick.RenderTickHandler;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.core.util.KeyHelper;
 import silentAbyss.entity.monster.CrimsonCreeper;
 import silentAbyss.entity.monster.EntityGrumbling;
 import silentAbyss.entity.projectile.EntityMeteor;
 import silentAbyss.entity.projectile.EntityProjectileMagic;
 import silentAbyss.item.ModItems;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.RenderIds;
 import silentAbyss.tileentity.TileTest;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -43,8 +45,8 @@ public class ClientProxy extends CommonProxy {
 
     private void registerRenderersItems() {
 
-        MinecraftForgeClient.registerItemRenderer(ModItems.sigil.itemID, new RenderSigil());
-        MinecraftForgeClient.registerItemRenderer(ModBlocks.blockTest.blockID, new ItemTestRenderer());
+        MinecraftForgeClient.registerItemRenderer(SARegistry.getItem(Names.SIGIL).itemID, new RenderSigil());
+//        MinecraftForgeClient.registerItemRenderer(ModBlocks.blockTest.blockID, new ItemTestRenderer());
     }
 
     private void registerRenderersMobs() {
@@ -63,7 +65,7 @@ public class ClientProxy extends CommonProxy {
     public void registerTickHandlers() {
 
         super.registerTickHandlers();
-        TickRegistry.registerTickHandler(new PlayerClientServerTickHandler(), Side.CLIENT);
+        TickRegistry.registerTickHandler(new PlayerClientTickHandler(), Side.CLIENT);
         TickRegistry.registerTickHandler(new RenderTickHandler(), Side.CLIENT);
     }
 

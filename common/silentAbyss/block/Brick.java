@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import silentAbyss.item.ModItems;
 import silentAbyss.lib.EnumGem;
+import silentAbyss.lib.Names;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Brick extends BlockSA {
@@ -21,15 +22,15 @@ public class Brick extends BlockSA {
         setCreativeTab(CreativeTabs.tabBlock);
         setHasSubtypes(true);
         setHasBasicGemSubtypes(true);
-        setUnlocalizedName("Brick");
+        setUnlocalizedName(Names.BRICK);
     }
 
     @Override
     public void addRecipes() {
 
         for (int i = 0; i < icons.length; ++i) {
-            GameRegistry.addShapedRecipe(new ItemStack(this, 8, i), "sss", "sgs", "sss", 's', Block.stoneBrick, 'g', new ItemStack(
-                    ModItems.abyssShard, 1, i));
+            GameRegistry.addShapedRecipe(new ItemStack(this, 8, i), "sss", "sgs", "sss", 's', Block.stoneBrick, 'g',
+                    EnumGem.values()[i].getShard());
         }
     }
 }

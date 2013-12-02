@@ -3,7 +3,7 @@ package silentAbyss.lib;
 import java.util.Arrays;
 
 import net.minecraft.item.ItemStack;
-import silentAbyss.block.GemBlock;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.item.Gem;
 import silentAbyss.item.GemShard;
 
@@ -64,7 +64,7 @@ public enum EnumGem {
      */
     public ItemStack getBlock() {
         
-        return id < basic().length ? GemBlock.getGem(id) : null;
+        return id < basic().length ? new ItemStack(SARegistry.getBlock(Names.GEM_BLOCK), 1, id) : null;
     }
     
     /**
@@ -73,7 +73,7 @@ public enum EnumGem {
      */
     public ItemStack getItem() {
         
-        return Gem.getGem(id);
+        return new ItemStack(SARegistry.getItem(Names.GEM_ITEM), 1, id);
     }
     
     /**
@@ -81,7 +81,7 @@ public enum EnumGem {
      * @return
      */
     public ItemStack getShard() {
-        return id < basic().length ? GemShard.getGem(id) : null;
+        return id < basic().length ? new ItemStack(SARegistry.getItem(Names.SHARD), 1, id) : null;
     }
 
     /**

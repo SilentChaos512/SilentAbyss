@@ -4,10 +4,13 @@ import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Icon;
+import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
@@ -27,6 +30,16 @@ public class ItemSA extends Item {
         super(id - Reference.SHIFTED_ID_RANGE_CORRECTION);
         setUnlocalizedName(Integer.toString(id));
     }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+        
+        String s = LocalizationHelper.getMessageText(itemName);
+        if (!s.equals(EnumChatFormatting.ITALIC + LocalizationHelper.MISC_PREFIX + itemName)) {
+            list.add(s);
+        }
+    }
 
     @Override
     @SideOnly(Side.CLIENT)
@@ -36,7 +49,7 @@ public class ItemSA extends Item {
             registerIconsForBasicGems(reg);
         }
         else {
-            itemIcon = reg.registerIcon(Strings.RESOURCE_PREFIX + getUnlocalizedName());
+            itemIcon = reg.registerIcon(Strings.RESOURCE_PREFIX + itemName);
         }
     }
 
@@ -136,5 +149,12 @@ public class ItemSA extends Item {
      */
     public void addRecipes() {
 
-    };
+    }
+    
+    /**
+     * Should be overridden if the deriving class needs ore dictionary entries.
+     */
+    public void addOreDict() {
+
+    }
 }

@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import silentAbyss.core.util.LocalizationHelper;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -38,14 +39,15 @@ public class TorchBandolier extends ItemSA {
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 
         // Item description
-        list.add(LocalizationHelper.getMessageText(Strings.TORCH_BANDOLIER_NAME));
+        list.add(LocalizationHelper.getMessageText(Names.TORCH_BANDOLIER));
         // Auto-fill mode
         if (stack.stackTagCompound != null) {
-            if (stack.stackTagCompound.hasKey(Strings.TORCH_BANDOLIER_AUTO_FILL) && stack.stackTagCompound.getBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL)) {
-                list.add(LocalizationHelper.getMessageText(Strings.TORCH_BANDOLIER_NAME + "AutoFillOn", EnumChatFormatting.GREEN));
+            if (stack.stackTagCompound.hasKey(Strings.TORCH_BANDOLIER_AUTO_FILL)
+                    && stack.stackTagCompound.getBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL)) {
+                list.add(LocalizationHelper.getMessageText(Names.TORCH_BANDOLIER + "AutoFillOn", EnumChatFormatting.GREEN));
             }
             else {
-                list.add(LocalizationHelper.getMessageText(Strings.TORCH_BANDOLIER_NAME + "AutoFillOff", EnumChatFormatting.RED));
+                list.add(LocalizationHelper.getMessageText(Names.TORCH_BANDOLIER + "AutoFillOff", EnumChatFormatting.RED));
             }
         }
         if (stack.getItemDamage() < MAX_DAMAGE) {
@@ -57,25 +59,25 @@ public class TorchBandolier extends ItemSA {
     @Override
     public String getUnlocalizedName(ItemStack stack) {
 
-        return getUnlocalizedName(Strings.TORCH_BANDOLIER_NAME);
+        return getUnlocalizedName(Names.TORCH_BANDOLIER);
     }
 
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IconRegister reg) {
 
-        itemIcon = reg.registerIcon(Strings.RESOURCE_PREFIX + Strings.TORCH_BANDOLIER_NAME);
+        itemIcon = reg.registerIcon(Strings.RESOURCE_PREFIX + Names.TORCH_BANDOLIER);
     }
 
     @Override
     public void onCreated(ItemStack stack, World world, EntityPlayer player) {
 
         setDamage(stack, MAX_DAMAGE);
-        
+
         if (stack.stackTagCompound == null) {
             stack.stackTagCompound = new NBTTagCompound();
         }
-        
+
         stack.stackTagCompound.setBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL, true);
     }
 
@@ -89,20 +91,20 @@ public class TorchBandolier extends ItemSA {
             if (stack.stackTagCompound == null) {
                 stack.stackTagCompound = new NBTTagCompound();
             }
-            
+
             boolean autoFill = true;
             if (stack.stackTagCompound.hasKey(Strings.TORCH_BANDOLIER_AUTO_FILL)) {
                 autoFill = !stack.stackTagCompound.getBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL);
             }
-            
+
             stack.stackTagCompound.setBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL, autoFill);
-            
+
             if (world.isRemote) {
                 if (autoFill) {
-                    player.addChatMessage(LocalizationHelper.getMessageText(Strings.TORCH_BANDOLIER_NAME + "AutoFillOn", EnumChatFormatting.GREEN));
+                    player.addChatMessage(LocalizationHelper.getMessageText(Names.TORCH_BANDOLIER + "AutoFillOn", EnumChatFormatting.GREEN));
                 }
                 else {
-                    player.addChatMessage(LocalizationHelper.getMessageText(Strings.TORCH_BANDOLIER_NAME + "AutoFillOff", EnumChatFormatting.RED));
+                    player.addChatMessage(LocalizationHelper.getMessageText(Names.TORCH_BANDOLIER + "AutoFillOff", EnumChatFormatting.RED));
                 }
             }
         }
@@ -140,8 +142,7 @@ public class TorchBandolier extends ItemSA {
     }
 
     /**
-     * Place a torch, if possible. Mostly the same code Abyss tools use to place
-     * blocks.
+     * Place a torch, if possible. Mostly the same code Abyss tools use to place blocks.
      */
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY,

@@ -7,9 +7,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import silentAbyss.item.Gem;
 import silentAbyss.lib.EnumGem;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 
 public class Lamp extends BlockSA {
 
@@ -21,17 +21,17 @@ public class Lamp extends BlockSA {
         setLightValue(1.0f);
         setHasSubtypes(true);
         setHasBasicGemSubtypes(true);
-        setUnlocalizedName(Strings.LAMP_NAME);
+        setUnlocalizedName(Names.LAMP);
     }
-    
+
     @Override
     public void addRecipes() {
-        
+
         for (int i = 0; i < icons.length; ++i) {
-            GameRegistry.addShapedRecipe(new ItemStack(this, 1, i), "igi", "rsr", "igi",
-                    'i', Item.ingotIron, 'g', Item.glowstone, 'r', Item.redstone, 's', Gem.getGem(i));
-            GameRegistry.addShapedRecipe(new ItemStack(this, 1, i), "iri", "gsg", "iri",
-                    'i', Item.ingotIron, 'g', Item.glowstone, 'r', Item.redstone, 's', Gem.getGem(i));
+            GameRegistry.addShapedRecipe(new ItemStack(this, 1, i), "igi", "rsr", "igi", 'i', Item.ingotIron, 'g', Item.glowstone, 'r',
+                    Item.redstone, 's', EnumGem.values()[i].getItem());
+            GameRegistry.addShapedRecipe(new ItemStack(this, 1, i), "iri", "gsg", "iri", 'i', Item.ingotIron, 'g', Item.glowstone, 'r',
+                    Item.redstone, 's', EnumGem.values()[i].getItem());
         }
     }
 }

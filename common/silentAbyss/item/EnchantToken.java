@@ -16,7 +16,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import silentAbyss.block.GemBlock;
+import net.minecraft.util.EnumChatFormatting;
+import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.enchantment.ModEnchantments;
 import silentAbyss.item.tool.AbyssAxe;
 import silentAbyss.item.tool.AbyssHoe;
@@ -24,6 +25,7 @@ import silentAbyss.item.tool.AbyssPickaxe;
 import silentAbyss.item.tool.AbyssShovel;
 import silentAbyss.item.tool.AbyssSword;
 import silentAbyss.lib.EnumGem;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -100,8 +102,7 @@ public class EnchantToken extends ItemSA {
     }
 
     /**
-     * Adds an enchantment to the hash map. validTools is appended to the
-     * enchantment name after VALID_TOOL_SEP.
+     * Adds an enchantment to the hash map. validTools is appended to the enchantment name after VALID_TOOL_SEP.
      * 
      * @param e
      * @param validTools
@@ -115,8 +116,7 @@ public class EnchantToken extends ItemSA {
     }
 
     /**
-     * Gets the localized name of the enchantment by first stripping off the
-     * valid tool data.
+     * Gets the localized name of the enchantment by first stripping off the valid tool data.
      * 
      * @param key
      * @return
@@ -146,17 +146,17 @@ public class EnchantToken extends ItemSA {
 
         try {
             if ((k & T_SWORD) != 0)
-                l.add("Sword");
+                l.add(LocalizationHelper.getMessageText(Strings.TOOL_SWORD, Strings.EMPTY));
             if ((k & T_PICKAXE) != 0)
-                l.add("Pickaxe");
+                l.add(LocalizationHelper.getMessageText(Strings.TOOL_PICKAXE, Strings.EMPTY));
             if ((k & T_SHOVEL) != 0)
-                l.add("Shovel");
+                l.add(LocalizationHelper.getMessageText(Strings.TOOL_SHOVEL, Strings.EMPTY));
             if ((k & T_AXE) != 0)
-                l.add("Axe");
+                l.add(LocalizationHelper.getMessageText(Strings.TOOL_AXE, Strings.EMPTY));
             if ((k & T_HOE) != 0)
-                l.add("Hoe");
+                l.add(LocalizationHelper.getMessageText(Strings.TOOL_HOE, Strings.EMPTY));
             if ((k & T_SIGIL) != 0)
-                l.add("Sigil");
+                l.add(LocalizationHelper.getMessageText(Strings.TOOL_SIGIL, Strings.EMPTY));
 
             StringBuilder sb = new StringBuilder();
 
@@ -177,9 +177,8 @@ public class EnchantToken extends ItemSA {
     }
 
     /**
-     * Determine if token can be applied to the tool. Checks that the tool is
-     * the right type, the enchantments don't conflict, and the enchantment can
-     * be "leveled up".
+     * Determine if token can be applied to the tool. Checks that the tool is the right type, the enchantments don't
+     * conflict, and the enchantment can be "leveled up".
      * 
      * @param token
      * @param tool
@@ -198,8 +197,7 @@ public class EnchantToken extends ItemSA {
         if ((tool.getItem() instanceof AbyssSword && (k & T_SWORD) != 0)
                 || (tool.getItem() instanceof AbyssPickaxe && (k & T_PICKAXE) != 0)
                 || (tool.getItem() instanceof AbyssShovel && (k & T_SHOVEL) != 0)
-                || (tool.getItem() instanceof AbyssAxe && (k & T_AXE) != 0)
-                || (tool.getItem() instanceof Sigil && (k & T_SIGIL) != 0)
+                || (tool.getItem() instanceof AbyssAxe && (k & T_AXE) != 0) || (tool.getItem() instanceof Sigil && (k & T_SIGIL) != 0)
                 || (tool.getItem() instanceof AbyssHoe && (k & T_HOE) != 0)) {
             // Token and tool type match.
             // Does tool have any enchantments?
@@ -237,8 +235,7 @@ public class EnchantToken extends ItemSA {
     }
 
     /**
-     * Applies the token's enchantment to the tool. Need to check
-     * canApplyTokenToTool before calling.
+     * Applies the token's enchantment to the tool. Need to check canApplyTokenToTool before calling.
      * 
      * @param token
      * @param tool
@@ -277,16 +274,29 @@ public class EnchantToken extends ItemSA {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 
-        int k = stack.getItemDamage();
+        final int k = stack.getItemDamage();
 
         if (k == 0) {
-            list.add("\u00a76Empty");
-            list.add("Used to enchant Abyss tools.");
+            list.add(LocalizationHelper.getMessageText(Strings.EFFECT_EMPTY, EnumChatFormatting.GOLD));
+            list.add(LocalizationHelper.getMessageText(Strings.ENCHANT_TOKEN_1, Strings.EMPTY));
         }
         else if (enchants.containsKey(k)) {
-            list.add("\u00a76" + getEnchantmentName(k));
-            list.add("Can apply to:");
+            // Enchantment name.
+            list.add(EnumChatFormatting.GOLD + getEnchantmentName(k));
+            // Description text for my enchantments.
+            if (k == ModEnchantments.iceAspect.effectId) {
+                list.add(LocalizationHelper.getMessageText(Strings.ENCHANT_ICE_ASPECT, EnumChatFormatting.DARK_GRAY));
+            }
+            else if (k == ModEnchantments.mending.effectId) {
+                list.add(LocalizationHelper.getMessageText(Strings.ENCHANT_MENDING, EnumChatFormatting.DARK_GRAY));
+            }
+            else if (k == ModEnchantments.nihil.effectId) {
+                list.add(LocalizationHelper.getMessageText(Strings.ENCHANT_NIHIL, EnumChatFormatting.DARK_GRAY));
+            }
+            // List of valid tools.
+            list.add(LocalizationHelper.getMessageText(Strings.ENCHANT_TOKEN_2, Strings.EMPTY));
             list.add(validToolsFor(k));
+            list.add(LocalizationHelper.getMessageText(Strings.ENCHANT_TOKEN_3, EnumChatFormatting.DARK_GRAY));
         }
     }
 
@@ -317,7 +327,7 @@ public class EnchantToken extends ItemSA {
     @Override
     public String getUnlocalizedName(ItemStack stack) {
 
-        return getUnlocalizedName(Strings.ENCHANT_TOKEN_NAME);
+        return getUnlocalizedName(Names.ENCHANT_TOKEN);
     }
 
     @SideOnly(Side.CLIENT)
@@ -340,7 +350,7 @@ public class EnchantToken extends ItemSA {
 
         GameRegistry.addShapedRecipe(new ItemStack(this, 8, 0), "ggg", "rdr", "ggg", 'g', Item.ingotGold, 'r', Item.redstone, 'd',
                 EnumGem.ABYSS_DIAMOND.getItem());
-        
+
         addTokenRecipe(Enchantment.baneOfArthropods.effectId, ruby, 1, Item.spiderEye, 4, baseToken);
         addTokenRecipe(Enchantment.efficiency.effectId, emerald, 1, Item.ingotGold, 3, baseToken);
         addTokenRecipe(Enchantment.fireAspect.effectId, ruby, 1, Item.blazePowder, 4, baseToken);
@@ -351,28 +361,28 @@ public class EnchantToken extends ItemSA {
         addTokenRecipe(Enchantment.silkTouch.effectId, abyssite, 1, Item.emerald, 2, baseToken);
         addTokenRecipe(Enchantment.smite.effectId, ruby, 1, Item.rottenFlesh, 5, baseToken);
         addTokenRecipe(Enchantment.unbreaking.effectId, sapphire, 1, Item.ingotIron, 5, baseToken);
-        
+
         addTokenRecipe(ModEnchantments.iceAspect.effectId, sapphire, 1, Block.blockSnow, 3, baseToken);
-        addTokenRecipe(ModEnchantments.mending.effectId, purite, 1, CraftingMaterial.getStack(Strings.MYSTERY_GOO_NAME), 3, baseToken);
+        addTokenRecipe(ModEnchantments.mending.effectId, purite, 1, CraftingMaterial.getStack(Names.MYSTERY_GOO), 3, baseToken);
         addTokenRecipe(ModEnchantments.nihil.effectId, purite, 1, Item.potato, 2, baseToken);
     }
-    
+
     private void addTokenRecipe(int key, ItemStack gem, int gemCount, ItemStack otherMaterial, int otherCount, ItemStack baseToken) {
-        
+
         String row1 = gemCount == 1 ? " g " : (gemCount == 2 ? "g g" : "ggg");
         String row2 = otherCount < 4 ? " t " : "mtm";
         String row3 = otherCount == 1 ? " m " : (otherCount == 2 || otherCount == 4 ? "m m" : "mmm");
-        
+
         GameRegistry.addShapedRecipe(new ItemStack(this, 1, key), row1, row2, row3, 'g', gem, 'm', otherMaterial, 't', baseToken);
     }
-    
+
     private void addTokenRecipe(int key, ItemStack gem, int gemCount, Block otherMaterial, int otherCount, ItemStack baseToken) {
-        
+
         addTokenRecipe(key, gem, gemCount, new ItemStack(otherMaterial), otherCount, baseToken);
     }
-    
+
     private void addTokenRecipe(int key, ItemStack gem, int gemCount, Item otherMaterial, int otherCount, ItemStack baseToken) {
-        
+
         addTokenRecipe(key, gem, gemCount, new ItemStack(otherMaterial), otherCount, baseToken);
     }
 }

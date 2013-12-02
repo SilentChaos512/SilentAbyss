@@ -5,9 +5,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-import silentAbyss.item.ModItems;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.lib.EnumGem;
-import silentAbyss.lib.Strings;
+import silentAbyss.lib.Names;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class GemBlock extends BlockSA {
@@ -22,31 +22,19 @@ public class GemBlock extends BlockSA {
         setCreativeTab(CreativeTabs.tabBlock);
         setHasSubtypes(true);
         setHasBasicGemSubtypes(true);
-        setUnlocalizedName(Strings.GEM_BLOCK_NAME);
+        setUnlocalizedName(Names.GEM_BLOCK);
     }
 
-    /**
-     * Gets an ItemStack with one of the specified gem.
-     * 
-     * @param meta
-     *            The damage value
-     * @return
-     */
-    public static ItemStack getGem(int meta) {
-
-        return new ItemStack(ModBlocks.gem, 1, meta);
-    }
-    
     @Override
     public void addRecipes() {
 
         ItemStack gem, block;
 
         for (int i = 0; i < icons.length; ++i) {
-            gem = new ItemStack(ModItems.abyssGem, 1, i);
-            block = new ItemStack(ModBlocks.gem, 1, i);
+            gem = EnumGem.values()[i].getItem();
+            block = new ItemStack(this, 1, i);
             GameRegistry.addShapelessRecipe(block, gem, gem, gem, gem, gem, gem, gem, gem, gem);
-            GameRegistry.addShapelessRecipe(new ItemStack(ModItems.abyssGem, 9, i), block);
+            GameRegistry.addShapelessRecipe(new ItemStack(SARegistry.getItem(Names.GEM_ITEM), 9, i), block);
         }
     }
 }

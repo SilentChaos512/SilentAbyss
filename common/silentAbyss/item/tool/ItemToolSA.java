@@ -14,10 +14,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.ForgeHooks;
 import silentAbyss.Abyss;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.item.ItemSA;
-import silentAbyss.item.ModItems;
 import silentAbyss.item.TorchBandolier;
 import silentAbyss.lib.EnumGem;
+import silentAbyss.lib.Names;
 
 import com.google.common.collect.Multimap;
 
@@ -70,8 +71,8 @@ public abstract class ItemToolSA extends ItemSA {
 
                     // Check for overlap with player, except for torches and
                     // torch bandolier
-                    if (item.itemID != Block.torchWood.blockID && item.itemID != ModItems.torchBandolier.itemID && px == playerX
-                            && (py == playerY || py == playerY + 1 || py == playerY - 1) && pz == playerZ) {
+                    if (item.itemID != Block.torchWood.blockID && item.itemID != SARegistry.getItem(Names.TORCH_BANDOLIER).itemID
+                            && px == playerX && (py == playerY || py == playerY + 1 || py == playerY - 1) && pz == playerZ) {
                         return false;
                     }
 
@@ -132,7 +133,7 @@ public abstract class ItemToolSA extends ItemSA {
     public boolean getIsRepairable(ItemStack stack1, ItemStack stack2) {
 
         boolean isSupercharged = toolMaterial == Abyss.materialEnergizedAbyssGem;
-        ItemStack material = new ItemStack(ModItems.abyssGem, 1, gemType.id + (isSupercharged ? 6 : 0));
+        ItemStack material = new ItemStack(SARegistry.getItem(Names.GEM_ITEM), 1, gemType.id + (isSupercharged ? 6 : 0));
         if (material.itemID == stack2.itemID && material.getItemDamage() == stack2.getItemDamage()) {
             return true;
         }

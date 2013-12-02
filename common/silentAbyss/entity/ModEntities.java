@@ -49,8 +49,8 @@ public class ModEntities {
 
         id = 15;
 
-        registerMob(EntityGrumbling.class, Strings.ENTITY_GRUMBLING_NAME, ++id, false, EnumCreatureType.monster, 5, 4, 8, biomes, 0x7A65CF, 0x4DF200);
-        registerMob(CrimsonCreeper.class, Strings.ENTITY_CRIMSON_CREEPER_NAME, ++id, true, EnumCreatureType.monster, 5, 1, 4, biomes, 0xFE0000, 0x030303);
+        registerMob(EntityGrumbling.class, Strings.ENTITY_GRUMBLING_NAME, ++id, true, EnumCreatureType.monster, 6, 4, 8, biomes, 0x7A65CF, 0x4DF200);
+        registerMob(CrimsonCreeper.class, Strings.ENTITY_CRIMSON_CREEPER_NAME, ++id, true, EnumCreatureType.monster, 4, 1, 4, biomes, 0xFE0000, 0x030303);
         
 //        EntityRegistry.registerGlobalEntityID(EntityGrumbling.class, Strings.ENTITY_GRUMBLING_NAME,
 //                EntityRegistry.findGlobalUniqueEntityId(), 0x7A65CF, 0x4DF200);

@@ -8,8 +8,9 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.ChestGenHooks;
-import silentAbyss.block.ModBlocks;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.core.util.WorldGenHelper;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Strings;
 
 public class WorldGenAbyssShrine extends WorldGenerator {
@@ -22,22 +23,29 @@ public class WorldGenAbyssShrine extends WorldGenerator {
         }
 
         // Only spawn at/above sea level
-        if (y < 64) { return true; }
+        if (y < 64) {
+            return true;
+        }
 
         // Only spawn on ground blocks.
-        if (!WorldGenHelper.isBlockGround(world.getBlockId(x, y, z))) { return true; }
+        if (!WorldGenHelper.isBlockGround(world.getBlockId(x, y, z))) {
+            return true;
+        }
 
         int i = 0, j = 0;
 
         // Check for a 5x5 foundation
         for (i = -2; i < 3; ++i) {
             for (j = -2; j < 3; ++j) {
-                if (world.isAirBlock(x + i, y - 1, z + j)) { return true; }
+                if (world.isAirBlock(x + i, y - 1, z + j)) {
+                    return true;
+                }
             }
         }
 
         // Select either dark (4) or light (5) bricks.
         int m = random.nextInt(2) + 4;
+        int brickId = SARegistry.getBlock(Names.BRICK).blockID;
 
         /*
          * 1
@@ -51,20 +59,20 @@ public class WorldGenAbyssShrine extends WorldGenerator {
             }
         }
         // Gemstone bricks
-        world.setBlock(x - 1, y, z - 2, ModBlocks.brick.blockID, 0, 2);
-        world.setBlock(x + 0, y, z - 2, ModBlocks.brick.blockID, 0, 2);
-        world.setBlock(x + 1, y, z - 2, ModBlocks.brick.blockID, 0, 2);
-        world.setBlock(x + 2, y, z - 1, ModBlocks.brick.blockID, 1, 2);
-        world.setBlock(x + 2, y, z + 0, ModBlocks.brick.blockID, 1, 2);
-        world.setBlock(x + 2, y, z + 1, ModBlocks.brick.blockID, 1, 2);
-        world.setBlock(x - 1, y, z + 2, ModBlocks.brick.blockID, 2, 2);
-        world.setBlock(x + 0, y, z + 2, ModBlocks.brick.blockID, 2, 2);
-        world.setBlock(x + 1, y, z + 2, ModBlocks.brick.blockID, 2, 2);
-        world.setBlock(x - 2, y, z - 1, ModBlocks.brick.blockID, 3, 2);
-        world.setBlock(x - 2, y, z + 0, ModBlocks.brick.blockID, 3, 2);
-        world.setBlock(x - 2, y, z + 1, ModBlocks.brick.blockID, 3, 2);
+        world.setBlock(x - 1, y, z - 2, brickId, 0, 2);
+        world.setBlock(x + 0, y, z - 2, brickId, 0, 2);
+        world.setBlock(x + 1, y, z - 2, brickId, 0, 2);
+        world.setBlock(x + 2, y, z - 1, brickId, 1, 2);
+        world.setBlock(x + 2, y, z + 0, brickId, 1, 2);
+        world.setBlock(x + 2, y, z + 1, brickId, 1, 2);
+        world.setBlock(x - 1, y, z + 2, brickId, 2, 2);
+        world.setBlock(x + 0, y, z + 2, brickId, 2, 2);
+        world.setBlock(x + 1, y, z + 2, brickId, 2, 2);
+        world.setBlock(x - 2, y, z - 1, brickId, 3, 2);
+        world.setBlock(x - 2, y, z + 0, brickId, 3, 2);
+        world.setBlock(x - 2, y, z + 1, brickId, 3, 2);
         // Gemstone block in center
-        world.setBlock(x, y, z, ModBlocks.gem.blockID, m, 2);
+        world.setBlock(x, y, z, SARegistry.getBlock(Names.GEM_BLOCK).blockID, m, 2);
 
         /*
          * 2
@@ -132,7 +140,8 @@ public class WorldGenAbyssShrine extends WorldGenerator {
             for (j = -2; j < 3; ++j) {
                 if (i == 0 && j == 0) {
                     world.setBlock(x, y, z, Block.glowStone.blockID);
-                } else if (Math.abs(i) + Math.abs(j) < 3) {
+                }
+                else if (Math.abs(i) + Math.abs(j) < 3) {
                     setBrick(world, x + i, y, z + j, m);
                 }
             }
@@ -161,6 +170,6 @@ public class WorldGenAbyssShrine extends WorldGenerator {
 
     private void setBrick(World world, int x, int y, int z, int meta) {
 
-        world.setBlock(x, y, z, ModBlocks.brick.blockID, meta, 2);
+        world.setBlock(x, y, z, SARegistry.getBlock(Names.BRICK).blockID, meta, 2);
     }
 }

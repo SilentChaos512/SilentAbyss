@@ -5,11 +5,13 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
-import silentAbyss.item.ModItems;
+import net.minecraftforge.oredict.OreDictionary;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.lib.EnumGem;
-import silentAbyss.lib.Strings;
+import silentAbyss.lib.Names;
 
 public class Ore extends BlockSA {
 
@@ -23,13 +25,13 @@ public class Ore extends BlockSA {
         setCreativeTab(CreativeTabs.tabBlock);
         setHasSubtypes(true);
         setHasBasicGemSubtypes(true);
-        setUnlocalizedName(Strings.ORE_NAME);
+        setUnlocalizedName(Names.ORE);
     }
 
     @Override
     public int idDropped(int par1, Random random, int par2) {
 
-        return ModItems.abyssGem.itemID;
+        return SARegistry.getItem(Names.GEM_ITEM).itemID;
     }
 
     @Override
@@ -45,14 +47,14 @@ public class Ore extends BlockSA {
     }
 
     public int quantityDroppedWithBonus(int par1, Random random) {
-        
+
         if (par1 > 0) {
             int j = random.nextInt(par1 + 2) - 1;
-            
+
             if (j < 0) {
                 j = 0;
             }
-            
+
             return quantityDropped(random) * (j + 1);
         }
         else {
@@ -75,5 +77,16 @@ public class Ore extends BlockSA {
     public String getUnlocalizedName() {
 
         return getUnlocalizedName("ore");
+    }
+
+    @Override
+    public void addOreDict() {
+
+        OreDictionary.registerOre("oreRuby", new ItemStack(this, 1, EnumGem.RUBY.id));
+        OreDictionary.registerOre("oreEmerald", new ItemStack(this, 1, EnumGem.EMERALD.id));
+        OreDictionary.registerOre("oreSapphire", new ItemStack(this, 1, EnumGem.SAPPHIRE.id));
+        OreDictionary.registerOre("oreTopaz", new ItemStack(this, 1, EnumGem.TOPAZ.id));
+        OreDictionary.registerOre("oreAbyssite", new ItemStack(this, 1, EnumGem.ABYSSITE.id));
+        OreDictionary.registerOre("orePurite", new ItemStack(this, 1, EnumGem.PURITE.id));
     }
 }

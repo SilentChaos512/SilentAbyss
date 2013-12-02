@@ -14,6 +14,9 @@ import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
 import silentAbyss.block.ModBlocks;
+import silentAbyss.core.registry.SARegistry;
+import silentAbyss.lib.Names;
+import silentAbyss.lib.Strings;
 
 public class AbyssDimensionTeleporter extends Teleporter {
 
@@ -60,8 +63,7 @@ public class AbyssDimensionTeleporter extends Teleporter {
                         int i2 = k + i1 * b1 - l * b0;
                         boolean flag = j1 < 0;
 
-                        /** change this block **/
-                        this.worldServerInstance.setBlock(k1, l1, i2, flag ? ModBlocks.portalFrame.blockID : 0);
+                        this.worldServerInstance.setBlock(k1, l1, i2, flag ? SARegistry.getBlock(Names.PORTAL_FRAME).blockID : 0);
                     }
                 }
             }
@@ -74,6 +76,8 @@ public class AbyssDimensionTeleporter extends Teleporter {
      * Place an entity in a nearby portal which already exists.
      */
     public boolean placeInExistingPortal(Entity par1Entity, double par2, double par4, double par6, float par8) {
+
+        int portalId = SARegistry.getBlock(Names.PORTAL).blockID;
 
         short short1 = 128;
         double d3 = -1.0D;
@@ -102,9 +106,9 @@ public class AbyssDimensionTeleporter extends Teleporter {
                     double d6 = (double) l1 + 0.5D - par1Entity.posZ;
                     for (int i2 = this.worldServerInstance.getActualHeight() - 1; i2 >= 0; --i2) {
                         /** change this block **/
-                        if (this.worldServerInstance.getBlockId(k1, i2, l1) == ModBlocks.portal.blockID) {
+                        if (this.worldServerInstance.getBlockId(k1, i2, l1) == portalId) {
                             /** change this block **/
-                            while (this.worldServerInstance.getBlockId(k1, i2 - 1, l1) == ModBlocks.portal.blockID) {
+                            while (this.worldServerInstance.getBlockId(k1, i2 - 1, l1) == portalId) {
                                 --i2;
                             }
                             d4 = (double) i2 + 0.5D - par1Entity.posY;
@@ -131,19 +135,19 @@ public class AbyssDimensionTeleporter extends Teleporter {
             d4 = (double) k + 0.5D;
             int j2 = -1;
             /** change this block **/
-            if (this.worldServerInstance.getBlockId(i - 1, j, k) == ModBlocks.portal.blockID) {
+            if (this.worldServerInstance.getBlockId(i - 1, j, k) == portalId) {
                 j2 = 2;
             }
             /** change this block **/
-            if (this.worldServerInstance.getBlockId(i + 1, j, k) == ModBlocks.portal.blockID) {
+            if (this.worldServerInstance.getBlockId(i + 1, j, k) == portalId) {
                 j2 = 0;
             }
             /** change this block **/
-            if (this.worldServerInstance.getBlockId(i, j, k - 1) == ModBlocks.portal.blockID) {
+            if (this.worldServerInstance.getBlockId(i, j, k - 1) == portalId) {
                 j2 = 3;
             }
             /** change this block **/
-            if (this.worldServerInstance.getBlockId(i, j, k + 1) == ModBlocks.portal.blockID) {
+            if (this.worldServerInstance.getBlockId(i, j, k + 1) == portalId) {
                 j2 = 1;
             }
             int k2 = par1Entity.getTeleportDirection();
@@ -224,6 +228,8 @@ public class AbyssDimensionTeleporter extends Teleporter {
     }
 
     public boolean makePortal(Entity par1Entity) {
+
+        int portalFrameId = SARegistry.getBlock(Names.PORTAL).blockID;
 
         byte b0 = 16;
         double d0 = -1.0D;
@@ -359,7 +365,7 @@ public class AbyssDimensionTeleporter extends Teleporter {
                         flag = l2 < 0;
 
                         /** change this block **/
-                        this.worldServerInstance.setBlock(k3, j3, i4, flag ? ModBlocks.portalFrame.blockID : 0);
+                        this.worldServerInstance.setBlock(k3, j3, i4, flag ? portalFrameId : 0);
                     }
                 }
             }
@@ -373,7 +379,8 @@ public class AbyssDimensionTeleporter extends Teleporter {
                     flag = i3 == 0 || i3 == 3 || l2 == -1 || l2 == 3;
 
                     /** change these blocks **/
-                    this.worldServerInstance.setBlock(k3, j3, i4, flag ? ModBlocks.portalFrame.blockID : ModBlocks.portal.blockID, 0, 2);
+                    this.worldServerInstance.setBlock(k3, j3, i4, flag ? portalFrameId : SARegistry.getBlock(Names.PORTAL).blockID,
+                            0, 2);
                 }
             }
             for (i3 = 0; i3 < 4; ++i3) {

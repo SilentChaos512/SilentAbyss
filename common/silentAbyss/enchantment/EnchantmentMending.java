@@ -9,6 +9,7 @@ import net.minecraft.util.StatCollector;
 import silentAbyss.Abyss;
 import silentAbyss.configuration.Config;
 import silentAbyss.core.handlers.ChaosHandler;
+import silentAbyss.core.util.InventoryHelper;
 import silentAbyss.item.ModItems;
 import silentAbyss.lib.Strings;
 
@@ -25,12 +26,16 @@ public class EnchantmentMending extends Enchantment {
 
     public static void tryActivate(ItemStack itemStack) {
 
-        if (itemStack.getItemDamage() == 0 || !itemStack.isItemStackDamageable()) { return; }
+        if (itemStack.getItemDamage() == 0 || !itemStack.isItemStackDamageable()) {
+            return;
+        }
 
         // Get enchantment level. Only evaluate if level is between 1 and 10,
         // inclusive.
         int lvl = EnchantmentHelper.getEnchantmentLevel(ModEnchantments.mending.effectId, itemStack);
-        if (lvl < 1) { return; }
+        if (lvl < 1) {
+            return;
+        }
         if (lvl > 10) {
             lvl = 10;
         }
@@ -61,12 +66,12 @@ public class EnchantmentMending extends Enchantment {
     }
 
     @Override
-    public boolean canApply(ItemStack par1ItemStack) {
+    public boolean canApply(ItemStack stack) {
 
         // This enchantment is for abyss tools and books.
-        if (par1ItemStack.itemID >= ModItems.swordAbyssRuby.itemID && par1ItemStack.itemID <= ModItems.hoeAbyssTopazPlus.itemID
-                || par1ItemStack.itemID == Item.book.itemID) { return par1ItemStack.isItemStackDamageable() ? true : super
-                .canApply(par1ItemStack); }
+        if (InventoryHelper.isAbyssTool(stack) || stack.itemID == Item.book.itemID) {
+            return stack.isItemStackDamageable() ? true : super.canApply(stack);
+        }
 
         return false;
     }
@@ -80,7 +85,6 @@ public class EnchantmentMending extends Enchantment {
     @Override
     public String getTranslatedName(int par1) {
 
-        // String s = StatCollector.translateToLocal(this.getName());
         String s = Strings.MENDING_NAME;
         return s + " " + StatCollector.translateToLocal("enchantment.level." + par1);
     }

@@ -9,9 +9,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import silentAbyss.Abyss;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.item.Gem;
-import silentAbyss.item.ModItems;
 import silentAbyss.lib.EnumGem;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -23,6 +24,8 @@ public class AbyssPickaxe extends ItemToolSA {
 
         super(id, 2.0f, toolMaterial, EnumGem.values()[gemType], ItemPickaxe.blocksEffectiveAgainst);
         MinecraftForge.setToolClass(this, "pickaxe", toolMaterial == Abyss.materialEnergizedAbyssGem ? 3 : 2);
+        boolean b = toolMaterial == Abyss.materialEnergizedAbyssGem;
+        addRecipe(new ItemStack(this), EnumGem.values()[gemType + (b ? 6 : 0)].getItem(), b);
     }
 
     @Override
@@ -96,7 +99,7 @@ public class AbyssPickaxe extends ItemToolSA {
 
         if (energized) {
             GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] { "ggg", " s ", " s ", 'g', material, 's',
-                    new ItemStack(ModItems.craftingMaterial, 1, 0) }));
+                    new ItemStack(SARegistry.getItem(Names.CRAFTING_MATERIALS), 1, 0) }));
         }
         else {
             GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] { "ggg", " s ", " s ", 'g', material, 's', "stickWood" }));

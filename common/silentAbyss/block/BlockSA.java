@@ -160,7 +160,7 @@ public class BlockSA extends Block {
     }
 
     public Block setHasSubtypes(boolean value) {
-        
+
         hasSubtypes = true;
         return this;
     }
@@ -170,6 +170,13 @@ public class BlockSA extends Block {
      * ModBlocks.initBlockRecipes.
      */
     public void addRecipes() {
+
+    }
+
+    /**
+     * Should be overridden if the deriving class needs ore dictionary entries.
+     */
+    public void addOreDict() {
 
     }
 }

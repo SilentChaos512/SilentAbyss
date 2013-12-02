@@ -3,21 +3,16 @@ package silentAbyss.item.tool;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import silentAbyss.Abyss;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.item.Gem;
-import silentAbyss.item.ModItems;
-import silentAbyss.item.TorchBandolier;
 import silentAbyss.lib.EnumGem;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -29,6 +24,8 @@ public class AbyssAxe extends ItemToolSA {
 
         super(id, 3.0f, toolMaterial, EnumGem.values()[gemType], ItemAxe.blocksEffectiveAgainst);
         MinecraftForge.setToolClass(this, "axe", toolMaterial == Abyss.materialEnergizedAbyssGem ? 3 : 2);
+        boolean b = toolMaterial == Abyss.materialEnergizedAbyssGem;
+        addRecipe(new ItemStack(this), EnumGem.values()[gemType + (b ? 6 : 0)].getItem(), b);
     }
 
     @Override
@@ -86,7 +83,7 @@ public class AbyssAxe extends ItemToolSA {
 
         if (energized) {
             GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] { "gg ", "gs ", " s ", 'g', material, 's',
-                    new ItemStack(ModItems.craftingMaterial, 1, 0) }));
+                    new ItemStack(SARegistry.getItem(Names.CRAFTING_MATERIALS), 1, 0) }));
         }
         else {
             GameRegistry.addRecipe(new ShapedOreRecipe(tool, true, new Object[] { "gg ", "gs ", " s ", 'g', material, 's', "stickWood" }));

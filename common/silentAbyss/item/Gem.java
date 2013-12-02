@@ -1,16 +1,16 @@
 package silentAbyss.item;
 
-import java.util.List;
-
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraftforge.oredict.OreDictionary;
 import silentAbyss.configuration.Config;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.lib.EnumGem;
-import silentAbyss.lib.Reference;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -31,6 +31,7 @@ public class Gem extends ItemSA {
         setHasSubtypes(true);
         setMaxDamage(0);
         setCreativeTab(CreativeTabs.tabMaterials);
+        setUnlocalizedName(Names.GEM_ITEM);
     }
 
     @Override
@@ -54,14 +55,14 @@ public class Gem extends ItemSA {
      */
     public static ItemStack getGem(int meta) {
 
-        return new ItemStack(ModItems.abyssGem, 1, meta);
+        return new ItemStack(SARegistry.getItem(Names.GEM_ITEM), 1, meta);
     }
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
 
         int d = stack.getItemDamage();
-        
+
         if (d < EnumGem.all().length) {
             return getUnlocalizedName("Gem" + EnumGem.all()[d].name);
         }
@@ -89,24 +90,40 @@ public class Gem extends ItemSA {
 
         for (int i = 0; i < 4; ++i) {
             // Supercharged gems
-            GameRegistry.addRecipe(getGem(i + EnumGem.RUBY_PLUS.id), "rar", "rgr", "rpr", 'r', Item.redstone, 'a', rAbyssite, 'p',
-                    rPurite, 'g', getGem(i));
+            GameRegistry.addRecipe(getGem(i + EnumGem.RUBY_PLUS.id), "rar", "rgr", "rpr", 'r', Item.redstone, 'a', rAbyssite, 'p', rPurite,
+                    'g', getGem(i));
         }
 
         for (int i = 0; i < EnumGem.basic().length; ++i) {
             // Shards
             if (Config.SHARDS_PER_GEM.value == 9) {
-                GameRegistry.addShapedRecipe(getGem(i), "ggg", "ggg", "ggg", 'g', new ItemStack(ModItems.abyssShard, 1, i));
-            } else {
-                GameRegistry.addShapedRecipe(getGem(i), "gg", "gg", 'g', new ItemStack(ModItems.abyssShard, 1, i));
+                GameRegistry.addShapedRecipe(getGem(i), "ggg", "ggg", "ggg", 'g', EnumGem.values()[i].getShard());
+            }
+            else {
+                GameRegistry.addShapedRecipe(getGem(i), "gg", "gg", 'g', EnumGem.values()[i].getShard());
             }
         }
 
         // Conundrumite
-        GameRegistry.addRecipe(EnumGem.CONUNDRUMITE.getItem(), " a ", "pdp", " a ", 'a', rAbyssite, 'p',
-                rPurite, 'd', Item.diamond);
+        GameRegistry.addRecipe(EnumGem.CONUNDRUMITE.getItem(), "qaq", "pdp", "qaq", 'a', rAbyssite, 'p', rPurite, 'd', Item.diamond, 'q',
+                Item.netherQuartz);
         // Abyss diamond
-        GameRegistry.addRecipe(EnumGem.ABYSS_DIAMOND.getItem(), "rar", "rgr", "rpr", 'r', Item.redstone, 'a', rAbyssite, 'p',
-                rPurite, 'g', Item.diamond);
+        GameRegistry.addRecipe(EnumGem.ABYSS_DIAMOND.getItem(), "rar", "rgr", "rpr", 'r', Item.redstone, 'a', rAbyssite, 'p', rPurite, 'g',
+                Item.diamond);
+    }
+
+    @Override
+    public void addOreDict() {
+
+        OreDictionary.registerOre("gemRuby", EnumGem.RUBY.getItem());
+        OreDictionary.registerOre("gemEmerald", EnumGem.EMERALD.getItem());
+        OreDictionary.registerOre("gemSapphire", EnumGem.SAPPHIRE.getItem());
+        OreDictionary.registerOre("gemTopaz", EnumGem.TOPAZ.getItem());
+        OreDictionary.registerOre("gemAbyssite", EnumGem.ABYSSITE.getItem());
+        OreDictionary.registerOre("gemPurite", EnumGem.PURITE.getItem());
+
+        for (int i = 0; i < 4; ++i) {
+            OreDictionary.registerOre(Strings.ORE_DICT_GEM_BASIC, new ItemStack(this, 1, i));
+        }
     }
 }

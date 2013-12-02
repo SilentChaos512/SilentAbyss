@@ -9,9 +9,10 @@ import silentAbyss.configuration.Config;
 import silentAbyss.core.chaos.ChaosEventCollection;
 import silentAbyss.core.chaos.MeteorEvent;
 import silentAbyss.core.handlers.ChaosHandler;
-import silentAbyss.item.ModItems;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.item.TorchBandolier;
 import silentAbyss.item.armor.PersonalElevationDevice;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.IScheduledTickHandler;
 import cpw.mods.fml.common.TickType;
@@ -55,7 +56,8 @@ public class PlayerServerScheduledTickHandler implements IScheduledTickHandler {
 
         for (ItemStack stack : player.inventory.mainInventory) {
             if (stack != null) {
-                if (stack.itemID == ModItems.torchBandolier.itemID && stack.stackTagCompound != null
+                // Torch Bandolier auto-fill
+                if (stack.itemID == SARegistry.getItem(Names.TORCH_BANDOLIER).itemID && stack.stackTagCompound != null
                         && stack.stackTagCompound.getBoolean(Strings.TORCH_BANDOLIER_AUTO_FILL)) {
                     ((TorchBandolier) stack.getItem()).absorbTorches(stack, player);
                 }

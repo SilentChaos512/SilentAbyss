@@ -30,7 +30,6 @@ public class PlayerServerTickHandler implements ITickHandler {
     @Override
     public void tickStart(EnumSet<TickType> type, Object... tickData) {
 
-        // LogHelper.debug("player s tick");
         onPlayerTick((EntityPlayer) tickData[0]);
     }
 

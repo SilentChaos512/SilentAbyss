@@ -1,7 +1,5 @@
 package silentAbyss.item;
 
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.passive.EntityOcelot;
@@ -10,8 +8,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Facing;
 import net.minecraft.world.World;
-import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.lib.EnumGem;
+import silentAbyss.lib.Names;
 import silentAbyss.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -23,6 +21,7 @@ public class KittySummon extends ItemSA {
 
         super(id);
         isGlowing = true;
+        setUnlocalizedName(Names.KITTY_SUMMON);
     }
 
     @Override
@@ -71,26 +70,13 @@ public class KittySummon extends ItemSA {
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister) {
 
-        itemIcon = iconRegister.registerIcon(Strings.RESOURCE_PREFIX + Strings.YARN_BALL_NAME);
-    }
-
-    @Override
-    public String getUnlocalizedName(ItemStack stack) {
-
-        return getUnlocalizedName(Strings.KITTY_SUMMON_NAME);
-    }
-
-    @Override
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-
-        list.add(LocalizationHelper.getMessageText(Strings.KITTY_SUMMON_NAME));
+        itemIcon = iconRegister.registerIcon(Strings.RESOURCE_PREFIX + Names.YARN_BALL);
     }
 
     @Override
     public void addRecipes() {
 
         GameRegistry.addShapelessRecipe(new ItemStack(this), Item.fishRaw, EnumGem.CONUNDRUMITE.getItem(),
-                CraftingMaterial.getStack(Strings.YARN_BALL_NAME));
+                CraftingMaterial.getStack(Names.YARN_BALL));
     }
 }

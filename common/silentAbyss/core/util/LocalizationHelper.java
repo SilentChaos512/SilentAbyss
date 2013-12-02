@@ -15,7 +15,6 @@ public class LocalizationHelper {
 
     public static String getLocalizedString(String key) {
 
-        //return LanguageRegistry.instance().getStringLocalization(key);
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
             return I18n.getString(key);
         }

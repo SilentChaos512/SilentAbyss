@@ -1,6 +1,6 @@
 package silentAbyss.block;
 
-import net.minecraft.util.Icon;
+import silentAbyss.lib.Names;
 
 public class BrickItemBlock extends ItemBlockSA {
 
@@ -9,12 +9,6 @@ public class BrickItemBlock extends ItemBlockSA {
         super(id);
         setHasSubtypes(true);
         setHasBasicGemSubtypes(true);
-        setUnlocalizedName("Brick");
-    }
-
-    @Override
-    public Icon getIconFromDamage(int damageValue) {
-
-        return ModBlocks.brick.icons[damageValue];
+        setUnlocalizedName(Names.BRICK);
     }
 }
