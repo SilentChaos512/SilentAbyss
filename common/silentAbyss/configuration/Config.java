@@ -5,6 +5,7 @@ public class Config {
     /*
      * Misc. config settings
      */
+    public static ConfigOptionInt DIMENSION = new ConfigOptionInt("Dimension ID", 8);
     public static ConfigOptionBoolean PED_CREATIVE_FLIGHT = new ConfigOptionBoolean("PersonalElevationDevice.CreativeFlight", false);
     public static ConfigOptionInt SHARDS_PER_GEM = new ConfigOptionInt("ShardsPerGem", 9);
 

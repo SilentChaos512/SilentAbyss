@@ -12,6 +12,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import silentAbyss.Abyss;
 import silentAbyss.AbyssDimensionTeleporter;
+import silentAbyss.configuration.Config;
 import silentAbyss.core.registry.SARegistry;
 import silentAbyss.lib.Names;
 import silentAbyss.lib.Reference;
@@ -256,10 +257,10 @@ public class Portal extends BlockBreakable {
             if (thePlayer.timeUntilPortal > 0) {
                 thePlayer.timeUntilPortal = 10;
             }
-            else if (thePlayer.dimension != Abyss.dimension) {
+            else if (thePlayer.dimension != Config.DIMENSION.value) {
                 thePlayer.timeUntilPortal = 10;
-                thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, Abyss.dimension,
-                        new AbyssDimensionTeleporter(thePlayer.mcServer.worldServerForDimension(Abyss.dimension)));
+                thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, Config.DIMENSION.value,
+                        new AbyssDimensionTeleporter(thePlayer.mcServer.worldServerForDimension(Config.DIMENSION.value)));
             }
             else {
                 thePlayer.timeUntilPortal = 10;

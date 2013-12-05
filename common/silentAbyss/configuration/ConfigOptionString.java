@@ -6,7 +6,7 @@ import silentAbyss.core.util.LogHelper;
 public class ConfigOptionString extends ConfigOption {
 
     public String value;
-    public String defaultValue;
+    public final String defaultValue;
 
     public ConfigOptionString(String name, String defaultValue) {
 

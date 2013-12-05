@@ -11,6 +11,7 @@ import net.minecraftforge.common.MinecraftForge;
 import silentAbyss.block.ModBlocks;
 import silentAbyss.block.Teleporter;
 import silentAbyss.command.CommandHandler;
+import silentAbyss.configuration.Config;
 import silentAbyss.configuration.ConfigHandler;
 import silentAbyss.core.handlers.GuiHandler;
 import silentAbyss.core.handlers.event.AbyssEventHandler;
@@ -47,9 +48,6 @@ public class Abyss {
 
     public static Random rng = new Random();
 
-    // Abyss dimension id.
-    public final static int dimension = 8;
-
     static int modEntityID = 0;
     static int startEntityId = 300;
 
@@ -81,7 +79,6 @@ public class Abyss {
         ModBlocks.init();
         ModItems.init();
         ModEnchantments.init();
-        ModEntities.init();
 
         ModBlocks.initBlockRecipes();
         ModItems.initItemRecipes();
@@ -96,6 +93,8 @@ public class Abyss {
     @EventHandler
     public void load(FMLInitializationEvent event) {
 
+        ModEntities.init();
+        
         proxy.registerTickHandlers();
         proxy.registerTileEntities();
         proxy.registerRenderers();
@@ -111,8 +110,8 @@ public class Abyss {
         GameRegistry.registerWorldGenerator(new AbyssWorldGenerator());
 
         // Abyss dimension. WIP.
-        DimensionManager.registerProviderType(dimension, WorldProviderAbyss.class, false);
-        DimensionManager.registerDimension(dimension, dimension);
+        DimensionManager.registerProviderType(Config.DIMENSION.value, WorldProviderAbyss.class, false);
+        DimensionManager.registerDimension(Config.DIMENSION.value, Config.DIMENSION.value);
     }
 
     @EventHandler

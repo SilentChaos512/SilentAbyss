@@ -20,22 +20,20 @@ public class AbyssWorldGenerator implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 
-        switch (world.provider.dimensionId) {
-            case -1:
-                generateNether();
-                break;
-            case 0:
-                generateSurface(world, random, chunkX * 16, chunkZ * 16);
-                break;
-            case 1:
-                generateEnd();
-                break;
-            case Abyss.dimension:
-                generateAbyss(world, random, chunkX * 16, chunkZ * 16);
-                break;
-            default:
-                generateSurface(world, random, chunkX * 16, chunkZ * 16);
-                break;
+        int d = world.provider.dimensionId;
+        
+        if (d == 0) {
+            generateSurface(world, random, chunkX * 16, chunkZ * 16);
+        }
+        else if (d == -1) {
+            generateNether();
+        }
+        else if (d == 1) {
+            generateEnd();
+        }
+        else if (d == Config.DIMENSION.value) {
+            generateSurface(world, random, chunkX * 16, chunkZ * 16);
+            generateAbyss(world, random, chunkX * 16, chunkZ * 16);
         }
     }
 

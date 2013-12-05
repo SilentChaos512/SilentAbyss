@@ -6,6 +6,7 @@ import java.util.HashMap;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.world.biome.BiomeGenBase;
 import silentAbyss.block.BlockSA;
 import silentAbyss.configuration.ConfigHandler;
 import silentAbyss.core.util.LogHelper;
@@ -15,8 +16,24 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class SARegistry {
 
+    private final static HashMap<String, BiomeGenBase> biomes = new HashMap<String, BiomeGenBase>();
     private final static HashMap<String, Block> blocks = new HashMap<String, Block>();
     private final static HashMap<String, Item> items = new HashMap<String, Item>();
+    
+    public static void registerBiome(Class<? extends BiomeGenBase> biomeClass, String key, int defaultId) {
+        
+        int id = ConfigHandler.getBiomeId(key, defaultId);
+        
+        try {
+            Constructor<?> c = biomeClass.getDeclaredConstructor(int.class);
+            BiomeGenBase biome = (BiomeGenBase) c.newInstance(id);
+            biomes.put(key, biome);
+        }
+        catch (Exception e) {
+            LogHelper.severe("Failed to register biome " + key);
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Add a Block to the hash map and registers it in the GameRegistry.
@@ -231,6 +248,10 @@ public class SARegistry {
      */
     public static Block getBlock(String key) {
 
+        if (!blocks.containsKey(key)) {
+            LogHelper.severe("No block with key " + key + "! This is a bug!");
+        }
+        
         return blocks.get(key);
     }
 
@@ -242,6 +263,10 @@ public class SARegistry {
      */
     public static BlockSA getBlockSA(String key) {
 
+        if (!blocks.containsKey(key)) {
+            LogHelper.severe("No block with key " + key + "! This is a bug!");
+        }
+        
         if (blocks.get(key) instanceof BlockSA) {
             return (BlockSA) blocks.get(key);
         }
@@ -258,6 +283,10 @@ public class SARegistry {
      */
     public static Item getItem(String key) {
 
+        if (!items.containsKey(key)) {
+            LogHelper.severe("No item with key " + key + "! This is a bug!");
+        }
+        
         return items.get(key);
     }
 
@@ -269,6 +298,10 @@ public class SARegistry {
      */
     public static ItemSA getItemSA(String key) {
 
+        if (!items.containsKey(key)) {
+            LogHelper.severe("No item with key " + key + "! This is a bug!");
+        }
+        
         if (items.get(key) instanceof ItemSA) {
             return (ItemSA) items.get(key);
         }

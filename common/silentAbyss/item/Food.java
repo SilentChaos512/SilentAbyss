@@ -54,8 +54,8 @@ public class Food extends ItemFood {
 
         }
         else if (itemName.equals(Names.SUGAR_COOKIE)) {
-            player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 600, 1, true));
-            player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 600, 1, true));
+            player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 600, 0, true));
+            player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 600, 0, true));
         }
 
         return stack;
@@ -75,6 +75,6 @@ public class Food extends ItemFood {
     public static void addRecipes() {
 
         GameRegistry.addRecipe(new ItemStack(SARegistry.getItem(Names.POTATO_STICK)), " x", "y ", 'x', Item.bakedPotato, 'y', Item.stick);
-        GameRegistry.addRecipe(new ItemStack(SARegistry.getItem(Names.SUGAR_COOKIE)), " s ", "www", " s ", 's', Item.sugar, 'w', Item.wheat);
+        GameRegistry.addRecipe(new ItemStack(SARegistry.getItem(Names.SUGAR_COOKIE), 8, 0), " s ", "www", " s ", 's', Item.sugar, 'w', Item.wheat);
     }
 }

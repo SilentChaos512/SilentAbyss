@@ -1,16 +1,8 @@
 package silentAbyss.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.oredict.OreDictionary;
 import silentAbyss.core.registry.SARegistry;
-import silentAbyss.lib.BlockIds;
-import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Names;
-import silentAbyss.lib.Reference;
-import silentAbyss.lib.Strings;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModBlocks {
 

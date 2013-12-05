@@ -77,7 +77,7 @@ public class ChunkProviderAbyss implements IChunkProvider
     private MapGenBase caveGenerator = new MapGenCaves();
 
     /** Holds Stronghold Generator */
-    private MapGenStronghold strongholdGenerator = new MapGenStronghold();
+//    private MapGenStronghold strongholdGenerator = new MapGenStronghold();
 
     /** Holds Village Generator */
     private MapGenVillage villageGenerator = new MapGenVillage();
@@ -115,7 +115,7 @@ public class ChunkProviderAbyss implements IChunkProvider
 
     {
         caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, CAVE);
-        strongholdGenerator = (MapGenStronghold) TerrainGen.getModdedMapGen(strongholdGenerator, STRONGHOLD);
+//        strongholdGenerator = (MapGenStronghold) TerrainGen.getModdedMapGen(strongholdGenerator, STRONGHOLD);
         villageGenerator = (MapGenVillage) TerrainGen.getModdedMapGen(villageGenerator, VILLAGE);
         mineshaftGenerator = (MapGenMineshaft) TerrainGen.getModdedMapGen(mineshaftGenerator, MINESHAFT);
         scatteredFeatureGenerator = (MapGenScatteredFeature) TerrainGen.getModdedMapGen(scatteredFeatureGenerator, SCATTERED_FEATURE);
@@ -346,7 +346,7 @@ public class ChunkProviderAbyss implements IChunkProvider
         {
             this.mineshaftGenerator.generate(this, this.worldObj, par1, par2, abyte);
             this.villageGenerator.generate(this, this.worldObj, par1, par2, abyte);
-            this.strongholdGenerator.generate(this, this.worldObj, par1, par2, abyte);
+//            this.strongholdGenerator.generate(this, this.worldObj, par1, par2, abyte);
             this.scatteredFeatureGenerator.generate(this, this.worldObj, par1, par2, abyte);
         }
 
@@ -546,7 +546,7 @@ public class ChunkProviderAbyss implements IChunkProvider
         {
             this.mineshaftGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
             flag = this.villageGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
-            this.strongholdGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
+//            this.strongholdGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
             this.scatteredFeatureGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
         }
 
@@ -667,7 +667,8 @@ public class ChunkProviderAbyss implements IChunkProvider
      */
     public ChunkPosition findClosestStructure(World par1World, String par2Str, int par3, int par4, int par5)
     {
-        return "Stronghold".equals(par2Str) && this.strongholdGenerator != null ? this.strongholdGenerator.getNearestInstance(par1World, par3, par4, par5) : null;
+        return null;
+//        return "Stronghold".equals(par2Str) && this.strongholdGenerator != null ? this.strongholdGenerator.getNearestInstance(par1World, par3, par4, par5) : null;
     }
 
     public int getLoadedChunkCount()
@@ -681,7 +682,7 @@ public class ChunkProviderAbyss implements IChunkProvider
         {
             this.mineshaftGenerator.generate(this, this.worldObj, par1, par2, (byte[])null);
             this.villageGenerator.generate(this, this.worldObj, par1, par2, (byte[])null);
-            this.strongholdGenerator.generate(this, this.worldObj, par1, par2, (byte[])null);
+//            this.strongholdGenerator.generate(this, this.worldObj, par1, par2, (byte[])null);
             this.scatteredFeatureGenerator.generate(this, this.worldObj, par1, par2, (byte[])null);
         }
     }

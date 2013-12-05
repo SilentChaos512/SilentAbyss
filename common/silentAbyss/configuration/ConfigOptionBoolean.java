@@ -6,7 +6,7 @@ import net.minecraftforge.common.Configuration;
 public class ConfigOptionBoolean extends ConfigOption {
     
     public boolean value;
-    public boolean defaultValue;
+    public final boolean defaultValue;
     
     public ConfigOptionBoolean(String name, boolean defaultValue) {
         

@@ -6,7 +6,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import silentAbyss.Abyss;
-import silentAbyss.configuration.ConfigHandler;
 import silentAbyss.core.registry.SARegistry;
 import silentAbyss.enchantment.ModEnchantments;
 import silentAbyss.item.armor.PersonalElevationDevice;
@@ -19,6 +18,9 @@ import silentAbyss.item.tool.TeleporterLinker;
 import silentAbyss.lib.EnumGem;
 import silentAbyss.lib.Names;
 import silentAbyss.lib.Strings;
+import silentAbyss.recipe.EnchantToolRecipe;
+import silentAbyss.recipe.SigilRecipe;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModItems {
 
@@ -78,6 +80,8 @@ public class ModItems {
     public static void initItemRecipes() {
 
         Food.addRecipes();
+        GameRegistry.addRecipe(new EnchantToolRecipe());
+        GameRegistry.addRecipe(new SigilRecipe());
     }
 
     public static void addRandomChestGenLoot() {

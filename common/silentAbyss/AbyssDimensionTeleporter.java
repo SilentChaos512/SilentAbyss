@@ -5,6 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import silentAbyss.core.registry.SARegistry;
+import silentAbyss.lib.Names;
+
+import net.minecraft.block.Block;
+import net.minecraft.client.main.Main;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.LongHashMap;
@@ -13,21 +18,20 @@ import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
-import silentAbyss.block.ModBlocks;
-import silentAbyss.core.registry.SARegistry;
-import silentAbyss.lib.Names;
-import silentAbyss.lib.Strings;
 
 public class AbyssDimensionTeleporter extends Teleporter {
 
+    private final int portalId;
+    private final int frameId;
+    
     private final WorldServer worldServerInstance;
     /** A private Random() function in Teleporter */
     private final Random random;
     /** Stores successful portal placement locations for rapid lookup. */
     private final LongHashMap destinationCoordinateCache = new LongHashMap();
     /**
-     * A list of valid keys for the destinationCoordainteCache. These are based
-     * on the X & Z of the players initial location.
+     * A list of valid keys for the destinationCoordainteCache. These are based on the X & Z of the players initial
+     * location.
      */
     private final List destinationCoordinateKeys = new ArrayList();
 
@@ -36,6 +40,9 @@ public class AbyssDimensionTeleporter extends Teleporter {
         super(par1WorldServer);
         this.worldServerInstance = par1WorldServer;
         this.random = new Random(par1WorldServer.getSeed());
+        
+        portalId = SARegistry.getBlock(Names.PORTAL).blockID;
+        frameId = SARegistry.getBlock(Names.PORTAL_FRAME).blockID;
     }
 
     /**
@@ -63,7 +70,8 @@ public class AbyssDimensionTeleporter extends Teleporter {
                         int i2 = k + i1 * b1 - l * b0;
                         boolean flag = j1 < 0;
 
-                        this.worldServerInstance.setBlock(k1, l1, i2, flag ? SARegistry.getBlock(Names.PORTAL_FRAME).blockID : 0);
+                        /** change this block **/
+                        this.worldServerInstance.setBlock(k1, l1, i2, flag ? frameId : 0);
                     }
                 }
             }
@@ -76,8 +84,6 @@ public class AbyssDimensionTeleporter extends Teleporter {
      * Place an entity in a nearby portal which already exists.
      */
     public boolean placeInExistingPortal(Entity par1Entity, double par2, double par4, double par6, float par8) {
-
-        int portalId = SARegistry.getBlock(Names.PORTAL).blockID;
 
         short short1 = 128;
         double d3 = -1.0D;
@@ -229,8 +235,6 @@ public class AbyssDimensionTeleporter extends Teleporter {
 
     public boolean makePortal(Entity par1Entity) {
 
-        int portalFrameId = SARegistry.getBlock(Names.PORTAL).blockID;
-
         byte b0 = 16;
         double d0 = -1.0D;
         int i = MathHelper.floor_double(par1Entity.posX);
@@ -365,7 +369,7 @@ public class AbyssDimensionTeleporter extends Teleporter {
                         flag = l2 < 0;
 
                         /** change this block **/
-                        this.worldServerInstance.setBlock(k3, j3, i4, flag ? portalFrameId : 0);
+                        this.worldServerInstance.setBlock(k3, j3, i4, flag ? frameId : 0);
                     }
                 }
             }
@@ -379,8 +383,7 @@ public class AbyssDimensionTeleporter extends Teleporter {
                     flag = i3 == 0 || i3 == 3 || l2 == -1 || l2 == 3;
 
                     /** change these blocks **/
-                    this.worldServerInstance.setBlock(k3, j3, i4, flag ? portalFrameId : SARegistry.getBlock(Names.PORTAL).blockID,
-                            0, 2);
+                    this.worldServerInstance.setBlock(k3, j3, i4, flag ? frameId : portalId, 0, 2);
                 }
             }
             for (i3 = 0; i3 < 4; ++i3) {
@@ -396,8 +399,8 @@ public class AbyssDimensionTeleporter extends Teleporter {
     }
 
     /**
-     * called periodically to remove out-of-date portal locations from the cache
-     * list. Argument par1 is a WorldServer.getTotalWorldTime() value.
+     * called periodically to remove out-of-date portal locations from the cache list. Argument par1 is a
+     * WorldServer.getTotalWorldTime() value.
      */
     public void removeStalePortalLocations(long par1) {
 

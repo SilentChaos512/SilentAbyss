@@ -1,11 +1,9 @@
 package silentAbyss.world;
 
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
-import silentAbyss.Abyss;
-import silentAbyss.world.biome.ModBiomes;
+import silentAbyss.configuration.Config;
+import silentAbyss.world.biome.WorldChunkManagerAbyss;
 import silentAbyss.world.gen.ChunkProviderAbyss;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -17,8 +15,8 @@ public class WorldProviderAbyss extends WorldProvider {
     @Override
     public void registerWorldChunkManager() {
 
-        worldChunkMgr = new WorldChunkManagerHell(ModBiomes.biome1, 0.8F, 0.1F);
-        dimensionId = Abyss.dimension;
+        worldChunkMgr = new WorldChunkManagerAbyss(worldObj.getSeed(), terrainType);
+        dimensionId = Config.DIMENSION.value;
         hasNoSky = false;
     }
     

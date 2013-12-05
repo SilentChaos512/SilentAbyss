@@ -26,7 +26,7 @@ public class PortalFrame extends BlockSA {
 
         if (world.getBlockId(x, y, z) == SARegistry.getBlock(Names.PORTAL_FRAME).blockID
                 && PlayerHelper.isPlayerHoldingToolToCreatePortal(player)) {
-            return ((Portal) SARegistry.getBlock(Names.PORTAL_FRAME)).tryToCreatePortal(world, x, y + 1, z);
+            return ((Portal) SARegistry.getBlock(Names.PORTAL)).tryToCreatePortal(world, x, y + 1, z);
         }
         return false;
     }

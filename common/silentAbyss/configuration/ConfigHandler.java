@@ -20,6 +20,7 @@ public class ConfigHandler {
     public static final String CATEGORY_AUDIO = "audio";
     public static final String CATEGORY_ENCHANTMENT = "enchantment";
     public static final String CATEGORY_WORLD = "world";
+    public static final String CATEGORY_WORLD_BIOME = CATEGORY_WORLD + Configuration.CATEGORY_SPLITTER + "biome";
     public static final String CATEGORY_WORLD_CHAOS = CATEGORY_WORLD + Configuration.CATEGORY_SPLITTER + "chaos";
     public static final String CATEGORY_WORLD_CHAOS_EVENT = CATEGORY_WORLD_CHAOS + Configuration.CATEGORY_SPLITTER + "event";
     public static final String CATEGORY_WORLD_GEN = CATEGORY_WORLD + Configuration.CATEGORY_SPLITTER + "generation";
@@ -40,6 +41,7 @@ public class ConfigHandler {
             /*
              * Misc configs.
              */
+            Config.DIMENSION.loadValue(c, CATEGORY_WORLD).validate();
             Config.PED_CREATIVE_FLIGHT.loadValue(c, CATEGORY_ITEM_PROPERTIES);
             Config.SHARDS_PER_GEM.loadValue(c, CATEGORY_ITEM_PROPERTIES).validate();
 
@@ -117,6 +119,11 @@ public class ConfigHandler {
         finally {
             c.save();
         }
+    }
+    
+    public static int getBiomeId(String name, int default_id) {
+        
+        return c.get(CATEGORY_WORLD_BIOME, name, default_id).getInt(default_id);
     }
 
     public static int getBlockId(String name, int default_id) {
