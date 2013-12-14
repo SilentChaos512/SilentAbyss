@@ -12,21 +12,22 @@ import silentAbyss.configuration.ConfigHandler;
 import silentAbyss.core.util.LogHelper;
 import silentAbyss.item.ItemSA;
 import silentAbyss.lib.Strings;
+import silentAbyss.world.biome.BiomeSA;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class SARegistry {
 
-    private final static HashMap<String, BiomeGenBase> biomes = new HashMap<String, BiomeGenBase>();
+    private final static HashMap<String, BiomeSA> biomes = new HashMap<String, BiomeSA>();
     private final static HashMap<String, Block> blocks = new HashMap<String, Block>();
     private final static HashMap<String, Item> items = new HashMap<String, Item>();
-    
-    public static void registerBiome(Class<? extends BiomeGenBase> biomeClass, String key, int defaultId) {
-        
+
+    public static void registerBiome(Class<? extends BiomeSA> biomeClass, String key, int defaultId) {
+
         int id = ConfigHandler.getBiomeId(key, defaultId);
-        
+
         try {
             Constructor<?> c = biomeClass.getDeclaredConstructor(int.class);
-            BiomeGenBase biome = (BiomeGenBase) c.newInstance(id);
+            BiomeSA biome = (BiomeSA) c.newInstance(id);
             biomes.put(key, biome);
         }
         catch (Exception e) {
@@ -200,9 +201,9 @@ public class SARegistry {
             e.printStackTrace();
         }
     }
-    
+
     private static Class[] getParameterClasses(Object[] params) {
-        
+
         Class[] result = new Class[params.length + 1];
         result[0] = int.class;
         for (int i = 0; i < params.length; ++i) {
@@ -239,6 +240,38 @@ public class SARegistry {
             }
         }
     }
+    
+    /**
+     * Returns an array of all registered biomes.
+     * 
+     * @return
+     */
+    public static BiomeGenBase[] getAllModBiomes() {
+        
+        BiomeGenBase[] result = new BiomeGenBase[biomes.size()];
+        Object[] o = biomes.values().toArray();
+        
+        for (int i = 0; i < result.length; ++i) {
+            result[i] = (BiomeGenBase) o[i];
+        }
+        
+        return result;
+    }
+
+    /**
+     * Gets the BiomeSA registered with the given key.
+     * 
+     * @param key
+     * @return
+     */
+    public static BiomeSA getBiome(String key) {
+
+        if (!biomes.containsKey(key)) {
+            LogHelper.severe("No biome with key " + key + "! This is a bug!");
+        }
+
+        return biomes.get(key);
+    }
 
     /**
      * Gets the Block registered with the given key.
@@ -251,7 +284,7 @@ public class SARegistry {
         if (!blocks.containsKey(key)) {
             LogHelper.severe("No block with key " + key + "! This is a bug!");
         }
-        
+
         return blocks.get(key);
     }
 
@@ -266,7 +299,7 @@ public class SARegistry {
         if (!blocks.containsKey(key)) {
             LogHelper.severe("No block with key " + key + "! This is a bug!");
         }
-        
+
         if (blocks.get(key) instanceof BlockSA) {
             return (BlockSA) blocks.get(key);
         }
@@ -286,7 +319,7 @@ public class SARegistry {
         if (!items.containsKey(key)) {
             LogHelper.severe("No item with key " + key + "! This is a bug!");
         }
-        
+
         return items.get(key);
     }
 
@@ -301,7 +334,7 @@ public class SARegistry {
         if (!items.containsKey(key)) {
             LogHelper.severe("No item with key " + key + "! This is a bug!");
         }
-        
+
         if (items.get(key) instanceof ItemSA) {
             return (ItemSA) items.get(key);
         }

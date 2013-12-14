@@ -80,14 +80,7 @@ public class AbyssWorldGenerator implements IWorldGenerator {
 
     private void generateAbyss(World world, Random random, int chunkX, int chunkZ) {
 
-        int i, x, y, z;
-
-        for (i = 0; i < 2; ++i) {
-            x = chunkX + random.nextInt(16);
-            z = chunkZ + random.nextInt(16);
-            y = world.getTopSolidOrLiquidBlock(x, z);
-            new WorldGenTrees(false, 3 + random.nextInt(5), 0, 0, false).generate(world, random, x, y, z);
-        }
+        // TODO
     }
 
     private void generateNether() {

@@ -3,11 +3,12 @@ package silentAbyss.world.gen.layer;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+import silentAbyss.core.registry.SARegistry;
 import silentAbyss.world.biome.ModBiomes;
 
 public class GenLayerBiomesAbyss extends GenLayer {
 
-    protected BiomeGenBase[] allowedBiomes = { ModBiomes.biome1 };
+    protected BiomeGenBase[] allowedBiomes = SARegistry.getAllModBiomes();
 
     public GenLayerBiomesAbyss(long seed, GenLayer genLayer) {
 

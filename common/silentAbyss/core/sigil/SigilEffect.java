@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import silentAbyss.configuration.Config;
 import silentAbyss.core.util.LocalizationHelper;
@@ -20,7 +21,7 @@ import silentAbyss.item.Sigil;
 import silentAbyss.lib.Strings;
 
 public class SigilEffect {
-
+    
     public final int id;
     public final String name;
     public final int maxPower;

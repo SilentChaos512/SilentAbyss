@@ -12,6 +12,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+import silentAbyss.core.registry.SARegistry;
+import silentAbyss.lib.Names;
 import silentAbyss.world.gen.layer.GenLayerAbyss;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -27,7 +29,9 @@ public class WorldChunkManagerAbyss extends WorldChunkManager {
 
         this.biomeCache = new BiomeCache(this);
         this.biomesToSpawnIn = new ArrayList<BiomeGenBase>();
-        this.biomesToSpawnIn.add(ModBiomes.biome1);
+        for (BiomeGenBase b : SARegistry.getAllModBiomes()) {
+            this.biomesToSpawnIn.add(b);
+        }
     }
 
     public WorldChunkManagerAbyss(long seed, WorldType worldType) {
@@ -54,7 +58,7 @@ public class WorldChunkManagerAbyss extends WorldChunkManager {
 
         if (biome == null) {
             // TODO: Change this?
-            return ModBiomes.biome1;
+            return SARegistry.getBiome(Names.BIOME_DEFAULT);
         }
 
         return biome;
@@ -134,7 +138,7 @@ public class WorldChunkManagerAbyss extends WorldChunkManager {
             }
             else {
                 // Change this to a biome
-                par1ArrayOfBiomeGenBase[i] = ModBiomes.biome1;
+                par1ArrayOfBiomeGenBase[i] = SARegistry.getBiome(Names.BIOME_DEFAULT);
             }
         }
 
@@ -176,7 +180,7 @@ public class WorldChunkManagerAbyss extends WorldChunkManager {
                 }
                 else {
                     // Change this to a biome
-                    par1ArrayOfBiomeGenBase[i] = ModBiomes.biome1;
+                    par1ArrayOfBiomeGenBase[i] = SARegistry.getBiome(Names.BIOME_DEFAULT);
                 }
             }
 

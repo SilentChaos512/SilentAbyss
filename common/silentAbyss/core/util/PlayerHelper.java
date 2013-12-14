@@ -53,14 +53,12 @@ public class PlayerHelper {
     }
     
     public static void addChatMessage(EntityPlayer player, String key, boolean fromLocalizationFile) {
-        
-        if (player.worldObj.isRemote) {
-            if (fromLocalizationFile) {
-                player.addChatMessage(LocalizationHelper.getMessageText(key, ""));
-            }
-            else {
-                player.addChatMessage(key);
-            }
+
+        if (fromLocalizationFile) {
+            player.addChatMessage(LocalizationHelper.getMessageText(key, ""));
+        }
+        else {
+            player.addChatMessage(key);
         }
     }
     

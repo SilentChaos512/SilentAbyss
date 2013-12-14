@@ -103,11 +103,14 @@ public class Teleporter extends BlockContainer {
             // Destination above y=0?
             if (tile.destY == 0) {
 
-                PlayerHelper.addChatMessage(player, Strings.TELEPORTER_NO_DESTINATION, true);
+                if (!world.isRemote) {
+                    PlayerHelper.addChatMessage(player, Strings.TELEPORTER_NO_DESTINATION, true);
+                }
                 return true;
             }
 
             // Spawn some particles. Apparently this has to be on client-side.
+            // I broke this again :(
             if (world.isRemote) {
                 for (int l = 0; l < 128; ++l) {
                     double d0 = x - 0.5 + Abyss.rng.nextDouble() + 0.5;

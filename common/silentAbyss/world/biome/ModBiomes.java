@@ -1,14 +1,15 @@
 package silentAbyss.world.biome;
 
-import net.minecraft.world.biome.BiomeGenBase;
 import silentAbyss.core.registry.SARegistry;
+import silentAbyss.core.util.LogHelper;
+import silentAbyss.lib.Names;
 
 public class ModBiomes {
 
-    public static BiomeGenBase biome1 = new BiomeGen1(128);
-
-    static {
+    public static void init() {
+        
+        LogHelper.debug("derp");
         int id = 127;
-        SARegistry.registerBiome(BiomeGen1.class, "Biome1", ++id);
+        SARegistry.registerBiome(BiomeGen1.class, Names.BIOME_DEFAULT, ++id);
     }
 }

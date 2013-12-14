@@ -37,6 +37,7 @@ tile.silentabyss:Test.name=Test Block
 # Item localizations
 
 item.silentabyss:Chaos Meter.name=Chaos Meter
+item.silentabyss:Debug Item.name=Debug Item
 item.silentabyss:Enchantment Token.name=Enchantment Token
 item.silentabyss:GemRuby.name=Abyss Ruby
 item.silentabyss:GemEmerald.name=Abyss Emerald
@@ -172,6 +173,7 @@ color.silentabyss:white=White
 misc.silentabyss:BookWillNotOpen=For some strange reason, you cannot open this book.
 misc.silentabyss:Chaos Meter=Tells it like it is.
 misc.silentabyss:Crafting Materials=Crafting material.
+misc.silentabyss:Debug Item=No one here but us space chickens!
 misc.silentabyss:Dyeable=Can be dyed.
 misc.silentabyss:EmptyEffect=Empty
 misc.silentabyss:EnchantmentIceAspect=Slows the target.

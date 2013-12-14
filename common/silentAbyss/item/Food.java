@@ -12,7 +12,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import silentAbyss.core.registry.SARegistry;
 import silentAbyss.core.util.LocalizationHelper;
-import silentAbyss.core.util.LogHelper;
 import silentAbyss.lib.Names;
 import silentAbyss.lib.Reference;
 import silentAbyss.lib.Strings;
@@ -59,6 +58,17 @@ public class Food extends ItemFood {
         }
 
         return stack;
+    }
+    
+    @Override
+    public int getMaxItemUseDuration(ItemStack stack) {
+        
+        if (itemName.equals(Names.SUGAR_COOKIE)) {
+            return 16;
+        }
+        else {
+            return 32;
+        }
     }
 
     @Override

@@ -17,6 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.Icon;
 import silentAbyss.core.util.LocalizationHelper;
 import silentAbyss.enchantment.ModEnchantments;
 import silentAbyss.item.tool.AbyssAxe;
@@ -35,12 +36,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class EnchantToken extends ItemSA {
 
     /**
-     * Small class for storing enchantment data in hash map\
+     * Small class for storing enchantment data in hash map
      */
     public static class EnchData {
 
         public byte validTools;
         public Enchantment enchantment;
+        public char rune;
 
         public String getName() {
 
@@ -61,6 +63,9 @@ public class EnchantToken extends ItemSA {
     public final static byte T_SHOVEL = 4;
     public final static byte T_AXE = 2;
     public final static byte T_HOE = 1;
+    
+    @SideOnly(Side.CLIENT)
+    Icon iconS, iconT;
 
     /**
      * Stores the enchantments that there are tokens for.
@@ -85,20 +90,20 @@ public class EnchantToken extends ItemSA {
             return;
         }
 
-        addEnchantment(Enchantment.baneOfArthropods, T_SWORD | T_PICKAXE | T_SHOVEL);
-        addEnchantment(Enchantment.efficiency, T_SWORD | T_PICKAXE | T_SHOVEL | T_AXE);
-        addEnchantment(Enchantment.fireAspect, T_SWORD);
-        addEnchantment(Enchantment.fortune, T_PICKAXE | T_SHOVEL | T_AXE | T_HOE);
-        addEnchantment(Enchantment.knockback, T_SWORD | T_AXE | T_HOE);
-        addEnchantment(Enchantment.looting, T_SWORD);
-        addEnchantment(Enchantment.sharpness, T_SWORD | T_AXE);
-        addEnchantment(Enchantment.silkTouch, T_SWORD | T_PICKAXE | T_SHOVEL | T_AXE);
-        addEnchantment(Enchantment.smite, T_SWORD | T_AXE | T_HOE);
-        addEnchantment(Enchantment.unbreaking, T_SWORD | T_PICKAXE | T_SHOVEL | T_AXE | T_HOE | T_SIGIL);
+        addEnchantment(Enchantment.baneOfArthropods, T_SWORD | T_PICKAXE | T_SHOVEL, 'S');
+        addEnchantment(Enchantment.efficiency, T_SWORD | T_PICKAXE | T_SHOVEL | T_AXE, 'T');
+        addEnchantment(Enchantment.fireAspect, T_SWORD, 'S');
+        addEnchantment(Enchantment.fortune, T_PICKAXE | T_SHOVEL | T_AXE | T_HOE, 'T');
+        addEnchantment(Enchantment.knockback, T_SWORD | T_AXE | T_HOE, 'S');
+        addEnchantment(Enchantment.looting, T_SWORD, 'S');
+        addEnchantment(Enchantment.sharpness, T_SWORD | T_AXE, 'S');
+        addEnchantment(Enchantment.silkTouch, T_SWORD | T_PICKAXE | T_SHOVEL | T_AXE, 'T');
+        addEnchantment(Enchantment.smite, T_SWORD | T_AXE | T_HOE, 'S');
+        addEnchantment(Enchantment.unbreaking, T_SWORD | T_PICKAXE | T_SHOVEL | T_AXE | T_HOE | T_SIGIL, 'T');
 
-        addEnchantment(ModEnchantments.iceAspect, T_SWORD);
-        addEnchantment(ModEnchantments.mending, T_SWORD | T_PICKAXE | T_SHOVEL | T_AXE | T_HOE);
-        addEnchantment(ModEnchantments.nihil, T_SWORD);
+        addEnchantment(ModEnchantments.iceAspect, T_SWORD, 'S');
+        addEnchantment(ModEnchantments.mending, T_SWORD | T_PICKAXE | T_SHOVEL | T_AXE | T_HOE, 'T');
+        addEnchantment(ModEnchantments.nihil, T_SWORD, 'S');
     }
 
     /**
@@ -107,11 +112,12 @@ public class EnchantToken extends ItemSA {
      * @param e
      * @param validTools
      */
-    private static void addEnchantment(Enchantment e, int validTools) {
+    private static void addEnchantment(Enchantment e, int validTools, char rune) {
 
         EnchData data = new EnchantToken.EnchData();
         data.enchantment = e;
         data.validTools = (byte) validTools;
+        data.rune = rune;
         enchants.put(e.effectId, data);
     }
 
@@ -334,7 +340,28 @@ public class EnchantToken extends ItemSA {
     @Override
     public void registerIcons(IconRegister reg) {
 
-        itemIcon = reg.registerIcon(Reference.MOD_ID + ":EnchantmentToken");
+        String prefix = Strings.RESOURCE_PREFIX + "EnchantmentToken";
+        iconS = reg.registerIcon(prefix + "_S");
+        iconT = reg.registerIcon(prefix + "_T");
+        itemIcon = reg.registerIcon(prefix);
+    }
+    
+    @SideOnly(Side.CLIENT)
+    @Override
+    public Icon getIconFromDamage(int meta) {
+        
+        if (!enchants.containsKey(meta)) {
+            return itemIcon;
+        }
+        
+        switch (enchants.get(meta).rune) {
+            case 'S':
+                return iconS;
+            case 'T':
+                return iconT;
+            default:
+                return itemIcon;
+        }
     }
 
     @Override

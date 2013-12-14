@@ -104,6 +104,21 @@ public class ItemSA extends Item {
             list.add(new ItemStack(this, 1, 0));
         }
     }
+    
+    public ItemStack getStack() {
+        
+        return new ItemStack(this);
+    }
+    
+    public ItemStack getStack(int meta) {
+        
+        return new ItemStack(this, 1, meta);
+    }
+    
+    public ItemStack getStack(int count, int meta) {
+        
+        return new ItemStack(this, count, meta);
+    }
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {

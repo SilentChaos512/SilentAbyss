@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -15,6 +16,7 @@ import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.ForgeHooks;
 import silentAbyss.Abyss;
 import silentAbyss.core.registry.SARegistry;
+import silentAbyss.core.util.LogHelper;
 import silentAbyss.item.ItemSA;
 import silentAbyss.item.TorchBandolier;
 import silentAbyss.lib.EnumGem;
@@ -86,6 +88,20 @@ public abstract class ItemToolSA extends ItemSA {
         }
 
         return used;
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public EnumRarity getRarity(ItemStack stack)
+    {
+        return stack.isItemEnchanted() ? EnumRarity.rare : EnumRarity.common;
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean hasEffect(ItemStack stack, int pass) {
+        
+        return stack.isItemEnchanted();
     }
 
     @Override

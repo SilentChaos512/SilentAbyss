@@ -26,6 +26,7 @@ import silentAbyss.lib.Reference;
 import silentAbyss.network.PacketHandler;
 import silentAbyss.world.AbyssWorldGenerator;
 import silentAbyss.world.WorldProviderAbyss;
+import silentAbyss.world.biome.ModBiomes;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -84,6 +85,8 @@ public class Abyss {
         ModItems.initItemRecipes();
         SARegistry.addRecipesAndOreDictEntries();
         ModItems.addRandomChestGenLoot();
+        
+        ModBiomes.init();
 
         LocalizationHelper.init();
         

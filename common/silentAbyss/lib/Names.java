@@ -4,12 +4,18 @@ package silentAbyss.lib;
 public class Names {
 
     /*
+     * Biomes
+     */
+    public final static String BIOME_DEFAULT = "Biome1";
+    
+    /*
      * Blocks
      */
     public final static String BRICK = "Brick";
     public final static String CLEAR_GLASS = "Glass";
     public final static String GEM_BLOCK = "BlockGem";
     public final static String LAMP = "Lamp";
+    public final static String LOG = "Log";
     public final static String ORE = "Ore";
     public final static String PORTAL = "Portal";
     public final static String PORTAL_FRAME = "Portal Frame";
@@ -20,6 +26,7 @@ public class Names {
      */
     public final static String CHAOS_METER = "Chaos Meter";
     public final static String CRAFTING_MATERIALS = "Crafting Materials";
+    public final static String DEBUG_ITEM = "Debug Item";
     public final static String ENCHANT_TOKEN = "Enchantment Token";
     public final static String GEM_ITEM = "Gem";
     public final static String KITTY_SUMMON = "Kitty Summon";

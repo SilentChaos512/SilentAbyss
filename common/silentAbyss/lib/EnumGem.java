@@ -4,8 +4,6 @@ import java.util.Arrays;
 
 import net.minecraft.item.ItemStack;
 import silentAbyss.core.registry.SARegistry;
-import silentAbyss.item.Gem;
-import silentAbyss.item.GemShard;
 
 /**
  * Describes Abyss gems. This is now used everywhere.
@@ -56,6 +54,15 @@ public enum EnumGem {
             basicGems = Arrays.copyOfRange(values(), 0, 6);
         }
         return basicGems;
+    }
+    
+    /**
+     * Returns an array with the four primary gems (the kind that tools can be made of.) The array is not cached.
+     * @return
+     */
+    public static EnumGem[] primary() {
+        
+        return Arrays.copyOfRange(values(), 0, 4);
     }
     
     /**
