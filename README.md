@@ -1,13 +1,5 @@
 Silent's Abyss
-===========
 
-A Minecraft mod about shiny gems and colorful tools/blocks. In the future, I
-plan on adding a new dimension for players to explore, full of loot and
-powerful monsters.
+Originally the mod that became Silent's Gems, this mod intended to add a new dimension as well as tools. I felt it was too ambitious for my first mod, hence the change to Silent's Gems with a focus on tools.
 
-Note that this mod is still early in development.
-WORLD-BREAKING CHANGES MAY OCCUR DURING DEVELOPMENT, although I will do my best
-to keep those to a minimum.
-
-Also please backup your worlds before installing new mods. I am not responsible
-for any damage done to your save files.
+Now, I feel like I might be up to the task of a new dimension. This mod will not replace Silent's Gems, but be a companion mod to it. I'm not making any promises, but I will be working on this as I feel like it.

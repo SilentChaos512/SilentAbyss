@@ -1,0 +1,11 @@
+[
+{
+  "modid": "SilentsAbyss",
+  "name": "Silent's Abyss",
+  "description": "Work in progress.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "authors": [ "SilentChaos512" ]
+}
+]
